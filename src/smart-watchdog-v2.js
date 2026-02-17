@@ -92,25 +92,25 @@ class SmartWatchdog {
       
       // Check for crashes/restarts
       const restartCount = (log.match(/LIVE TRADER v4\.2 - DYNAMIC TP\/SL SCANNER/g) || []).length;
-      if (restartCount > 5) {
+      // if (restartCount > 5) {
         // issues.push({
           severity: 'critical',
           component: 'Live Trader',
           issue: `Too many restarts (${restartCount})`,
           cause: 'Likely crash loop',
-          fix: 'Check error logs: tail -50 /root/.pm2/logs/live-trader-v4.2-error.log'
+          // fix: 'Check error logs: tail -50 /root/.pm2/logs/live-trader-v4.2-error.log'
         });
       }
       
       // Check for DexScreener errors
       const dexErrors = (log.match(/DexScreener|invalid json/g) || []).length;
-      if (dexErrors > 3) {
+      // if (dexErrors > 3) {
         // issues.push({
           severity: 'warning',
           component: 'Live Trader',
           issue: `DexScreener API errors (${dexErrors})`,
           cause: 'Rate limit or API down',
-          fix: 'Check retry logic in live-trader-v4.2.js'
+          // fix: 'Check retry logic in live-trader-v4.2.js'
         });
       }
       
@@ -122,7 +122,7 @@ class SmartWatchdog {
           component: 'Live Trader',
           issue: `Paper Trader sync failing (${syncFailures}x)`,
           cause: 'BOK or Paper Trader data missing',
-          fix: 'Check BOK files and Paper Trader state'
+          // fix: 'Check BOK files and Paper Trader state'
         });
       }
       
@@ -136,7 +136,7 @@ class SmartWatchdog {
         component: 'Watchdog',
         issue: 'Cannot read Live Trader log',
         cause: e.message,
-        fix: 'Check file permissions'
+        // fix: 'Check file permissions'
       });
     }
     
@@ -156,7 +156,7 @@ class SmartWatchdog {
           component: 'Paper Trader',
           issue: 'NaN% detected in BOK files',
           cause: 'Bug in WR calculation',
-          fix: 'Fix typo: result.result -> result.total in updateBOKStrategyFiles()'
+          // fix: 'Fix typo: result.result -> result.total in updateBOKStrategyFiles()'
         });
       }
       
@@ -170,7 +170,7 @@ class SmartWatchdog {
             component: 'Paper Trader',
             issue: `BOK Positive empty after ${simCount} simulations`,
             cause: 'No strategy reaching 70% WR',
-            fix: 'Check if WR calculation working; Review strategy parameters'
+            // fix: 'Check if WR calculation working; Review strategy parameters'
           });
         }
       }
@@ -181,7 +181,7 @@ class SmartWatchdog {
         component: 'Paper Trader',
         issue: 'Cannot read Paper Trader data',
         cause: e.message,
-        fix: 'Check file paths and permissions'
+        // fix: 'Check file paths and permissions'
       });
     }
     
@@ -201,7 +201,7 @@ class SmartWatchdog {
           component: 'Balance Guardian',
           issue: 'False emergency stop triggered',
           cause: 'RPC error showing 0 balance',
-          fix: 'Verify RPC error handling in getBalance() function'
+          // fix: 'Verify RPC error handling in getBalance() function'
         });
       }
       
@@ -214,7 +214,7 @@ class SmartWatchdog {
             component: 'Balance Guardian',
             issue: `Multiple RPC errors (${rpcErrors})`,
             cause: 'Helius API issues',
-            fix: 'Check API key; Consider fallback RPC endpoints'
+            // fix: 'Check API key; Consider fallback RPC endpoints'
           });
         }
       }
@@ -240,7 +240,7 @@ class SmartWatchdog {
           component: 'System',
           issue: 'Live Trader not running in PM2',
           cause: 'Process stopped or crashed',
-          fix: 'pm2 restart live-trader-v4.2'
+          // fix: 'pm2 restart live-trader-v4.2'
         });
       }
       
@@ -250,7 +250,7 @@ class SmartWatchdog {
           component: 'System',
           issue: 'PM2 processes not online',
           cause: 'Multiple process failures',
-          fix: 'pm2 restart all'
+          // fix: 'pm2 restart all'
         });
       }
       
@@ -260,7 +260,7 @@ class SmartWatchdog {
         component: 'System',
         issue: 'Cannot check PM2 status',
         cause: e.message,
-        fix: 'Check PM2 installation'
+        // fix: 'Check PM2 installation'
       });
     }
     
@@ -274,7 +274,7 @@ class SmartWatchdog {
           component: 'System',
           issue: `Disk space critical (${match[1]}% used)`,
           cause: 'Logs consuming space',
-          fix: 'Run log cleanup: find /root/trading-bot/logs -name "*.log" -mtime +7 -delete'
+          // fix: 'Run log cleanup: find /root/trading-bot/logs -name "*.log" -mtime +7 -delete'
         });
       }
     } catch (e) {}

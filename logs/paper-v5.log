@@ -1169,3 +1169,215 @@ S/R Breakout:
 ============================================================
 ✅ Paper Trader v5 Complete
 
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 48/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+📊 Found 20 tokens from market scan
+
+🔍 Testing: Willy
+   ❌ DUMP ALERT: Down 34.7% in 5min - Wait for stabilization
+🔍 Testing: Horsefly
+   ❌ DUMP ALERT: Down 22.4% in 5min - Wait for stabilization
+🔍 Testing: PENNY
+   ❌ FOMO ALERT: Pumped 11.0% in 5min - Wait for pullback
+🔍 Testing: Harper
+   ✅ Candle: ACCEPTABLE: 0.1% movement (Score: 6)
+   📊 Order Book: moderate (1.33:1)
+🔍 Testing: GROK
+   ❌ FOMO ALERT: Pumped 22.3% in 5min - Wait for pullback
+🔍 Testing: Grok
+   ❌ FOMO ALERT: Pumped 12.3% in 5min - Wait for pullback
+🔍 Testing: GROK
+   ❌ DUMP ALERT: Down 19.4% in 5min - Wait for stabilization
+🔍 Testing: 鸡气人
+   ✅ Candle: ACCEPTABLE: -2.6% movement (Score: 6)
+   📊 Order Book: moderate (1.17:1)
+🔍 Testing: GA
+   ✅ Candle: ACCEPTABLE: 3.3% movement (Score: 6)
+   📊 Order Book: moderate (1.47:1)
+🔍 Testing: Gaa
+   ❌ DUMP ALERT: Down 5.4% in 5min - Wait for stabilization
+
+🧹 Cleaning up expired strategies from Cycle 1...
+✅ BOK updated: Only Cycle 2 strategies are active
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0232 SOL
+   Gap: 0.1768 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.382 Entry:
+   WR: 85.7% (6W/1L)
+   PnL: 0.0080 SOL
+   Category: SCALPING
+
+Whale + Volume:
+   WR: 85.7% (6W/1L)
+   PnL: 0.0069 SOL
+   Category: SNIPER
+
+S/R Breakout:
+   WR: 85.7% (6W/1L)
+   PnL: 0.0075 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 71.4% (5W/2L)
+   PnL: 0.0049 SOL
+   Category: SNIPER
+
+RSI Divergence:
+   WR: 71.4% (5W/2L)
+   PnL: 0.0052 SOL
+   Category: SWING_TRADE
+
+Fib + Volume:
+   WR: 57.1% (4W/3L)
+   PnL: 0.0040 SOL
+   Category: FAST_TRADE
+
+Orderbook + Funding:
+   WR: 57.1% (4W/3L)
+   PnL: 0.0031 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 57.1% (4W/3L)
+   PnL: 0.0038 SOL
+   Category: SCALPING
+
+Fib 0.500 Entry:
+   WR: 42.9% (3W/4L)
+   PnL: 0.0022 SOL
+   Category: SCALPING
+
+Fib 0.618 Golden:
+   WR: 28.6% (2W/5L)
+   PnL: 0.0012 SOL
+   Category: SNIPER
+
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+🔄 REACHED 50 SIMULATIONS - RESETTING...
+
+✅ Reset complete. Starting fresh simulation cycle.
+
+📈 Simulation: 0/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+📊 Found 20 tokens from market scan
+
+🔍 Testing: Cashew
+   ❌ FOMO ALERT: Pumped 67.3% in 5min - Wait for pullback
+🔍 Testing: grace
+   ✅ Candle: ACCEPTABLE: 2.6% movement (Score: 6)
+   📊 Order Book: moderate (1.38:1)
+🔍 Testing: Willy
+   ❌ DUMP ALERT: Down 66.2% in 5min - Wait for stabilization
+🔍 Testing: Horsefly
+   ❌ FOMO ALERT: Pumped 21.1% in 5min - Wait for pullback
+🔍 Testing: PENNY
+   ❌ DUMP ALERT: Down 10.5% in 5min - Wait for stabilization
+🔍 Testing: GROK
+   ✅ Candle: ACCEPTABLE: -2.5% movement (Score: 6)
+   📊 Order Book: moderate (1.30:1)
+🔍 Testing: Grok
+   ✅ Candle: PULLBACK ENTRY: Up 9.7% in 1h, cooling off -1.2% in 5m (Score: 9)
+   📊 Order Book: moderate (1.20:1)
+🔍 Testing: GROK
+   ❌ DUMP ALERT: Down 14.4% in 5min - Wait for stabilization
+🔍 Testing: 鸡气人
+   ❌ DUMP ALERT: Down 12.1% in 5min - Wait for stabilization
+🔍 Testing: GA
+   ✅ Candle: PULLBACK ENTRY: Up 91.3% in 1h, cooling off -1.3% in 5m (Score: 9)
+   📊 Order Book: moderate (1.50:1)
+
+🧹 Cleaning up expired strategies from Cycle 0...
+✅ BOK updated: Only Cycle 1 strategies are active
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.382 Entry:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0035 SOL
+   Category: SCALPING
+
+Fib 0.618 Golden:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0033 SOL
+   Category: SNIPER
+
+Fib + Volume:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0034 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0039 SOL
+   Category: SNIPER
+
+Orderbook + Funding:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0029 SOL
+   Category: SWING_TRADE
+
+Whale + Volume:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0040 SOL
+   Category: SNIPER
+
+RSI Divergence:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0033 SOL
+   Category: SWING_TRADE
+
+Fib + RSI:
+   WR: 50.0% (2W/2L)
+   PnL: 0.0014 SOL
+   Category: SCALPING
+
+S/R Breakout:
+   WR: 50.0% (2W/2L)
+   PnL: 0.0016 SOL
+   Category: FAST_TRADE
+
+Fib 0.500 Entry:
+   WR: 25.0% (1W/3L)
+   PnL: 0.0009 SOL
+   Category: SCALPING
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+

@@ -18,6 +18,14 @@ const CONFIG = {
 };
 
 class PaperTraderMonitor {
+  saveState() {
+    try {
+      fs.writeFileSync(CONFIG.STATE_FILE, JSON.stringify(this.state, null, 2));
+    } catch (e) {
+      console.error("❌ Save state error:", e.message);
+    }
+  }
+
   constructor() {
     this.state = this.loadState();
     this.lastReportedSimCount = 0;
@@ -30,6 +38,15 @@ class PaperTraderMonitor {
       return { simulationCount: 0, results: {} };
     }
   }
+
+  saveState() {
+    try {
+      fs.writeFileSync(CONFIG.STATE_FILE, JSON.stringify(this.state, null, 2));
+    } catch (e) {
+      console.error("❌ Save state error:", e.message);
+    }
+  }
+
 
   async notify(msg) {
     try {
@@ -129,7 +146,7 @@ class PaperTraderMonitor {
       
       // Update state
       this.state.lastReportedSimCount = simCount;
-      this.saveState();
+      // this.saveState();
     } else {
       console.log('ℹ️ No significant changes, skipping notification');
     }
