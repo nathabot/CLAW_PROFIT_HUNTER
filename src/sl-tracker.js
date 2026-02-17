@@ -14,7 +14,7 @@ const CONFIG = {
   LOG_PATTERN: '*-exit.log',
   STRIKE_FILE: '/root/trading-bot/token-strike-count.json',
   BLACKLIST_FILE: '/root/trading-bot/blacklist.json',
-  BOK_FILE: '/root/trading-bot/book-of-profit-hunter-knowledge/06-toxic-tokens.md',
+  BOK_FILE: '/root/trading-bot/bok/06-toxic-tokens.md',
   MAX_STRIKES: 3,
   COOLDOWN_HOURS: 24
 };

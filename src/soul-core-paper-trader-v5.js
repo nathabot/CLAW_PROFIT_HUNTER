@@ -37,10 +37,10 @@ const CONFIG = {
   CONFIG_FILE: '/root/trading-bot/adaptive-scoring-config.json',
   
   // BOK Files
-  BOK_DIR: '/root/trading-bot/book-of-profit-hunter-knowledge',
-  POSITIVE_STRATEGIES_FILE: '/root/trading-bot/book-of-profit-hunter-knowledge/16-positive-strategies.md',
-  NEGATIVE_STRATEGIES_FILE: '/root/trading-bot/book-of-profit-hunter-knowledge/17-negative-strategies.md',
-  TOXIC_TOKENS_FILE: '/root/trading-bot/book-of-profit-hunter-knowledge/06-toxic-tokens.md',
+  BOK_DIR: '/root/trading-bot/bok',
+  POSITIVE_STRATEGIES_FILE: '/root/trading-bot/bok/16-positive-strategies.md',
+  NEGATIVE_STRATEGIES_FILE: '/root/trading-bot/bok/17-negative-strategies.md',
+  TOXIC_TOKENS_FILE: '/root/trading-bot/bok/06-toxic-tokens.md',
   
   // Real Trading Reference
   WALLET_BALANCE: 0.1885,         // Current SOL balance

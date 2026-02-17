@@ -12,7 +12,7 @@ const CONFIG = {
   BOT_TOKEN: '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
   CHAT_ID: '-1003212463774',
   TOPIC_ID: 24,
-  EVALUATION_FILE: '/root/trading-bot/book-of-profit-hunter-knowledge/15-performance-evaluations.md',
+  EVALUATION_FILE: '/root/trading-bot/bok/15-performance-evaluations.md',
   STATE_FILE: '/root/trading-bot/evaluation-state.json',
   POSITIONS_FILE: '/root/trading-bot/positions.json',
   TRADES_LOG: '/root/trading-bot/live-trades.log',
