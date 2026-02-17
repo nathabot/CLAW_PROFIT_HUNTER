@@ -12,8 +12,8 @@ const fs = require('fs');
 const CONFIG = {
   DB_PATH: '/root/trading-bot/strategy-intelligence.db',
   DEXSCREENER_API: 'https://api.dexscreener.com',
-  MIN_LIQUIDITY: 10000,
-  MIN_VOLUME_24H: 50000,
+  MIN_LIQUIDITY: 25000,          // $25k minimum liquidity
+  MIN_VOLUME_24H: 10000,          // $10k minimum volume (24h)
   TOP_TOKENS: 20,
   CONFIDENCE_THRESHOLD: 6.0
 };

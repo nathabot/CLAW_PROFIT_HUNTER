@@ -23,11 +23,12 @@ const CONFIG = {
   // POSITION SIZING (Flexible - BOK Standard)
   MIN_POSITION_SIZE: 0.015,       // Minimum position (BOK)
   MAX_POSITION_SIZE: 0.05,        // Maximum position (BOK)
-  DEFAULT_POSITION_SIZE: 0.025,   // Default size
+  DEFAULT_POSITION_SIZE: 0.015,   // Default size
   FEE_RESERVE: 0.015,             // BOK: always keep 0.015 SOL minimum for sell fees
   // DYNAMIC THRESHOLD from paper trader results
   MIN_SCORE: ADAPTIVE_CONFIG.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,
-  MIN_TOKEN_AGE_MINUTES: 20,      // Match paper trader (more opportunities)
+  MIN_TOKEN_AGE_MINUTES: 1440,    // 24 hours minimum token age
+  MIN_LIQUIDITY_USD: 25000,       // $25k minimum liquidity
   MAX_DAILY_TRADES: 10,           // Maximum trades per day
   DAILY_TARGET: 0.2,
   RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304',
@@ -779,8 +780,8 @@ class DynamicTrader {
       const age = this.getTokenAgeMinutes(p);
       return p.chainId === 'solana' &&
              (p.dexId === 'raydium' || p.dexId === 'orca' || p.dexId === 'meteora' || p.dexId === 'pumpfun' || p.dexId === 'pumpswap') &&
-             liq >= 5000 &&    // BOK: $5k minimum (balance liquidity vs opportunities)
-             vol >= 5000 &&    // BOK: $5k minimum (ensure trading activity)
+             liq >= CONFIG.MIN_LIQUIDITY_USD &&  // $25k minimum liquidity
+             vol >= 10000 &&   // $10k minimum volume
              age >= CONFIG.MIN_TOKEN_AGE_MINUTES;
     }).sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0)).slice(0, 50) || [];  // More candidates
     

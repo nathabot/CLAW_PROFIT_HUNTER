@@ -22,10 +22,10 @@ const CONFIG = {
   
   // Expected single instances (PM2 processes only)
   EXPECTED_PROCESSES: {
-    'live-trader': { max: 1, pattern: 'live-trader-v4' },
+    'live-trader': { max: 1, pattern: 'live-trader-v4', cron: true },
     'paper-trader': { max: 1, pattern: 'soul-core-paper-trader-v5' },
     'balance-guardian': { max: 1, pattern: 'balance-guardian' },
-    'sl-tracker': { max: 1, pattern: 'sl-tracker' }
+    'sl-tracker': { max: 1, pattern: 'sl-tracker', cron: true }
     // Note: 'evaluation' runs via cron (every 2 hours), not as daemon
   },
   

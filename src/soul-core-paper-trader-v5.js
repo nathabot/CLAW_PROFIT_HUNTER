@@ -29,9 +29,9 @@ const INTELLIGENCE_CONFIG = {
 const CONFIG = {
   // Simulation Settings
   SIMULATION_COUNT: 50,           // Reset after 50 simulations
-  MIN_TOKEN_AGE_MINUTES: 20,
-  MIN_LIQUIDITY: 10000,
-  MIN_VOLUME: 10000,
+  MIN_TOKEN_AGE_MINUTES: 1440,    // 24 hours minimum
+  MIN_LIQUIDITY: 25000,           // $25k minimum liquidity
+  MIN_VOLUME: 10000,              // $10k minimum volume
   
   // Files
   STATE_FILE: '/root/trading-bot/paper-trader-v5-state.json',
