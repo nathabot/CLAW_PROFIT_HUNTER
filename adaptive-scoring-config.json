@@ -1,23 +1,42 @@
 {
   "bestStrategy": {
-    "id": "fib_volume_combo",
-    "name": "Fib + Volume",
-    "winRate": "80.00",
-    "category": "FAST_TRADE"
+    "id": "fib_500_1272",
+    "name": "Fib 0.500 Entry",
+    "winRate": "70.00",
+    "category": "SCALPING"
   },
   "positionSizing": {
-    "fib_382_1618": "0.03",
+    "fib_382_1618": "0.02",
+    "fib_500_1272": "0.04",
+    "ob_funding_combo": "0.03",
+    "whale_volume_combo": "0.03",
+    "divergence_play": "0.02",
     "fib_618_1618": "0.02",
-    "fib_volume_combo": "0.05",
-    "fib_500_1272": "0.03",
-    "fib_786_1000": "0.05",
-    "fib_rsi_combo": "0.03",
-    "smart_fib_combo": "0.03",
-    "ob_funding_combo": "0.05",
-    "whale_volume_combo": "0.02",
-    "sr_breakout": "0.02",
-    "momentum_squeeze": "0.02",
-    "divergence_play": "0.05"
+    "fib_786_1000": "0.02",
+    "fib_rsi_combo": "0.05",
+    "fib_volume_combo": "0.02",
+    "smart_fib_combo": "0.02",
+    "sr_breakout": "0.05",
+    "momentum_squeeze": "0.03"
   },
-  "updated": 1771315285094
+  "updated": 1771315771823,
+  "dailyTarget": {
+    "current": 0.2,
+    "base": 0.2,
+    "multiplier": 2,
+    "max": 5.0,
+    "sequence": [
+      0.2,
+      0.4,
+      0.8,
+      1.6,
+      3.2,
+      5.0
+    ]
+  },
+  "targetRules": {
+    "increaseOnHit": true,
+    "resetOnDrawdown": 30,
+    "notification": true
+  }
 }

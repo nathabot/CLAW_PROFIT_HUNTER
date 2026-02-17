@@ -1,0 +1,20 @@
+{
+  "dailyTarget": {
+    "current": 0.2,
+    "base": 0.2,
+    "multiplier": 2,
+    "max": 5.0,
+    "history": []
+  },
+  "positionSizing": {
+    "balance": 0.1,
+    "maxPerTrade": 0.015,
+    "maxConcurrent": 2,
+    "stopLoss": 15
+  },
+  "rules": {
+    "increaseOnHit": true,
+    "resetOnDrawdown": 30,
+    "maxDailyTrades": 10
+  }
+}
