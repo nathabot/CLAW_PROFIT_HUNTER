@@ -54,7 +54,7 @@ const CONFIG = {
   WAIT_AFTER_RED_CANDLES: 2,     // Wait N candles after red
   AVOID_PUMP_PERCENT: 10,        // Avoid if pumped >10% in 5min
   // BALANCE PROTECTION
-  STARTING_BALANCE: 0.1885,      // Starting SOL balance
+  STARTING_BALANCE: 0.1,      // Starting SOL balance (updated for new wallet)
   MAX_DRAWDOWN_PERCENT: 30,      // Max 30% drawdown from peak
   PEAK_BALANCE_FILE: '/root/trading-bot/peak-balance.json',
   EMERGENCY_STOP_FILE: '/root/trading-bot/EMERGENCY_STOP'
