@@ -16,6 +16,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
+const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
 
 // ==================== STRATEGY INTELLIGENCE INTEGRATION ====================
 const INTELLIGENCE_CONFIG = {
@@ -48,8 +49,8 @@ const CONFIG = {
   FEE_RESERVE: 0.015,
   
   // Telegram
-  BOT_TOKEN: '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
-  CHAT_ID: '-1003212463774',
+  BOT_TOKEN: TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
+  CHAT_ID: TELEGRAM_CHAT_ID || '-1003212463774',
   TOPIC_ID: 25
 };
 

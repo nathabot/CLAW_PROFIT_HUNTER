@@ -9,6 +9,7 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 const bs58 = require('bs58');
 const DynamicTPSL = require('./dynamic-tpsl-engine');
+const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
 
 // SOLANA TRACKER API (bypass Jupiter rate limit)
 const SOLANA_TRACKER_API_KEY = 'af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a';
@@ -59,8 +60,8 @@ const CONFIG = {
   EMERGENCY_STOP_FILE: '/root/trading-bot/EMERGENCY_STOP'
 };
 
-const BOT_TOKEN = '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
-const CHAT_ID = '-1003212463774';
+const BOT_TOKEN = TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
+const CHAT_ID = TELEGRAM_CHAT_ID || '-1003212463774';
 
 class DynamicTrader {
   constructor() {

@@ -8,6 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
 
 const CONFIG = {
   EXIT_MONITOR_DIR: '/root/trading-bot',
@@ -16,7 +17,9 @@ const CONFIG = {
   BLACKLIST_FILE: '/root/trading-bot/blacklist.json',
   BOK_FILE: '/root/trading-bot/bok/06-toxic-tokens.md',
   MAX_STRIKES: 3,
-  COOLDOWN_HOURS: 24
+  COOLDOWN_HOURS: 24,
+  BOT_TOKEN: TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
+  CHAT_ID: TELEGRAM_CHAT_ID || '-1003212463774'
 };
 
 class SLTracker {
@@ -123,11 +126,11 @@ ${this.strikes[ca].history.map(h => `- ${new Date(h.time).toISOString()}: ${h.pn
   notifyBlacklist(symbol, ca) {
     try {
       const fetch = require('node-fetch');
-      fetch(`https://api.telegram.org/bot8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU/sendMessage`, {
+      fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/sendMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          chat_id: '-1003212463774',
+          chat_id: CONFIG.CHAT_ID,
           message_thread_id: 24,
           text: `🚫 **TOKEN BLACKLISTED**\n\n${symbol}\nCA: ${ca.slice(0, 15)}...\n\nReason: 3x SL hit\nAction: NO MORE TRADES`,
           parse_mode: 'Markdown'

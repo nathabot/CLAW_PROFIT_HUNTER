@@ -8,6 +8,7 @@
 const fs = require('fs');
 const fetch = require('node-fetch');
 const { execSync } = require('child_process');
+const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
 
 const CONFIG = {
   // Thresholds
@@ -21,8 +22,8 @@ const CONFIG = {
   EVALUATION_MODE_FILE: '/root/trading-bot/EVALUATION_MODE',
   
   // Telegram
-  BOT_TOKEN: '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
-  CHAT_ID: '-1003212463774',
+  BOT_TOKEN: TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
+  CHAT_ID: TELEGRAM_CHAT_ID || '-1003212463774',
   TOPIC_ID: 24,
   
   // Commands

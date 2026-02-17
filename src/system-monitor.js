@@ -8,11 +8,12 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
 const fetch = require('node-fetch');
+const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
 
 const CONFIG = {
   // Telegram
-  BOT_TOKEN: '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
-  CHAT_ID: '-1003212463774',
+  BOT_TOKEN: TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
+  CHAT_ID: TELEGRAM_CHAT_ID || '-1003212463774',
   TOPIC_ID: 26,
   
   // Log file
