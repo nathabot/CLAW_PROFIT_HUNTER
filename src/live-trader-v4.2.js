@@ -26,7 +26,7 @@ const CONFIG = {
   DEFAULT_POSITION_SIZE: 0.025,   // Default size
   FEE_RESERVE: 0.015,             // BOK: always keep 0.015 SOL minimum for sell fees
   // DYNAMIC THRESHOLD from paper trader results
-  MIN_SCORE: ADAPTIVE_CONFIG.adaptiveThresholds.liveTrader.currentThreshold,
+  MIN_SCORE: ADAPTIVE_CONFIG.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,
   MIN_TOKEN_AGE_MINUTES: 20,      // Match paper trader (more opportunities)
   MAX_DAILY_TRADES: 10,           // Maximum trades per day
   DAILY_TARGET: 0.2,

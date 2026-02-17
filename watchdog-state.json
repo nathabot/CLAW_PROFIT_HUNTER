@@ -1,0 +1,42 @@
+{
+  "lastCheck": "2026-02-17T07:47:10.529Z",
+  "lastPranaRestart": "2026-02-17T07:47:08.795Z",
+  "lastPaperRestart": "2026-02-17T07:47:09.684Z",
+  "dailyStats": {
+    "date": "2026-02-17",
+    "pranaProfit": 0,
+    "paperTrades": 0,
+    "paperWins": 0,
+    "issues": [
+      {
+        "timestamp": "2026-02-17T07:31:52.878Z",
+        "issues": [
+          "Prana bot file missing",
+          "Paper trader file missing"
+        ]
+      },
+      {
+        "timestamp": "2026-02-17T07:36:51.174Z",
+        "issues": [
+          "Prana bot file missing",
+          "Paper trader file missing"
+        ]
+      },
+      {
+        "timestamp": "2026-02-17T07:42:23.207Z",
+        "issues": [
+          "Prana bot file missing",
+          "Paper trader file missing"
+        ]
+      },
+      {
+        "timestamp": "2026-02-17T07:47:10.529Z",
+        "issues": [
+          "Prana bot file missing",
+          "Paper trader file missing",
+          "Paper trader cron not found"
+        ]
+      }
+    ]
+  }
+}
