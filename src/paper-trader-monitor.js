@@ -106,8 +106,33 @@ class PaperTraderMonitor {
 
   async run() {
     console.log('📊 Paper Trader Monitor - Starting...');
-    const report = this.generateReport();
-    await this.notify(report);
+    
+    const state = this.loadState();
+    const simCount = state.simulationCount || 0;
+    
+    // Only send notification if:
+    // 1. Cycle just completed (50 simulations)
+    // 2. First run of new cycle
+    // 3. Significant milestone (25, 50 simulations)
+    // 4. New strategy qualified for BOK
+    
+    const lastReported = this.state.lastReportedSimCount || 0;
+    const milestone = simCount >= 50 || (simCount >= 25 && lastReported < 25);
+    const cycleComplete = simCount === 0 && lastReported >= 50;
+    const newCycle = simCount > 0 && lastReported === 0;
+    
+    if (milestone || cycleComplete || newCycle || simCount === 0) {
+      const report = this.generateReport();
+      await this.notify(report);
+      console.log('✅ Report sent (milestone/cycle event)');
+      
+      // Update state
+      this.state.lastReportedSimCount = simCount;
+      this.saveState();
+    } else {
+      console.log('ℹ️ No significant changes, skipping notification');
+    }
+    
     console.log('✅ Monitor complete');
   }
 }
