@@ -74,15 +74,23 @@ class DynamicTrader {
     this.priceHistory = {}; // Track price history per token
     this.redCandleWait = {}; // Track red candle wait state
     
-    // Load wallet
+    // Load wallet (supports both bs58 and base64 formats)
     try {
       const walletData = JSON.parse(fs.readFileSync(CONFIG.WALLET_PATH, 'utf8'));
-      if (walletData.privateKey) {
+      let secretKey;
+      
+      if (walletData.secretKey) {
+        // New format: base64 encoded secretKey
+        secretKey = new Uint8Array(Buffer.from(walletData.secretKey, 'base64'));
+        this.wallet = Keypair.fromSecretKey(secretKey);
+      } else if (walletData.privateKey) {
+        // Old format: bs58 encoded privateKey
         const bs58mod = require('bs58');
         const bs58lib = bs58mod.default || bs58mod;
-        const secretKey = bs58lib.decode(walletData.privateKey);
+        secretKey = bs58lib.decode(walletData.privateKey);
         this.wallet = Keypair.fromSecretKey(secretKey);
       } else {
+        // Direct array format
         this.wallet = Keypair.fromSecretKey(new Uint8Array(walletData));
       }
       console.log(`🔑 Wallet loaded: ${this.wallet.publicKey.toString().slice(0, 20)}...`);
@@ -1272,12 +1280,18 @@ const fs = require('fs');
 const RPC = '${CONFIG.RPC}';
 const connection = new Connection(RPC);
 
-// Load wallet with bs58
-const bs58mod = require('bs58');
-const bs58 = bs58mod.default || bs58mod;
+// Load wallet (supports both bs58 and base64 formats)
 const walletData = JSON.parse(fs.readFileSync('/root/trading-bot/wallet.json', 'utf8'));
-const secretKey = bs58.decode(walletData.privateKey);
-const wallet = Keypair.fromSecretKey(secretKey);
+let wallet, secretKey;
+if (walletData.secretKey) {
+  secretKey = new Uint8Array(Buffer.from(walletData.secretKey, 'base64'));
+  wallet = Keypair.fromSecretKey(secretKey);
+} else if (walletData.privateKey) {
+  const bs58mod = require('bs58');
+  const bs58 = bs58mod.default || bs58mod;
+  secretKey = bs58.decode(walletData.privateKey);
+  wallet = Keypair.fromSecretKey(secretKey);
+}
 console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...');
 
 const POS = {
