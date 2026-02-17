@@ -201,10 +201,27 @@ function generateDashboard() {
             border-radius: 8px;
             padding: 15px;
             max-height: 500px;
-            overflow-y: auto;
+            min-height: 200px;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
             font-family: 'Monaco', 'Consolas', monospace;
             font-size: 11px;
             line-height: 1.4;
+            padding-bottom: 30px;
+        }
+        .log-container::-webkit-scrollbar {
+            width: 10px;
+        }
+        .log-container::-webkit-scrollbar-track {
+            background: #1f2937;
+            border-radius: 5px;
+        }
+        .log-container::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 5px;
+        }
+        .log-container::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
         }
         .log-line { margin: 2px 0; }
         .log-success { color: #34d399; }
@@ -259,6 +276,18 @@ function generateDashboard() {
         .btn-danger:hover { background: #dc2626; }
         .btn-warning { background: #f59e0b; }
         .btn-warning:hover { background: #d97706; }
+        .btn-small {
+            background: #374151;
+            color: #d1d5db;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        .btn-small:hover { background: #4b5563; color: #fff; }
         
         .tabs {
             display: flex;
@@ -351,21 +380,21 @@ function generateDashboard() {
             </div>
             
             <div class="card">
-                <h2>📝 Recent Live Trader Log</h2>
+                <h2>📝 Recent Live Trader Log <button class="btn-small" onclick="scrollToBottom('liveLog')">⬇️ Bottom</button></h2>
                 <div class="log-container" id="liveLog">
                     Loading...
                 </div>
             </div>
             
             <div class="card">
-                <h2>📊 Paper Trader Log</h2>
+                <h2>📊 Paper Trader Log <button class="btn-small" onclick="scrollToBottom('paperLog')">⬇️ Bottom</button></h2>
                 <div class="log-container" id="paperLog">
                     Loading...
                 </div>
             </div>
             
             <div class="card">
-                <h2>🐋 Strategy Intelligence</h2>
+                <h2>🐋 Strategy Intelligence <button class="btn-small" onclick="scrollToBottom('intelLog')">⬇️ Bottom</button></h2>
                 <div class="log-container" id="intelLog">
                     Loading...
                 </div>
@@ -401,8 +430,20 @@ function generateDashboard() {
                 document.getElementById('liveLog').innerHTML = formatLog(logs.liveTrader);
                 document.getElementById('paperLog').innerHTML = formatLog(logs.paperTrader);
                 document.getElementById('intelLog').innerHTML = formatLog(logs.intelligence);
+                
+                // Scroll to bottom
+                scrollToBottom('liveLog');
+                scrollToBottom('paperLog');
+                scrollToBottom('intelLog');
             } catch (e) {
                 console.error('Failed to load logs:', e);
+            }
+        }
+        
+        function scrollToBottom(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.scrollTop = el.scrollHeight;
             }
         }
         
