@@ -91,7 +91,7 @@ class SmartWatchdog {
       const lines = log.split('\n').slice(-100);
       
       // Check for crashes/restarts
-      const restartCount = (log.match(/LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER/g) || []).length;
+      const restartCount = (log.match(/LIVE TRADER v4\.2 - DYNAMIC TP\/SL SCANNER/g) || []).length;
       if (restartCount > 5) {
         issues.push({
           severity: 'critical',
