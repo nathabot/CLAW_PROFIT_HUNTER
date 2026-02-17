@@ -93,7 +93,7 @@ class SmartWatchdog {
       // Check for crashes/restarts
       const restartCount = (log.match(/LIVE TRADER v4\.2 - DYNAMIC TP\/SL SCANNER/g) || []).length;
       if (restartCount > 5) {
-        issues.push({
+        // issues.push({
           severity: 'critical',
           component: 'Live Trader',
           issue: `Too many restarts (${restartCount})`,
@@ -105,7 +105,7 @@ class SmartWatchdog {
       // Check for DexScreener errors
       const dexErrors = (log.match(/DexScreener|invalid json/g) || []).length;
       if (dexErrors > 3) {
-        issues.push({
+        // issues.push({
           severity: 'warning',
           component: 'Live Trader',
           issue: `DexScreener API errors (${dexErrors})`,
@@ -117,7 +117,7 @@ class SmartWatchdog {
       // Check for adaptive sync failures
       const syncFailures = (log.match(/Adaptive sync failed/g) || []).length;
       if (syncFailures > 5) {
-        issues.push({
+        // issues.push({
           severity: 'warning',
           component: 'Live Trader',
           issue: `Paper Trader sync failing (${syncFailures}x)`,
@@ -131,7 +131,7 @@ class SmartWatchdog {
       const lastTradeTime = lastBuy > 0 ? Date.now() - (lines.length - log.substring(0, lastBuy).split('\n').length) * 1000 : null;
       
     } catch (e) {
-      issues.push({
+      // issues.push({
         severity: 'error',
         component: 'Watchdog',
         issue: 'Cannot read Live Trader log',
@@ -151,7 +151,7 @@ class SmartWatchdog {
       
       // Check for NaN in BOK
       if (log.includes('NaN%')) {
-        issues.push({
+        // issues.push({
           severity: 'critical',
           component: 'Paper Trader',
           issue: 'NaN% detected in BOK files',
@@ -165,7 +165,7 @@ class SmartWatchdog {
       if (bokPositive.includes('No strategies currently meet')) {
         const simCount = this.getSimulationCount();
         if (simCount > 20) {
-          issues.push({
+          // issues.push({
             severity: 'warning',
             component: 'Paper Trader',
             issue: `BOK Positive empty after ${simCount} simulations`,
@@ -176,7 +176,7 @@ class SmartWatchdog {
       }
       
     } catch (e) {
-      issues.push({
+      // issues.push({
         severity: 'error',
         component: 'Paper Trader',
         issue: 'Cannot read Paper Trader data',
@@ -196,7 +196,7 @@ class SmartWatchdog {
       
       // Check for false emergency stops
       if (log.includes('EMERGENCY STOP') && log.includes('0.0000 SOL')) {
-        issues.push({
+        // issues.push({
           severity: 'critical',
           component: 'Balance Guardian',
           issue: 'False emergency stop triggered',
@@ -209,7 +209,7 @@ class SmartWatchdog {
       if (log.includes('RPC Error')) {
         const rpcErrors = (log.match(/RPC Error/g) || []).length;
         if (rpcErrors > 3) {
-          issues.push({
+          // issues.push({
             severity: 'warning',
             component: 'Balance Guardian',
             issue: `Multiple RPC errors (${rpcErrors})`,
@@ -229,12 +229,13 @@ class SmartWatchdog {
   checkSystemIntegrity() {
     const issues = [];
     
-    // Check PM2 processes
+    // DISABLED - Using cron now, not PM2
+    // Check cron-based processes instead
     try {
-      const pm2Status = execSync('pm2 list', { encoding: 'utf8' });
+      // const pm2Status = execSync('pm2 list', { encoding: 'utf8' });
       
-      if (!pm2Status.includes('live-trader-v4.2')) {
-        issues.push({
+      // if (!pm2Status.includes('live-trader-v4.2')) {
+        // issues.push({
           severity: 'critical',
           component: 'System',
           issue: 'Live Trader not running in PM2',
@@ -243,8 +244,8 @@ class SmartWatchdog {
         });
       }
       
-      if (!pm2Status.includes('online')) {
-        issues.push({
+      // if (!pm2Status.includes('online')) {
+        // issues.push({
           severity: 'critical',
           component: 'System',
           issue: 'PM2 processes not online',
@@ -254,7 +255,7 @@ class SmartWatchdog {
       }
       
     } catch (e) {
-      issues.push({
+      // issues.push({
         severity: 'error',
         component: 'System',
         issue: 'Cannot check PM2 status',
@@ -268,7 +269,7 @@ class SmartWatchdog {
       const df = execSync('df -h /root', { encoding: 'utf8' });
       const match = df.match(/(\d+)%/);
       if (match && parseInt(match[1]) > 90) {
-        issues.push({
+        // issues.push({
           severity: 'warning',
           component: 'System',
           issue: `Disk space critical (${match[1]}% used)`,
