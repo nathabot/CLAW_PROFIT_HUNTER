@@ -848,32 +848,46 @@ class PaperTraderV5 {
         .filter(r => r.total >= 3)
         .sort((a, b) => (b.wins / b.total) - (a.wins / a.total));
       
-      if (sorted.length === 0) {
-        console.log('ℹ️ No strategies with 3+ trades yet, skipping notification');
-        return;
-      }
-
       // Build message
       let msg = `📊 **PAPER TRADER v5 REPORT**\n\n`;
       msg += `🎯 Simulations: ${this.simulationCount}/${CONFIG.SIMULATION_COUNT}\n`;
       
-      // Best strategy
-      const best = sorted[0];
-      const bestWR = ((best.wins / best.total) * 100).toFixed(1);
-      const bestPnL = (best.totalProfit + best.totalLoss).toFixed(4);
-      
-      msg += `\n🏆 **Best Strategy: ${best.name}**\n`;
-      msg += `   WR: ${bestWR}% (${best.wins}W/${best.losses}L)\n`;
-      msg += `   PnL: ${bestPnL} SOL\n`;
-      msg += `   Category: ${best.category}\n`;
-      
-      // Top 3 strategies
-      msg += `\n📈 **Top Strategies:**\n`;
-      for (let i = 0; i < Math.min(3, sorted.length); i++) {
-        const s = sorted[i];
-        const wr = ((s.wins / s.total) * 100).toFixed(1);
-        const pnl = (s.totalProfit + s.totalLoss).toFixed(4);
-        msg += `${i+1}. ${s.name}: ${wr}% (${pnl} SOL)\n`;
+      if (sorted.length === 0) {
+        console.log('ℹ️ No strategies with 3+ trades yet, sending progress notification');
+        
+        // Show all strategies even with <3 trades
+        const allStrategies = Object.values(this.results)
+          .sort((a, b) => (b.wins / b.total) - (a.wins / a.total));
+        
+        if (allStrategies.length > 0) {
+          msg += `\n📈 **Strategies In Progress:**\n`;
+          for (const s of allStrategies.slice(0, 5)) {
+            const wr = s.total > 0 ? ((s.wins / s.total) * 100).toFixed(1) : '0.0';
+            const pnl = (s.totalProfit + s.totalLoss).toFixed(4);
+            msg += `• ${s.name}: ${wr}% (${s.wins}W/${s.losses}L) ${pnl} SOL\n`;
+          }
+        } else {
+          msg += `\n⏳ No trades yet. Building statistics...\n`;
+        }
+        
+        msg += `\n💡 Need 3+ trades for BOK entry\n`;
+      } else {
+        // Best strategy
+        const best = sorted[0];
+        const bestWR = ((best.wins / best.total) * 100).toFixed(1);
+        const bestPnL = (best.totalProfit + best.totalLoss).toFixed(4);
+        
+        msg += `\n🏆 **Best: ${best.name}**\n`;
+        msg += `WR: ${bestWR}% (${best.wins}W/${best.losses}L) | PnL: ${bestPnL} SOL\n`;
+        
+        // Top 3 strategies
+        msg += `\n📈 **Top Strategies:**\n`;
+        for (let i = 0; i < Math.min(3, sorted.length); i++) {
+          const s = sorted[i];
+          const wr = ((s.wins / s.total) * 100).toFixed(1);
+          const pnl = (s.totalProfit + s.totalLoss).toFixed(4);
+          msg += `${i+1}. ${s.name}: ${wr}% (${pnl} SOL)\n`;
+        }
       }
       
       // BOK Status
@@ -882,14 +896,8 @@ class PaperTraderV5 {
         return r.total >= 5 && wr >= 0.70;
       }).length;
       
-      msg += `\n📚 **BOK Status:**\n`;
-      msg += `   Positive: ${positiveCount} strategies\n`;
-      msg += `   Target: WR ≥ 70%, 5+ trades\n`;
-      
-      // Daily estimate
-      msg += `\n💰 **Daily Estimate:**\n`;
-      msg += `   Balance: ${CONFIG.WALLET_BALANCE} SOL\n`;
-      msg += `   Target: ${CONFIG.DAILY_TARGET} SOL\n`;
+      msg += `\n📚 BOK: ${positiveCount} strategies ≥70% WR\n`;
+      msg += `💰 Target: ${CONFIG.DAILY_TARGET} SOL/day\n`;
       
       // Send notification
       await fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/sendMessage`, {
