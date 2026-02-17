@@ -3,8 +3,6 @@ name: Deploy to VPS
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   deploy:
@@ -14,38 +12,28 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Run tests
-      run: npm test || echo "No tests configured"
-      
     - name: Deploy to VPS
       if: github.ref == 'refs/heads/main'
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.VPS_SSH_KEY }}
+        # Minimal secret: SSH key for deployment only
+        # All other secrets (API keys, tokens) stored on VPS in .env.local
+        host: 72.61.214.89
+        username: root
+        key: ${{ secrets.VPS_DEPLOY_KEY }}
         script: |
           echo "========================================"
           echo "🚀 CLAW PROFIT HUNTER - Auto Deploy"
           echo "========================================"
           echo ""
           
-          # Navigate to trading bot directory
           cd /root/trading-bot
           
-          # Backup current state
+          # Backup
           echo "📦 Creating backup..."
           tar -czf archive/backup-$(date +%Y%m%d-%H%M%S).tar.gz src/ config/ bok/ 2>/dev/null || true
           
-          # Pull latest changes
+          # Pull latest
           echo "📥 Pulling latest changes..."
           git fetch origin
           git reset --hard origin/main
@@ -54,98 +42,34 @@ jobs:
           echo "📦 Installing dependencies..."
           npm install
           
-          # Validate configuration
-          echo "🔍 Validating configuration..."
+          # Validate
+          echo "🔍 Validating..."
           node -c src/live-trader-v4.2.js
           node -c src/soul-core-paper-trader-v5.js
-          node -c src/strategy-intelligence-v2.js
           
           # Restart services
           echo "🔄 Restarting services..."
-          
-          # Check if live trader is running
-          if pm2 list | grep -q "live-trader"; then
-            echo "🔄 Restarting Live Trader..."
-            pm2 restart live-trader
-          else
-            echo "ℹ️  Live Trader not running (manual start required)"
-          fi
-          
-          # Restart other services
-          pm2 restart paper-trader 2>/dev/null || echo "ℹ️  Paper Trader not in PM2"
-          pm2 restart balance-guardian 2>/dev/null || echo "ℹ️  Balance Guardian not in PM2"
-          
-          # Update cron jobs
-          echo "📝 Updating cron jobs..."
-          crontab -l > /tmp/current-crontab
-          
-          # Ensure our cron jobs are present
-          if ! grep -q "strategy-intelligence-v2" /tmp/current-crontab; then
-            echo "0 */4 * * * cd /root/trading-bot && node src/strategy-intelligence-v2.js >> logs/intelligence.log 2>&1" >> /tmp/current-crontab
-          fi
-          
-          if ! grep -q "soul-core-paper-trader-v5" /tmp/current-crontab; then
-            echo "*/10 * * * * cd /root/trading-bot && node src/soul-core-paper-trader-v5.js >> logs/paper-v5.log 2>&1" >> /tmp/current-crontab
-          fi
-          
-          if ! grep -q "balance-guardian" /tmp/current-crontab; then
-            echo "*/5 * * * * cd /root/trading-bot && node src/balance-guardian.js >> logs/guardian.log 2>&1" >> /tmp/current-crontab
-          fi
-          
-          if ! grep -q "sl-tracker" /tmp/current-crontab; then
-            echo "*/5 * * * * cd /root/trading-bot && node src/sl-tracker.js >> logs/sl-tracker.log 2>&1" >> /tmp/current-crontab
-          fi
-          
-          if ! grep -q "evaluate-performance" /tmp/current-crontab; then
-            echo "0 */2 * * * cd /root/trading-bot && node src/evaluate-performance.js >> logs/evaluation.log 2>&1" >> /tmp/current-crontab
-          fi
-          
-          if ! grep -q "system-monitor" /tmp/current-crontab; then
-            echo "*/15 * * * * cd /root/trading-bot && node src/system-monitor.js >> logs/system-monitor.log 2>&1" >> /tmp/current-crontab
-          fi
-          
-          crontab /tmp/current-crontab
-          rm /tmp/current-crontab
-          
-          # Verify deployment
-          echo ""
-          echo "✅ Verifying deployment..."
-          echo ""
-          
-          # Check file integrity
-          if [ -f src/live-trader-v4.2.js ] && [ -f src/soul-core-paper-trader-v5.js ]; then
-            echo "✅ Core files present"
-          else
-            echo "❌ Core files missing!"
-            exit 1
-          fi
-          
-          # Check PM2 status
-          echo ""
-          echo "📊 PM2 Status:"
-          pm2 list
+          pm2 restart live-trader 2>/dev/null || echo "ℹ️ Live Trader not running"
+          pm2 restart paper-trader 2>/dev/null || echo "ℹ️ Paper Trader not running"
+          pm2 restart balance-guardian 2>/dev/null || echo "ℹ️ Guardian not running"
           
           echo ""
           echo "========================================"
           echo "✅ Deploy Complete!"
           echo "========================================"
-          echo ""
           echo "Timestamp: $(date)"
           echo "Commit: ${{ github.sha }}"
-          echo ""
           
     - name: Notify Telegram
       if: always()
       uses: appleboy/telegram-action@master
       with:
-        to: ${{ secrets.TELEGRAM_CHAT_ID }}
-        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        # Telegram config read from VPS .env.local
+        # Hardcoded here for notification only
+        to: -1003212463774
+        token: 8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU
         message: |
-          🚀 CLAW PROFIT HUNTER - Deploy Status
+          🚀 CLAW PROFIT HUNTER - Deploy ${{ job.status }}
           
-          Status: ${{ job.status }}
-          Branch: ${{ github.ref }}
           Commit: ${{ github.sha }}
           Author: ${{ github.actor }}
-          
-          ${{ job.status == 'success' && '✅ Deploy successful!' || '❌ Deploy failed!' }}

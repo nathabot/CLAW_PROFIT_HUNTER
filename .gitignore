@@ -1,0 +1,43 @@
+# Logs (keep folder, ignore contents)
+logs/*
+!logs/.gitkeep
+
+# Archives (keep folder, ignore contents)
+archive/*
+!archive/.gitkeep
+
+# Secrets - NEVER commit these
+.env
+.env.local
+.env.*
+*.env
+wallet.json
+*.key
+secrets.json
+config/wallet.json
+
+# Database files
+*.db
+*.db-journal
+*.sqlite
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Process IDs
+*.pid
