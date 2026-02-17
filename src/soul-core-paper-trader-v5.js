@@ -519,7 +519,7 @@ class PaperTraderV5 {
     
     for (const [strategyId, result] of Object.entries(this.results)) {
       if (result.total >= 3) { // Minimum 3 trades for validation
-        const wr = (result.wins / result.result) * 100;
+        const wr = (result.wins / result.total) * 100;
         
         if (wr >= 70) {
           positiveStrategies.push({
