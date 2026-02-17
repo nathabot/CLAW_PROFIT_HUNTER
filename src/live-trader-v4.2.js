@@ -730,15 +730,37 @@ class DynamicTrader {
     // Scan trending tokens (paper trader method)
     console.log('\n🔎 Scanning trending tokens (Paper Trader v3.1 method)...');
     
-    // Get trending token profiles
-    const profileRes = await fetch('https://api.dexscreener.com/token-profiles/latest/v1');
-    const profiles = await profileRes.json();
+    // Get trending token profiles with retry logic
+    let profiles = [];
+    let retries = 3;
+    while (retries > 0) {
+      try {
+        const profileRes = await fetch('https://api.dexscreener.com/token-profiles/latest/v1');
+        if (!profileRes.ok) throw new Error(`HTTP ${profileRes.status}`);
+        const contentType = profileRes.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Invalid content type: ' + contentType);
+        }
+        profiles = await profileRes.json();
+        break; // Success, exit retry loop
+      } catch (e) {
+        retries--;
+        console.log(`   ⚠️ DexScreener API error (${e.message}), retries left: ${retries}`);
+        if (retries === 0) {
+          console.log('   ❌ Failed to fetch trending tokens, using cached market data');
+          profiles = []; // Will use alternative scan method
+        } else {
+          await new Promise(r => setTimeout(r, 2000)); // Wait 2s before retry
+        }
+      }
+    }
     
     // Get pair data for each trending token
     let allPairs = [];
     for (const profile of profiles.slice(0, 20)) {
       try {
         const tokenRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${profile.tokenAddress}`);
+        if (!tokenRes.ok) continue;
         const tokenData = await tokenRes.json();
         if (tokenData.pairs) {
           allPairs = allPairs.concat(tokenData.pairs);
