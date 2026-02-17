@@ -1,23 +1,13 @@
 {
   "bestStrategy": {
-    "id": "ob_funding_combo",
-    "name": "Orderbook + Funding",
-    "winRate": "50.00",
-    "category": "SWING_TRADE"
+    "id": "fib_rsi_combo",
+    "name": "Fib + RSI",
+    "winRate": "69.23",
+    "category": "SCALPING"
   },
   "positionSizing": {
-    "fib_500_1272": "0.03",
-    "fib_786_1000": "0.02",
-    "ob_funding_combo": "0.02",
-    "whale_volume_combo": "0.03",
-    "fib_382_1618": "0.03",
     "fib_618_1618": "0.02",
-    "fib_rsi_combo": "0.05",
-    "fib_volume_combo": "0.02",
-    "smart_fib_combo": "0.03",
-    "sr_breakout": "0.03",
-    "momentum_squeeze": "0.03",
-    "divergence_play": "0.03"
+    "fib_rsi_combo": "0.03"
   },
-  "updated": 1771319117968
+  "updated": 1771320282824
 }

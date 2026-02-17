@@ -1,5 +1,126 @@
 {
-  "simulationCount": 0,
-  "results": {},
-  "lastReset": 1771319208181
+  "simulationCount": 45,
+  "results": {
+    "fib_382_1618": {
+      "id": "fib_382_1618",
+      "name": "Fib 0.382 Entry",
+      "category": "SCALPING",
+      "wins": 2,
+      "losses": 1,
+      "total": 3,
+      "totalProfit": 0.0020546246921510094,
+      "totalLoss": -0.00026775000000000003
+    },
+    "fib_500_1272": {
+      "id": "fib_500_1272",
+      "name": "Fib 0.500 Entry",
+      "category": "SCALPING",
+      "wins": 4,
+      "losses": 2,
+      "total": 6,
+      "totalProfit": 0.004100452280076085,
+      "totalLoss": -0.0005355000000000001
+    },
+    "fib_618_1618": {
+      "id": "fib_618_1618",
+      "name": "Fib 0.618 Golden",
+      "category": "SNIPER",
+      "wins": 0,
+      "losses": 3,
+      "total": 3,
+      "totalProfit": 0,
+      "totalLoss": -0.0008032500000000001
+    },
+    "fib_786_1000": {
+      "id": "fib_786_1000",
+      "name": "Fib 0.786 Deep",
+      "category": "SWING_TRADE",
+      "wins": 2,
+      "losses": 1,
+      "total": 3,
+      "totalProfit": 0.0019654971752696977,
+      "totalLoss": -0.00026775000000000003
+    },
+    "fib_rsi_combo": {
+      "id": "fib_rsi_combo",
+      "name": "Fib + RSI",
+      "category": "SCALPING",
+      "wins": 1,
+      "losses": 2,
+      "total": 3,
+      "totalProfit": 0.0012686106093911294,
+      "totalLoss": -0.0005355000000000001
+    },
+    "fib_volume_combo": {
+      "id": "fib_volume_combo",
+      "name": "Fib + Volume",
+      "category": "FAST_TRADE",
+      "wins": 2,
+      "losses": 1,
+      "total": 3,
+      "totalProfit": 0.0021766744938265543,
+      "totalLoss": -0.00026775000000000003
+    },
+    "smart_fib_combo": {
+      "id": "smart_fib_combo",
+      "name": "Smart Money + Fib",
+      "category": "SNIPER",
+      "wins": 1,
+      "losses": 2,
+      "total": 3,
+      "totalProfit": 0.0011111628673659642,
+      "totalLoss": -0.0005355000000000001
+    },
+    "ob_funding_combo": {
+      "id": "ob_funding_combo",
+      "name": "Orderbook + Funding",
+      "category": "SWING_TRADE",
+      "wins": 4,
+      "losses": 2,
+      "total": 6,
+      "totalProfit": 0.0044486175872432395,
+      "totalLoss": -0.0005355000000000001
+    },
+    "whale_volume_combo": {
+      "id": "whale_volume_combo",
+      "name": "Whale + Volume",
+      "category": "SNIPER",
+      "wins": 3,
+      "losses": 3,
+      "total": 6,
+      "totalProfit": 0.00331261372517597,
+      "totalLoss": -0.0008032500000000001
+    },
+    "sr_breakout": {
+      "id": "sr_breakout",
+      "name": "S/R Breakout",
+      "category": "FAST_TRADE",
+      "wins": 1,
+      "losses": 2,
+      "total": 3,
+      "totalProfit": 0.0009660511982419917,
+      "totalLoss": -0.0005355000000000001
+    },
+    "momentum_squeeze": {
+      "id": "momentum_squeeze",
+      "name": "Momentum Squeeze",
+      "category": "SCALPING",
+      "wins": 1,
+      "losses": 2,
+      "total": 3,
+      "totalProfit": 0.0010433107306552945,
+      "totalLoss": -0.0005355000000000001
+    },
+    "divergence_play": {
+      "id": "divergence_play",
+      "name": "RSI Divergence",
+      "category": "SWING_TRADE",
+      "wins": 2,
+      "losses": 1,
+      "total": 3,
+      "totalProfit": 0.0017963039360324575,
+      "totalLoss": -0.00026775000000000003
+    }
+  },
+  "lastReset": 1771320284675
 }
