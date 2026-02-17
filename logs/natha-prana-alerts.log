@@ -1,0 +1,253 @@
+[2026-02-15T17:44:19.413Z] [{"severity":"HIGH","issue":"Paper Trader failed to restart","error":"Command failed: pkill -f soul-core-paper-trader; sleep 2; cd /root/trading-bot && nohup node soul-core-paper-trader-v3-1-fib.js >> paper-trades.log 2>&1 &\n"},{"severity":"MEDIUM","issue":"Watchdog failed to restart","error":"Command failed: systemctl restart trading-watchdog.service\nFailed to restart trading-watchdog.service: Unit trading-watchdog.service not found.\n"}]
+[2026-02-15T17:54:03.673Z] [{"severity":"HIGH","issue":"Paper Trader failed to restart","error":"Command failed: pkill -f soul-core-paper-trader; sleep 2; cd /root/trading-bot && nohup node soul-core-paper-trader-v3-1-fib.js >> paper-trades.log 2>&1 &\n"},{"severity":"MEDIUM","issue":"Watchdog failed to restart","error":"Command failed: systemctl restart trading-watchdog.service\nFailed to restart trading-watchdog.service: Unit trading-watchdog.service not found.\n"}]
+[2026-02-15T18:08:15.143Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T18:08:15.144Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T18:08:15.144Z] ⏰ Check interval: 5 minutes
+[2026-02-15T18:08:15.144Z] 
+--- Check #1 ---
+[2026-02-15T18:08:16.871Z] 📊 Status report sent
+[2026-02-15T18:08:16.871Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T18:08:16.871Z] 
+--- Check #2 ---
+[2026-02-15T18:08:16.873Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T18:08:17.351Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T18:08:52.800Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T18:08:52.802Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T18:08:52.802Z] ⏰ Check interval: 5 minutes
+[2026-02-15T18:08:52.802Z] 
+--- Check #1 ---
+[2026-02-15T18:08:54.549Z] 📊 Status report sent
+[2026-02-15T18:08:54.550Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T18:08:54.550Z] 
+--- Check #2 ---
+[2026-02-15T18:08:54.552Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T18:08:55.035Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T18:13:55.134Z] 
+--- Check #3 ---
+[2026-02-15T18:13:56.451Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T18:18:56.551Z] 
+--- Check #4 ---
+[2026-02-15T18:18:57.481Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T18:23:57.578Z] 
+--- Check #5 ---
+[2026-02-15T18:23:59.357Z] 📤 Alert sent to Natha
+[2026-02-15T18:23:59.357Z] ✅ Check complete. Issues: 1, Fixes: 0
+[2026-02-15T18:24:36.830Z] [{"severity":"HIGH","issue":"Prana Live failed to restart","error":"Command failed: pkill -f prana-live-trader; sleep 2; cd /root/trading-bot && nohup node prana-live-trader-v4-dynamic.js >> live-trades.log 2>&1 &\n"},{"severity":"CRITICAL","issue":"KILL SWITCH ACTIVATED","details":"Balance 0.0175 SOL < 0.03 SOL","action":"HALT ALL TRADING IMMEDIATELY"}]
+[2026-02-15T18:28:59.454Z] 
+--- Check #6 ---
+[2026-02-15T18:29:00.664Z] ✅ Check complete. Issues: 1, Fixes: 0
+[2026-02-15T18:34:00.710Z] 
+--- Check #7 ---
+[2026-02-15T18:34:01.613Z] ✅ Check complete. Issues: 1, Fixes: 0
+[2026-02-15T18:39:01.708Z] 
+--- Check #8 ---
+[2026-02-15T18:39:03.493Z] 📤 Alert sent to Natha
+[2026-02-15T18:39:03.494Z] ✅ Check complete. Issues: 2, Fixes: 0
+[2026-02-15T18:44:03.537Z] 
+--- Check #9 ---
+[2026-02-15T18:44:04.732Z] ✅ Check complete. Issues: 2, Fixes: 0
+[2026-02-15T18:49:04.807Z] 
+--- Check #10 ---
+[2026-02-15T18:49:06.058Z] ✅ Check complete. Issues: 2, Fixes: 0
+[2026-02-15T18:54:06.102Z] 
+--- Check #11 ---
+[2026-02-15T18:54:07.332Z] ✅ Check complete. Issues: 2, Fixes: 0
+[2026-02-15T18:59:07.431Z] 
+--- Check #12 ---
+[2026-02-15T18:59:08.271Z] ✅ Check complete. Issues: 2, Fixes: 0
+[2026-02-15T19:04:08.370Z] 
+--- Check #13 ---
+[2026-02-15T19:04:09.590Z] ✅ Check complete. Issues: 2, Fixes: 0
+[2026-02-15T19:09:09.655Z] 
+--- Check #14 ---
+[2026-02-15T19:09:10.474Z] ✅ Check complete. Issues: 2, Fixes: 0
+[2026-02-15T19:14:10.553Z] 
+--- Check #15 ---
+[2026-02-15T19:14:11.878Z] ✅ Check complete. Issues: 2, Fixes: 0
+[2026-02-15T19:15:52.488Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T19:15:52.491Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T19:15:52.494Z] ⏰ Check interval: 5 minutes
+[2026-02-15T19:15:52.494Z] 
+--- Check #1 ---
+[2026-02-15T19:15:54.239Z] 📊 Status report sent
+[2026-02-15T19:15:54.240Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:15:54.240Z] 
+--- Check #2 ---
+[2026-02-15T19:15:54.242Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T19:15:54.684Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:20:54.758Z] 
+--- Check #3 ---
+[2026-02-15T19:20:55.920Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:25:56.022Z] 
+--- Check #4 ---
+[2026-02-15T19:25:57.432Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:30:57.526Z] 
+--- Check #5 ---
+[2026-02-15T19:30:58.419Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:35:58.495Z] 
+--- Check #6 ---
+[2026-02-15T19:35:59.727Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:40:59.826Z] 
+--- Check #7 ---
+[2026-02-15T19:41:01.004Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:46:01.081Z] 
+--- Check #8 ---
+[2026-02-15T19:46:02.282Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:51:02.368Z] 
+--- Check #9 ---
+[2026-02-15T19:51:03.300Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T19:56:03.396Z] 
+--- Check #10 ---
+[2026-02-15T19:56:04.615Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:01:04.689Z] 
+--- Check #11 ---
+[2026-02-15T20:01:05.841Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:06:05.942Z] 
+--- Check #12 ---
+[2026-02-15T20:06:07.118Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:10:30.504Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:10:30.515Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:10:30.515Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:10:30.516Z] 
+--- Check #1 ---
+[2026-02-15T20:10:32.254Z] 📊 Status report sent
+[2026-02-15T20:10:32.256Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:10:32.256Z] 
+--- Check #2 ---
+[2026-02-15T20:10:32.258Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:10:32.709Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:11:25.356Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:11:25.364Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:11:25.364Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:11:25.364Z] 
+--- Check #1 ---
+[2026-02-15T20:11:26.998Z] 📊 Status report sent
+[2026-02-15T20:11:26.999Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:11:27.000Z] 
+--- Check #2 ---
+[2026-02-15T20:11:27.001Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:11:27.433Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:12:57.800Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:12:57.805Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:12:57.806Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:12:57.807Z] 
+--- Check #1 ---
+[2026-02-15T20:12:59.686Z] 📊 Status report sent
+[2026-02-15T20:12:59.687Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:12:59.687Z] 
+--- Check #2 ---
+[2026-02-15T20:12:59.689Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:13:00.147Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:13:36.046Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:13:36.050Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:13:36.050Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:13:36.050Z] 
+--- Check #1 ---
+[2026-02-15T20:13:37.857Z] 📊 Status report sent
+[2026-02-15T20:13:37.857Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:13:37.857Z] 
+--- Check #2 ---
+[2026-02-15T20:13:37.859Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:13:38.309Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:15:20.074Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:15:20.076Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:15:20.076Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:15:20.077Z] 
+--- Check #1 ---
+[2026-02-15T20:15:21.737Z] 📊 Status report sent
+[2026-02-15T20:15:21.738Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:15:21.738Z] 
+--- Check #2 ---
+[2026-02-15T20:15:21.738Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:15:22.160Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:18:29.980Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:18:29.984Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:18:29.986Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:18:29.986Z] 
+--- Check #1 ---
+[2026-02-15T20:18:31.648Z] 📊 Status report sent
+[2026-02-15T20:18:31.649Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:18:31.649Z] 
+--- Check #2 ---
+[2026-02-15T20:18:31.649Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:18:32.071Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:19:11.756Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:19:11.762Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:19:11.762Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:19:11.763Z] 
+--- Check #1 ---
+[2026-02-15T20:19:13.342Z] 📊 Status report sent
+[2026-02-15T20:19:13.343Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:19:13.343Z] 
+--- Check #2 ---
+[2026-02-15T20:19:13.344Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:19:13.759Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:19:31.572Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:19:31.575Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:19:31.575Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:19:31.575Z] 
+--- Check #1 ---
+[2026-02-15T20:19:33.512Z] 📊 Status report sent
+[2026-02-15T20:19:33.513Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:19:33.513Z] 
+--- Check #2 ---
+[2026-02-15T20:19:33.513Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:19:33.923Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:24:33.986Z] 
+--- Check #3 ---
+[2026-02-15T20:24:35.161Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:25:03.256Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:25:03.266Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:25:03.266Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:25:03.267Z] 
+--- Check #1 ---
+[2026-02-15T20:25:05.022Z] 📊 Status report sent
+[2026-02-15T20:25:05.023Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:25:05.023Z] 
+--- Check #2 ---
+[2026-02-15T20:25:05.023Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:25:05.445Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:25:19.232Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:25:19.242Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:25:19.242Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:25:19.243Z] 
+--- Check #1 ---
+[2026-02-15T20:25:21.870Z] 📊 Status report sent
+[2026-02-15T20:25:21.871Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:25:21.872Z] 
+--- Check #2 ---
+[2026-02-15T20:25:21.872Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:25:22.697Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:26:28.074Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:26:28.077Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:26:28.077Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:26:28.077Z] 
+--- Check #1 ---
+[2026-02-15T20:26:29.648Z] 📊 Status report sent
+[2026-02-15T20:26:29.649Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:26:29.649Z] 
+--- Check #2 ---
+[2026-02-15T20:26:29.650Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:26:30.056Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:26:48.090Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:26:48.093Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:26:48.093Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:26:48.093Z] 
+--- Check #1 ---
+[2026-02-15T20:26:49.679Z] 📊 Status report sent
+[2026-02-15T20:26:49.680Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:26:49.680Z] 
+--- Check #2 ---
+[2026-02-15T20:26:49.681Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:26:50.089Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:27:17.584Z] 🤖 Natha-Prana (OpenClaw Skill) STARTED
+[2026-02-15T20:27:17.587Z] 📍 VPS Prana (72.61.124.167)
+[2026-02-15T20:27:17.587Z] ⏰ Check interval: 5 minutes
+[2026-02-15T20:27:17.587Z] 
+--- Check #1 ---
+[2026-02-15T20:27:18.864Z] 📊 Status report sent
+[2026-02-15T20:27:18.865Z] ✅ Check complete. Issues: 0, Fixes: 0
+[2026-02-15T20:27:18.865Z] 
+--- Check #2 ---
+[2026-02-15T20:27:18.865Z] ✅ Monitoring active as OpenClaw skill
+[2026-02-15T20:27:19.292Z] ✅ Check complete. Issues: 0, Fixes: 0

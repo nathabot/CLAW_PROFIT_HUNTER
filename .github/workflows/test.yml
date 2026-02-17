@@ -1,0 +1,116 @@
+name: Test & Validate
+
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Validate JavaScript syntax
+      run: |
+        echo "🔍 Validating JavaScript files..."
+        
+        # Check all JS files in src/
+        for file in src/*.js; do
+          echo "Checking: $file"
+          node --check "$file" || exit 1
+        done
+        
+        echo "✅ All files passed syntax check"
+        
+    - name: Check file structure
+      run: |
+        echo "📁 Checking file structure..."
+        
+        # Required files
+        required_files=(
+          "src/live-trader-v4.2.js"
+          "src/soul-core-paper-trader-v5.js"
+          "src/strategy-intelligence-v2.js"
+          "src/balance-guardian.js"
+          "src/sl-tracker.js"
+          "src/evaluate-performance.js"
+          "src/system-monitor.js"
+          "src/dynamic-tpsl-engine.js"
+          "config/adaptive-scoring-config.json"
+        )
+        
+        for file in "${required_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file"
+          else
+            echo "❌ Missing: $file"
+            exit 1
+          fi
+        done
+        
+        echo "✅ All required files present"
+        
+    - name: Check BOK files
+      run: |
+        echo "📚 Checking BOK files..."
+        
+        bok_files=(
+          "bok/00-PRIMARY-OBJECTIVE.md"
+          "bok/06-toxic-tokens.md"
+          "bok/16-positive-strategies.md"
+          "bok/17-negative-strategies.md"
+        )
+        
+        for file in "${bok_files[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file"
+          else
+            echo "⚠️ Missing: $file"
+          fi
+        done
+        
+    - name: Lint check
+      run: |
+        echo "🔍 Running basic lint checks..."
+        
+        # Check for common issues
+        if grep -r "console.log" src/*.js | wc -l; then
+          echo "ℹ️  Found console.log statements (OK for this project)"
+        fi
+        
+        # Check for TODO/FIXME
+        if grep -r "TODO\|FIXME" src/*.js; then
+          echo "⚠️  Found TODO/FIXME comments"
+        fi
+        
+        echo "✅ Lint check complete"
+        
+    - name: Generate report
+      run: |
+        echo "📊 Generating validation report..."
+        
+        cat > validation-report.txt << 'EOF'
+        CLAW PROFIT HUNTER - Validation Report
+        ======================================
+        
+        Date: $(date)
+        Commit: ${{ github.sha }}
+        
+        Files Validated:
+        EOF
+        
+        ls -la src/*.js >> validation-report.txt
+        
+        cat validation-report.txt

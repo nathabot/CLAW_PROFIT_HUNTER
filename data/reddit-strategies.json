@@ -1,0 +1,244 @@
+[
+  {
+    "id": "reddit_demo_1",
+    "sourceType": "reddit",
+    "sourceUrl": "https://reddit.com/r/CryptoCurrency/comments/demo1",
+    "sourceName": "CryptoCurrency",
+    "externalUrl": "https://example.com/token1",
+    "title": "[DD] The RSI Divergence Strategy - 68% Win Rate Backtested",
+    "author": "CryptoTraderPro",
+    "content": "After backtesting 500 trades on 4H BTC charts, I've found RSI divergence to be highly reliable...",
+    "strategyName": "RSI Divergence Strategy",
+    "description": "Using RSI divergence for entry signals on 4H timeframe",
+    "entryRules": "Enter long when RSI shows bullish divergence (price lower low, RSI higher low) AND price touches support. Enter short on bearish divergence with resistance touch.",
+    "exitRules": "Take profit at 1:2 risk/reward or when opposite divergence forms. Trail stop below/above recent swing points.",
+    "riskRules": "Risk 1% per trade. Stop loss 2% below entry for longs, 2% above for shorts. Maximum 3 open positions.",
+    "tokensMentioned": [
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "tokenContext": [
+      "BTC 4H chart showing divergence",
+      "ETH also works well"
+    ],
+    "sentimentScore": 0.65,
+    "sentimentLabel": "positive",
+    "confidenceScore": 0.85,
+    "engagementScore": 1247,
+    "commentCount": 89,
+    "upvoteRatio": 0.94,
+    "isDueDiligence": true,
+    "technicalPatterns": [
+      {
+        "type": "indicators",
+        "pattern": "RSI"
+      },
+      {
+        "type": "indicators",
+        "pattern": "divergence"
+      },
+      {
+        "type": "chart_patterns",
+        "pattern": "support"
+      },
+      {
+        "type": "chart_patterns",
+        "pattern": "resistance"
+      }
+    ],
+    "strategyCategory": "swing",
+    "createdAt": "2026-02-10T15:30:00Z",
+    "extractedAt": "2026-02-13T17:01:03.326Z"
+  },
+  {
+    "id": "reddit_demo_2",
+    "sourceType": "reddit",
+    "sourceUrl": "https://reddit.com/r/SatoshiStreetBets/comments/demo2",
+    "sourceName": "SatoshiStreetBets",
+    "externalUrl": "https://reddit.com/r/SatoshiStreetBets/comments/demo2",
+    "title": "Simple EMA Crossover + Volume Strategy for ALTS",
+    "author": "AltCoinKing",
+    "content": "Sharing my profitable scalping strategy using EMA crosses with volume confirmation...",
+    "strategyName": "EMA Crossover Volume Strategy",
+    "description": "EMA crossover with volume confirmation for altcoin scalping",
+    "entryRules": "Long when 9 EMA crosses above 21 EMA with volume > 150% of 20-period average. Short on opposite cross.",
+    "exitRules": "Exit on opposite crossover or when RSI > 70 (long) / < 30 (short).",
+    "riskRules": "0.5% risk per trade. Tight stops just beyond recent swing. No weekend trades.",
+    "tokensMentioned": [
+      "SOL",
+      "ADA",
+      "MATIC",
+      "AVAX"
+    ],
+    "tokenContext": [
+      "SOL highly responsive on 15m"
+    ],
+    "sentimentScore": 0.42,
+    "sentimentLabel": "positive",
+    "confidenceScore": 0.72,
+    "engagementScore": 456,
+    "commentCount": 34,
+    "upvoteRatio": 0.88,
+    "isDueDiligence": false,
+    "technicalPatterns": [
+      {
+        "type": "indicators",
+        "pattern": "EMA"
+      },
+      {
+        "type": "indicators",
+        "pattern": "volume"
+      },
+      {
+        "type": "indicators",
+        "pattern": "RSI"
+      }
+    ],
+    "strategyCategory": "scalping",
+    "createdAt": "2026-02-11T08:15:00Z",
+    "extractedAt": "2026-02-13T17:01:03.326Z"
+  },
+  {
+    "id": "reddit_demo_3",
+    "sourceType": "reddit",
+    "sourceUrl": "https://reddit.com/r/CryptoMarkets/comments/demo3",
+    "sourceName": "CryptoMarkets",
+    "externalUrl": "https://reddit.com/r/CryptoMarkets/comments/demo3",
+    "title": "[Strategy] VWAP + Bollinger Bands Mean Reversion",
+    "author": "QuantTrader88",
+    "content": "This strategy works great in ranging markets. Looking for price to deviate from VWAP and touch Bollinger Bands...",
+    "strategyName": "VWAP Bollinger Mean Reversion",
+    "description": "Mean reversion using VWAP and Bollinger Bands",
+    "entryRules": "When price touches lower Bollinger Band (2 std dev) AND is below VWAP by >1%, enter long. Short on upper band touch above VWAP.",
+    "exitRules": "Target VWAP line or middle Bollinger Band. Stop beyond the band that was touched.",
+    "riskRules": "Risk 1.5% per trade. Max 2 trades per day. Avoid during high volatility events.",
+    "tokensMentioned": [
+      "BTC",
+      "ETH"
+    ],
+    "tokenContext": [
+      "BTC 1H best timeframe"
+    ],
+    "sentimentScore": 0.38,
+    "sentimentLabel": "positive",
+    "confidenceScore": 0.78,
+    "engagementScore": 892,
+    "commentCount": 67,
+    "upvoteRatio": 0.91,
+    "isDueDiligence": false,
+    "technicalPatterns": [
+      {
+        "type": "indicators",
+        "pattern": "VWAP"
+      },
+      {
+        "type": "indicators",
+        "pattern": "Bollinger Bands"
+      },
+      {
+        "type": "chart_patterns",
+        "pattern": "mean reversion"
+      }
+    ],
+    "strategyCategory": "day_trading",
+    "createdAt": "2026-02-09T22:45:00Z",
+    "extractedAt": "2026-02-13T17:01:03.326Z"
+  },
+  {
+    "id": "reddit_demo_4",
+    "sourceType": "reddit",
+    "sourceUrl": "https://reddit.com/r/DeFi/comments/demo4",
+    "sourceName": "DeFi",
+    "externalUrl": "https://reddit.com/r/DeFi/comments/demo4",
+    "title": "[DD] Comprehensive Analysis: New DeFi Yield Strategy Using AAVE + Curve",
+    "author": "DeFiWhale",
+    "content": "Deep dive into my delta-neutral yield farming strategy using AAVE lending and Curve stable pools...",
+    "strategyName": "Delta Neutral AAVE Curve Yield",
+    "description": "Yield farming with minimized impermanent loss through delta neutral positioning",
+    "entryRules": "Deposit USDC to AAVE. Borrow 50% in ETH. Deposit borrowed ETH + equivalent USDC to Curve stETH pool. Farm CRV and AAVE rewards.",
+    "exitRules": "Monitor health factor > 1.5. Exit if borrowing rate > farming yield by >5% APY or if ETH volatility exceeds 15% daily.",
+    "riskRules": "Max 20% of portfolio. Monitor liquidation risk continuously. Use automation for health factor management.",
+    "tokensMentioned": [
+      "AAVE",
+      "CRV",
+      "ETH",
+      "USDC",
+      "stETH"
+    ],
+    "tokenContext": [
+      "AAVE lending rates",
+      "CRV rewards",
+      "stETH pool"
+    ],
+    "sentimentScore": 0.55,
+    "sentimentLabel": "positive",
+    "confidenceScore": 0.92,
+    "engagementScore": 2341,
+    "commentCount": 156,
+    "upvoteRatio": 0.96,
+    "isDueDiligence": true,
+    "technicalPatterns": [
+      {
+        "type": "fundamental",
+        "pattern": "yield farming"
+      },
+      {
+        "type": "fundamental",
+        "pattern": "delta neutral"
+      }
+    ],
+    "strategyCategory": "position",
+    "createdAt": "2026-02-08T11:20:00Z",
+    "extractedAt": "2026-02-13T17:01:03.326Z"
+  },
+  {
+    "id": "reddit_demo_5",
+    "sourceType": "reddit",
+    "sourceUrl": "https://reddit.com/r/Solana/comments/demo5",
+    "sourceName": "Solana",
+    "externalUrl": "https://raydium.io/",
+    "title": "High-Frequency Solana Memecoin Strategy - 3x in 2 weeks",
+    "author": "SolanaDegen",
+    "content": "Sharing my memecoin momentum strategy that's been printing on Solana...",
+    "strategyName": "Solana Memecoin Momentum",
+    "description": "Momentum trading for Solana memecoins using volume spikes",
+    "entryRules": "Buy when token shows 50%+ volume increase in 5min AND price up >10% from open. Only tokens >$100K market cap.",
+    "exitRules": "Sell 50% at +50% gain, let rest run with trailing stop at -20% from peak. Max hold time 4 hours.",
+    "riskRules": "0.25% risk per trade. Max 5 positions. Cut loss at -15% immediately. No revenge trading.",
+    "tokensMentioned": [
+      "SOL",
+      "BONK",
+      "WIF",
+      "POPCAT"
+    ],
+    "tokenContext": [
+      "SOL ecosystem",
+      "memecoins on Raydium"
+    ],
+    "sentimentScore": 0.72,
+    "sentimentLabel": "positive",
+    "confidenceScore": 0.58,
+    "engagementScore": 189,
+    "commentCount": 45,
+    "upvoteRatio": 0.82,
+    "isDueDiligence": false,
+    "technicalPatterns": [
+      {
+        "type": "indicators",
+        "pattern": "volume"
+      },
+      {
+        "type": "indicators",
+        "pattern": "momentum"
+      },
+      {
+        "type": "price_action",
+        "pattern": "breakout"
+      }
+    ],
+    "strategyCategory": "scalping",
+    "createdAt": "2026-02-12T03:00:00Z",
+    "extractedAt": "2026-02-13T17:01:03.326Z"
+  }
+]

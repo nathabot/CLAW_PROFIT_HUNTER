@@ -1,0 +1,50 @@
+[2026-02-17T05:00:01.336Z] ℹ️ ========================================
+[2026-02-17T05:00:01.353Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-17T05:00:01.353Z] ℹ️ Dynamic Signal Generation
+[2026-02-17T05:00:01.353Z] ℹ️ ========================================
+
+[2026-02-17T05:00:01.414Z] ℹ️ Database connected (schema updated)
+
+[2026-02-17T05:00:01.415Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-17T05:00:01.741Z] ℹ️ Found 20 trending tokens
+
+[2026-02-17T05:00:01.861Z] ⚠️ UTUNG: Low liquidity ($0)
+[2026-02-17T05:00:01.922Z] ⚠️ Compute: Low volume ($26,333.1)
+[2026-02-17T05:00:01.978Z] ⚠️ Honke: Low liquidity ($0)
+[2026-02-17T05:00:02.041Z] ⚠️ 火马: Confidence too low (1.5/10)
+[2026-02-17T05:00:02.092Z] ⚠️ SvM: Low liquidity ($0)
+[2026-02-17T05:00:02.215Z] ⚠️ Isaac: Low liquidity ($5,241.27)
+[2026-02-17T05:00:02.289Z] ✅ FEELSGUY: ✅ INSERTED (6.0/10)
+[2026-02-17T05:00:02.289Z] ℹ️    Entry: $0.000067
+[2026-02-17T05:00:02.289Z] ℹ️    TP1: $0.000071 | TP2: $0.000075
+[2026-02-17T05:00:02.289Z] ℹ️    SL: $0.000064
+[2026-02-17T05:00:02.289Z] ℹ️    Reasons: Moderate volume, Strong 24h momentum, Heavy buying pressure
+
+[2026-02-17T05:00:02.843Z] ⚠️ POPTROUT: Low liquidity ($0)
+[2026-02-17T05:00:02.969Z] ⚠️ Fat Milkers: Low liquidity ($0)
+[2026-02-17T05:00:03.015Z] ⚠️ GUPSTER: Confidence too low (3.0/10)
+[2026-02-17T05:00:03.081Z] ⚠️ антон: Low liquidity ($0)
+[2026-02-17T05:00:03.121Z] ⚠️ PSYCHOSIS: Low liquidity ($0)
+[2026-02-17T05:00:03.219Z] ⚠️ LAZARUS: Low liquidity ($9,877.6)
+[2026-02-17T05:00:03.266Z] ⚠️ Boi: Low liquidity ($3,467.97)
+[2026-02-17T05:00:03.320Z] ⚠️ NEWSCUM: Low liquidity ($0)
+[2026-02-17T05:00:03.505Z] ✅ DONALDMINAJ: ✅ INSERTED (7.0/10)
+[2026-02-17T05:00:03.505Z] ℹ️    Entry: $0.005114
+[2026-02-17T05:00:03.505Z] ℹ️    TP1: $0.005523 | TP2: $0.005881
+[2026-02-17T05:00:03.505Z] ℹ️    SL: $0.004858
+[2026-02-17T05:00:03.505Z] ℹ️    Reasons: Good volume, Strong 24h momentum, More buyers than sellers, Adequate liquidity
+
+[2026-02-17T05:00:04.173Z] ⚠️ .mp4: Low liquidity ($0)
+[2026-02-17T05:00:04.494Z] ✅ MAYA: ✅ INSERTED (6.5/10)
+[2026-02-17T05:00:04.494Z] ℹ️    Entry: $0.000335
+[2026-02-17T05:00:04.494Z] ℹ️    TP1: $0.000362 | TP2: $0.000385
+[2026-02-17T05:00:04.494Z] ℹ️    SL: $0.000318
+[2026-02-17T05:00:04.494Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Heavy buying pressure
+
+[2026-02-17T05:00:05.064Z] ⚠️ PONYTA: Low liquidity ($6,800.49)
+[2026-02-17T05:00:05.219Z] ⚠️ VIPER: Low liquidity ($0)
+[2026-02-17T05:00:05.219Z] ℹ️ 
+========================================
+[2026-02-17T05:00:05.219Z] ℹ️ SUMMARY: 3 new signals, 17 skipped
+[2026-02-17T05:00:05.219Z] ℹ️ ========================================
+

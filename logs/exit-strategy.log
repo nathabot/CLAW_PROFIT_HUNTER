@@ -1,0 +1,47 @@
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+(node:150300) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+🎯 EXIT STRATEGY MODULE ONLINE
+💰 Wallet Balance: 0.0492 SOL
+🛑 Stop Loss: -15%
+📊 Partial Exit: 30% (50% position)
+🎯 Full Exit: 48% (remaining 50%)
+⏱️  Check Interval: 30 seconds
+
+📂 Loaded 1 active position(s)
+  - SAFEMOON | Entry: 0.0001288 | Size: 0.01 SOL
+✅ Monitoring active positions...
+[3:30:21 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00011770 | -8.62%
+[3:30:51 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00011770 | -8.62%
+[3:31:21 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00011780 | -8.54%
+[3:31:51 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00011780 | -8.54%
+[3:32:21 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00011780 | -8.54%
+[3:32:51 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00011780 | -8.54%
+[3:33:21 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00011780 | -8.54%
+[3:33:51 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00011780 | -8.54%
+[3:34:21 PM] Monitoring 1 position(s)...
+  SAFEMOON: $0.00010940 | -15.06%
+
+🚪 EXITING: SAFEMOON - STOP LOSS (100%)
+💰 Token Balance: 12444.308159
+📤 Selling: 12444.308159 (100%)
+🔄 Attempting swap: 0.0000 tokens | Slippage: 10% | Priority: 0.0005
+❌ Attempt 1/4 failed (slippage 10%): Failed to get swap instructions: HTTP error! status: 400, message: {"error":"Invalid slippage tolerance (should be between 0 and 100%)"}
+⏳ Retrying in 2 seconds with higher slippage...
+🔄 Attempting swap: 0.0000 tokens | Slippage: 20% | Priority: 0.001
+❌ Attempt 2/4 failed (slippage 20%): Failed to get swap instructions: HTTP error! status: 400, message: {"error":"Invalid slippage tolerance (should be between 0 and 100%)"}
+⏳ Retrying in 2 seconds with higher slippage...
+🔄 Attempting swap: 0.0000 tokens | Slippage: 50% | Priority: 0.002
+❌ Attempt 3/4 failed (slippage 50%): Failed to get swap instructions: HTTP error! status: 400, message: {"error":"Invalid slippage tolerance (should be between 0 and 100%)"}
+⏳ Retrying in 2 seconds with higher slippage...
+🔄 Attempting swap: 0.0000 tokens | Slippage: 100% | Priority: 0.002
+❌ Attempt 4/4 failed (slippage 100%): Failed to get swap instructions: HTTP error! status: 400, message: {"error":"Invalid slippage tolerance (should be between 0 and 100%)"}
+❌ Exit failed: Failed after 4 attempts. Last error: Failed to get swap instructions: HTTP error! status: 400, message: {"error":"Invalid slippage tolerance (should be between 0 and 100%)"}

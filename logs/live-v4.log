@@ -1,0 +1,41 @@
+🔑 Wallet loaded: EKbhgJrxCL93cBkENoS7...
+
+🔍 PRANA v4.0 - DYNAMIC TP/SL SCANNER
+==================================================
+💰 Balance: 0.2202 SOL
+📊 Min Score Threshold: 6 (adaptive)
+
+🔄 Syncing with Paper Trader...
+📊 SYNC: Position size 0.015 SOL (based on strategy performance)
+📊 Current threshold: Score 6+
+📊 Market cache updated: F&G 12, Vol 10.00%
+
+🔎 Scanning trending tokens (Paper Trader v3.1 method)...
+📊 Found 6 candidates
+
+🔍 Checking: SLOPCOIN
+  📊 Score: 9/10 | Age: 117m
+  🔒 Honeypot test...
+  ✅ SAFE - Executing trade
+
+🎯 FIBONACCI TARGETS (from paper testing):
+  Strategy: Fixed 0.618
+  Entry Fib: 0.618
+  SL: $0.00028708 (-3.00%)
+  TP1: $0.00031372 (+6.00%)
+  TP2: $0.00032470 (+9.71%)
+  Partial Exit: 50% at TP1
+
+🚀 EXECUTING BUY: SLOPCOIN
+   Platform: Solana Tracker
+  🔄 Getting quote from Solana Tracker...
+   ✅ SWAP SUCCESS: 4EsG5yJh64UrqHwyJKDd...
+   Platform: SolanaTracker
+   Expected: 4003.696428834 tokens
+  ⚠️ Telegram send failed (400), retry 01/3 in 1000ms...
+  ⚠️ Telegram send failed (400), retry 11/3 in 2000ms...
+   Exit monitor v6 started (PID: 559916)
+
+==================================================
+✅ Scan complete
+

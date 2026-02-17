@@ -1,0 +1,36 @@
+{
+  "simulationCount": 12,
+  "results": {
+    "fib_618_1618": {
+      "id": "fib_618_1618",
+      "name": "Fib 0.618 Golden",
+      "category": "SNIPER",
+      "wins": 2,
+      "losses": 2,
+      "total": 4,
+      "totalProfit": 0.005786443433657078,
+      "totalLoss": -0.00109305
+    },
+    "smart_fib_combo": {
+      "id": "smart_fib_combo",
+      "name": "Smart Money + Fib",
+      "category": "SNIPER",
+      "wins": 2,
+      "losses": 2,
+      "total": 4,
+      "totalProfit": 0.005572872027349518,
+      "totalLoss": -0.00109305
+    },
+    "momentum_squeeze": {
+      "id": "momentum_squeeze",
+      "name": "Momentum Squeeze",
+      "category": "SCALPING",
+      "wins": 3,
+      "losses": 1,
+      "total": 4,
+      "totalProfit": 0.007543287355286365,
+      "totalLoss": -0.0007807499999999999
+    }
+  },
+  "lastReset": 1771309201967
+}

@@ -1,0 +1,19 @@
+{
+  "primary": {
+    "apiKey": "538d3ebe-8bcb-40bf-813c-b058a98bc986",
+    "name": "Primary Jupiter Key"
+  },
+  "fallbacks": [
+    {
+      "apiKey": "4d0b4ac6-23fe-4372-b032-9491cab32d34",
+      "name": "Backup 1 - Y Prnt Key 2"
+    },
+    {
+      "apiKey": "e2255175-aef9-4679-9464-0f372baec8e2",
+      "name": "Backup 2 - Y Prnt Key 3"
+    }
+  ],
+  "rotationStrategy": "round-robin",
+  "currentIndex": 0,
+  "lastRotation": ""
+}

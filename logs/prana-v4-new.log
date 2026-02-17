@@ -1,0 +1,33 @@
+🔑 Wallet loaded: EKbhgJrxCL93cBkENoS7...
+
+🔍 PRANA v4.0 - DYNAMIC TP/SL SCANNER
+==================================================
+💰 Balance: 0.2304 SOL
+📊 Min Score Threshold: 6 (adaptive)
+
+🔄 Syncing with Paper Trader...
+📊 SYNC: Position size 0.015 SOL (based on strategy performance)
+📊 Current threshold: Score 6+
+📊 Market cache updated: F&G 12, Vol 10.00%
+
+🔎 Scanning trending tokens (Paper Trader v3.1 method)...
+📊 Found 7 candidates
+
+🔍 Checking: SLOPCOIN
+  📊 Score: 9/10 | Age: 101m
+  🔒 Honeypot test...
+  ✅ SAFE - Executing trade
+
+🎯 FIBONACCI TARGETS (from paper testing):
+  Strategy: Fixed 0.618
+  Entry Fib: 0.618
+  SL: $0.00036266 (-3.00%)
+  TP1: $0.00039631 (+6.00%)
+  TP2: $0.00041017 (+9.71%)
+  Partial Exit: 50% at TP1
+
+🚀 EXECUTING BUY: SLOPCOIN
+ReferenceError: Cannot access 'positionSize' before initialization
+    at DynamicTrader.executeTrade (/root/trading-bot/prana-live-trader-v4-dynamic.js:704:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async DynamicTrader.scanAndTrade (/root/trading-bot/prana-live-trader-v4-dynamic.js:627:7)

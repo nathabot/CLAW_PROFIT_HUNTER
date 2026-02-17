@@ -1,0 +1,33 @@
+========================================
+PRANA VPS AUTOSTART - Mon Feb 16 01:02:23 WIB 2026
+========================================
+[2026-02-16 01:02:23] Starting autostart sequence...
+[2026-02-16 01:02:23] Waiting for network...
+[2026-02-16 01:02:29] ✅ Network ready
+[2026-02-16 01:02:29] Checking OpenClaw...
+[2026-02-16 01:02:30] ✅ OpenClaw installed at /usr/bin/openclaw
+[2026-02-16 01:02:30] ✅ OpenClaw gateway already running
+[2026-02-16 01:02:30] Verifying trading bot directory...
+[2026-02-16 01:02:30] ✅ Trading bot directory exists
+[2026-02-16 01:02:30] Starting systemd services...
+[2026-02-16 01:02:32] ✅ Watchdog service started
+[2026-02-16 01:02:34] ✅ Natha-Prana agent started
+[2026-02-16 01:02:34] Verifying cron jobs...
+[2026-02-16 01:02:34] ✅ Paper trader cron job present
+[2026-02-16 01:02:34] ✅ Prana live cron job present
+[2026-02-16 01:02:34] ✅ Backup cron job present
+[2026-02-16 01:02:34] Checking wallet balance...
+[2026-02-16 01:02:36] ✅ Wallet balance: 0.1725 SOL
+[2026-02-16 01:02:36] Testing API connectivity...
+[2026-02-16 01:02:37] ✅ Telegram API reachable
+[2026-02-16 01:02:37] ✅ Solana Tracker API reachable
+[2026-02-16 01:02:37] 
+[2026-02-16 01:02:37] === AUTOSTART COMPLETE ===
+[2026-02-16 01:02:37] System Status:
+[2026-02-16 01:02:37]   Watchdog: active
+[2026-02-16 01:02:37]   Natha-Prana: active
+[2026-02-16 01:02:37]   Paper Trader: scheduled via cron
+[2026-02-16 01:02:38]   Prana Live: running
+[2026-02-16 01:02:38] 
+[2026-02-16 01:02:38] ✅ VPS PRANA READY FOR TRADING
+[2026-02-16 01:02:38] 

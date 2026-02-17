@@ -1,0 +1,42 @@
+🔑 Wallet loaded: EKbhgJrxCL93cBkENoS7...
+
+🔍 PRANA v4.0 - DYNAMIC TP/SL SCANNER
+==================================================
+💰 Balance: 0.0908 SOL
+📊 Min Score Threshold: 6 (adaptive)
+
+🔄 Syncing with Paper Trader...
+📊 SYNC: Position size 0.015 SOL (based on strategy performance)
+📊 Current threshold: Score 6+
+📊 Market cache updated: F&G 12, Vol 10.00%
+
+🔎 Scanning trending tokens (Paper Trader v3.1 method)...
+📊 Found 6 candidates
+
+🔍 Checking: ‎ 
+  📊 Score: 7/10 | Age: 124m
+  🔒 Honeypot test...
+  ✅ SAFE - Executing trade
+
+🎯 FIBONACCI TARGETS (from paper testing):
+  Strategy: Fixed 0.618
+  Entry Fib: 0.618
+  SL: $0.00001817 (-3.00%)
+  TP1: $0.00001986 (+6.00%)
+  TP2: $0.00002055 (+9.71%)
+  Partial Exit: 50% at TP1
+
+🚀 EXECUTING BUY: ‎ 
+   Amount: 0.015 SOL (flexible based on WR)
+   Platform: Solana Tracker
+  🔄 Getting quote from Solana Tracker...
+   ✅ SWAP SUCCESS: XwZGpMS5FUisDvDM8cCr...
+   Platform: SolanaTracker
+   Expected: 64683.519276 tokens
+  ⚠️ Telegram send failed (400), retry 01/3 in 1000ms...
+  ⚠️ Telegram send failed (400), retry 11/3 in 2000ms...
+ReferenceError: wallet is not defined
+    at DynamicTrader.startFibExitMonitor (/root/trading-bot/prana-live-trader-v4-dynamic.js:807:32)
+    at DynamicTrader.executeTrade (/root/trading-bot/prana-live-trader-v4-dynamic.js:788:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async DynamicTrader.scanAndTrade (/root/trading-bot/prana-live-trader-v4-dynamic.js:669:7)

@@ -1,0 +1,688 @@
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+(node:121179) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+🤖 AUTONOMOUS TRADER v2.1 ONLINE
+💰 Balance: 0.0369 SOL
+📊 Min Score: 7
+💵 Position Size: 0.01 SOL
+🎯 Exit Strategy: Integrated
+🚫 Max Concurrent: 3 positions
+
+[12:57:47 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+✅ Found 14 new qualified opportunity(ies)
+🎯 Best pick: eterum (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: eterum
+Score: 7.5/10
+CA: 6Bb82T5tRSqQuEi29cJypyK3e2t22k1uffUqPVA4q3Eq
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+📋 Instructions OK
+✅ SUCCESS: 56x2WvzYout3becvUAd9NUwa2bxc7uGR5GRPhzuCms4t5n2dx4vqCugzYKTD93L4476HmmPZ4CPysLrbQ4uMdqW
+✅ Trade executed: 56x2WvzYout3becvUAd9NUwa2bxc7uGR5GRPhzuCms4t5n2dx4vqCugzYKTD93L4476HmmPZ4CPysLrbQ4uMdqW
+💾 Position saved to active-positions.json
+[1:07:52 AM] 🔍 Scanning...
+📊 Active Positions: 2
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP eterum - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP eterum - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP eterum - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+🚫 SKIP eterum - Already have active position!
+🚫 SKIP TRISIG - Already have active position!
+✅ Found 9 new qualified opportunity(ies)
+🎯 Best pick: BCOQ (7.3/10)
+
+🚀 EXECUTING TRADE
+Token: BCOQ
+Score: 7.3/10
+CA: coqRkaaKeUygDPhuS3mrmrj6DiHjeQJc2rFbT2YfxWn
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+📋 Instructions OK
+✅ SUCCESS: 4MyACawdznNa8Hx2WdRDotmL7gcQTfh8AEvBSRBF1ZzLpEtRS612hatJFEbdNc8V7f9zvaD7jLWqiCYtsv8QFb5X
+✅ Trade executed: 4MyACawdznNa8Hx2WdRDotmL7gcQTfh8AEvBSRBF1ZzLpEtRS612hatJFEbdNc8V7f9zvaD7jLWqiCYtsv8QFb5X
+💾 Position saved to active-positions.json
+[1:17:52 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[1:27:52 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[1:37:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[1:47:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[1:57:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[2:07:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[2:17:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[2:27:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[2:37:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[2:47:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[2:57:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[3:07:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[3:17:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[3:27:53 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - TRISIG (BLDiYcvm...) | Entry: $0.0001631
+  - eterum (6Bb82T5t...) | Entry: $0.00002997
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[3:37:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 11 new qualified opportunity(ies)
+🎯 Best pick: TRISIG (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: TRISIG
+Score: 7.5/10
+CA: BLDiYcvm3CLcgZ7XUBPgz6idSAkNmWY6MBbm8Xpjpump
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+📋 Instructions OK
+✅ SUCCESS: 2skaJeNUvTFMg3SD4SKNYqQawSYgwrcbhhGRqK5DKE3KChPgCbL5JGYe99cAXouwuYCfEZREnwcEtNUZegqNuCWw
+✅ Trade executed: 2skaJeNUvTFMg3SD4SKNYqQawSYgwrcbhhGRqK5DKE3KChPgCbL5JGYe99cAXouwuYCfEZREnwcEtNUZegqNuCWw
+💾 Position saved to active-positions.json
+[3:47:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 14 new qualified opportunity(ies)
+🎯 Best pick: TRISIG (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: TRISIG
+Score: 7.5/10
+CA: BLDiYcvm3CLcgZ7XUBPgz6idSAkNmWY6MBbm8Xpjpump
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+📋 Instructions OK
+✅ SUCCESS: 4EW3DpQfnFkjZY5VtQCTzP63dUzhHGkg4LvWhb8ZHvnrMWXk9bB3novyn7enFRpVJ9sDijWRuZVUJBaxfEetHGq1
+✅ Trade executed: 4EW3DpQfnFkjZY5VtQCTzP63dUzhHGkg4LvWhb8ZHvnrMWXk9bB3novyn7enFRpVJ9sDijWRuZVUJBaxfEetHGq1
+💾 Position saved to active-positions.json
+[3:57:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.196e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 15 new qualified opportunity(ies)
+🎯 Best pick: TRISIG (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: TRISIG
+Score: 7.5/10
+CA: BLDiYcvm3CLcgZ7XUBPgz6idSAkNmWY6MBbm8Xpjpump
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+📋 Instructions OK
+✅ SUCCESS: 6TfEqzyT4QXSTPVhCJUmJEVy97nP4YVoWtZJF5y3ZZXAdRKQ2352Yonb58pzoxFChGTGCL3BaHrAjrBAyTkwRST
+✅ Trade executed: 6TfEqzyT4QXSTPVhCJUmJEVy97nP4YVoWtZJF5y3ZZXAdRKQ2352Yonb58pzoxFChGTGCL3BaHrAjrBAyTkwRST
+💾 Position saved to active-positions.json
+[4:07:54 AM] 🔍 Scanning...
+✅ Found 23 new qualified opportunity(ies)
+🎯 Best pick: BCOQ (7.8/10)
+
+🚀 EXECUTING TRADE
+Token: BCOQ
+Score: 7.8/10
+CA: coqRkaaKeUygDPhuS3mrmrj6DiHjeQJc2rFbT2YfxWn
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+📋 Instructions OK
+✅ SUCCESS: 5PkcKQbk5S1hx3kwgidL2fqKZ23AaTb8zP4qWr23tvkjF9ZwSKGXRhCBkLj6rPom2g79hsY8TSkQh7Z6RoWzALpb
+✅ Trade executed: 5PkcKQbk5S1hx3kwgidL2fqKZ23AaTb8zP4qWr23tvkjF9ZwSKGXRhCBkLj6rPom2g79hsY8TSkQh7Z6RoWzALpb
+💾 Position saved to active-positions.json
+[4:17:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 14 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[4:27:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 15 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[4:37:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 16 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[4:47:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 16 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[4:57:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 14 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[5:07:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 15 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[5:17:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 15 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[5:27:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 13 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[5:37:54 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 12 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[5:47:55 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 14 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[5:57:55 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 15 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[6:07:55 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 13 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[6:17:55 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 12 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[6:27:55 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 11 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[6:37:55 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 11 new qualified opportunity(ies)
+🎯 Best pick: BUFFETT (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: BUFFETT
+Score: 7.5/10
+CA: CGTKNjw3KZ4vdo1i7Qs5PWprMYqQGPXy8nJj649n7h69
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+❌ Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+❌ Trade failed: Failed to get swap instructions: HTTP error! status: 500, message: {"error":"Failed to swap","details":"Failed to get quote: No multi-hop route found"}
+[6:47:55 AM] 🔍 Scanning...
+📊 Active Positions: 1
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 12 new qualified opportunity(ies)
+🎯 Best pick: TRISIG (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: TRISIG
+Score: 7.5/10
+CA: BLDiYcvm3CLcgZ7XUBPgz6idSAkNmWY6MBbm8Xpjpump
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+📋 Instructions OK
+✅ SUCCESS: 5PgiSDZ1gEQzJMY3DfYZXcgEckugehemxXrQN7YwpZTLJB5Hv7QuVm672d86J1XJaxhcWfq7mhaofJLZBTcQp6hM
+✅ Trade executed: 5PgiSDZ1gEQzJMY3DfYZXcgEckugehemxXrQN7YwpZTLJB5Hv7QuVm672d86J1XJaxhcWfq7mhaofJLZBTcQp6hM
+💾 Position saved to active-positions.json
+[6:57:55 AM] 🔍 Scanning...
+📊 Active Positions: 2
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+  - TRISIG (BLDiYcvm...) | Entry: $0.00008113
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+🚫 SKIP BCOQ - Already have active position!
+✅ Found 10 new qualified opportunity(ies)
+🎯 Best pick: SAFEMOON (7.5/10)
+
+🚀 EXECUTING TRADE
+Token: SAFEMOON
+Score: 7.5/10
+CA: G9YU3K1MiPTv7Krui5omkPBPP21GChPPE3c9izRKbonk
+✅ Duplicate check passed
+
+🔄 Swap: 0.01 SOL
+📋 Instructions OK
+✅ SUCCESS: 5bwGMRAhGHYBAVGtZwjpEgkLdhDeMpxjFjzJo7LTn2iS1nzh9jCsf54qgpdbgMAWQjB9rVbZXoZPccLjCsCSq8AG
+✅ Trade executed: 5bwGMRAhGHYBAVGtZwjpEgkLdhDeMpxjFjzJo7LTn2iS1nzh9jCsf54qgpdbgMAWQjB9rVbZXoZPccLjCsCSq8AG
+💾 Position saved to active-positions.json
+[7:07:55 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+  - TRISIG (BLDiYcvm...) | Entry: $0.00008113
+  - SAFEMOON (G9YU3K1M...) | Entry: $0.0001288
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[7:17:55 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+  - TRISIG (BLDiYcvm...) | Entry: $0.00008113
+  - SAFEMOON (G9YU3K1M...) | Entry: $0.0001288
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[7:27:55 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+  - TRISIG (BLDiYcvm...) | Entry: $0.00008113
+  - SAFEMOON (G9YU3K1M...) | Entry: $0.0001288
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[7:37:55 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+  - TRISIG (BLDiYcvm...) | Entry: $0.00008113
+  - SAFEMOON (G9YU3K1M...) | Entry: $0.0001288
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[7:47:55 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+  - TRISIG (BLDiYcvm...) | Entry: $0.00008113
+  - SAFEMOON (G9YU3K1M...) | Entry: $0.0001288
+🚫 Max concurrent positions reached (3). Waiting for exits...
+[7:57:55 AM] 🔍 Scanning...
+📊 Active Positions: 3
+  - BCOQ (coqRkaaK...) | Entry: $2.823e-9
+  - TRISIG (BLDiYcvm...) | Entry: $0.00008113
+  - SAFEMOON (G9YU3K1M...) | Entry: $0.0001288
+🚫 Max concurrent positions reached (3). Waiting for exits...

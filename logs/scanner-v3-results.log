@@ -1,0 +1,12 @@
+
+🔍 Enhanced Scanner v3.0 - Starting...
+
+📊 Fetching market sentiment...
+Composite Sentiment: 34/100 (Fear)
+F&G: 11/100, SOL: 68.0% bullish
+
+🔎 Scanning Solana tokens...
+
+TypeError: Cannot read properties of null (reading 'filter')
+    at scanMarket (/root/trading-bot/enhanced-scanner-v3.js:138:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

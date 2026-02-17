@@ -1,0 +1,190 @@
+
+📊 Performance Analysis
+
+No trades to analyze yet.
+
+📊 Performance Analysis
+
+No trades to analyze yet.
+
+📊 Performance Analysis
+
+No trades to analyze yet.
+
+📊 Performance Analysis
+
+No trades to analyze yet.
+
+📊 Performance Analysis
+
+No trades to analyze yet.
+
+📊 Performance Analysis
+
+No trades to analyze yet.
+
+📊 Performance Analysis
+
+No trades to analyze yet.
+node:internal/modules/cjs/loader:1386
+  throw err;
+  ^
+
+Error: Cannot find module '/root/trading-bot/performance-tracker.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.22.0
+node:internal/modules/cjs/loader:1386
+  throw err;
+  ^
+
+Error: Cannot find module '/root/trading-bot/performance-tracker.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.22.0
+node:internal/modules/cjs/loader:1386
+  throw err;
+  ^
+
+Error: Cannot find module '/root/trading-bot/performance-tracker.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.22.0
+node:internal/modules/cjs/loader:1386
+  throw err;
+  ^
+
+Error: Cannot find module '/root/trading-bot/performance-tracker.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.22.0
+node:internal/modules/cjs/loader:1386
+  throw err;
+  ^
+
+Error: Cannot find module '/root/trading-bot/performance-tracker.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.22.0
+
+🤖 AUTONOMOUS TRADING SYSTEM - PERFORMANCE MONITOR
+Report Time: 2026-02-16 18:00:01 WIB
+
+============================================================
+📊 PAPER TRADER V5 PERFORMANCE REPORT
+============================================================
+Generated: 2026-02-16 18:00:01
+
+📈 TRADE STATISTICS:
+  Total Trades:    3984
+  ├─ Open:         297
+  └─ Closed:       3687
+     ├─ Wins:      1261
+     └─ Losses:    2426
+
+💹 PERFORMANCE METRICS:
+  Win Rate:        34.2%
+  Total PnL:       +4966.31%
+  Average Win:     +9.71%
+  Average Loss:    -3.00%
+  Profit Factor:   1.68
+
+📅 RECENT (Last 10 trades):
+  Win Rate:        0.0%
+
+🎯 TOP STRATEGIES:
+  1. fibonacci_pure_fib_0.5_1.272
+     Trades: 2656 | WR: 34% | PnL: +3327.8%
+  2. fibonacci_pure_fib_0.382_2.618
+     Trades: 1328 | WR: 34% | PnL: +1638.5%
+
+============================================================
+
+
+============================================================
+📊 LIVE TRADER V4 PERFORMANCE REPORT
+============================================================
+Generated: 2026-02-16 18:00:01
+
+📈 TRADE STATISTICS:
+  Total Trades:    8
+  ├─ Open:         0
+  └─ Closed:       8
+     ├─ Wins:      0
+     └─ Losses:    0
+
+💹 PERFORMANCE METRICS:
+  Win Rate:        0.0%
+  Total PnL:       +0.00%
+  Average Win:     +0.00%
+  Average Loss:    +0.00%
+
+📅 RECENT (Last 10 trades):
+  Win Rate:        0.0%
+
+🎯 TOP STRATEGIES:
+  1. unknown
+     Trades: 8 | WR: 0% | PnL: +0.0%
+
+============================================================
+
+
+📋 SYSTEM SUMMARY:
+  Paper Trader:    3984 trades, 34.2% WR
+  Live Trader:     8 positions, 8 closed
+
+✅ Report generated successfully
+
+python3: can't open file '/root/trading-bot/performance-monitor.py': [Errno 2] No such file or directory
+python3: can't open file '/root/trading-bot/performance-monitor.py': [Errno 2] No such file or directory
+python3: can't open file '/root/trading-bot/performance-monitor.py': [Errno 2] No such file or directory

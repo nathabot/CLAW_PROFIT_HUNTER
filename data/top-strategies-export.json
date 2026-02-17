@@ -1,0 +1,228 @@
+[
+  {
+    "id": "reddit_demo_4",
+    "name": "Delta Neutral AAVE Curve Yield",
+    "source": "reddit",
+    "sourceUrl": "https://reddit.com/r/DeFi/comments/demo4",
+    "category": "position",
+    "confidence": 0.92,
+    "entry": "Deposit USDC to AAVE. Borrow 50% in ETH. Deposit borrowed ETH + equivalent USDC to Curve stETH pool. Farm CRV and AAVE rewards.",
+    "exit": "Monitor health factor > 1.5. Exit if borrowing rate > farming yield by >5% APY or if ETH volatility exceeds 15% daily.",
+    "risk": "Max 20% of portfolio. Monitor liquidation risk continuously. Use automation for health factor management.",
+    "indicators": [
+      "yield farming",
+      "delta neutral"
+    ],
+    "tokens": [
+      "AAVE",
+      "CRV",
+      "ETH",
+      "USDC",
+      "stETH"
+    ],
+    "sentiment": 0.55
+  },
+  {
+    "id": "medium_demo_2",
+    "name": "Mean Reversion Algorithmic System",
+    "source": "medium",
+    "sourceUrl": "https://medium.com/towards-data-science/algorithmic-crypto-trading",
+    "category": "algorithmic",
+    "confidence": 0.91,
+    "entry": "Calculate z-score of price relative to 50-period mean. Enter long when z-score < -2.0, short when > 2.0. Filter with ADX > 25 to avoid ranging markets.",
+    "exit": "Exit when z-score returns to 0.5 or after 10 periods whichever comes first. Hard stop at z-score +/- 3.5.",
+    "risk": "Kelly criterion position sizing. Max 2% per trade. Portfolio heat max 6%. Daily loss limit 5%.",
+    "indicators": [
+      "Z-SCORE",
+      "ADX",
+      "EMA"
+    ],
+    "backtest": {
+      "winRate": 54.8,
+      "profitFactor": 1.62,
+      "sharpeRatio": 1.18,
+      "maxDrawdown": 18.3,
+      "return": 38.7
+    },
+    "tokens": [
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "sentiment": 0.55
+  },
+  {
+    "id": "medium_demo_1",
+    "name": "MACD Histogram Reversal",
+    "source": "medium",
+    "sourceUrl": "https://medium.com/@traderjohn/macd-histogram-strategy-2026",
+    "category": "swing",
+    "confidence": 0.88,
+    "entry": "Enter when MACD histogram shows divergence from price AND histogram bars start shortening in direction of trend. Confirm with price action at key level.",
+    "exit": "Exit when MACD line crosses signal line in opposite direction OR when histogram reaches extreme reading (>80th percentile).",
+    "risk": "Risk 1% per trade. Stop placed beyond recent swing high/low. Use position scaling: 50% at entry, 50% on confirmation.",
+    "indicators": [
+      "MACD",
+      "EMA"
+    ],
+    "backtest": {
+      "winRate": 62.3,
+      "profitFactor": 1.85,
+      "sharpeRatio": 1.42,
+      "maxDrawdown": 12.5,
+      "return": 45.2
+    },
+    "tokens": [
+      "BTC",
+      "ETH"
+    ],
+    "sentiment": 0.68
+  },
+  {
+    "id": "reddit_demo_1",
+    "name": "RSI Divergence Strategy",
+    "source": "reddit",
+    "sourceUrl": "https://reddit.com/r/CryptoCurrency/comments/demo1",
+    "category": "swing",
+    "confidence": 0.85,
+    "entry": "Enter long when RSI shows bullish divergence (price lower low, RSI higher low) AND price touches support. Enter short on bearish divergence with resistance touch.",
+    "exit": "Take profit at 1:2 risk/reward or when opposite divergence forms. Trail stop below/above recent swing points.",
+    "risk": "Risk 1% per trade. Stop loss 2% below entry for longs, 2% above for shorts. Maximum 3 open positions.",
+    "indicators": [
+      "RSI",
+      "divergence",
+      "support",
+      "resistance"
+    ],
+    "tokens": [
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "sentiment": 0.65
+  },
+  {
+    "id": "medium_demo_5",
+    "name": "Ichimoku Cloud Breakout",
+    "source": "medium",
+    "sourceUrl": "https://medium.com/@swingtrader/ichimoku-cloud-strategy",
+    "category": "swing",
+    "confidence": 0.85,
+    "entry": "Long when price breaks above cloud, Tenkan crosses above Kijun, and Chikou span is above price. All three conditions must align.",
+    "exit": "Exit when price closes below cloud OR Tenkan crosses below Kijun. Trail stop using Kijun line.",
+    "risk": "Risk 1.5% per trade. Stop below the cloud or recent Kijun low. No trades if cloud is too thin (<2% price width).",
+    "indicators": [
+      "ICHIMOKU"
+    ],
+    "backtest": {
+      "winRate": 51.3,
+      "profitFactor": 2.1,
+      "sharpeRatio": 1.35,
+      "maxDrawdown": 15.2,
+      "return": 42.5
+    },
+    "tokens": [
+      "BTC",
+      "ETH",
+      "LINK",
+      "UNI"
+    ],
+    "sentiment": 0.48
+  },
+  {
+    "id": "medium_demo_4",
+    "name": "Order Flow Volume Scalping",
+    "source": "medium",
+    "sourceUrl": "https://medium.com/@scalpmaster/crypto-scalping-2026",
+    "category": "scalping",
+    "confidence": 0.82,
+    "entry": "Mark volume profile POC (point of control) and value area highs/lows. Enter long when price tests value area low with positive delta. Short on VAH test with negative delta.",
+    "exit": "Target POC or opposite value area edge. Immediate exit if delta flips against position.",
+    "risk": "Ultra-tight stops (0.3-0.5%). Max 0.5% risk per trade. Stop after 3 consecutive losses. Only trade first 4 hours of session.",
+    "indicators": [
+      "VOLUME PROFILE",
+      "DELTA",
+      "POC"
+    ],
+    "backtest": {
+      "winRate": 64.2,
+      "profitFactor": 1.45,
+      "return": 52.8
+    },
+    "tokens": [
+      "BTC",
+      "ETH"
+    ],
+    "sentiment": 0.62
+  },
+  {
+    "id": "reddit_demo_3",
+    "name": "VWAP Bollinger Mean Reversion",
+    "source": "reddit",
+    "sourceUrl": "https://reddit.com/r/CryptoMarkets/comments/demo3",
+    "category": "day_trading",
+    "confidence": 0.78,
+    "entry": "When price touches lower Bollinger Band (2 std dev) AND is below VWAP by >1%, enter long. Short on upper band touch above VWAP.",
+    "exit": "Target VWAP line or middle Bollinger Band. Stop beyond the band that was touched.",
+    "risk": "Risk 1.5% per trade. Max 2 trades per day. Avoid during high volatility events.",
+    "indicators": [
+      "VWAP",
+      "Bollinger Bands",
+      "mean reversion"
+    ],
+    "tokens": [
+      "BTC",
+      "ETH"
+    ],
+    "sentiment": 0.38
+  },
+  {
+    "id": "medium_demo_3",
+    "name": "Fibonacci Confluence Trading",
+    "source": "medium",
+    "sourceUrl": "https://medium.com/@cryptoguru/fibonacci-trading-guide",
+    "category": "swing",
+    "confidence": 0.76,
+    "entry": "Draw Fib retracement from last swing high to low. Look for confluence at 0.618 or 0.786 with prior support/resistance. Enter on bullish candlestick pattern at these levels.",
+    "exit": "Take partial profits at 0.5 and 0.618 extensions. Trail remaining position with ATR-based stop.",
+    "risk": "Risk 1-1.5% per trade. Stop below/above the Fib level that was tested. Avoid entries if price has moved >50% toward next level.",
+    "indicators": [
+      "FIBONACCI",
+      "ATR"
+    ],
+    "backtest": {
+      "winRate": 58.4,
+      "profitFactor": 1.73
+    },
+    "tokens": [
+      "BTC",
+      "ETH",
+      "SOL",
+      "DOT"
+    ],
+    "sentiment": 0.45
+  },
+  {
+    "id": "reddit_demo_2",
+    "name": "EMA Crossover Volume Strategy",
+    "source": "reddit",
+    "sourceUrl": "https://reddit.com/r/SatoshiStreetBets/comments/demo2",
+    "category": "scalping",
+    "confidence": 0.72,
+    "entry": "Long when 9 EMA crosses above 21 EMA with volume > 150% of 20-period average. Short on opposite cross.",
+    "exit": "Exit on opposite crossover or when RSI > 70 (long) / < 30 (short).",
+    "risk": "0.5% risk per trade. Tight stops just beyond recent swing. No weekend trades.",
+    "indicators": [
+      "EMA",
+      "volume",
+      "RSI"
+    ],
+    "tokens": [
+      "SOL",
+      "ADA",
+      "MATIC",
+      "AVAX"
+    ],
+    "sentiment": 0.42
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "strategies": {
+    "momentum": { "enabled": true, "weight": 1.1 },
+    "fear-greed": { "enabled": true, "weight": 0.5 },
+    "rsi-bounce": { "enabled": false, "weight": 0.9 },
+    "volume-profile": { "enabled": true, "weight": 0.8 },
+    "trending": { "enabled": true, "weight": 1.2 },
+    "breakout": { "enabled": true, "weight": 0.9 },
+    "smart-money": { "enabled": true, "weight": 1.1 },
+    "liquidity-snipe": { "enabled": false, "weight": 0.8 }
+  },
+  "combinationMode": "weighted-average",
+  "minScore": 5.5,
+  "baseMinScore": 5.5,
+  "maxConcurrent": 3,
+  "scanInterval": 60000,
+  "positionSize": 0.015,
+  "basePositionSize": 0.015,
+  "aggressiveMode": true,
+  "marketRegime": "GREED",
+  "expectedWinRate": "55-60%",
+  "primaryStrategy": "Trending/Breakout"
+}

@@ -1,0 +1,26 @@
+bs58 loaded, decode type: function
+Wallet data loaded, address: EKbhgJrxCL93cBkENoS7vPeRQiSWoNgdW1oPv1sGQZrX
+Private key exists: true
+Secret key decoded, length: 64
+Wallet created
+Wallet loaded: EKbhgJrxCL93cBkENoS7...
+📊 Monitoring TRUMP2 (DYNAMIC TP/SL)...
+  SL: $0.00481670
+  TP1: $0.00526361 (50% exit)
+  TP2: $0.00544774 (final exit)
+  Max retries: 5
+9:25:45 AM | TRUMP2: $0.00487000 | PnL: -4.96%
+9:25:50 AM | TRUMP2: $0.00487000 | PnL: -4.96%
+9:25:55 AM | TRUMP2: $0.00487000 | PnL: -4.96%
+9:26:00 AM | TRUMP2: $0.00487000 | PnL: -4.96%
+9:26:05 AM | TRUMP2: $0.00487000 | PnL: -4.96%
+9:26:10 AM | TRUMP2: $0.00485000 | PnL: -5.35%
+9:26:15 AM | TRUMP2: $0.00485000 | PnL: -5.35%
+9:26:20 AM | TRUMP2: $0.00485000 | PnL: -5.35%
+9:26:25 AM | TRUMP2: $0.00485000 | PnL: -5.35%
+9:26:30 AM | TRUMP2: $0.00485000 | PnL: -5.35%
+9:26:35 AM | TRUMP2: $0.00953900 | PnL: +86.16%
+🎯 TP1 HIT - Executing sell 50% (attempt 1/5)...
+  🔄 Executing sell (50%)...
+🎯 TP2 HIT - FINAL EXIT - Executing sell (attempt 1/5)...
+  🔄 Executing sell (95%)...

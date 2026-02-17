@@ -1,0 +1,19 @@
+═══════════════════════════════════════════════════
+  EXIT MANAGER - HALF
+═══════════════════════════════════════════════════
+
+Entry: $0.00008072
+Stop: $0.0000782984 (-3%)
+Target: $0.0000855632 (+6%)
+Check interval: 30s
+
+1:31:24 PM | 📈 $0.0000870900 | PnL: +7.89% (+0.0012 SOL)
+
+🚨 EXIT SIGNAL: TAKE PROFIT
+Price: $0.00008709
+Executing sell...
+❌ Sell failed: Command failed: node tracker-swap.js sell AK6r5GzVq155toFcwNj6HqwLTdUBQB9i3Ld3zsnZpump 100
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+Usage: node tracker-swap.js buy <TOKEN> <amount_SOL>
+Example: node tracker-swap.js buy SOL 0.01
+

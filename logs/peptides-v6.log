@@ -1,0 +1,71 @@
+✅ Wallet loaded: EKbhgJrxCL93cBkENoS7...
+
+📊 Exit Monitor v6 - Jupiter Edition
+Token: Peptides
+Entry: $0.0002681
+SL: $0.0002520212387
+TP1: $0.0002754046526 (50%)
+TP2: $0.0002850386191 (100%)
+
+⏱️ Monitoring every 30s...
+
+11:17:58 AM | Peptides: $0.00006772 | PnL: -74.74%
+🛑 STOP LOSS HIT - Executing sell (attempt 1/5)...
+
+🎯 EXECUTING SELL 95%
+  🔄 Jupiter failed, trying Solana Tracker fallback...
+  🔄 Trying Solana Tracker...
+  ❌ Sell failed: Failed to swap
+11:18:28 AM | Peptides: $0.00007128 | PnL: -73.41%
+🛑 STOP LOSS HIT - Executing sell (attempt 2/5)...
+
+🎯 EXECUTING SELL 95%
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+  🔄 Jupiter failed, trying Solana Tracker fallback...
+  🔄 Trying Solana Tracker...
+  ❌ Sell failed: Failed to swap
+11:18:58 AM | Peptides: $0.00007058 | PnL: -73.67%
+🛑 STOP LOSS HIT - Executing sell (attempt 3/5)...
+
+🎯 EXECUTING SELL 95%
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+  🔄 Jupiter failed, trying Solana Tracker fallback...
+  🔄 Trying Solana Tracker...
+  ❌ Sell failed: Failed to swap
+11:19:28 AM | Peptides: $0.00006787 | PnL: -74.68%
+🛑 STOP LOSS HIT - Executing sell (attempt 4/5)...
+
+🎯 EXECUTING SELL 95%
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+  🔄 Jupiter failed, trying Solana Tracker fallback...
+  🔄 Trying Solana Tracker...
+  ❌ Sell failed: Failed to swap
+11:19:58 AM | Peptides: $0.00006916 | PnL: -74.20%
+🛑 STOP LOSS HIT - Executing sell (attempt 5/5)...
+
+🎯 EXECUTING SELL 95%
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+  🔄 Jupiter failed, trying Solana Tracker fallback...
+  🔄 Trying Solana Tracker...
+  ❌ Sell failed: Failed to swap
+11:20:28 AM | Peptides: $0.00007082 | PnL: -73.58%
+11:20:58 AM | Peptides: $0.00006953 | PnL: -74.07%
+11:21:28 AM | Peptides: $0.00006981 | PnL: -73.96%
+11:21:58 AM | Peptides: $0.00006886 | PnL: -74.32%
+11:22:28 AM | Peptides: $0.00006769 | PnL: -74.75%
+11:22:58 AM | Peptides: $0.00006769 | PnL: -74.75%
+11:23:28 AM | Peptides: $0.00006530 | PnL: -75.64%
+11:23:58 AM | Peptides: $0.00006198 | PnL: -76.88%
+11:24:28 AM | Peptides: $0.00006333 | PnL: -76.38%
+11:24:58 AM | Peptides: $0.00006205 | PnL: -76.86%
+11:25:28 AM | Peptides: $0.00006205 | PnL: -76.86%
+11:25:58 AM | Peptides: $0.00005720 | PnL: -78.66%
+11:26:28 AM | Peptides: $0.00005720 | PnL: -78.66%
+11:26:58 AM | Peptides: $0.00005873 | PnL: -78.09%
+11:27:28 AM | Peptides: $0.00005654 | PnL: -78.91%
+11:27:58 AM | Peptides: $0.00005602 | PnL: -79.10%
+11:28:28 AM | Peptides: $0.00005629 | PnL: -79.00%
+11:28:58 AM | Peptides: $0.00005501 | PnL: -79.48%
+11:29:28 AM | Peptides: $0.00005535 | PnL: -79.35%
+11:29:58 AM | Peptides: $0.00006072 | PnL: -77.35%
+11:30:28 AM | Peptides: $0.00006072 | PnL: -77.35%

@@ -1,0 +1,134 @@
+🚀 SOUL CORE PAPER TRADER v4.0 - Multi-Indicator Combinations
+📅 16/2/2026, 04.39.31
+📊 Testing 20 strategy combinations
+
+
+📝 PAPER TRADING: TEST1
+  ✅ Strategy: Quick Scalp (OB only)
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.6:1
+  ✅ Result: WIN_TP1 +4.00%
+
+📝 PAPER TRADING: TEST2
+  ✅ Strategy: OB Imbalance + Funding
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.5:1, Funding 0.017%
+  ❌ Result: LOSS -3.00%
+
+📝 PAPER TRADING: TEST3
+  ❌ No strategy qualified
+
+📝 PAPER TRADING: TEST4
+  ✅ Strategy: Quick Scalp (OB only)
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.9:1
+  ❌ Result: LOSS -2.00%
+
+📝 PAPER TRADING: TEST5
+  ✅ Strategy: Quick Scalp (OB only)
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.8:1
+  ❌ Result: LOSS -2.00%
+
+📝 PAPER TRADING: TEST6
+  ✅ Strategy: OB Imbalance + Funding
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.5:1, Funding 0.072%
+  🎯 Result: WIN_TP2 +14.00%
+
+📝 PAPER TRADING: TEST7
+  ✅ Strategy: OB Imbalance + Funding
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.8:1, Funding 0.075%
+  ❌ Result: LOSS -3.00%
+
+📝 PAPER TRADING: TEST8
+  ✅ Strategy: Quick Scalp (OB only)
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.9:1
+  ❌ Result: LOSS -2.00%
+
+📝 PAPER TRADING: TEST9
+  ❌ No strategy qualified
+
+📝 PAPER TRADING: TEST10
+  ✅ Strategy: OB Imbalance + Funding
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.3:1, Funding -0.094%
+  ✅ Result: WIN_TP1 +8.00%
+
+📝 PAPER TRADING: TEST11
+  ✅ Strategy: OB Imbalance + Funding
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 3.4:1, Funding 0.018%
+  ❌ Result: LOSS -3.00%
+
+📝 PAPER TRADING: TEST12
+  ❌ No strategy qualified
+
+📝 PAPER TRADING: TEST13
+  ✅ Strategy: OB Imbalance + Funding
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 3.0:1, Funding 0.006%
+  ❌ Result: LOSS -3.00%
+
+📝 PAPER TRADING: TEST14
+  ✅ Strategy: OB Imbalance + Funding
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.5:1, Funding -0.020%
+  ❌ Result: LOSS -3.00%
+
+📝 PAPER TRADING: TEST15
+  ✅ Strategy: Quick Scalp (OB only)
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 3.3:1
+  ✅ Result: WIN_TP1 +4.00%
+
+📝 PAPER TRADING: TEST16
+  ✅ Strategy: Quick Scalp (OB only)
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.9:1
+  ✅ Result: WIN_TP1 +4.00%
+
+📝 PAPER TRADING: TEST17
+  ✅ Strategy: OB Imbalance + Funding
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 2.6:1, Funding -0.094%
+  ✅ Result: WIN_TP1 +8.00%
+
+📝 PAPER TRADING: TEST18
+  ❌ No strategy qualified
+
+📝 PAPER TRADING: TEST19
+  ❌ No strategy qualified
+
+📝 PAPER TRADING: TEST20
+  ✅ Strategy: Quick Scalp (OB only)
+  📊 Confidence: 10.0/10
+  🎯 Signals: OB ratio 3.0:1
+  ✅ Result: WIN_TP1 +4.00%
+
+======================================================================
+📊 MULTI-STRATEGY PAPER TRADING SUMMARY v4.0
+======================================================================
+
+🏆 STRATEGY LEADERBOARD:
+──────────────────────────────────────────────────────────────────────
+Rank │ Strategy                     │ Trades │ WR%   │ PnL%  │ Status
+──────────────────────────────────────────────────────────────────────
+🥇  1  │ Entry 0.5, TP 1.272        │    1   │   100 │ + 11.5 │ 🟢 ACTIVE
+🥈  2  │ OB Imbalance + Funding     │   36   │ 55.56 │ +154.0 │ 🔴 INACT
+🥉  3  │ Quick Scalp (OB only)      │   20   │    55 │ + 26.0 │ 🔴 INACT
+     4  │ Entry 0.618, TP 1.618 (Gol │    2   │    50 │ + 13.5 │ 🔴 INACT
+
+======================================================================
+🎯 CURRENT LEADER FOR LIVE DEPLOYMENT:
+   Strategy: OB Imbalance + Funding
+   Win Rate: 55.56% (20W/16L)
+   Total PnL: +154.00%
+   Indicators: orderbook, funding
+   SL: 3% | TP1: 10% | TP2: 18%
+======================================================================
+
+✅ Paper trading complete: 20 trades processed
+📊 Total strategies tested: 20

@@ -1,0 +1,26 @@
+bs58 loaded, decode type: function
+Wallet data loaded, address: EKbhgJrxCL93cBkENoS7vPeRQiSWoNgdW1oPv1sGQZrX
+Private key exists: true
+Secret key decoded, length: 64
+Wallet created
+Wallet loaded: EKbhgJrxCL93cBkENoS7...
+📊 Monitoring 8B (DYNAMIC TP/SL)...
+  SL: $0.00023651
+  TP1: $0.00025846 (50% exit)
+  TP2: $0.00026750 (final exit)
+  Max retries: 5
+10:06:35 AM | 8B: $0.00025160 | PnL: 0.00%
+10:06:40 AM | 8B: $0.00025160 | PnL: 0.00%
+10:06:46 AM | 8B: $0.00025160 | PnL: 0.00%
+10:06:51 AM | 8B: $0.00025160 | PnL: 0.00%
+10:06:56 AM | 8B: $0.00026490 | PnL: +5.29%
+🎯 TP1 HIT - Executing sell 50% (attempt 1/5)...
+  🔄 Executing sell (50%)...
+10:07:02 AM | 8B: $0.00026490 | PnL: +5.29%
+10:07:07 AM | 8B: $0.00026490 | PnL: +5.29%
+10:07:12 AM | 8B: $0.00026490 | PnL: +5.29%
+10:07:17 AM | 8B: $0.00026490 | PnL: +5.29%
+10:07:22 AM | 8B: $0.00026490 | PnL: +5.29%
+10:07:28 AM | 8B: $0.00030660 | PnL: +21.86%
+🎯 TP2 HIT - FINAL EXIT - Executing sell (attempt 1/5)...
+  🔄 Executing sell (95%)...

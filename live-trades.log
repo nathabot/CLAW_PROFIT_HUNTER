@@ -1,0 +1,1183 @@
+[Mon Feb 16 03:00:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:00:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:00:32 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:00:32 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:01:03 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:01:03 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:01:35 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:01:35 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:02:06 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:02:06 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:02:07 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:05:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:05:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:05:32 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:05:32 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:06:03 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:06:03 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:06:34 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:06:34 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:07:05 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:07:05 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:07:06 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:10:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:10:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:10:33 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:10:33 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:11:04 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:11:04 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:11:35 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:11:35 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:12:05 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:12:06 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:12:07 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:15:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:15:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:15:32 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:15:32 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:16:03 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:16:03 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:16:34 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:16:34 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:17:05 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:17:05 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:17:06 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:20:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:20:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:20:32 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:20:32 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:21:04 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:21:04 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:21:35 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:21:35 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:22:06 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:22:06 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:22:07 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:25:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:25:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:25:32 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:25:32 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:26:03 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:26:03 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:26:34 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:26:34 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:27:05 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:27:05 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:27:07 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:30:02 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:30:02 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:30:33 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:30:33 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:31:04 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:31:04 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:31:35 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:31:35 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:32:06 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:32:06 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:32:07 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:35:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:35:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:35:33 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:35:33 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:36:04 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:36:04 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:36:35 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:36:35 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:37:06 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:37:06 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:37:07 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:40:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:40:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:40:32 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:40:32 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:41:03 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:41:03 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:41:35 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:41:35 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:42:06 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:42:06 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:42:07 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:45:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:45:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:45:37 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:45:37 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:46:08 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:46:08 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:46:39 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:46:39 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:47:10 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:47:10 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:47:11 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:50:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:50:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:50:39 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:50:39 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:51:10 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:51:10 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:51:41 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:51:41 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:52:12 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:52:12 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:52:13 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 03:55:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:55:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 03:55:32 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:55:32 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 03:56:03 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:56:03 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 03:56:35 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:56:35 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 03:57:06 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 03:57:06 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 03:57:07 WIB 2026] Max restarts reached, giving up
+[Mon Feb 16 04:00:01 WIB 2026] Starting live trader (attempt 1/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 04:00:01 WIB 2026] Live trader restarted (count: 1)
+[Mon Feb 16 04:00:32 WIB 2026] Starting live trader (attempt 2/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 04:00:32 WIB 2026] Live trader restarted (count: 2)
+[Mon Feb 16 04:01:03 WIB 2026] Starting live trader (attempt 3/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 04:01:03 WIB 2026] Live trader restarted (count: 3)
+[Mon Feb 16 04:01:34 WIB 2026] Starting live trader (attempt 4/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 04:01:34 WIB 2026] Live trader restarted (count: 4)
+[Mon Feb 16 04:02:05 WIB 2026] Starting live trader (attempt 5/5)
+/root/trading-bot/prana-live-trader-v4-dynamic.js:743
+console.log(`Wallet loaded: ${wallet.publicKey.toString().slice(0, 20)}...`);
+             ^^^^^^
+
+SyntaxError: Unexpected identifier 'Wallet'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0
+[Mon Feb 16 04:02:05 WIB 2026] Live trader restarted (count: 5)
+[Mon Feb 16 04:02:06 WIB 2026] Max restarts reached, giving up
