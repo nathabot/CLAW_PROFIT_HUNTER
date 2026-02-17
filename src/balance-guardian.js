@@ -91,6 +91,15 @@ class BalanceGuardian {
   }
 
   recordBalance(balance) {
+    // SAFETY: Don't record 0 balance if we had positive balance before (RPC error protection)
+    if (balance === 0 && this.history.entries.length > 0) {
+      const lastEntry = this.history.entries[this.history.entries.length - 1];
+      if (lastEntry.balance > 0) {
+        console.log(`   ⚠️ Not recording 0 balance (RPC error), keeping last: ${lastEntry.balance.toFixed(4)} SOL`);
+        return;
+      }
+    }
+    
     const entry = {
       timestamp: Date.now(),
       balance: balance,
@@ -313,9 +322,10 @@ class BalanceGuardian {
     console.log(`   Drop from high: ${analysis.dropFromHigh.toFixed(2)}%`);
     console.log(`   Trend: ${analysis.trend}`);
     
-    // SAFETY CHECK: Don't trigger if balance is 0 (likely RPC error)
-    if (balance === 0 && analysis.high > 0) {
-      console.log('\n⚠️ Balance shows 0 but high was ' + analysis.high.toFixed(4) + '. Possible RPC error. Skipping emergency stop.');
+    // SAFETY CHECK: Don't trigger if balance is 0 or very low (likely RPC error)
+    if ((balance === 0 || balance < 0.001) && analysis.high > 0.01) {
+      console.log('\n⚠️ Balance shows ' + balance.toFixed(4) + ' but high was ' + analysis.high.toFixed(4) + '. Possible RPC error. Skipping emergency stop.');
+      console.log('   Using cached balance instead.');
       return;
     }
     
