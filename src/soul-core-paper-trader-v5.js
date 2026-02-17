@@ -891,7 +891,8 @@ class PaperTraderV5 {
       
       // Build message
       let msg = `📊 **PAPER TRADER v5 REPORT**\n\n`;
-      msg += `🎯 Simulations: ${this.simulationCount}/${CONFIG.SIMULATION_COUNT}\n`;
+      const currentCycle = Math.floor(this.simulationCount / CONFIG.SIMULATION_COUNT) + 1;
+      msg += `🎯 Cycle: ${currentCycle} | Simulations: ${this.simulationCount}/${CONFIG.SIMULATION_COUNT}\n`;
       
       if (sorted.length === 0) {
         console.log('ℹ️ No strategies with 3+ trades yet, sending progress notification');
