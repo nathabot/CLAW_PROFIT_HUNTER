@@ -785,10 +785,11 @@ class PaperTraderV5 {
       
       // Simulate each strategy
       for (const strategy of BASE_STRATEGIES) {
-        // Skip if in negative list
-        if (this.negativeStrategies.includes(strategy.id)) {
-          continue;
-        }
+        // NOTE: Don't skip negative strategies in paper trading
+        // We need to test ALL strategies to find new winners
+        // if (this.negativeStrategies.includes(strategy.id)) {
+        //   continue;
+        // }
         
         const result = await this.simulateStrategy(strategy, token, candleAnalysis, orderBook);
         
