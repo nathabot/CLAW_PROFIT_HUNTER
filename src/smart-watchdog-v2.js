@@ -406,22 +406,26 @@ class SmartWatchdog {
     
     this.analyzeIssues();
     this.generateRecommendations();
-    await this.generateReport();
+    
+    // Only report if CRITICAL issues found (not warnings)
+    const criticalIssues = this.issues.filter(i => i.severity === 'critical');
+    if (criticalIssues.length > 0) {
+      await this.generateReport();
+      console.log(`\n🚨 Report sent. Found ${criticalIssues.length} CRITICAL issues.`);
+    } else {
+      console.log(`\n✅ No critical issues. ${this.issues.length} warnings (not reported).`);
+    }
     
     this.saveState();
     
-    console.log(`\n✅ Watchdog complete. Found ${this.issues.length} issues.`);
-    
-    // Schedule next run
-    setTimeout(() => this.run(), CONFIG.CHECK_INTERVAL);
+    console.log('✅ Watchdog complete.');
   }
 }
 
-// Run
+// Run once (cron handles scheduling)
 const watchdog = new SmartWatchdog();
 watchdog.run().catch(console.error);
 
-// Also run immediately on startup
 console.log('🐕 Smart Watchdog Agent v2.0 - Started');
 console.log(`📅 ${new Date().toLocaleString('id-ID')}`);
-console.log('⏱️  Checking every 5 minutes\n');
+console.log('⏱️  Running via cron (30 min)\n');
