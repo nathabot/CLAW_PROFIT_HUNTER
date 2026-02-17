@@ -21,15 +21,15 @@ const CONFIG = {
   WALLET: 'EpG25pVadjQ9M9NHJMXZSc6SsB3Mshj4Kk9uzDVB8kum',
   WALLET_PATH: '/root/trading-bot/wallet.json',
   // POSITION SIZING (Flexible - BOK Standard)
-  MIN_POSITION_SIZE: 0.015,       // Minimum position (BOK)
-  MAX_POSITION_SIZE: 0.05,        // Maximum position (BOK)
-  DEFAULT_POSITION_SIZE: 0.015,   // Default size
+  MIN_POSITION_SIZE: 0.005,      // SUPER CONSERVATIVE: 0.005 SOL       // Minimum position (BOK)
+  MAX_POSITION_SIZE: 0.01,       // Max 0.01 SOL        // Maximum position (BOK)
+  DEFAULT_POSITION_SIZE: 0.005,   // 0.005 SOL max   // Default size
   FEE_RESERVE: 0.015,             // BOK: always keep 0.015 SOL minimum for sell fees
   // DYNAMIC THRESHOLD from paper trader results
   MIN_SCORE: ADAPTIVE_CONFIG.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,
   MIN_TOKEN_AGE_MINUTES: 1440,    // 24 hours minimum token age
   MIN_LIQUIDITY_USD: 25000,       // $25k minimum liquidity
-  MAX_DAILY_TRADES: 10,           // Maximum trades per day
+  MAX_DAILY_TRADES: 5,          // Max 5 trades/day           // Maximum trades per day
   DAILY_TARGET: 0.2,
   RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304',
   // FIBONACCI STRATEGY (from paper testing - 82.5% WR)
