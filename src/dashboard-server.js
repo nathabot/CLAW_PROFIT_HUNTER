@@ -205,12 +205,14 @@ function generateDashboard() {
             padding: 15px;
             max-height: 500px;
             min-height: 200px;
-            overflow-y: scroll;
-            scroll-behavior: smooth;
+            overflow-y: scroll !important;
+            scroll-behavior: auto;
             font-family: 'Monaco', 'Consolas', monospace;
             font-size: 11px;
             line-height: 1.4;
-            padding-bottom: 30px;
+            padding-bottom: 50px;
+            display: flex;
+            flex-direction: column;
         }
         .log-container::-webkit-scrollbar {
             width: 10px;
@@ -439,10 +441,12 @@ function generateDashboard() {
                 document.getElementById('paperLog').innerHTML = formatLog(logs.paperTrader);
                 document.getElementById('intelLog').innerHTML = formatLog(logs.intelligence);
                 
-                // Scroll to bottom
-                scrollToBottom('liveLog');
-                scrollToBottom('paperLog');
-                scrollToBottom('intelLog');
+                // Scroll to bottom after DOM update
+                setTimeout(() => {
+                    scrollToBottom('liveLog');
+                    scrollToBottom('paperLog');
+                    scrollToBottom('intelLog');
+                }, 100);
             } catch (e) {
                 console.error('Failed to load logs:', e);
             }
@@ -451,7 +455,8 @@ function generateDashboard() {
         function scrollToBottom(elementId) {
             const el = document.getElementById(elementId);
             if (el) {
-                el.scrollTop = el.scrollHeight;
+                el.scrollTop = el.scrollHeight + 100; // Add extra scroll
+                console.log('Scrolled ' + elementId + ' to:', el.scrollTop);
             }
         }
         
