@@ -18,7 +18,7 @@ const SOLANA_TRACKER_BASE_URL = 'https://swap-v2.solanatracker.io';
 const ADAPTIVE_CONFIG = JSON.parse(fs.readFileSync('/root/trading-bot/adaptive-scoring-config.json', 'utf8'));
 
 const CONFIG = {
-  WALLET: 'EKbhgJrxCL93cBkENoS7vPeRQiSWoNgdW1oPv1sGQZrX',
+  WALLET: 'EpG25pVadjQ9M9NHJMXZSc6SsB3Mshj4Kk9uzDVB8kum',
   WALLET_PATH: '/root/trading-bot/wallet.json',
   // POSITION SIZING (Flexible - BOK Standard)
   MIN_POSITION_SIZE: 0.015,       // Minimum position (BOK)
