@@ -3226,3 +3226,113 @@ Smart Money + Fib:
 
 🔗 Loading Strategy Intelligence signals...
 📊 Loaded 0 signals from Intelligence Network
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 12/50
+💰 Wallet: 0.1885 SOL
+🎯 Daily Target: 0.4 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 12/50
+💰 Wallet: 0.1885 SOL
+🎯 Daily Target: 0.4 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+📊 Found 20 tokens from market scan
+
+🔍 Testing: bsh
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.35:1)
+🔍 Testing: dih
+   ✅ Candle: ACCEPTABLE: -3.1% movement (Score: 6)
+   📊 Order Book: moderate (1.34:1)
+🔍 Testing: AD
+   ❌ FOMO ALERT: Pumped 19.4% in 5min - Wait for pullback
+🔍 Testing: Midnight
+   ❌ DUMP ALERT: Down 18.1% in 5min - Wait for stabilization
+🔍 Testing: COMPANY
+   ❌ FOMO ALERT: Pumped 13.7% in 5min - Wait for pullback
+🔍 Testing: KITCHEN
+   ✅ Candle: PULLBACK ENTRY: Up 29.8% in 1h, cooling off -0.3% in 5m (Score: 9)
+   📊 Order Book: strong (1.55:1)
+🔍 Testing: INTERN
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: strong (1.95:1)
+🔍 Testing: SOA
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: strong (1.97:1)
+🔍 Testing: horse
+   ❌ DUMP ALERT: Down 21.6% in 5min - Wait for stabilization
+🔍 Testing: clawdoxx
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.91:1)
+Error: ENOENT: no such file or directory, open '/root/trading-bot/book-of-profit-hunter-knowledge/16-positive-strategies.md'
+    at Object.writeFileSync (node:fs:2437:20)
+    at PaperTraderV5.writePositiveStrategies (/root/trading-bot/soul-core-paper-trader-v5.js:562:8)
+    at PaperTraderV5.updateBOKStrategyFiles (/root/trading-bot/soul-core-paper-trader-v5.js:541:10)
+    at PaperTraderV5.run (/root/trading-bot/soul-core-paper-trader-v5.js:781:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/root/trading-bot/book-of-profit-hunter-knowledge/16-positive-strategies.md'
+}
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 12/50
+💰 Wallet: 0.1885 SOL
+🎯 Daily Target: 0.4 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+📊 Found 20 tokens from market scan
+
+🔍 Testing: chefcat
+   ✅ Candle: ACCEPTABLE: 5.3% movement (Score: 6)
+   📊 Order Book: strong (1.68:1)
+🔍 Testing: WASHINGTON
+   ❌ DUMP ALERT: Down 18.8% in 5min - Wait for stabilization
+🔍 Testing: DIABLO
+   ❌ FOMO ALERT: Pumped 21.5% in 5min - Wait for pullback
+🔍 Testing: AGC
+   ❌ FOMO ALERT: Pumped 33.3% in 5min - Wait for pullback
+🔍 Testing: DETACHED
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.10:1)
+🔍 Testing: bsh
+   ❌ DUMP ALERT: Down 50.8% in 5min - Wait for stabilization
+🔍 Testing: dih
+   ❌ FOMO ALERT: Pumped 161.0% in 5min - Wait for pullback
+🔍 Testing: AD
+   ❌ DUMP ALERT: Down 14.6% in 5min - Wait for stabilization
+🔍 Testing: Midnight
+   ❌ FOMO ALERT: Pumped 16.9% in 5min - Wait for pullback
+🔍 Testing: COMPANY
+   ✅ Candle: ACCEPTABLE: 4.2% movement (Score: 6)
+   📊 Order Book: strong (1.51:1)
+Error: ENOENT: no such file or directory, open '/root/trading-bot/book-of-profit-hunter-knowledge/16-positive-strategies.md'
+    at Object.writeFileSync (node:fs:2437:20)
+    at PaperTraderV5.writePositiveStrategies (/root/trading-bot/soul-core-paper-trader-v5.js:562:8)
+    at PaperTraderV5.updateBOKStrategyFiles (/root/trading-bot/soul-core-paper-trader-v5.js:541:10)
+    at PaperTraderV5.run (/root/trading-bot/soul-core-paper-trader-v5.js:781:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/root/trading-bot/book-of-profit-hunter-knowledge/16-positive-strategies.md'
+}
