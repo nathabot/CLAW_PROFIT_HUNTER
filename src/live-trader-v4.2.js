@@ -1252,13 +1252,13 @@ class DynamicTrader {
     console.log(`  Partial Exit: ${targets.partialExitPercent}% at TP1`);
     console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 15} min\n`);
     
+    // Use flexible position size based on strategy performance
+    const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
+    
     // Execute buy via Solana Tracker
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
     console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
     console.log(`   Platform: Solana Tracker`);
-    
-    // Use flexible position size based on strategy performance
-    const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
     const swapResult = await this.executeSolanaTrackerBuy(setup.ca, positionSize);
     
     if (!swapResult.success) {
