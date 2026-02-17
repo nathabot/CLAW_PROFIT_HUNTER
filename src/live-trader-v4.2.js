@@ -1333,6 +1333,7 @@ const CHAT_ID = '${CHAT_ID}';
 const TOPIC_ID = 24;
 
 async function notify(msg) {
+  if (process.env.LIVE_TRADER_NOTIFY === 'false') return;
   try {
     await fetch(\`https://api.telegram.org/bot\${BOT_TOKEN}/sendMessage\`, {
       method: 'POST',

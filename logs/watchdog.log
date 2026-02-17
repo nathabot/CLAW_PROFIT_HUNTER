@@ -1928,3 +1928,109 @@
 ✅ Report sent to VPS Bot
 
 ✅ Watchdog complete. Found 6 issues.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog starting...
+
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 7 issues.
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 7 issues.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog starting...
+
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 6 issues.
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 6 issues.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog starting...
+
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 6 issues.
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 6 issues.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog starting...
+
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 6 issues.
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 6 issues.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog starting...
+
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 6 issues.
+✅ Report sent to VPS Bot
+
+✅ Watchdog complete. Found 6 issues.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog Agent v2.0 - Started
+📅 17/2/2026, 18.30.01
+⏱️  Running via cron (30 min)
+
+✅ Report sent to VPS Bot
+
+🚨 Report sent. Found 2 CRITICAL issues.
+✅ Watchdog complete.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog Agent v2.0 - Started
+📅 17/2/2026, 19.00.01
+⏱️  Running via cron (30 min)
+
+✅ Report sent to VPS Bot
+
+🚨 Report sent. Found 2 CRITICAL issues.
+✅ Watchdog complete.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog Agent v2.0 - Started
+📅 17/2/2026, 19.30.02
+⏱️  Running via cron (30 min)
+
+✅ Report sent to VPS Bot
+
+🚨 Report sent. Found 4 CRITICAL issues.
+✅ Watchdog complete.
+🐕 Smart Watchdog starting...
+
+🐕 Smart Watchdog Agent v2.0 - Started
+📅 17/2/2026, 19.50.02
+⏱️  Running via cron (30 min)
+
+✅ Report sent to VPS Bot
+
+🚨 Report sent. Found 4 CRITICAL issues.
+✅ Watchdog complete.
+/root/trading-bot/src/smart-watchdog-v2.js:98
+          component: 'Live Trader',
+                   ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module._compile (node:internal/modules/cjs/loader:1680:20)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.22.0

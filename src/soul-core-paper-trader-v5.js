@@ -832,7 +832,7 @@ class PaperTraderV5 {
     this.showResults();
     
     // Send Telegram notification
-    await this.notifyTelegram();
+    if (process.env.PAPER_TRADER_NOTIFY !== 'false') { await this.notifyTelegram(); }
     
     // Save state
     this.saveState();
