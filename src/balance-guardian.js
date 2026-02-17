@@ -213,6 +213,31 @@ class BalanceGuardian {
     );
   }
 
+  clearAllFlags() {
+    console.log('\n🧹 Clearing all system flags...\n');
+    
+    try {
+      fs.unlinkSync(CONFIG.EMERGENCY_STOP_FILE);
+      console.log('✅ EMERGENCY_STOP cleared');
+    } catch (e) {}
+    
+    try {
+      fs.unlinkSync(CONFIG.EVALUATION_MODE_FILE);
+      console.log('✅ EVALUATION_MODE cleared');
+    } catch (e) {}
+    
+    try {
+      fs.unlinkSync('/root/trading-bot/PAUSE_TRADING');
+      console.log('✅ PAUSE_TRADING cleared');
+    } catch (e) {}
+    
+    // Restart live trader if stopped
+    try {
+      execSync('pm2 restart live-trader-v4.2 2>/dev/null || true');
+      console.log('✅ Live Trader restarted');
+    } catch (e) {}
+  }
+
   async enterEvaluationMode() {
     console.log('\n📊 Entering Evaluation Mode...\n');
     
@@ -266,10 +291,13 @@ class BalanceGuardian {
           `✅ **OPTIMIZATION SUCCESS**\n\n` +
           `Best Strategy: ${config.bestStrategy.name}\n` +
           `Win Rate: ${bestWR}%\n\n` +
-          `Ready to resume trading with new strategy.\n` +
-          `Manual approval required.`,
+          `🚀 Auto-resuming trading with new strategy...`,
           'normal'
         );
+        
+        // FULL AUTO: Clear flags and resume trading
+        this.clearAllFlags();
+        await this.notify('✅ **TRADING RESUMED**\n\nSystem back to normal operation.', 'normal');
         
         return { success: true, wr: bestWR, strategy: config.bestStrategy };
       } else {
@@ -277,10 +305,16 @@ class BalanceGuardian {
           `⚠️ **OPTIMIZATION INCOMPLETE**\n\n` +
           `Best WR achieved: ${bestWR}%\n` +
           `Target: 70%\n\n` +
-          `Recommend: Wait for better market conditions\n` +
-          `Or manually review strategy parameters.`,
+          `System will continue with current strategies.\n` +
+          `Auto-resuming in 5 minutes...`,
           'alert'
         );
+        
+        // FULL AUTO: Clear flags after delay even if optimization incomplete
+        setTimeout(() => {
+          this.clearAllFlags();
+          this.notify('✅ **TRADING RESUMED**\n\nContinuing with current strategies.', 'normal');
+        }, 300000); // 5 minutes
         
         return { success: false, wr: bestWR };
       }
