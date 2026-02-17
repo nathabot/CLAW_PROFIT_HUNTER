@@ -27,7 +27,7 @@ const CONFIG = {
   TOPIC_ID: 24,
   
   // Commands
-  WALLET_ADDRESS: 'EKbhgJrxCL93cBkENoS7vPeRQiSWoNgdW1oPv1sGQZrX',
+  WALLET_ADDRESS: 'EpG25pVadjQ9M9NHJMXZSc6SsB3Mshj4Kk9uzDVB8kum',
   RPC: 'https://mainnet.helius-rpc.com/?api_key=74e50cb9-46b5-44dd-a67d-238283806304'
 };
 
@@ -52,7 +52,7 @@ class BalanceGuardian {
 
   async getBalance() {
     try {
-      // Try Helius RPC
+      // Try Helius RPC first
       const res = await fetch(CONFIG.RPC, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -64,9 +64,28 @@ class BalanceGuardian {
         })
       });
       const data = await res.json();
+      
+      // Check for RPC errors
+      if (data.error) {
+        console.error('RPC Error:', data.error.message);
+        // Return last known balance from history instead of 0
+        const lastEntry = this.history.entries[this.history.entries.length - 1];
+        if (lastEntry && lastEntry.balance > 0) {
+          console.log(`Using cached balance: ${lastEntry.balance} SOL`);
+          return lastEntry.balance;
+        }
+        return 0;
+      }
+      
       return data.result?.value / 1000000000 || 0; // Convert lamports to SOL
     } catch (e) {
       console.error('Error fetching balance:', e.message);
+      // Return last known balance from history instead of 0
+      const lastEntry = this.history.entries[this.history.entries.length - 1];
+      if (lastEntry && lastEntry.balance > 0) {
+        console.log(`Using cached balance: ${lastEntry.balance} SOL`);
+        return lastEntry.balance;
+      }
       return 0;
     }
   }
@@ -271,6 +290,13 @@ class BalanceGuardian {
     const balance = await this.getBalance();
     console.log(`\n💰 Current Balance: ${balance.toFixed(4)} SOL`);
     
+    // STARTUP GRACE PERIOD: Skip if less than 5 entries in history
+    if (this.history.entries.length < 5) {
+      console.log(`\n⏳ Startup grace period: ${this.history.entries.length}/5 entries. Skipping analysis.`);
+      this.recordBalance(balance);
+      return;
+    }
+    
     // Record
     this.recordBalance(balance);
     
@@ -286,6 +312,12 @@ class BalanceGuardian {
     console.log(`   Current: ${analysis.current.toFixed(4)} SOL`);
     console.log(`   Drop from high: ${analysis.dropFromHigh.toFixed(2)}%`);
     console.log(`   Trend: ${analysis.trend}`);
+    
+    // SAFETY CHECK: Don't trigger if balance is 0 (likely RPC error)
+    if (balance === 0 && analysis.high > 0) {
+      console.log('\n⚠️ Balance shows 0 but high was ' + analysis.high.toFixed(4) + '. Possible RPC error. Skipping emergency stop.');
+      return;
+    }
     
     // Check conditions
     if (analysis.dropFromHigh >= CONFIG.EMERGENCY_DROP_PERCENT) {
