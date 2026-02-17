@@ -115,6 +115,14 @@ class BalanceGuardian {
     
     this.history.lastCheck = Date.now();
     this.saveHistory();
+    
+    // Also save current balance for dashboard
+    const currentBalance = {
+      balance: balance,
+      address: CONFIG.WALLET_ADDRESS,
+      updated: Date.now()
+    };
+    fs.writeFileSync('/root/trading-bot/current-balance.json', JSON.stringify(currentBalance, null, 2));
   }
 
   analyzeTrend() {
