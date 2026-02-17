@@ -48,3 +48,48 @@
 [2026-02-17T05:00:05.219Z] ℹ️ SUMMARY: 3 new signals, 17 skipped
 [2026-02-17T05:00:05.219Z] ℹ️ ========================================
 
+[2026-02-17T09:00:01.925Z] ℹ️ ========================================
+[2026-02-17T09:00:01.954Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-17T09:00:01.954Z] ℹ️ Dynamic Signal Generation
+[2026-02-17T09:00:01.954Z] ℹ️ ========================================
+
+[2026-02-17T09:00:02.005Z] ℹ️ Database connected (schema updated)
+
+[2026-02-17T09:00:02.006Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-17T09:00:02.240Z] ℹ️ Found 20 trending tokens
+
+[2026-02-17T09:00:02.426Z] ⚠️ 跳: Low liquidity ($0)
+[2026-02-17T09:00:02.473Z] ⚠️ HILF: Low liquidity ($0)
+[2026-02-17T09:00:02.527Z] ⚠️ ACTM: Confidence too low (3.0/10)
+[2026-02-17T09:00:02.594Z] ⚠️ CH: Low liquidity ($0)
+[2026-02-17T09:00:02.652Z] ⚠️ FARTO: Low liquidity ($0)
+[2026-02-17T09:00:02.713Z] ⚠️ Slap: Low liquidity ($0)
+[2026-02-17T09:00:02.760Z] ⚠️ 福马: Low volume ($14,071.61)
+[2026-02-17T09:00:02.816Z] ⚠️ ココロ: Low liquidity ($0)
+[2026-02-17T09:00:02.886Z] ⚠️ Kirara : Low liquidity ($0)
+[2026-02-17T09:00:02.937Z] ⚠️ 宝: Low liquidity ($0)
+[2026-02-17T09:00:03.020Z] ⚠️ 马尔福: Confidence too low (5.5/10)
+[2026-02-17T09:00:03.091Z] ⚠️ 吉祥: Low liquidity ($3,685.04)
+[2026-02-17T09:00:03.235Z] ⚠️ SKILLSET: Low liquidity ($0)
+[2026-02-17T09:00:03.288Z] ⚠️ 888: Low liquidity ($3,690.49)
+[2026-02-17T09:00:03.354Z] ✅ EGL1: ✅ INSERTED (10.0/10)
+[2026-02-17T09:00:03.354Z] ℹ️    Entry: $0.848600
+[2026-02-17T09:00:03.354Z] ℹ️    TP1: $0.930066 | TP2: $1.001348
+[2026-02-17T09:00:03.354Z] ℹ️    SL: $0.797684
+[2026-02-17T09:00:03.354Z] ℹ️    Reasons: Very high volume, Strong 24h momentum, Heavy buying pressure, Excellent liquidity
+
+[2026-02-17T09:00:03.890Z] ⚠️ 🧧: Confidence too low (4.0/10)
+[2026-02-17T09:00:03.943Z] ✅ FCAGENT: ✅ INSERTED (8.0/10)
+[2026-02-17T09:00:03.944Z] ℹ️    Entry: $0.000002
+[2026-02-17T09:00:03.944Z] ℹ️    TP1: $0.000002 | TP2: $0.000003
+[2026-02-17T09:00:03.944Z] ℹ️    SL: $0.000002
+[2026-02-17T09:00:03.944Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Heavy buying pressure, Adequate liquidity
+
+[2026-02-17T09:00:04.502Z] ⚠️ WhiteHorse: Low liquidity ($0)
+[2026-02-17T09:00:04.544Z] ⚠️ 雷马: Low liquidity ($0)
+[2026-02-17T09:00:04.583Z] ⚠️ PND: Low liquidity ($0)
+[2026-02-17T09:00:04.583Z] ℹ️ 
+========================================
+[2026-02-17T09:00:04.583Z] ℹ️ SUMMARY: 2 new signals, 18 skipped
+[2026-02-17T09:00:04.583Z] ℹ️ ========================================
+

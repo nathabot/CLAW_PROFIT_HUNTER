@@ -3444,3 +3444,272 @@ Error: Cannot find module '/root/trading-bot/soul-core-paper-trader-v5.js'
 }
 
 Node.js v22.22.0
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 44/50
+💰 Wallet: 0.1885 SOL
+🎯 Daily Target: 0.4 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+Error fetching market data: invalid json response body at https://api.dexscreener.com/token-profiles/latest/v1 reason: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+📊 Found 0 tokens from market scan
+
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1885 SOL
+   Target: 0.4 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.4000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib + Volume:
+   WR: 100.0% (4W/0L)
+   PnL: 0.0138 SOL
+   Category: FAST_TRADE
+
+Orderbook + Funding:
+   WR: 100.0% (4W/0L)
+   PnL: 0.0149 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 100.0% (4W/0L)
+   PnL: 0.0158 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0119 SOL
+   Category: SCALPING
+
+Fib 0.618 Golden:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0123 SOL
+   Category: SNIPER
+
+Fib + RSI:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0125 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0136 SOL
+   Category: SNIPER
+
+Whale + Volume:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0095 SOL
+   Category: SNIPER
+
+Fib 0.500 Entry:
+   WR: 50.0% (2W/2L)
+   PnL: 0.0090 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 50.0% (2W/2L)
+   PnL: 0.0040 SOL
+   Category: SWING_TRADE
+
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 12/50
+💰 Wallet: 0.1885 SOL
+🎯 Daily Target: 0.4 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+📊 Found 20 tokens from market scan
+
+🔍 Testing: CH
+   ❌ FOMO ALERT: Pumped 670.0% in 5min - Wait for pullback
+🔍 Testing: FARTO
+   ✅ Candle: ACCEPTABLE: 6.1% movement (Score: 6)
+   📊 Order Book: moderate (1.01:1)
+🔍 Testing: Slap
+   ❌ DUMP ALERT: Down 31.8% in 5min - Wait for stabilization
+🔍 Testing: 福马
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.07:1)
+🔍 Testing: ココロ
+   ❌ DUMP ALERT: Down 6.6% in 5min - Wait for stabilization
+🔍 Testing: Kirara 
+   ❌ DUMP ALERT: Down 8.9% in 5min - Wait for stabilization
+🔍 Testing: 宝
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.10:1)
+🔍 Testing: 马尔福
+   ❌ DUMP ALERT: Down 8.4% in 5min - Wait for stabilization
+🔍 Testing: 吉祥
+   ❌ DUMP ALERT: Down 29.0% in 5min - Wait for stabilization
+🔍 Testing: SKILLSET
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.17:1)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1885 SOL
+   Target: 0.4 SOL
+   Estimated: 0.0082 SOL
+   Gap: 0.3918 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib + RSI:
+   WR: 100.0% (4W/0L)
+   PnL: 0.0105 SOL
+   Category: SCALPING
+
+S/R Breakout:
+   WR: 100.0% (4W/0L)
+   PnL: 0.0116 SOL
+   Category: FAST_TRADE
+
+Fib + Volume:
+   WR: 75.0% (6W/2L)
+   PnL: 0.0131 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0077 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0093 SOL
+   Category: SNIPER
+
+Orderbook + Funding:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0076 SOL
+   Category: SWING_TRADE
+
+Whale + Volume:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0082 SOL
+   Category: SNIPER
+
+Momentum Squeeze:
+   WR: 75.0% (3W/1L)
+   PnL: 0.0075 SOL
+   Category: SCALPING
+
+Fib 0.500 Entry:
+   WR: 62.5% (5W/3L)
+   PnL: 0.0096 SOL
+   Category: SCALPING
+
+Fib 0.618 Golden:
+   WR: 50.0% (2W/2L)
+   PnL: 0.0042 SOL
+   Category: SNIPER
+
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 32/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+Error fetching market data: invalid json response body at https://api.dexscreener.com/token-profiles/latest/v1 reason: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+📊 Found 0 tokens from market scan
+
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.382 Entry:
+   WR: 100.0% (3W/0L)
+   PnL: 0.0066 SOL
+   Category: SCALPING
+
+Fib 0.618 Golden:
+   WR: 100.0% (3W/0L)
+   PnL: 0.0069 SOL
+   Category: SNIPER
+
+Fib + Volume:
+   WR: 100.0% (3W/0L)
+   PnL: 0.0072 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 100.0% (3W/0L)
+   PnL: 0.0073 SOL
+   Category: SNIPER
+
+RSI Divergence:
+   WR: 100.0% (3W/0L)
+   PnL: 0.0067 SOL
+   Category: SWING_TRADE
+
+Fib 0.786 Deep:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0038 SOL
+   Category: SWING_TRADE
+
+Fib + RSI:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0038 SOL
+   Category: SCALPING
+
+Whale + Volume:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0059 SOL
+   Category: SNIPER
+
+Fib 0.500 Entry:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0020 SOL
+   Category: SCALPING
+
+Momentum Squeeze:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0018 SOL
+   Category: SCALPING
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 0/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network

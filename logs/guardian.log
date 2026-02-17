@@ -634,3 +634,151 @@ Error: Cannot find module '/root/trading-bot/balance-guardian.js'
 }
 
 Node.js v22.22.0
+
+============================================================
+🛡️  BALANCE GUARDIAN AGENT
+============================================================
+
+💰 Current Balance: 0.0000 SOL
+
+📊 ANALYSIS (last 5 min):
+   High: 0.0000 SOL
+   Current: 0.0000 SOL
+   Drop from high: NaN%
+   Trend: neutral
+
+✅ Balance healthy - No action needed
+
+============================================================
+
+============================================================
+🛡️  BALANCE GUARDIAN AGENT
+============================================================
+
+💰 Current Balance: 0.0000 SOL
+
+📊 ANALYSIS (last 7 min):
+   High: 0.1000 SOL
+   Current: 0.0000 SOL
+   Drop from high: 100.00%
+   Trend: strong_down
+
+🚨 EMERGENCY STOP: Balance dropped 100.0% in 30 min
+From 0.1000 to 0.0000 SOL
+
+⚠️  Could not stop live trader: Command failed: pkill -f "live-trader-v4.2" 2>/dev/null || true
+
+📊 Entering Evaluation Mode...
+
+
+============================================================
+🛡️  BALANCE GUARDIAN AGENT
+============================================================
+
+💰 Current Balance: 0.0000 SOL
+
+📊 ANALYSIS (last 12 min):
+   High: 0.1000 SOL
+   Current: 0.0000 SOL
+   Drop from high: 100.00%
+   Trend: strong_down
+
+🚨 EMERGENCY STOP: Balance dropped 100.0% in 30 min
+From 0.1000 to 0.0000 SOL
+
+⚠️  Could not stop live trader: Command failed: pkill -f "live-trader-v4.2" 2>/dev/null || true
+
+📊 Entering Evaluation Mode...
+
+
+🔍 Running Strategy Optimization...
+
+
+✅ Optimization complete. Ready for manual resume.
+
+============================================================
+
+============================================================
+🛡️  BALANCE GUARDIAN AGENT
+============================================================
+RPC Error: missing api key
+
+💰 Current Balance: 0.0000 SOL
+
+📊 ANALYSIS (last 17 min):
+   High: 0.1000 SOL
+   Current: 0.0000 SOL
+   Drop from high: 100.00%
+   Trend: strong_down
+
+⚠️ Balance shows 0 but high was 0.1000. Possible RPC error. Skipping emergency stop.
+
+============================================================
+🛡️  BALANCE GUARDIAN AGENT
+============================================================
+RPC Error: missing api key
+
+💰 Current Balance: 0.0000 SOL
+
+📊 ANALYSIS (last 5 min):
+   High: 0.0000 SOL
+   Current: 0.0000 SOL
+   Drop from high: NaN%
+   Trend: neutral
+
+✅ Balance healthy - No action needed
+
+============================================================
+
+============================================================
+🛡️  BALANCE GUARDIAN AGENT
+============================================================
+RPC Error: missing api key
+
+💰 Current Balance: 0.0000 SOL
+
+📊 ANALYSIS (last 5 min):
+   High: 0.0000 SOL
+   Current: 0.0000 SOL
+   Drop from high: NaN%
+   Trend: neutral
+
+✅ Balance healthy - No action needed
+
+============================================================
+
+============================================================
+🛡️  BALANCE GUARDIAN AGENT
+============================================================
+RPC Error: missing api key
+Using cached balance: 0.1 SOL
+
+💰 Current Balance: 0.1000 SOL
+
+📊 ANALYSIS (last 8 min):
+   High: 0.1000 SOL
+   Current: 0.1000 SOL
+   Drop from high: 0.00%
+   Trend: neutral
+
+✅ Balance healthy - No action needed
+
+============================================================
+
+============================================================
+🛡️  BALANCE GUARDIAN AGENT
+============================================================
+RPC Error: missing api key
+Using cached balance: 0.1 SOL
+
+💰 Current Balance: 0.1000 SOL
+
+📊 ANALYSIS (last 5 min):
+   High: 0.1000 SOL
+   Current: 0.1000 SOL
+   Drop from high: 0.00%
+   Trend: neutral
+
+✅ Balance healthy - No action needed
+
+============================================================
