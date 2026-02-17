@@ -108,11 +108,11 @@ function getConfiguration() {
 // API: Get recent logs
 function getRecentLogs() {
     return {
-        liveTrader: tailFile(`${TRADING_BOT_DIR}/logs/live-trader-v4.2.log`, 30),
-        paperTrader: tailFile(`${TRADING_BOT_DIR}/logs/paper-v5.log`, 20),
-        slTracker: tailFile(`${TRADING_BOT_DIR}/logs/sl-tracker.log`, 20),
-        guardian: tailFile(`${TRADING_BOT_DIR}/logs/guardian.log`, 20),
-        intelligence: tailFile(`${TRADING_BOT_DIR}/logs/intelligence.log`, 20)
+        liveTrader: tailFile(`${TRADING_BOT_DIR}/logs/live-trader-v4.2.log`, 100),
+        paperTrader: tailFile(`${TRADING_BOT_DIR}/logs/paper-v5.log`, 100),
+        slTracker: tailFile(`${TRADING_BOT_DIR}/logs/sl-tracker.log`, 50),
+        guardian: tailFile(`${TRADING_BOT_DIR}/logs/guardian.log`, 50),
+        intelligence: tailFile(`${TRADING_BOT_DIR}/logs/intelligence.log`, 100)
     };
 }
 
@@ -200,11 +200,11 @@ function generateDashboard() {
             background: #111827;
             border-radius: 8px;
             padding: 15px;
-            max-height: 300px;
+            max-height: 500px;
             overflow-y: auto;
             font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 12px;
-            line-height: 1.5;
+            font-size: 11px;
+            line-height: 1.4;
         }
         .log-line { margin: 2px 0; }
         .log-success { color: #34d399; }
