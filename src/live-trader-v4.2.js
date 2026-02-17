@@ -62,6 +62,7 @@ const CONFIG = {
 
 const BOT_TOKEN = TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
 const CHAT_ID = TELEGRAM_CHAT_ID || '-1003212463774';
+const TOPIC_ID = 24; // Topic #24: Active Positions
 
 class DynamicTrader {
   constructor() {
@@ -478,7 +479,8 @@ class DynamicTrader {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
-            chat_id: CHAT_ID, 
+            chat_id: CHAT_ID,
+            message_thread_id: TOPIC_ID,
             text: msg, 
             parse_mode: 'Markdown',
             disable_web_page_preview: true
@@ -1328,13 +1330,14 @@ const POS = {
 
 const BOT_TOKEN = '${BOT_TOKEN}';
 const CHAT_ID = '${CHAT_ID}';
+const TOPIC_ID = 24;
 
 async function notify(msg) {
   try {
     await fetch(\`https://api.telegram.org/bot\${BOT_TOKEN}/sendMessage\`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' })
+      body: JSON.stringify({ chat_id: CHAT_ID, message_thread_id: TOPIC_ID, text: msg, parse_mode: 'Markdown' })
     });
   } catch (e) {}
 }
