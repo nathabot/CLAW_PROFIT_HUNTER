@@ -20,13 +20,13 @@ const CONFIG = {
   LOG_FILE: '/root/trading-bot/logs/system-monitor.log',
   STATE_FILE: '/root/trading-bot/system-state.json',
   
-  // Expected single instances
+  // Expected single instances (PM2 processes only)
   EXPECTED_PROCESSES: {
     'live-trader': { max: 1, pattern: 'live-trader-v4' },
     'paper-trader': { max: 1, pattern: 'soul-core-paper-trader-v5' },
     'balance-guardian': { max: 1, pattern: 'balance-guardian' },
-    'sl-tracker': { max: 1, pattern: 'sl-tracker' },
-    'evaluation': { max: 1, pattern: 'evaluate-performance' }
+    'sl-tracker': { max: 1, pattern: 'sl-tracker' }
+    // Note: 'evaluation' runs via cron (every 2 hours), not as daemon
   },
   
   // Cron jobs (should be unique)
@@ -37,17 +37,15 @@ const CONFIG = {
     { name: 'Evaluation', pattern: 'evaluate-performance', schedule: '0 \\*/2', critical: true },
     { name: 'Intelligence', pattern: 'strategy-intelligence-v2', schedule: '0 \\*/4', critical: true },
     { name: 'System Monitor', pattern: 'system-monitor', schedule: '*/15', critical: true },
-    { name: 'Watchdog', pattern: 'trading-watchdog', schedule: '*/5', critical: false },
-    { name: 'GitHub Auto-Push', pattern: 'github-auto-push', schedule: '0 2', critical: false },
-    { name: 'Performance Report', pattern: 'performance-monitor', schedule: '0 \\*/6', critical: false },
-    { name: 'Log Cleanup', pattern: 'find.*logs.*delete', schedule: '0 3', critical: false }
+    { name: 'Auto-Pull', pattern: 'auto-pull-restart', schedule: '*/15', critical: true }
+    // Disabled: Watchdog, GitHub Auto-Push, Performance Report, Log Cleanup (not used)
   ],
   
-  // Legacy scripts to monitor
+  // Legacy scripts to monitor (disabled - not used in new system)
   LEGACY_SCRIPTS: [
-    { name: 'Watchdog', path: '/root/trading-bot/trading-watchdog.sh' },
-    { name: 'GitHub Auto-Push', path: '/root/trading-bot/github-auto-push.sh' },
-    { name: 'Performance Monitor', path: '/root/trading-bot/performance-monitor.py' }
+    // { name: 'Watchdog', path: '/root/trading-bot/trading-watchdog.sh' },
+    // { name: 'GitHub Auto-Push', path: '/root/trading-bot/github-auto-push.sh' },
+    // { name: 'Performance Monitor', path: '/root/trading-bot/performance-monitor.py' }
   ]
 };
 
