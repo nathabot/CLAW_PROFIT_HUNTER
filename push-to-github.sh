@@ -46,7 +46,6 @@ mkdir -p docs
 mkdir -p .github/workflows
 mkdir -p logs
 mkdir -p archive
-mkdir -p book-of-profit-hunter-knowledge
 
 echo "✅ Directory structure created"
 echo ""
@@ -75,11 +74,8 @@ cp live-trader-wrapper.sh src/ 2>/dev/null || echo "⚠️ live-trader-wrapper.s
 cp adaptive-scoring-config.json config/ 2>/dev/null || echo "⚠️ adaptive-scoring-config.json not found"
 if [ -f package.json ]; then cp package.json config/; fi
 
-# BOK files
-echo "📚 Copying BOK (Book of Knowledge)..."
-if [ -d book-of-profit-hunter-knowledge ]; then
-    cp book-of-profit-hunter-knowledge/*.md bok/ 2>/dev/null || true
-fi
+# BOK files (already in bok/)
+echo "📚 BOK files ready in bok/"
 
 # GitHub workflows
 echo "🔧 Copying GitHub Actions..."
