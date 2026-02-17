@@ -56,7 +56,8 @@ class PaperTraderMonitor {
       .sort((a, b) => (b.wins / b.total) - (a.wins / a.total));
     
     let msg = `📊 **PAPER TRADER MONITOR**\n\n`;
-    msg += `🎯 Progress: ${state.simulationCount}/50 simulations\n`;
+    const currentCycle = Math.floor((state.simulationCount || 0) / 50) + 1;
+    msg += `🎯 Cycle: ${currentCycle} | Progress: ${state.simulationCount}/50 simulations\n`;
     msg += `📅 ${new Date().toLocaleString('id-ID')}\n\n`;
     
     if (sorted.length > 0) {
