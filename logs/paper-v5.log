@@ -3928,3 +3928,96 @@ S/R Breakout:
 ============================================================
 ✅ Paper Trader v5 Complete
 
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 45/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 45/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+Error fetching market data: invalid json response body at https://api.dexscreener.com/token-profiles/latest/v1 reason: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+📊 Found 0 tokens from market scan
+
+
+🧹 Cleaning up expired strategies from Cycle 0...
+✅ BOK updated: Only Cycle 1 strategies are active
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.382 Entry:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0018 SOL
+   Category: SCALPING
+
+Fib 0.500 Entry:
+   WR: 66.7% (4W/2L)
+   PnL: 0.0036 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0017 SOL
+   Category: SWING_TRADE
+
+Fib + Volume:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0019 SOL
+   Category: FAST_TRADE
+
+Orderbook + Funding:
+   WR: 66.7% (4W/2L)
+   PnL: 0.0039 SOL
+   Category: SWING_TRADE
+
+RSI Divergence:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0015 SOL
+   Category: SWING_TRADE
+
+Whale + Volume:
+   WR: 50.0% (3W/3L)
+   PnL: 0.0025 SOL
+   Category: SNIPER
+
+Fib + RSI:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0007 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0006 SOL
+   Category: SNIPER
+
+S/R Breakout:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0004 SOL
+   Category: FAST_TRADE
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
