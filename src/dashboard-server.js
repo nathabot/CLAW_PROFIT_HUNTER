@@ -181,6 +181,9 @@ function generateDashboard() {
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 1px solid #374151;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .config-grid {
@@ -277,17 +280,22 @@ function generateDashboard() {
         .btn-warning { background: #f59e0b; }
         .btn-warning:hover { background: #d97706; }
         .btn-small {
-            background: #374151;
-            color: #d1d5db;
-            border: none;
-            padding: 4px 10px;
+            background: #1f2937;
+            color: #9ca3af;
+            border: 1px solid #374151;
+            padding: 3px 8px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 11px;
-            margin-left: 10px;
+            font-size: 10px;
+            margin-left: 8px;
             vertical-align: middle;
+            font-weight: 500;
         }
-        .btn-small:hover { background: #4b5563; color: #fff; }
+        .btn-small:hover { 
+            background: #374151; 
+            color: #e5e7eb;
+            border-color: #4b5563;
+        }
         
         .tabs {
             display: flex;
