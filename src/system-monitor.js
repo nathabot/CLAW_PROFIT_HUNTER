@@ -251,13 +251,13 @@ class SystemMonitor {
     this.log('\n🔍 CHECKING FILE INTEGRITY...\n');
     
     const criticalFiles = [
-      '/root/trading-bot/live-trader-v4.2.js',
-      '/root/trading-bot/soul-core-paper-trader-v5.js',
-      '/root/trading-bot/balance-guardian.js',
-      '/root/trading-bot/sl-tracker.js',
-      '/root/trading-bot/evaluate-performance.js',
-      '/root/trading-bot/strategy-intelligence-v2.js',
-      '/root/trading-bot/system-monitor.js',
+      '/root/trading-bot/src/live-trader-v4.2.js',
+      '/root/trading-bot/src/soul-core-paper-trader-v5.js',
+      '/root/trading-bot/src/balance-guardian.js',
+      '/root/trading-bot/src/sl-tracker.js',
+      '/root/trading-bot/src/evaluate-performance.js',
+      '/root/trading-bot/src/strategy-intelligence-v2.js',
+      '/root/trading-bot/src/system-monitor.js',
       '/root/trading-bot/adaptive-scoring-config.json'
     ];
     

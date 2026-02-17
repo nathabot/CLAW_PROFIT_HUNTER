@@ -63082,3 +63082,3889 @@ Node.js v22.22.0
 [2026-02-17T08:22:58.171Z] ✅ 
 ✅ AUTO-FIX COMPLETE (0 fixes applied)
 
+[2026-02-17T08:23:01.085Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:01.099Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:01.099Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:01.099Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:01.099Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:01.100Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:01.268Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:01.269Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:01.274Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:01.274Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:01.274Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:01.274Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:01.274Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:01.274Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:01.274Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:01.274Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:01.274Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:01.274Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:01.274Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:01.275Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:01.275Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:01.275Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:01.275Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:01.275Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:01.275Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:01.275Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:01.275Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:01.276Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:01.276Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:01.276Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:01.276Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:01.276Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:01.276Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:01.276Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:01.276Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:01.276Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:01.277Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:01.277Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:01.277Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:01.278Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:01.279Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:01.279Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:04.177Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:04.192Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:04.192Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:04.192Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:04.192Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:04.192Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:04.345Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:04.346Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:04.350Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:04.350Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:04.350Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:04.350Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:04.350Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:04.350Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:04.350Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:04.350Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:04.350Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:04.350Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:04.351Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:04.351Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:04.351Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:04.351Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:04.351Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:04.351Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:04.351Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:04.351Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:04.351Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:04.351Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:04.351Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:04.351Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:04.351Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:04.351Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:04.351Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:04.352Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:04.352Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:04.352Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:04.352Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:04.352Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:04.352Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:04.352Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:04.352Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:04.352Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:07.238Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:07.250Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:07.250Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:07.250Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:07.250Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:07.251Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:07.390Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:07.390Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:07.394Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:07.395Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:07.395Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:07.395Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:07.395Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:07.395Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:07.395Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:07.395Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:07.395Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:07.395Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:07.395Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:07.395Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:07.395Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:07.395Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:07.395Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:07.395Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:07.395Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:07.395Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:07.396Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:07.396Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:07.396Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:07.396Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:07.396Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:07.396Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:07.396Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:07.396Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:07.396Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:07.396Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:07.396Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:07.396Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:07.396Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:07.396Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:07.397Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:07.397Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:16.326Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:16.340Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:16.341Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:16.341Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:16.341Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:16.341Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:16.485Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:16.486Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:16.489Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:16.489Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:16.489Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:16.489Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:16.490Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:16.490Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:16.490Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:16.490Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:16.490Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:16.490Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:16.490Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:16.490Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:16.490Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:16.490Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:16.490Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:16.490Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:16.490Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:16.490Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:16.490Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:16.491Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:16.491Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:16.491Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:16.491Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:16.491Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:16.491Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:16.491Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:16.491Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:16.491Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:16.491Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:16.491Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:16.491Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:16.491Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:16.492Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:16.492Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:19.401Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:19.415Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:19.415Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:19.415Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:19.416Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:19.416Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:19.572Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:19.572Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:19.576Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:19.576Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:19.576Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:19.577Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:19.577Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:19.577Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:19.577Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:19.577Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:19.577Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:19.577Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:19.577Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:19.577Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:19.577Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:19.577Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:19.577Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:19.577Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:19.577Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:19.577Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:19.577Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:19.577Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:19.578Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:19.578Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:19.578Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:19.578Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:19.578Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:19.578Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:19.578Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:19.578Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:19.578Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:19.578Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:19.578Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:19.578Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:19.578Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:19.578Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:25.495Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:25.508Z] ❌ live-trader: ❌ NOT RUNNING
+[2026-02-17T08:23:25.508Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:25.508Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:25.508Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:25.508Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:25.673Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:25.674Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:25.679Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:25.679Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:25.679Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:25.679Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:25.679Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:25.679Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:25.679Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:25.679Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:25.679Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:25.679Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:25.679Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:25.680Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:25.680Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:25.680Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:25.680Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:25.680Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:25.680Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:25.680Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:25.680Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:25.680Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:25.680Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:25.680Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:25.680Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:25.680Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:25.680Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:25.680Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:25.680Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:25.681Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:25.681Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:25.681Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:25.681Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:25.681Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:25.681Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:23:25.681Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:28.576Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:28.589Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:28.589Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:28.589Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:28.589Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:28.589Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:28.736Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:28.737Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:28.740Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:28.740Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:28.740Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:28.740Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:28.740Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:28.740Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:28.740Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:28.740Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:28.741Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:28.741Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:28.741Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:28.741Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:28.741Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:28.741Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:28.741Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:28.741Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:28.741Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:28.741Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:28.741Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:28.741Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:28.741Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:28.741Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:28.741Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:28.741Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:28.741Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:28.742Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:28.742Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:28.742Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:28.742Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:28.742Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:28.742Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:28.742Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:28.742Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:28.742Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:31.687Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:31.704Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:31.704Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:31.704Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:31.704Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:31.704Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:31.864Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:31.865Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:31.869Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:31.869Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:31.870Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:31.870Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:31.870Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:31.870Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:31.870Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:31.870Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:31.870Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:31.870Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:31.870Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:31.870Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:31.871Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:31.871Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:31.871Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:31.871Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:31.871Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:31.871Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:31.871Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:31.871Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:31.871Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:31.871Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:31.871Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:31.871Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:31.872Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:31.872Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:31.872Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:31.872Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:31.872Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:31.872Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:31.872Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:31.872Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:31.873Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:31.873Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:34.747Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:34.758Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:34.759Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:34.759Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:34.759Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:34.759Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:34.903Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:34.904Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:34.907Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:34.907Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:34.907Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:34.907Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:34.907Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:34.907Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:34.907Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:34.907Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:34.907Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:34.908Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:34.908Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:34.908Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:34.908Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:34.908Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:34.908Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:34.908Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:34.908Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:34.908Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:34.908Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:34.908Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:34.908Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:34.908Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:34.908Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:34.908Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:34.908Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:34.908Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:34.908Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:34.908Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:34.908Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:34.908Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:34.909Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:34.909Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:34.909Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:34.909Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:37.851Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:37.862Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:37.862Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:37.863Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:37.863Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:37.863Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:38.025Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:38.025Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:38.030Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:38.030Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:38.030Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:38.030Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:38.030Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:38.030Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:38.030Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:38.030Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:38.030Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:38.030Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:38.031Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:38.031Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:38.031Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:38.031Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:38.031Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:38.031Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:38.031Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:38.031Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:38.031Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:38.031Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:38.032Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:38.032Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:38.032Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:38.032Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:38.032Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:38.032Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:38.032Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:38.032Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:38.032Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:38.032Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:38.032Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:38.032Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:38.033Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:38.033Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:40.937Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:40.951Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:40.951Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:40.951Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:40.951Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:40.952Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:41.103Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:41.103Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:41.107Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:41.107Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:41.107Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:41.107Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:41.107Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:41.107Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:41.107Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:41.107Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:41.108Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:41.108Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:41.108Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:41.108Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:41.108Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:41.108Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:41.108Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:41.108Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:41.108Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:41.108Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:41.108Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:41.109Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:41.109Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:41.109Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:41.109Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:41.109Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:41.109Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:41.109Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:41.109Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:41.109Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:41.109Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:41.109Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:41.109Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:41.110Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:41.110Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:41.110Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:47.030Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:47.044Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:47.045Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:47.045Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:47.045Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:47.045Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:47.228Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:47.228Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:47.232Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:47.232Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:47.233Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:47.233Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:47.233Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:47.233Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:47.233Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:47.233Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:47.233Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:47.233Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:47.233Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:47.233Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:47.233Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:47.233Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:47.234Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:47.234Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:47.234Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:47.234Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:47.234Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:47.234Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:47.234Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:47.234Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:47.234Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:47.234Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:47.234Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:47.234Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:47.234Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:47.234Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:47.235Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:47.235Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:47.235Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:47.235Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:47.235Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:47.235Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:50.109Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:50.121Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:50.121Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:50.121Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:50.121Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:50.121Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:50.268Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:50.269Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:50.272Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:50.273Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:50.273Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:50.273Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:50.273Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:50.273Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:50.273Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:50.273Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:50.273Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:50.273Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:50.273Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:50.273Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:50.273Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:50.273Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:50.273Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:50.273Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:50.273Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:50.273Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:50.273Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:50.274Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:50.274Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:50.274Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:50.274Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:50.274Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:50.274Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:50.274Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:50.274Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:50.274Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:50.274Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:50.274Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:50.274Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:50.274Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:50.274Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:50.274Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:53.204Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:53.218Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:53.218Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:53.218Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:53.219Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:53.219Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:53.373Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:53.374Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:53.378Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:53.378Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:53.378Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:53.378Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:53.378Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:53.378Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:53.378Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:53.378Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:53.378Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:53.378Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:53.378Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:53.378Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:53.379Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:53.379Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:53.379Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:53.379Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:53.379Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:53.379Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:53.379Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:53.379Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:53.379Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:53.379Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:53.379Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:53.379Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:53.379Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:53.379Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:53.379Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:53.379Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:53.379Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:53.379Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:53.379Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:53.379Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:53.380Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:53.380Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:56.276Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:56.289Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:56.289Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:56.289Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:56.289Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:56.289Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:56.443Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:56.444Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:56.449Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:56.449Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:56.449Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:56.449Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:56.449Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:56.449Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:56.449Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:56.449Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:56.449Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:56.449Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:56.450Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:56.450Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:56.450Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:56.450Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:56.450Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:56.450Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:56.450Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:56.450Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:56.450Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:56.450Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:56.451Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:56.451Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:56.451Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:56.451Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:56.451Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:56.451Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:56.451Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:56.451Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:56.451Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:56.451Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:56.451Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:56.451Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:56.452Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:56.452Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:23:59.360Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:23:59.374Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:59.374Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:23:59.374Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:23:59.374Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:23:59.375Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:23:59.529Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:23:59.529Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:23:59.533Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:23:59.534Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:23:59.534Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:23:59.534Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:23:59.534Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:23:59.534Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:23:59.534Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:23:59.534Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:23:59.534Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:23:59.534Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:23:59.534Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:23:59.534Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:23:59.534Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:23:59.534Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:23:59.534Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:23:59.534Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:23:59.535Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:23:59.535Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:23:59.535Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:23:59.535Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:23:59.535Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:59.535Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:59.535Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:59.535Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:23:59.535Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:23:59.535Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:23:59.536Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:23:59.536Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:23:59.536Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:23:59.536Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:23:59.536Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:23:59.536Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:23:59.537Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:23:59.537Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:02.492Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:02.504Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:02.504Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:02.505Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:02.505Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:02.505Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:02.654Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:02.655Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:02.661Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:02.661Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:02.662Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:02.662Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:02.662Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:02.662Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:02.662Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:02.662Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:02.662Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:02.662Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:02.662Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:02.662Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:02.662Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:02.662Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:02.662Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:02.662Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:02.662Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:02.662Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:02.663Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:02.663Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:02.663Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:02.663Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:02.663Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:02.663Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:02.663Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:02.663Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:02.663Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:02.663Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:02.663Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:02.663Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:02.663Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:02.663Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:02.664Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:02.664Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:05.567Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:05.579Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:05.580Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:05.580Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:05.580Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:05.580Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:05.734Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:05.734Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:05.738Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:05.738Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:05.738Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:05.738Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:05.738Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:05.738Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:05.738Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:05.739Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:05.739Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:05.739Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:05.739Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:05.739Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:05.739Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:05.739Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:05.739Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:05.739Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:05.739Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:05.739Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:05.739Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:05.739Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:05.739Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:05.740Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:05.740Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:05.740Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:05.740Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:05.740Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:05.740Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:05.740Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:05.740Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:05.740Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:05.740Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:05.740Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:05.740Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:05.740Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:08.666Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:08.678Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:08.679Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:08.679Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:08.679Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:08.679Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:08.837Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:08.837Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:08.841Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:08.841Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:08.841Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:08.841Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:08.841Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:08.841Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:08.841Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:08.841Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:08.841Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:08.841Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:08.842Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:08.842Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:08.842Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:08.842Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:08.842Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:08.842Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:08.842Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:08.842Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:08.842Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:08.842Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:08.842Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:08.842Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:08.843Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:08.843Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:08.843Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:08.843Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:08.843Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:08.843Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:08.843Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:08.843Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:08.843Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:08.843Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:08.844Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:08.844Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:17.740Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:17.751Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:17.751Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:17.751Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:17.751Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:17.752Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:17.917Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:17.918Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:17.924Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:17.924Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:17.924Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:17.924Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:17.924Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:17.924Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:17.924Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:17.924Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:17.924Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:17.924Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:17.924Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:17.924Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:17.925Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:17.925Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:17.925Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:17.925Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:17.925Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:17.925Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:17.925Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:17.925Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:17.925Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:17.925Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:17.925Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:17.925Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:17.925Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:17.925Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:17.925Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:17.926Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:17.926Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:17.926Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:17.926Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:17.926Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:17.926Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:17.926Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:20.855Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:20.869Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:20.870Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:20.870Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:20.870Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:20.870Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:21.028Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:21.029Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:21.035Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:21.035Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:21.035Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:21.035Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:21.035Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:21.035Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:21.035Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:21.035Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:21.035Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:21.035Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:21.036Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:21.036Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:21.036Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:21.036Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:21.036Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:21.036Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:21.036Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:21.036Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:21.036Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:21.036Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:21.036Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:21.036Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:21.036Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:21.036Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:21.036Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:21.036Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:21.036Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:21.037Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:21.037Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:21.037Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:21.037Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:21.037Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:21.037Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:21.037Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:26.932Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:26.946Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:26.946Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:26.947Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:26.947Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:26.947Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:27.087Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:27.088Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:27.093Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:27.093Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:27.093Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:27.093Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:27.093Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:27.093Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:27.093Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:27.093Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:27.093Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:27.093Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:27.093Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:27.093Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:27.093Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:27.094Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:27.094Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:27.094Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:27.094Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:27.094Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:27.094Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:27.094Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:27.094Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:27.094Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:27.094Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:27.094Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:27.094Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:27.094Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:27.094Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:27.094Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:27.095Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:27.095Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:27.095Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:27.095Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:27.095Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:27.095Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:30.011Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:30.023Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:30.023Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:30.024Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:30.024Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:30.024Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:30.164Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:30.164Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:30.168Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:30.168Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:30.168Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:30.168Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:30.168Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:30.168Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:30.168Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:30.168Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:30.168Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:30.168Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:30.168Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:30.168Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:30.168Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:30.169Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:30.169Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:30.169Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:30.169Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:30.169Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:30.169Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:30.169Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:30.169Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:30.169Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:30.169Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:30.169Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:30.169Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:30.169Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:30.169Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:30.169Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:30.169Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:30.169Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:30.169Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:30.169Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:30.170Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:30.170Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:33.126Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:33.144Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:33.144Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:33.144Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:33.145Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:33.145Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:33.322Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:33.322Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:33.326Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:33.326Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:33.326Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:33.326Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:33.326Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:33.326Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:33.326Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:33.326Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:33.326Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:33.326Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:33.327Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:33.327Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:33.327Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:33.327Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:33.327Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:33.327Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:33.327Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:33.327Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:33.327Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:33.327Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:33.327Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:33.327Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:33.327Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:33.327Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:33.327Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:33.328Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:33.328Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:33.328Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:33.328Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:33.328Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:33.328Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:33.328Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:33.328Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:33.328Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:36.193Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:36.205Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:36.205Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:36.205Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:36.205Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:36.206Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:36.355Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:36.355Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:36.361Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:36.361Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:36.362Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:36.362Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:36.362Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:36.362Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:36.362Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:36.362Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:36.362Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:36.362Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:36.362Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:36.362Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:36.362Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:36.363Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:36.363Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:36.363Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:36.363Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:36.363Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:36.363Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:36.363Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:36.363Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:36.363Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:36.363Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:36.363Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:36.363Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:36.364Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:36.364Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:36.364Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:36.364Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:36.364Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:36.364Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:36.364Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:36.364Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:36.364Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:39.267Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:39.278Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:39.278Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:39.279Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:39.279Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:39.279Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:39.435Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:39.436Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:39.440Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:39.440Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:39.440Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:39.440Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:39.440Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:39.440Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:39.440Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:39.440Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:39.440Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:39.440Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:39.440Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:39.441Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:39.441Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:39.441Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:39.441Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:39.441Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:39.441Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:39.441Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:39.441Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:39.441Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:39.441Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:39.441Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:39.441Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:39.441Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:39.441Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:39.441Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:39.442Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:39.442Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:39.442Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:39.442Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:39.442Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:39.442Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:39.442Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:39.442Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:42.372Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:42.385Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:42.385Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:42.385Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:42.385Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:42.386Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:42.539Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:42.539Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:42.543Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:42.544Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:42.544Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:42.544Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:42.544Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:42.544Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:42.544Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:42.544Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:42.544Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:42.544Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:42.544Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:42.544Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:42.544Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:42.544Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:42.544Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:42.544Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:42.544Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:42.544Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:42.544Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:42.545Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:42.545Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:42.545Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:42.545Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:42.545Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:42.545Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:42.545Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:42.545Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:42.545Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:42.545Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:42.545Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:42.545Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:42.545Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:42.545Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:42.545Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:45.439Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:45.453Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:45.453Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:45.454Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:45.454Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:45.454Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:45.596Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:45.596Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:45.600Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:45.600Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:45.600Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:45.600Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:45.600Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:45.600Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:45.600Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:45.600Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:45.600Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:45.600Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:45.600Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:45.600Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:45.600Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:45.600Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:45.600Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:45.600Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:45.600Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:45.601Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:45.601Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:45.601Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:45.601Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:45.601Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:45.601Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:45.601Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:45.601Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:45.601Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:45.601Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:45.601Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:45.601Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:45.601Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:45.601Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:45.601Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:45.601Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:45.602Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:48.517Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:48.529Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:48.529Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:48.529Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:48.529Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:48.530Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:48.671Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:48.671Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:48.676Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:48.676Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:48.676Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:48.676Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:48.676Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:48.676Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:48.676Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:48.676Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:48.676Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:48.676Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:48.677Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:48.677Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:48.677Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:48.677Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:48.677Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:48.677Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:48.677Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:48.677Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:48.677Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:48.677Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:48.677Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:48.678Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:48.678Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:48.678Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:48.678Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:48.678Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:48.678Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:48.678Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:48.678Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:48.678Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:48.678Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:48.678Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:48.679Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:48.679Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:51.604Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:51.618Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:51.618Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:51.618Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:51.618Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:51.618Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:51.759Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:51.760Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:51.764Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:51.764Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:51.764Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:51.764Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:51.764Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:51.764Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:51.764Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:51.764Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:51.764Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:51.764Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:51.764Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:51.764Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:51.764Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:51.764Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:51.764Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:51.764Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:51.764Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:51.765Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:51.765Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:51.765Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:51.765Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:51.765Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:51.765Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:51.765Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:51.765Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:51.765Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:51.765Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:51.765Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:51.765Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:51.765Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:51.765Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:51.765Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:51.765Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:51.765Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:54.670Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:54.682Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:54.682Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:54.682Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:54.682Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:54.682Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:54.826Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:54.826Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:54.831Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:54.831Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:54.831Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:54.831Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:54.831Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:54.831Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:54.831Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:54.831Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:54.831Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:54.831Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:54.831Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:54.831Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:54.832Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:54.832Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:54.832Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:54.832Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:54.832Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:54.832Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:54.832Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:54.832Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:54.832Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:54.832Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:54.832Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:54.832Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:54.832Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:54.832Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:54.832Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:54.832Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:54.832Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:54.833Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:54.833Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:54.833Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:54.833Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:54.833Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:24:57.749Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:24:57.763Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:57.763Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:24:57.764Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:24:57.764Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:24:57.764Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:24:57.919Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:24:57.919Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:24:57.923Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:24:57.923Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:24:57.923Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:24:57.923Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:24:57.923Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:24:57.923Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:24:57.923Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:24:57.923Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:24:57.923Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:24:57.923Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:24:57.923Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:24:57.923Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:24:57.924Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:24:57.924Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:24:57.924Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:24:57.924Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:24:57.924Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:24:57.924Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:24:57.924Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:24:57.924Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:24:57.924Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:57.924Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:57.924Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:57.924Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:24:57.925Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:24:57.925Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:24:57.925Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:24:57.925Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:24:57.925Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:24:57.925Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:24:57.925Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:24:57.925Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:24:57.925Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:24:57.926Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:00.836Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:00.851Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:00.851Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:00.851Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:00.851Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:00.852Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:01.011Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:01.011Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:01.015Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:01.016Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:01.016Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:01.016Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:01.016Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:01.016Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:01.016Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:01.016Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:01.016Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:01.016Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:01.016Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:01.016Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:01.016Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:01.016Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:01.016Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:01.016Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:01.016Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:01.017Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:01.017Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:01.017Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:01.017Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:01.017Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:01.017Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:01.017Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:01.017Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:01.017Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:01.017Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:01.017Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:01.017Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:01.017Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:01.017Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:01.018Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:01.018Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:01.018Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:03.922Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:03.936Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:03.936Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:03.936Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:03.936Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:03.937Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:04.098Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:04.098Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:04.102Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:04.103Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:04.103Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:04.103Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:04.103Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:04.103Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:04.103Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:04.103Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:04.103Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:04.103Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:04.103Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:04.103Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:04.103Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:04.104Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:04.104Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:04.104Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:04.104Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:04.104Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:04.104Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:04.104Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:04.104Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:04.104Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:04.104Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:04.104Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:04.104Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:04.104Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:04.105Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:04.105Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:04.105Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:04.105Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:04.105Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:04.105Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:04.105Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:04.106Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:07.014Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:07.026Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:07.027Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:07.027Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:07.027Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:07.027Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:07.187Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:07.187Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:07.191Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:07.191Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:07.191Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:07.191Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:07.191Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:07.191Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:07.191Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:07.191Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:07.191Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:07.191Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:07.192Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:07.192Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:07.192Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:07.192Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:07.192Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:07.192Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:07.192Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:07.192Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:07.192Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:07.192Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:07.192Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:07.192Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:07.192Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:07.192Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:07.192Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:07.193Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:07.193Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:07.193Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:07.193Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:07.193Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:07.193Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:07.193Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:07.193Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:07.193Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:10.124Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:10.141Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:10.141Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:10.141Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:10.141Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:10.142Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:10.299Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:10.300Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:10.304Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:10.305Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:10.305Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:10.305Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:10.305Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:10.305Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:10.305Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:10.305Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:10.305Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:10.305Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:10.305Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:10.305Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:10.305Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:10.305Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:10.305Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:10.305Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:10.305Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:10.305Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:10.306Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:10.306Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:10.306Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:10.306Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:10.306Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:10.306Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:10.306Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:10.306Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:10.306Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:10.306Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:10.306Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:10.306Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:10.306Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:10.306Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:10.307Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:10.307Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:19.216Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:19.229Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:19.229Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:19.229Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:19.229Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:19.229Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:19.372Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:19.373Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:19.378Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:19.378Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:19.378Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:19.378Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:19.378Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:19.378Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:19.378Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:19.378Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:19.378Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:19.378Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:19.379Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:19.379Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:19.379Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:19.379Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:19.379Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:19.379Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:19.379Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:19.379Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:19.379Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:19.379Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:19.379Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:19.380Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:19.380Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:19.380Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:19.380Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:19.380Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:19.380Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:19.380Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:19.380Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:19.380Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:19.380Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:19.380Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:19.380Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:19.381Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:22.308Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:22.324Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:22.325Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:22.325Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:22.325Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:22.325Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:22.490Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:22.491Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:22.494Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:22.495Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:22.495Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:22.495Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:22.495Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:22.495Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:22.495Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:22.495Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:22.495Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:22.495Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:22.495Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:22.495Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:22.495Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:22.495Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:22.495Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:22.495Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:22.496Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:22.496Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:22.496Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:22.496Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:22.496Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:22.496Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:22.496Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:22.496Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:22.496Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:22.496Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:22.496Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:22.496Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:22.496Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:22.496Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:22.496Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:22.496Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:22.497Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:22.497Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:28.397Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:28.415Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:28.415Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:28.415Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:28.415Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:25:28.415Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:28.571Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:28.571Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:28.575Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:28.575Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:28.575Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:28.575Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:28.575Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:28.575Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:28.575Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:28.575Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:28.576Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:28.576Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:28.576Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:28.576Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:28.576Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:28.576Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:28.576Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:28.576Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:28.576Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:28.576Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:28.576Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:28.576Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:28.577Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:28.577Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:28.577Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:28.577Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:28.577Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:28.577Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:28.577Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:28.577Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:28.577Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:28.577Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:28.577Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:28.577Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:28.577Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:25:28.577Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:34.523Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:34.540Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:34.540Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:34.540Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:34.540Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:25:34.540Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:34.712Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:34.712Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:34.716Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:34.716Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:34.716Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:34.716Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:34.717Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:34.717Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:34.717Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:34.717Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:34.717Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:34.717Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:34.717Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:34.717Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:34.717Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:34.717Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:34.717Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:34.717Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:34.717Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:34.718Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:34.718Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:34.718Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:34.718Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:34.718Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:34.718Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:34.718Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:34.718Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:34.718Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:34.718Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:34.718Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:34.719Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:34.719Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:34.719Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:34.719Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:34.719Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:25:34.719Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:37.603Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:37.616Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:37.616Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:37.616Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:37.616Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:25:37.617Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:37.787Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:37.787Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:37.793Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:37.793Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:37.793Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:37.793Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:37.793Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:37.793Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:37.793Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:37.793Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:37.793Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:37.793Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:37.794Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:37.794Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:37.794Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:37.794Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:37.794Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:37.794Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:37.794Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:37.794Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:37.794Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:37.794Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:37.794Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:37.794Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:37.795Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:37.795Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:37.795Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:37.795Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:37.795Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:37.795Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:37.795Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:37.795Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:37.795Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:37.795Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:37.795Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:25:37.795Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:40.676Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:40.689Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:40.689Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:40.689Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:40.689Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:40.689Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:40.852Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:40.852Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:40.857Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:40.857Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:40.857Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:40.857Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:40.857Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:40.857Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:40.857Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:40.857Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:40.857Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:40.857Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:40.857Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:40.857Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:40.858Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:40.858Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:40.858Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:40.858Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:40.858Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:40.858Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:40.858Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:40.858Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:40.859Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:40.859Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:40.859Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:40.859Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:40.859Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:40.859Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:40.859Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:40.859Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:40.859Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:40.859Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:40.859Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:40.859Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:40.859Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:40.860Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:43.762Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:43.773Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:43.773Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:43.773Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:43.773Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:43.773Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:43.923Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:43.923Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:43.926Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:43.926Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:43.926Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:43.926Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:43.926Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:43.926Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:43.926Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:43.926Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:43.926Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:43.926Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:43.927Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:43.927Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:43.927Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:43.927Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:43.927Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:43.927Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:43.927Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:43.927Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:43.927Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:43.927Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:43.927Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:43.927Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:43.927Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:43.927Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:43.927Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:43.927Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:43.927Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:43.927Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:43.927Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:43.927Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:43.928Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:43.928Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:43.928Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:43.928Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:46.853Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:46.866Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:46.866Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:46.866Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:46.866Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:25:46.866Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:47.014Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:47.015Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:47.018Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:47.018Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:47.019Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:47.019Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:47.019Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:47.019Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:47.019Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:47.019Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:47.019Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:47.019Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:47.019Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:47.019Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:47.019Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:47.019Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:47.019Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:47.019Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:47.019Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:47.019Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:47.019Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:47.019Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:47.019Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:47.020Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:47.020Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:47.020Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:47.020Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:47.020Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:47.020Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:47.020Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:47.020Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:47.020Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:47.020Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:47.020Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:47.020Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:25:47.020Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:49.958Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:49.972Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:49.973Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:49.973Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:49.973Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:25:49.973Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:50.127Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:50.127Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:50.131Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:50.131Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:50.131Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:50.132Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:50.132Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:50.132Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:50.132Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:50.132Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:50.132Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:50.132Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:50.132Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:50.132Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:50.132Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:50.132Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:50.132Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:50.132Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:50.132Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:50.132Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:50.132Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:50.132Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:50.132Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:50.132Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:50.132Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:50.133Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:50.133Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:50.133Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:50.133Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:50.133Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:50.133Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:50.133Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:50.133Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:50.133Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:50.133Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:25:50.133Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:53.029Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:53.039Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:53.040Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:53.040Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:53.040Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:25:53.040Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:53.207Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:53.207Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:53.211Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:53.211Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:53.211Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:53.211Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:53.211Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:53.211Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:53.211Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:53.211Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:53.211Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:53.211Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:53.211Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:53.211Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:53.211Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:53.212Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:53.212Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:53.212Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:53.212Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:53.212Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:53.212Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:53.212Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:53.212Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:53.212Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:53.212Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:53.212Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:53.212Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:53.212Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:53.212Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:53.212Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:53.212Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:53.212Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:53.212Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:53.212Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:53.212Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:25:53.213Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:56.135Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:56.148Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:56.148Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:56.148Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:56.148Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:25:56.149Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:56.294Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:56.295Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:56.299Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:56.299Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:56.299Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:56.299Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:56.299Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:56.299Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:56.300Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:56.300Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:56.300Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:56.300Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:56.300Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:56.300Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:56.300Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:56.300Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:56.300Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:56.300Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:56.300Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:56.300Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:56.300Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:56.300Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:56.300Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:56.301Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:56.301Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:56.301Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:56.301Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:56.301Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:56.301Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:56.301Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:56.301Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:56.301Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:56.301Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:56.301Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:56.301Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:25:56.301Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:25:59.211Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:25:59.224Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:59.224Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:25:59.224Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:25:59.224Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:25:59.224Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:25:59.385Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:25:59.386Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:25:59.390Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:25:59.390Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:25:59.390Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:25:59.390Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:25:59.390Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:25:59.390Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:25:59.390Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:25:59.390Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:25:59.390Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:25:59.391Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:25:59.391Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:25:59.391Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:25:59.391Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:25:59.391Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:25:59.391Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:25:59.391Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:25:59.391Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:25:59.391Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:25:59.391Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:25:59.391Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:25:59.391Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:59.391Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:59.391Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:59.392Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:25:59.392Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:25:59.392Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:25:59.392Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:25:59.392Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:25:59.392Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:25:59.392Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:25:59.392Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:25:59.392Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:25:59.392Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:25:59.392Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:02.336Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:02.352Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:02.352Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:02.353Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:02.353Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:26:02.353Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:02.530Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:02.531Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:02.535Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:02.535Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:02.535Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:02.535Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:02.535Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:02.535Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:02.535Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:02.535Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:02.535Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:02.535Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:02.536Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:02.536Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:26:02.536Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:26:02.536Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:26:02.536Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:26:02.536Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:26:02.536Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:26:02.536Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:26:02.536Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:02.536Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:02.536Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:02.536Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:02.536Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:02.536Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:02.536Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:02.536Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:02.536Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:02.536Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:02.537Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:02.537Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:02.537Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:02.537Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:02.537Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:26:02.537Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:05.422Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:05.437Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:05.438Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:05.438Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:05.438Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:26:05.438Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:05.605Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:05.605Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:05.610Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:05.610Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:05.610Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:05.610Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:05.610Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:05.610Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:05.610Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:05.610Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:05.610Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:05.610Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:05.611Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:05.611Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:26:05.611Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:26:05.611Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:26:05.611Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:26:05.611Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:26:05.611Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:26:05.611Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:26:05.611Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:05.611Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:05.611Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:05.611Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:05.611Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:05.611Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:05.612Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:05.612Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:05.612Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:05.612Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:05.612Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:05.612Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:05.612Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:05.612Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:05.612Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:26:05.612Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:08.502Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:08.522Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:08.522Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:08.522Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:08.522Z] ❌ sl-tracker: ❌ NOT RUNNING
+[2026-02-17T08:26:08.523Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:08.686Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:08.687Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:08.691Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:08.692Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:08.692Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:08.692Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:08.692Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:08.692Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:08.692Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:08.692Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:08.692Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:08.692Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:08.692Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:08.692Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:26:08.692Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:26:08.692Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:26:08.692Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:26:08.692Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:26:08.693Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:26:08.693Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:26:08.693Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:08.693Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:08.693Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:08.693Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:08.693Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:08.693Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:08.693Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:08.694Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:08.694Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:08.694Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:08.694Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:08.694Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:08.694Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:08.694Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:08.694Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:26:08.694Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:20.628Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:20.646Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:20.646Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:20.646Z] ❌ balance-guardian: ❌ NOT RUNNING
+[2026-02-17T08:26:20.646Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:20.647Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:20.829Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:20.829Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:20.833Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:20.833Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:20.834Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:20.834Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:20.834Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:20.834Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:20.834Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:20.834Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:20.834Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:20.834Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:20.834Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:20.834Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:26:20.834Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:26:20.834Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:26:20.834Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:26:20.834Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:26:20.834Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:26:20.834Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:26:20.834Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:20.834Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:20.835Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:20.835Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:20.835Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:20.835Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:20.835Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:20.835Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:20.835Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:20.835Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:20.835Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:20.835Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:20.835Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:20.835Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:20.835Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (17 issues)...
+
+[2026-02-17T08:26:20.835Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:23.691Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:23.703Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:23.703Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:23.703Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:23.703Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:23.703Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:23.863Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:23.864Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:23.868Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:23.869Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:23.869Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:23.869Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:23.869Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:23.869Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:23.869Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:23.869Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:23.869Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:23.869Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:23.869Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:23.869Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:26:23.869Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:26:23.869Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:26:23.869Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:26:23.869Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:26:23.869Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:26:23.870Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:26:23.870Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:23.870Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:23.870Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:23.870Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:23.870Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:23.870Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:23.870Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:23.870Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:23.870Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:23.870Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:23.870Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:23.870Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:23.870Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:23.870Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:23.871Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:26:23.871Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:26.776Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:26.788Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:26.788Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:26.789Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:26.789Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:26.789Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:26.966Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:26.966Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:26.972Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:26.972Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:26.972Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:26.972Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:26.972Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:26.972Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:26.972Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:26.972Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:26.972Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:26.972Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:26.972Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:26.972Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:26:26.973Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:26:26.973Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:26:26.973Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:26:26.973Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:26:26.973Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:26:26.973Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:26:26.973Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:26.973Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:26.973Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:26.973Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:26.974Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:26.974Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:26.974Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:26.974Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:26.974Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:26.974Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:26.974Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:26.974Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:26.974Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:26.974Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:26.974Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:26:26.974Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:29.851Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:29.863Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:29.863Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:29.863Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:29.863Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:29.863Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:30.022Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:30.023Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:30.027Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:30.027Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:30.027Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:30.027Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:30.027Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:30.027Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:30.027Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:30.027Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:30.027Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:30.027Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:30.028Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:30.028Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:26:30.028Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:26:30.028Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:26:30.028Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:26:30.028Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:26:30.028Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:26:30.028Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:26:30.028Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:30.028Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:30.028Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:30.028Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:30.028Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:30.028Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:30.028Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:30.028Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:30.028Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:30.028Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:30.028Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:30.029Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:30.029Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:30.029Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:30.029Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:26:30.029Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:35.952Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:35.964Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:35.965Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:35.965Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:35.965Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:35.965Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:36.119Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:36.119Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:36.124Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:36.124Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:36.124Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:36.125Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:36.125Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:36.125Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:36.125Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:36.125Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:36.125Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:36.125Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:36.125Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:36.125Z] ❌ /root/trading-bot/live-trader-v4.2.js: ❌ MISSING
+[2026-02-17T08:26:36.126Z] ❌ /root/trading-bot/soul-core-paper-trader-v5.js: ❌ MISSING
+[2026-02-17T08:26:36.126Z] ❌ /root/trading-bot/balance-guardian.js: ❌ MISSING
+[2026-02-17T08:26:36.126Z] ❌ /root/trading-bot/sl-tracker.js: ❌ MISSING
+[2026-02-17T08:26:36.126Z] ❌ /root/trading-bot/evaluate-performance.js: ❌ MISSING
+[2026-02-17T08:26:36.126Z] ❌ /root/trading-bot/strategy-intelligence-v2.js: ❌ MISSING
+[2026-02-17T08:26:36.126Z] ❌ /root/trading-bot/system-monitor.js: ❌ MISSING
+[2026-02-17T08:26:36.126Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:36.126Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:36.126Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:36.126Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:36.126Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:36.126Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:36.127Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:36.127Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:36.127Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:36.127Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:36.127Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:36.127Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:36.127Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:36.127Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:36.127Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (16 issues)...
+
+[2026-02-17T08:26:36.127Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:42.017Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:42.033Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:42.033Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:42.033Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:42.033Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:42.034Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:42.185Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:42.185Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:42.189Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:42.189Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:42.189Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:42.189Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:42.189Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:42.189Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:42.189Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:42.189Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:42.189Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:42.189Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:42.190Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:42.190Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:26:42.190Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:26:42.190Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:26:42.190Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:26:42.190Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:26:42.190Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:26:42.190Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:26:42.190Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:42.190Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:42.190Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:42.190Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:42.191Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:42.191Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:42.191Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:42.191Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:42.191Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:42.191Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:42.191Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:42.191Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:42.191Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:42.191Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:42.191Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:26:42.192Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:45.094Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:45.108Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:45.108Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:45.109Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:45.109Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:45.109Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:45.264Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:45.265Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:45.269Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:45.269Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:45.269Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:45.269Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:45.269Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:45.269Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:45.269Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:45.270Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:45.270Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:45.270Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:45.270Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:45.270Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:26:45.270Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:26:45.270Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:26:45.270Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:26:45.270Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:26:45.270Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:26:45.270Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:26:45.270Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:45.270Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:45.271Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:45.271Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:45.271Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:45.271Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:45.271Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:45.271Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:45.271Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:45.271Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:45.271Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:45.271Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:45.271Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:45.271Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:45.272Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:26:45.272Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:48.187Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:48.199Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:48.199Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:48.199Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:48.199Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:48.199Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:48.369Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:48.370Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:48.375Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:48.375Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:48.375Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:48.375Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:48.375Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:48.375Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:48.375Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:48.375Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:48.375Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:48.375Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:48.375Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:48.375Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:26:48.375Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:26:48.376Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:26:48.376Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:26:48.376Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:26:48.376Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:26:48.376Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:26:48.376Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:48.376Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:48.376Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:48.376Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:48.376Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:48.376Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:48.376Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:48.376Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:48.376Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:48.377Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:48.377Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:48.379Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:48.379Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:48.379Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:48.379Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:26:48.379Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:51.255Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:51.266Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:51.267Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:51.267Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:51.267Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:51.267Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:51.409Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:51.409Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:51.413Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:51.413Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:51.413Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:51.413Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:51.413Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:51.413Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:51.413Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:51.413Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:51.413Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:51.413Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:51.413Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:51.413Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:26:51.414Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:26:51.414Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:26:51.414Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:26:51.414Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:26:51.414Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:26:51.414Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:26:51.414Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:51.414Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:51.414Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:51.414Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:51.414Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:51.414Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:51.414Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:51.414Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:51.414Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:51.414Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:51.414Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:51.415Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:51.415Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:51.415Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:51.415Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:26:51.415Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:54.347Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:54.358Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:54.359Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:54.359Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:54.359Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:54.359Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:54.511Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:54.512Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:54.517Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:54.517Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:54.517Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:54.517Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:54.517Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:54.517Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:54.517Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:54.517Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:54.517Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:54.517Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:54.517Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:54.517Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:26:54.517Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:26:54.518Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:26:54.518Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:26:54.518Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:26:54.518Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:26:54.518Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:26:54.518Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:54.518Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:54.518Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:54.518Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:54.518Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:54.518Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:54.518Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:54.518Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:54.518Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:54.518Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:54.518Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:54.519Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:54.519Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:54.519Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:54.519Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:26:54.519Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:26:57.408Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:26:57.422Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:57.423Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:26:57.423Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:26:57.423Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:26:57.423Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:26:57.561Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:26:57.562Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:26:57.566Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:26:57.566Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:26:57.566Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:26:57.566Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:26:57.566Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:26:57.566Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:26:57.566Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:26:57.566Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:26:57.566Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:26:57.566Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:26:57.566Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:26:57.566Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:26:57.566Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:26:57.566Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:26:57.566Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:26:57.566Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:26:57.566Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:26:57.566Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:26:57.567Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:26:57.567Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:26:57.567Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:57.567Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:57.567Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:57.567Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:26:57.567Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:26:57.567Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:26:57.567Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:26:57.567Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:26:57.567Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:26:57.567Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:26:57.567Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:26:57.567Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:26:57.567Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:26:57.567Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:27:00.515Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:27:00.532Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:00.532Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:00.532Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:27:00.532Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:27:00.532Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:27:00.697Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:27:00.697Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:27:00.702Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:27:00.702Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:27:00.702Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:27:00.702Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:27:00.702Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:27:00.702Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:27:00.702Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:27:00.702Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:27:00.702Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:27:00.702Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:27:00.702Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:27:00.703Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:27:00.703Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:27:00.703Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:27:00.703Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:27:00.703Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:27:00.703Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:27:00.703Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:27:00.703Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:27:00.703Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:27:00.703Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:00.703Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:00.703Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:00.703Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:00.703Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:27:00.703Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:27:00.703Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:27:00.704Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:27:00.704Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:27:00.704Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:27:00.704Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:27:00.704Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:27:00.704Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:27:00.704Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:27:03.581Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:27:03.595Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:03.596Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:03.596Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:27:03.596Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:27:03.596Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:27:03.748Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:27:03.748Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:27:03.753Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:27:03.753Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:27:03.753Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:27:03.753Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:27:03.753Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:27:03.754Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:27:03.754Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:27:03.754Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:27:03.754Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:27:03.754Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:27:03.754Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:27:03.754Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:27:03.754Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:27:03.754Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:27:03.754Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:27:03.754Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:27:03.754Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:27:03.754Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:27:03.754Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:27:03.755Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:27:03.755Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:03.755Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:03.755Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:03.755Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:03.755Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:27:03.755Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:27:03.755Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:27:03.755Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:27:03.755Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:27:03.755Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:27:03.755Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:27:03.755Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:27:03.755Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:27:03.755Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:27:06.252Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:27:06.263Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:06.264Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:06.264Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:27:06.264Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:27:06.264Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:27:06.427Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:27:06.428Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:27:06.432Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:27:06.432Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:27:06.432Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:27:06.432Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:27:06.432Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:27:06.432Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:27:06.432Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:27:06.432Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:27:06.432Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:27:06.432Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:27:06.432Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:27:06.432Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:27:06.432Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:27:06.432Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:27:06.432Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:27:06.432Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:27:06.432Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:27:06.432Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:27:06.432Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:27:06.433Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:27:06.433Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:06.433Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:06.433Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:06.433Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:06.433Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:27:06.433Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:27:06.433Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:27:06.433Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:27:06.433Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:27:06.433Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:27:06.433Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:27:06.433Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:27:06.433Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:27:06.433Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:27:06.672Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:27:06.684Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:06.685Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:06.685Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:27:06.685Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:27:06.685Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:27:06.837Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:27:06.838Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:27:06.841Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:27:06.841Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:27:06.841Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:27:06.841Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:27:06.841Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:27:06.841Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:27:06.842Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:27:06.842Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:27:06.842Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:27:06.842Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:27:06.842Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:27:06.842Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:27:06.842Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:27:06.842Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:27:06.842Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:27:06.842Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:27:06.842Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:27:06.842Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:27:06.843Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:27:06.843Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:27:06.843Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:06.843Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:06.843Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:06.843Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:06.843Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:27:06.843Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:27:06.843Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:27:06.843Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:27:06.843Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:27:06.844Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:27:06.844Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:27:06.844Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:27:06.844Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:27:06.844Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
+[2026-02-17T08:27:09.752Z] ℹ️ 
+🔍 CHECKING PROCESSES...
+
+[2026-02-17T08:27:09.764Z] ✅ live-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:09.764Z] ✅ paper-trader: ✅ OK (1 instance)
+[2026-02-17T08:27:09.764Z] ✅ balance-guardian: ✅ OK (1 instance)
+[2026-02-17T08:27:09.765Z] ✅ sl-tracker: ✅ OK (1 instance)
+[2026-02-17T08:27:09.765Z] ❌ evaluation: ❌ NOT RUNNING
+[2026-02-17T08:27:09.920Z] ✅ PM2 live-trader: ✅ 1 instance online
+[2026-02-17T08:27:09.920Z] ℹ️ 
+🔍 CHECKING CRON JOBS...
+
+[2026-02-17T08:27:09.924Z] ✅ Cron Paper Trader v5: ✅ OK
+[2026-02-17T08:27:09.924Z] ✅ Cron SL Tracker: ✅ OK
+[2026-02-17T08:27:09.924Z] ✅ Cron Balance Guardian: ✅ OK
+[2026-02-17T08:27:09.924Z] ✅ Cron Evaluation: ✅ OK
+[2026-02-17T08:27:09.924Z] ✅ Cron Intelligence: ✅ OK
+[2026-02-17T08:27:09.924Z] ✅ Cron System Monitor: ✅ OK
+[2026-02-17T08:27:09.924Z] ⚠️ Cron Watchdog: ⚠️ MISSING
+[2026-02-17T08:27:09.924Z] ⚠️ Cron GitHub Auto-Push: ⚠️ MISSING
+[2026-02-17T08:27:09.924Z] ⚠️ Cron Performance Report: ⚠️ MISSING
+[2026-02-17T08:27:09.924Z] ⚠️ Cron Log Cleanup: ⚠️ MISSING
+[2026-02-17T08:27:09.924Z] ℹ️ 
+🔍 CHECKING FILE INTEGRITY...
+
+[2026-02-17T08:27:09.925Z] ✅ live-trader-v4.2.js: ✅ Exists
+[2026-02-17T08:27:09.925Z] ✅ soul-core-paper-trader-v5.js: ✅ Exists
+[2026-02-17T08:27:09.925Z] ✅ balance-guardian.js: ✅ Exists
+[2026-02-17T08:27:09.925Z] ✅ sl-tracker.js: ✅ Exists
+[2026-02-17T08:27:09.925Z] ✅ evaluate-performance.js: ✅ Exists
+[2026-02-17T08:27:09.925Z] ✅ strategy-intelligence-v2.js: ✅ Exists
+[2026-02-17T08:27:09.925Z] ✅ system-monitor.js: ✅ Exists
+[2026-02-17T08:27:09.925Z] ✅ adaptive-scoring-config.json: ✅ Exists
+[2026-02-17T08:27:09.925Z] ℹ️ 
+📁 CHECKING DEPRECATED FOLDER...
+
+[2026-02-17T08:27:09.925Z] ℹ️ paper-trader-active.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:09.925Z] ℹ️ soul-core-paper-trader-v4.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:09.925Z] ℹ️ prana-live-trader-v4-dynamic.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:09.925Z] ℹ️ smart-scalper-v21.js: ℹ️ Not found (may be deleted)
+[2026-02-17T08:27:09.925Z] ℹ️ 
+🔍 CHECKING LEGACY SCRIPTS...
+
+[2026-02-17T08:27:09.925Z] ⚠️ Watchdog: ⚠️ Not found (/root/trading-bot/trading-watchdog.sh)
+[2026-02-17T08:27:09.925Z] ⚠️ GitHub Auto-Push: ⚠️ Not found (/root/trading-bot/github-auto-push.sh)
+[2026-02-17T08:27:09.926Z] ⚠️ Performance Monitor: ⚠️ Not found (/root/trading-bot/performance-monitor.py)
+[2026-02-17T08:27:09.926Z] ℹ️ 
+🔍 CHECKING SYSTEM FLAGS...
+
+[2026-02-17T08:27:09.926Z] ⚠️ Emergency Stop: 🚫 ACTIVE
+[2026-02-17T08:27:09.926Z] ✅ Pause Trading: ✅ Inactive
+[2026-02-17T08:27:09.926Z] ✅ Evaluation Mode: ✅ Inactive
+[2026-02-17T08:27:09.926Z] ℹ️ 
+🔧 ATTEMPTING AUTO-FIX (9 issues)...
+
+[2026-02-17T08:27:09.926Z] ✅ 
+✅ AUTO-FIX COMPLETE (0 fixes applied)
+
