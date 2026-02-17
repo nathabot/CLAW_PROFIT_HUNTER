@@ -93,3 +93,53 @@
 [2026-02-17T09:00:04.583Z] ℹ️ SUMMARY: 2 new signals, 18 skipped
 [2026-02-17T09:00:04.583Z] ℹ️ ========================================
 
+[2026-02-17T13:00:01.422Z] ℹ️ ========================================
+[2026-02-17T13:00:01.423Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-17T13:00:01.423Z] ℹ️ Dynamic Signal Generation
+[2026-02-17T13:00:01.423Z] ℹ️ ========================================
+
+[2026-02-17T13:00:01.465Z] ℹ️ Database connected (schema updated)
+
+[2026-02-17T13:00:01.465Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-17T13:00:01.640Z] ℹ️ Found 20 trending tokens
+
+[2026-02-17T13:00:01.717Z] ⚠️ Gaa: Low volume ($21,220.19)
+[2026-02-17T13:00:01.758Z] ⚠️ Harper: Low volume ($28,488.45)
+[2026-02-17T13:00:01.800Z] ⚠️ MAX: Low liquidity ($0)
+[2026-02-17T13:00:01.833Z] ⚠️ DAEMON: Confidence too low (3.0/10)
+[2026-02-17T13:00:01.865Z] ⚠️ Lucas: Confidence too low (2.0/10)
+[2026-02-17T13:00:01.895Z] ⚠️ JURYCAT: Low liquidity ($0)
+[2026-02-17T13:00:01.938Z] ✅ CLAWPEPE: ✅ INSERTED (6.0/10)
+[2026-02-17T13:00:01.938Z] ℹ️    Entry: $0.000243
+[2026-02-17T13:00:01.938Z] ℹ️    TP1: $0.000258 | TP2: $0.000272
+[2026-02-17T13:00:01.938Z] ℹ️    SL: $0.000233
+[2026-02-17T13:00:01.938Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Strong buying
+
+[2026-02-17T13:00:02.481Z] ⚠️ HORZ: Confidence too low (3.5/10)
+[2026-02-17T13:00:02.519Z] ⚠️ Benjamin: Confidence too low (3.5/10)
+[2026-02-17T13:00:02.610Z] ⚠️ Drippin: Low liquidity ($0)
+[2026-02-17T13:00:02.663Z] ✅ 马布布: ✅ INSERTED (6.0/10)
+[2026-02-17T13:00:02.663Z] ℹ️    Entry: $0.000113
+[2026-02-17T13:00:02.663Z] ℹ️    TP1: $0.000120 | TP2: $0.000127
+[2026-02-17T13:00:02.663Z] ℹ️    SL: $0.000109
+[2026-02-17T13:00:02.663Z] ℹ️    Reasons: Very high volume, Strong 24h momentum, Slight buying edge
+
+[2026-02-17T13:00:03.210Z] ⚠️ 马王: Confidence too low (1.0/10)
+[2026-02-17T13:00:03.490Z] ⚠️ SCF: Low liquidity ($3,999.76)
+[2026-02-17T13:00:03.534Z] ⚠️ Agents: Confidence too low (2.5/10)
+[2026-02-17T13:00:03.572Z] ⚠️ U25: Low liquidity ($0)
+[2026-02-17T13:00:03.601Z] ⚠️ Lightbourn: Low liquidity ($0)
+[2026-02-17T13:00:03.637Z] ✅ APocket: ✅ INSERTED (9.0/10)
+[2026-02-17T13:00:03.637Z] ℹ️    Entry: $0.001324
+[2026-02-17T13:00:03.637Z] ℹ️    TP1: $0.001451 | TP2: $0.001562
+[2026-02-17T13:00:03.637Z] ℹ️    SL: $0.001245
+[2026-02-17T13:00:03.637Z] ℹ️    Reasons: Very high volume, Strong 24h momentum, Heavy buying pressure, Adequate liquidity
+
+[2026-02-17T13:00:04.172Z] ⚠️ Trans: Low liquidity ($0)
+[2026-02-17T13:00:04.205Z] ⚠️ AI: Low liquidity ($8,876.9)
+[2026-02-17T13:00:04.243Z] ⚠️ naniXBT: Low liquidity ($7,671.93)
+[2026-02-17T13:00:04.244Z] ℹ️ 
+========================================
+[2026-02-17T13:00:04.244Z] ℹ️ SUMMARY: 3 new signals, 17 skipped
+[2026-02-17T13:00:04.244Z] ℹ️ ========================================
+

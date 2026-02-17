@@ -949,3 +949,223 @@ S/R Breakout:
 ============================================================
 ✅ Paper Trader v5 Complete
 
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 45/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 45/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+📊 Found 20 tokens from market scan
+
+🔍 Testing: 鸡气人
+   ✅ Candle: ACCEPTABLE: -2.3% movement (Score: 6)
+   📊 Order Book: moderate (1.16:1)
+🔍 Testing: GA
+   ❌ FOMO ALERT: Pumped 21.0% in 5min - Wait for pullback
+🔍 Testing: Gaa
+   ✅ Candle: PULLBACK ENTRY: Up 3724.0% in 1h, cooling off -2.2% in 5m (Score: 9)
+   📊 Order Book: strong (2.41:1)
+🔍 Testing: Harper
+   ❌ DUMP ALERT: Down 50.2% in 5min - Wait for stabilization
+🔍 Testing: MAX
+   ✅ Candle: ACCEPTABLE: 2.3% movement (Score: 6)
+   📊 Order Book: strong (1.53:1)
+🔍 Testing: DAEMON
+   ✅ Candle: ACCEPTABLE: -3.7% movement (Score: 6)
+   📊 Order Book: moderate (1.32:1)
+🔍 Testing: Lucas
+   ❌ FOMO ALERT: Pumped 73.6% in 5min - Wait for pullback
+🔍 Testing: JURYCAT
+   ❌ DUMP ALERT: Down 5.7% in 5min - Wait for stabilization
+🔍 Testing: CLAWPEPE
+   ❌ DUMP ALERT: Down 5.3% in 5min - Wait for stabilization
+🔍 Testing: HORZ
+   ✅ Candle: ACCEPTABLE: 6.6% movement (Score: 6)
+   📊 Order Book: moderate (1.09:1)
+
+🧹 Cleaning up expired strategies from Cycle 0...
+✅ BOK updated: Only Cycle 1 strategies are active
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.382 Entry:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0018 SOL
+   Category: SCALPING
+
+Fib 0.500 Entry:
+   WR: 66.7% (4W/2L)
+   PnL: 0.0036 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0017 SOL
+   Category: SWING_TRADE
+
+Fib + Volume:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0019 SOL
+   Category: FAST_TRADE
+
+Orderbook + Funding:
+   WR: 66.7% (4W/2L)
+   PnL: 0.0039 SOL
+   Category: SWING_TRADE
+
+RSI Divergence:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0015 SOL
+   Category: SWING_TRADE
+
+Whale + Volume:
+   WR: 50.0% (3W/3L)
+   PnL: 0.0025 SOL
+   Category: SNIPER
+
+Fib + RSI:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0007 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0006 SOL
+   Category: SNIPER
+
+S/R Breakout:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0004 SOL
+   Category: FAST_TRADE
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Simulation: 45/50
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+
+📊 Found 20 tokens from market scan
+
+🔍 Testing: Harper
+   ❌ FOMO ALERT: Pumped 32.1% in 5min - Wait for pullback
+🔍 Testing: GROK
+   ❌ FOMO ALERT: Pumped 11.2% in 5min - Wait for pullback
+🔍 Testing: Grok
+   ❌ FOMO ALERT: Pumped 46.3% in 5min - Wait for pullback
+🔍 Testing: GROK
+   ❌ DUMP ALERT: Down 32.7% in 5min - Wait for stabilization
+🔍 Testing: 鸡气人
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.16:1)
+🔍 Testing: GA
+   ❌ FOMO ALERT: Pumped 32.8% in 5min - Wait for pullback
+🔍 Testing: Gaa
+   ❌ DUMP ALERT: Down 11.3% in 5min - Wait for stabilization
+🔍 Testing: Harper
+   ❌ DUMP ALERT: Down 22.0% in 5min - Wait for stabilization
+🔍 Testing: MAX
+   ❌ FOMO ALERT: Pumped 12.6% in 5min - Wait for pullback
+🔍 Testing: DAEMON
+   ✅ Candle: ACCEPTABLE: 2.3% movement (Score: 6)
+   📊 Order Book: moderate (1.31:1)
+
+🧹 Cleaning up expired strategies from Cycle 0...
+✅ BOK updated: Only Cycle 1 strategies are active
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.382 Entry:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0018 SOL
+   Category: SCALPING
+
+Fib 0.500 Entry:
+   WR: 66.7% (4W/2L)
+   PnL: 0.0036 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0017 SOL
+   Category: SWING_TRADE
+
+Fib + Volume:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0019 SOL
+   Category: FAST_TRADE
+
+Orderbook + Funding:
+   WR: 66.7% (4W/2L)
+   PnL: 0.0039 SOL
+   Category: SWING_TRADE
+
+RSI Divergence:
+   WR: 66.7% (2W/1L)
+   PnL: 0.0015 SOL
+   Category: SWING_TRADE
+
+Whale + Volume:
+   WR: 50.0% (3W/3L)
+   PnL: 0.0025 SOL
+   Category: SNIPER
+
+Fib + RSI:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0007 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0006 SOL
+   Category: SNIPER
+
+S/R Breakout:
+   WR: 33.3% (1W/2L)
+   PnL: 0.0004 SOL
+   Category: FAST_TRADE
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
