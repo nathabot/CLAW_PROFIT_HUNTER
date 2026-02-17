@@ -44,8 +44,8 @@ const CONFIG = {
   TOXIC_TOKENS_FILE: '/root/trading-bot/bok/06-toxic-tokens.md',
   
   // Real Trading Reference
-  WALLET_BALANCE: 0.1885,         // Current SOL balance
-  DAILY_TARGET: 0.4,              // 0.4 SOL per day target
+  WALLET_BALANCE: 0.1,            // Current SOL balance (new wallet)
+  DAILY_TARGET: 0.2,              // 0.2 SOL per day target (base)
   FEE_RESERVE: 0.015,
   
   // Telegram
@@ -790,6 +790,9 @@ class PaperTraderV5 {
     // Show results
     this.showResults();
     
+    // Send Telegram notification
+    await this.notifyTelegram();
+    
     // Save state
     this.saveState();
     
@@ -835,6 +838,74 @@ class PaperTraderV5 {
       console.log(`   PnL: ${pnl} SOL`);
       console.log(`   Category: ${result.category}`);
       console.log();
+    }
+  }
+
+  // ==================== TELEGRAM NOTIFICATION ====================
+  async notifyTelegram() {
+    try {
+      const sorted = Object.values(this.results)
+        .filter(r => r.total >= 3)
+        .sort((a, b) => (b.wins / b.total) - (a.wins / a.total));
+      
+      if (sorted.length === 0) {
+        console.log('ℹ️ No strategies with 3+ trades yet, skipping notification');
+        return;
+      }
+
+      // Build message
+      let msg = `📊 **PAPER TRADER v5 REPORT**\n\n`;
+      msg += `🎯 Simulations: ${this.simulationCount}/${CONFIG.SIMULATION_COUNT}\n`;
+      
+      // Best strategy
+      const best = sorted[0];
+      const bestWR = ((best.wins / best.total) * 100).toFixed(1);
+      const bestPnL = (best.totalProfit + best.totalLoss).toFixed(4);
+      
+      msg += `\n🏆 **Best Strategy: ${best.name}**\n`;
+      msg += `   WR: ${bestWR}% (${best.wins}W/${best.losses}L)\n`;
+      msg += `   PnL: ${bestPnL} SOL\n`;
+      msg += `   Category: ${best.category}\n`;
+      
+      // Top 3 strategies
+      msg += `\n📈 **Top Strategies:**\n`;
+      for (let i = 0; i < Math.min(3, sorted.length); i++) {
+        const s = sorted[i];
+        const wr = ((s.wins / s.total) * 100).toFixed(1);
+        const pnl = (s.totalProfit + s.totalLoss).toFixed(4);
+        msg += `${i+1}. ${s.name}: ${wr}% (${pnl} SOL)\n`;
+      }
+      
+      // BOK Status
+      const positiveCount = Object.values(this.results).filter(r => {
+        const wr = r.wins / r.total;
+        return r.total >= 5 && wr >= 0.70;
+      }).length;
+      
+      msg += `\n📚 **BOK Status:**\n`;
+      msg += `   Positive: ${positiveCount} strategies\n`;
+      msg += `   Target: WR ≥ 70%, 5+ trades\n`;
+      
+      // Daily estimate
+      msg += `\n💰 **Daily Estimate:**\n`;
+      msg += `   Balance: ${CONFIG.WALLET_BALANCE} SOL\n`;
+      msg += `   Target: ${CONFIG.DAILY_TARGET} SOL\n`;
+      
+      // Send notification
+      await fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: CONFIG.CHAT_ID,
+          message_thread_id: CONFIG.TOPIC_ID,
+          text: msg,
+          parse_mode: 'Markdown'
+        })
+      });
+      
+      console.log('✅ Telegram notification sent');
+    } catch (e) {
+      console.error('❌ Telegram notify failed:', e.message);
     }
   }
 }
