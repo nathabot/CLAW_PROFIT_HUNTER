@@ -116,10 +116,16 @@ class PerformanceEvaluator {
   }
 
   evaluate(metrics) {
+    // Parse metrics safely (handle NaN)
+    const winRate = parseFloat(metrics.winRate) || 0;
+    const profitSOL = parseFloat(metrics.profitSOL) || 0;
+    const drawdown = parseFloat(metrics.drawdown) || 0;
+    const totalTrades = parseInt(metrics.totalTrades) || 0;
+    
     const checks = {
-      winRate: parseFloat(metrics.winRate) >= CONFIG.THRESHOLDS.MIN_WIN_RATE,
-      profit: parseFloat(metrics.profitSOL) >= CONFIG.THRESHOLDS.MIN_PROFIT_SOL,
-      drawdown: parseFloat(metrics.drawdown) <= CONFIG.THRESHOLDS.MAX_DRAWDOWN,
+      winRate: winRate >= CONFIG.THRESHOLDS.MIN_WIN_RATE,
+      profit: profitSOL >= CONFIG.THRESHOLDS.MIN_PROFIT_SOL,
+      drawdown: drawdown <= CONFIG.THRESHOLDS.MAX_DRAWDOWN,
       volatility: parseFloat(metrics.volatility) <= CONFIG.THRESHOLDS.MAX_VOLATILITY
     };
 
@@ -127,18 +133,23 @@ class PerformanceEvaluator {
     let verdict = 'NEUTRAL';
     let action = 'CONTINUE';
 
-    if (checks.winRate && checks.profit && checks.drawdown) {
+    // STARTUP GRACE PERIOD: Don't penalize if less than 10 trades
+    if (totalTrades < 10) {
+      verdict = 'NEUTRAL';
+      action = 'CONTINUE';
+      console.log(`  ℹ️ Grace period: Only ${totalTrades} trades. Skipping negative evaluation.`);
+    } else if (checks.winRate && checks.profit && checks.drawdown) {
       verdict = 'POSITIVE';
       action = 'CONTINUE';
       this.state.consecutiveNegative = 0;
-    } else if (!checks.winRate || parseFloat(metrics.profitSOL) < 0 || !checks.drawdown) {
+    } else if (!checks.winRate || profitSOL < 0 || !checks.drawdown) {
       verdict = 'NEGATIVE';
       action = 'STOP_AND_REEVALUATE';
       this.state.consecutiveNegative++;
     }
 
-    // Auto-disable if 3 consecutive negative evaluations
-    if (this.state.consecutiveNegative >= 3) {
+    // Auto-disable if 3 consecutive negative evaluations (only after grace period)
+    if (this.state.consecutiveNegative >= 3 && totalTrades >= 10) {
       action = 'EMERGENCY_STOP';
       this.state.tradingEnabled = false;
     }
