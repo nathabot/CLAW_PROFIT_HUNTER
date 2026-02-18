@@ -7866,3 +7866,116 @@ Testing: Intelligence: KIMCHI (6.5/10 confidence)
 ============================================================
 ✅ Paper Trader v5 Complete
 
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 2 | Total Sims: 98 (48/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 2 signals from Intelligence Network
+
+🎯 Testing 2 Intelligence signals:
+
+Testing: Intelligence: TRADE (8/10 confidence)
+   Simulating Intelligence strategy: Intelligence: TRADE
+   Result: ✅ WIN 13.80% (0.0018 SOL)
+Testing: Intelligence: KIMCHI (6.5/10 confidence)
+   Simulating Intelligence strategy: Intelligence: KIMCHI
+   Result: ✅ WIN 11.50% (0.0010 SOL)
+🔥 PREMIUM MODE: DexScreener Premium API
+📡 Fetching from DexScreener Premium...
+❌ Error fetching market data: invalid json response body at https://api.dexscreener.com/latest/dex/pairs/solana?minLiq=10000&minAge=360&rankBy=volume&limit=100 reason: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+⚠️  Falling back to trending mode...
+✅ Fallback: 1 trending tokens
+
+📊 Found 1 tokens from market scan
+
+🔍 Testing: PEPE
+   ❌ DUMP ALERT: Down 19.0% in 5min - Wait for stabilization
+
+💾 PROVEN TOKENS saved:
+   • Fib 0.500 Entry: 6 proven tokens
+     - RAY: 1 wins, +7.0% avg
+     - $WIF: 1 wins, +6.9% avg
+     - mSOL: 1 wins, +4.1% avg
+   • Fib 0.786 Deep: 6 proven tokens
+     - RAY: 1 wins, +4.2% avg
+     - mSOL: 1 wins, +5.9% avg
+     - ATLAS: 1 wins, +7.2% avg
+   • Fib + Volume: 6 proven tokens
+     - RAY: 1 wins, +5.2% avg
+     - $WIF: 1 wins, +4.4% avg
+     - ATLAS: 1 wins, +4.8% avg
+   • Orderbook + Funding: 5 proven tokens
+     - mSOL: 1 wins, +6.0% avg
+     - ATLAS: 1 wins, +5.9% avg
+     - Bonk: 1 wins, +6.7% avg
+✅ BOK updated: Strategies from cycles 1-3 are active
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0179 SOL
+   Gap: 0.1821 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.500 Entry:
+   WR: 85.7% (6W/1L)
+   PnL: 0.0066 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 85.7% (6W/1L)
+   PnL: 0.0069 SOL
+   Category: SWING_TRADE
+
+Fib + Volume:
+   WR: 85.7% (6W/1L)
+   PnL: 0.0064 SOL
+   Category: FAST_TRADE
+
+Orderbook + Funding:
+   WR: 71.4% (5W/2L)
+   PnL: 0.0052 SOL
+   Category: SWING_TRADE
+
+Fib 0.618 Golden:
+   WR: 57.1% (4W/3L)
+   PnL: 0.0024 SOL
+   Category: SNIPER
+
+Smart Money + Fib:
+   WR: 57.1% (4W/3L)
+   PnL: 0.0019 SOL
+   Category: SNIPER
+
+S/R Breakout:
+   WR: 57.1% (4W/3L)
+   PnL: 0.0039 SOL
+   Category: FAST_TRADE
+
+RSI Divergence:
+   WR: 57.1% (4W/3L)
+   PnL: 0.0037 SOL
+   Category: SWING_TRADE
+
+Fib 0.382 Entry:
+   WR: 42.9% (3W/4L)
+   PnL: 0.0024 SOL
+   Category: SCALPING
+
+Fib + RSI:
+   WR: 42.9% (3W/4L)
+   PnL: 0.0027 SOL
+   Category: SCALPING
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+

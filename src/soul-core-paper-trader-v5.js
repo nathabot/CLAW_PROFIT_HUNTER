@@ -929,69 +929,121 @@ class PaperTraderV5 {
 
   async fetchMarketData() {
     try {
-      // ESTABLISHED MODE v2 (Hybrid): Cached list + DexScreener real-time
+      // ESTABLISHED MODE v2: Proven working method
       console.log('🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...');
-      
-      // Use cached list of established Solana tokens (top 100 by volume)
-      // Updated manually or via separate script to avoid CoinGecko rate limits
-      const establishedTokens = this.loadEstablishedTokenList();
-      console.log(`📊 Loaded ${establishedTokens.length} established tokens`);
-      
-      // For each token, get real-time data from DexScreener
-      const tokens = [];
-      let checked = 0;
-      
-      for (const token of establishedTokens.slice(0, 50)) {
-        try {
-          // Get DexScreener data
-          const dsRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token.address}`);
-          const dsData = await dsRes.json();
-          const pairs = dsData.pairs || [];
-          
-          // Get best Solana pair
-          const bestPair = pairs
-            .filter(p => p.chainId === 'solana')
-            .sort((a, b) => parseFloat(b.liquidity?.usd || 0) - parseFloat(a.liquidity?.usd || 0))[0];
-          
-          if (bestPair) {
-            const liq = parseFloat(bestPair.liquidity?.usd || 0);
-            const ageHours = bestPair.pairCreatedAt ? (Date.now() - bestPair.pairCreatedAt) / 3600000 : 999;
-            const symbol = (bestPair.baseToken?.symbol || '').toUpperCase();
-            
-            checked++;
-            
-            if (liq >= CONFIG.MIN_LIQUIDITY && ageHours >= (CONFIG.MIN_TOKEN_AGE_MINUTES / 60)) {
-              tokens.push(bestPair);
-            }
-          }
-        } catch (e) {}
-      }
-      
-      // Sort by 24h volume
-      tokens.sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0));
-      
-      console.log(`✅ Filtered ${tokens.length}/${checked} tokens (>=$${CONFIG.MIN_LIQUIDITY} liq, >=${CONFIG.MIN_TOKEN_AGE_MINUTES/60}h age)`);
-      
-      // Log found tokens
-      if (tokens.length > 0) {
-        console.log('\n📈 Top established tokens by volume:');
-        tokens.slice(0, 10).forEach((p, i) => {
-          const ageH = p.pairCreatedAt ? ((Date.now() - p.pairCreatedAt) / 3600000).toFixed(1) : 'N/A';
-          const volK = p.volume?.h24 ? (p.volume.h24 / 1000).toFixed(0) : '0';
-          const symbol = p.baseToken?.symbol;
-          console.log(`   ${i+1}. ${symbol}: $${parseFloat(p.liquidity?.usd || 0).toFixed(0)} liq, ${ageH}h, $${volK}k vol`);
-        });
-      } else {
-        console.log('⚠️  No established tokens passed filter');
-      }
-      
-      return tokens;
+      return await this.fetchEstablishedData();
     } catch (e) {
       console.error('❌ Error fetching market data:', e.message);
-      // Fallback to trending mode
       console.log('⚠️  Falling back to trending mode...');
       return this.fetchTrendingTokens();
     }
+  }
+  
+  async fetchPremiumData(apiKey) {
+    // ScrapingBee: Scrape DexScreener web UI then query API
+    console.log('🕷️ SCRAPING MODE: ScrapingBee + DexScreener...');
+
+    const minLiq = CONFIG.MIN_LIQUIDITY;
+    const minAgeHours = CONFIG.MIN_TOKEN_AGE_MINUTES / 60;
+
+    // Step 1: Scrape DexScreener for token addresses
+    const addresses = await this.scrapeTokenAddresses(apiKey, minLiq, minAgeHours);
+    console.log(`📊 Found ${addresses.length} token addresses from scraping`);
+
+    // Step 2: Query DexScreener API for each token
+    const tokens = [];
+    for (const addr of addresses.slice(0, 30)) {
+      try {
+        const dsRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${addr}`);
+        const dsData = await dsRes.json();
+        const bestPair = (dsData.pairs || [])
+          .filter(p => p.chainId === 'solana')
+          .sort((a, b) => parseFloat(b.liquidity?.usd || 0) - parseFloat(a.liquidity?.usd || 0))[0];
+
+        if (bestPair) {
+          const liq = parseFloat(bestPair.liquidity?.usd || 0);
+          const ageHours = bestPair.pairCreatedAt ? (Date.now() - bestPair.pairCreatedAt) / 3600000 : 0;
+
+          if (liq >= minLiq && ageHours >= minAgeHours) {
+            tokens.push(bestPair);
+          }
+        }
+      } catch (e) {}
+    }
+
+    // Sort by volume
+    tokens.sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0));
+
+    console.log(`✅ Filtered ${tokens.length} tokens (>=$${minLiq} liq, >=${minAgeHours}h age)`);
+
+    if (tokens.length > 0) {
+      console.log('\n📈 Top tokens by volume:');
+      tokens.slice(0, 10).forEach((p, i) => {
+        const ageH = p.pairCreatedAt ? ((Date.now() - p.pairCreatedAt) / 3600000).toFixed(1) : 'N/A';
+        const volK = p.volume?.h24 ? (p.volume.h24 / 1000).toFixed(0) : '0';
+        console.log(`   ${i + 1}. ${p.baseToken?.symbol}: $${parseFloat(p.liquidity?.usd || 0).toFixed(0)} liq, ${ageH}h, $${volK}k vol`);
+      });
+    }
+
+    return tokens;
+  }
+
+  async scrapeTokenAddresses(apiKey, minLiq, minAgeHours) {
+    // ScrapingBee: Scrape DexScreener web for token addresses
+    const targetUrl = `https://dexscreener.com/solana?rankBy=trendingScoreH6&order=desc&minLiq=${minLiq}&minAge=${minAgeHours}`;
+    const scrapeUrl = `https://app.scrapingbee.com/api/v1/?api_key=${apiKey}&url=${encodeURIComponent(targetUrl)}&render_js=true&premium_proxy=true&wait=5000`;
+
+    try {
+      const res = await fetch(scrapeUrl);
+      const html = await res.text();
+
+      // Extract Solana addresses (base58 format, 32-44 chars)
+      const addrMatches = html.match(/[A-HJ-NP-Za-km-z1-9]{32,44}/g);
+      if (!addrMatches) return [];
+
+      // Filter unique addresses (exclude common ones)
+      const exclude = ['So11111111111111111111111111111111111111112']; // Wrapped SOL
+      const unique = [...new Set(addrMatches)].filter(a => !exclude.includes(a) && a.length >= 40);
+
+      return unique;
+    } catch (e) {
+      console.log('Scraping error:', e.message);
+      return [];
+    }
+  }
+  
+  async fetchEstablishedData() {
+    // Fallback: Cached list + DexScreener real-time
+    const establishedTokens = this.loadEstablishedTokenList();
+    console.log(`📊 Loaded ${establishedTokens.length} established tokens`);
+    
+    const tokens = [];
+    let checked = 0;
+    
+    for (const token of establishedTokens.slice(0, 50)) {
+      try {
+        const dsRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token.address}`);
+        const dsData = await dsRes.json();
+        const bestPair = (dsData.pairs || [])
+          .filter(p => p.chainId === 'solana')
+          .sort((a, b) => parseFloat(b.liquidity?.usd || 0) - parseFloat(a.liquidity?.usd || 0))[0];
+        
+        if (bestPair) {
+          const liq = parseFloat(bestPair.liquidity?.usd || 0);
+          const ageHours = bestPair.pairCreatedAt ? (Date.now() - bestPair.pairCreatedAt) / 3600000 : 999;
+          
+          checked++;
+          
+          if (liq >= CONFIG.MIN_LIQUIDITY && ageHours >= (CONFIG.MIN_TOKEN_AGE_MINUTES / 60)) {
+            tokens.push(bestPair);
+          }
+        }
+      } catch (e) {}
+    }
+    
+    tokens.sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0));
+    console.log(`✅ Filtered ${tokens.length}/${checked} tokens`);
+    return tokens;
   }
   
   loadEstablishedTokenList() {

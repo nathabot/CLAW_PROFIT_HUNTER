@@ -1,28 +1,42 @@
 {
   "fib_500_1272": {
     "strategyName": "Fib 0.500 Entry",
-    "strategyWR": "85.71",
+    "strategyWR": "90.91",
     "tokens": [
       {
         "symbol": "RAY",
         "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
-        "wins": 1,
-        "avgPnl": 6.981539536344184,
+        "wins": 2,
+        "avgPnl": 9.999750414552977,
         "lastTrade": 1771385047201
       },
       {
         "symbol": "$WIF",
         "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
-        "wins": 1,
-        "avgPnl": 6.867076751595747,
+        "wins": 2,
+        "avgPnl": 10.620849451314546,
         "lastTrade": 1771385047201
       },
       {
         "symbol": "mSOL",
         "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
-        "wins": 1,
-        "avgPnl": 4.058936315427739,
+        "wins": 2,
+        "avgPnl": 8.552615775260575,
         "lastTrade": 1771385047201
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 2,
+        "avgPnl": 9.983934760839876,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "COPE",
+        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "wins": 2,
+        "avgPnl": 9.173353253398638,
+        "lastTrade": 1771385047202
       },
       {
         "symbol": "ATLAS",
@@ -32,44 +46,100 @@
         "lastTrade": 1771385047202
       },
       {
-        "symbol": "Bonk",
-        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "symbol": "KIMCHI",
+        "ca": "HaUXAdAWWUkb2WTmh8z1TdaEmZkYjnQnmC6tHUdTAHvi",
         "wins": 1,
-        "avgPnl": 7.414912602890341,
-        "lastTrade": 1771385047202
+        "avgPnl": 4.1143497755439356,
+        "lastTrade": 1771385595993
       },
       {
-        "symbol": "COPE",
-        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "symbol": "TST",
+        "ca": "HdvZF538TerjMWc1cmtWVKUaGkS8d77sGH5QaDCCpump",
         "wins": 1,
-        "avgPnl": 4.318294506432316,
-        "lastTrade": 1771385047202
+        "avgPnl": 4.967196602164732,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "Punch",
+        "ca": "NV2RYH954cTJ3ckFUpvfqaQXU4ARqqDH3562nFSpump",
+        "wins": 1,
+        "avgPnl": 5.377271728556483,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "MAYA",
+        "ca": "EtL967sgMgeDDSUrNhtQrbhe4T92idzqf4VuA6H7uGfQ",
+        "wins": 1,
+        "avgPnl": 5.16276217135494,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "house",
+        "ca": "84yCF7hyUuRNAra9BjFHVDpnRdGXmfsV2emyZwLjpump",
+        "wins": 1,
+        "avgPnl": 4.773287428154532,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "maxxing",
+        "ca": "32CdQdBUxbCsLy5AUHWmyidfwhgGUr9N573NBUrDpump",
+        "wins": 1,
+        "avgPnl": 6.351470860468092,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "NICE",
+        "ca": "7fj85y28pKMndm4So66Szkb5GMGfLHFEkwsZdDx2pump",
+        "wins": 1,
+        "avgPnl": 5.171376979880893,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "丙午",
+        "ca": "DMYNp65mub3i7LRpBdB66CgBAceLcQnv4gsWeCi6pump",
+        "wins": 1,
+        "avgPnl": 5.091776912247377,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 1,
+        "avgPnl": 4.945002668335402,
+        "lastTrade": 1771385654369
       }
     ]
   },
   "fib_786_1000": {
     "strategyName": "Fib 0.786 Deep",
-    "strategyWR": "85.71",
+    "strategyWR": "72.73",
     "tokens": [
       {
         "symbol": "RAY",
         "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
-        "wins": 1,
-        "avgPnl": 4.236153539494542,
+        "wins": 2,
+        "avgPnl": 8.968207635551636,
         "lastTrade": 1771385047201
       },
       {
         "symbol": "mSOL",
         "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
-        "wins": 1,
-        "avgPnl": 5.904171177812712,
+        "wins": 2,
+        "avgPnl": 9.345435666278041,
         "lastTrade": 1771385047201
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 1,
-        "avgPnl": 7.231524327861501,
+        "wins": 2,
+        "avgPnl": 8.212838444941985,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 2,
+        "avgPnl": 8.527948015181023,
         "lastTrade": 1771385047202
       },
       {
@@ -80,73 +150,81 @@
         "lastTrade": 1771385047202
       },
       {
-        "symbol": "SAMO",
-        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 1,
-        "avgPnl": 4.7627581250192295,
-        "lastTrade": 1771385047202
-      },
-      {
         "symbol": "COPE",
         "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
         "wins": 1,
         "avgPnl": 6.605034226189682,
         "lastTrade": 1771385047202
-      }
-    ]
-  },
-  "fib_volume_combo": {
-    "strategyName": "Fib + Volume",
-    "strategyWR": "85.71",
-    "tokens": [
-      {
-        "symbol": "RAY",
-        "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
-        "wins": 1,
-        "avgPnl": 5.201258097179807,
-        "lastTrade": 1771385047201
       },
       {
-        "symbol": "$WIF",
-        "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+        "symbol": "KIMCHI",
+        "ca": "HaUXAdAWWUkb2WTmh8z1TdaEmZkYjnQnmC6tHUdTAHvi",
         "wins": 1,
-        "avgPnl": 4.399015555652276,
-        "lastTrade": 1771385047201
+        "avgPnl": 7.04303739621456,
+        "lastTrade": 1771385595993
       },
       {
-        "symbol": "ATLAS",
-        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "symbol": "Punch",
+        "ca": "NV2RYH954cTJ3ckFUpvfqaQXU4ARqqDH3562nFSpump",
         "wins": 1,
-        "avgPnl": 4.806718451268113,
-        "lastTrade": 1771385047202
+        "avgPnl": 6.661691250167619,
+        "lastTrade": 1771385595994
       },
       {
-        "symbol": "Bonk",
-        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "symbol": "MAYA",
+        "ca": "EtL967sgMgeDDSUrNhtQrbhe4T92idzqf4VuA6H7uGfQ",
         "wins": 1,
-        "avgPnl": 7.305604898683805,
-        "lastTrade": 1771385047202
+        "avgPnl": 5.978024434699005,
+        "lastTrade": 1771385595994
       },
       {
-        "symbol": "SAMO",
-        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "symbol": "house",
+        "ca": "84yCF7hyUuRNAra9BjFHVDpnRdGXmfsV2emyZwLjpump",
         "wins": 1,
-        "avgPnl": 5.479604104763425,
-        "lastTrade": 1771385047202
+        "avgPnl": 6.7066113134744905,
+        "lastTrade": 1771385595995
       },
       {
-        "symbol": "COPE",
-        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "symbol": "maxxing",
+        "ca": "32CdQdBUxbCsLy5AUHWmyidfwhgGUr9N573NBUrDpump",
         "wins": 1,
-        "avgPnl": 5.951815566203019,
-        "lastTrade": 1771385047202
+        "avgPnl": 5.5523083630790735,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "NICE",
+        "ca": "7fj85y28pKMndm4So66Szkb5GMGfLHFEkwsZdDx2pump",
+        "wins": 1,
+        "avgPnl": 6.321090346355691,
+        "lastTrade": 1771385595995
       }
     ]
   },
   "ob_funding_combo": {
     "strategyName": "Orderbook + Funding",
-    "strategyWR": "71.43",
+    "strategyWR": "72.73",
     "tokens": [
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 2,
+        "avgPnl": 8.616348190916996,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 2,
+        "avgPnl": 8.673230951437755,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "COPE",
+        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "wins": 2,
+        "avgPnl": 7.853615387406491,
+        "lastTrade": 1771385047202
+      },
       {
         "symbol": "mSOL",
         "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
@@ -162,25 +240,60 @@
         "lastTrade": 1771385047202
       },
       {
-        "symbol": "Bonk",
-        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "symbol": "KIMCHI",
+        "ca": "HaUXAdAWWUkb2WTmh8z1TdaEmZkYjnQnmC6tHUdTAHvi",
         "wins": 1,
-        "avgPnl": 6.708342280078768,
-        "lastTrade": 1771385047202
+        "avgPnl": 4.340262281506191,
+        "lastTrade": 1771385595994
       },
       {
-        "symbol": "SAMO",
-        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "symbol": "TST",
+        "ca": "HdvZF538TerjMWc1cmtWVKUaGkS8d77sGH5QaDCCpump",
         "wins": 1,
-        "avgPnl": 4.180277811332864,
-        "lastTrade": 1771385047202
+        "avgPnl": 4.304376991857356,
+        "lastTrade": 1771385595994
       },
       {
-        "symbol": "COPE",
-        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "symbol": "Punch",
+        "ca": "NV2RYH954cTJ3ckFUpvfqaQXU4ARqqDH3562nFSpump",
         "wins": 1,
-        "avgPnl": 5.371718688214116,
-        "lastTrade": 1771385047202
+        "avgPnl": 5.564545101661021,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "MAYA",
+        "ca": "EtL967sgMgeDDSUrNhtQrbhe4T92idzqf4VuA6H7uGfQ",
+        "wins": 1,
+        "avgPnl": 4.3755665196767,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "house",
+        "ca": "84yCF7hyUuRNAra9BjFHVDpnRdGXmfsV2emyZwLjpump",
+        "wins": 1,
+        "avgPnl": 6.380872717593162,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "maxxing",
+        "ca": "32CdQdBUxbCsLy5AUHWmyidfwhgGUr9N573NBUrDpump",
+        "wins": 1,
+        "avgPnl": 6.047610493962454,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "NICE",
+        "ca": "7fj85y28pKMndm4So66Szkb5GMGfLHFEkwsZdDx2pump",
+        "wins": 1,
+        "avgPnl": 6.218518882775149,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "$WIF",
+        "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+        "wins": 1,
+        "avgPnl": 5.515851335756978,
+        "lastTrade": 1771385654368
       }
     ]
   }

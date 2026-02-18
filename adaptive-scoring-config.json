@@ -1,23 +1,23 @@
 {
   "bestStrategy": {
-    "id": "fib_rsi_combo",
-    "name": "Fib + RSI",
-    "winRate": "78.57",
+    "id": "fib_500_1272",
+    "name": "Fib 0.500 Entry",
+    "winRate": "90.91",
     "category": "SCALPING"
   },
   "positionSizing": {
     "fib_382_1618": "0.02",
-    "fib_500_1272": "0.04",
+    "fib_500_1272": "0.05",
     "fib_618_1618": "0.02",
     "fib_786_1000": "0.04",
-    "fib_rsi_combo": "0.04",
-    "fib_volume_combo": "0.04",
-    "smart_fib_combo": "0.03",
+    "fib_rsi_combo": "0.02",
+    "fib_volume_combo": "0.03",
+    "smart_fib_combo": "0.02",
     "ob_funding_combo": "0.04",
     "whale_volume_combo": "0.02",
-    "sr_breakout": "0.02",
+    "sr_breakout": "0.03",
     "momentum_squeeze": "0.02",
-    "divergence_play": "0.04"
+    "divergence_play": "0.02"
   },
-  "updated": 1771382403888
+  "updated": 1771385654371
 }

@@ -1,9 +1,9 @@
-// Load environment variables from .env.local
+// Load environment variables from .env.local and .env
 const fs = require('fs');
 const path = require('path');
 
-function loadEnv() {
-  const envPath = path.join(__dirname, '..', '.env.local');
+function loadEnvFile(fileName) {
+  const envPath = path.join(__dirname, '..', fileName);
   if (fs.existsSync(envPath)) {
     const envContent = fs.readFileSync(envPath, 'utf8');
     envContent.split('\n').forEach(line => {
@@ -20,7 +20,9 @@ function loadEnv() {
   }
 }
 
-loadEnv();
+// Load both .env and .env.local (latter takes precedence)
+loadEnvFile('.env');
+loadEnvFile('.env.local');
 
 module.exports = {
   TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
