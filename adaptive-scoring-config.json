@@ -2,7 +2,7 @@
   "bestStrategy": {
     "id": "fib_786_1000",
     "name": "Fib 0.786 Deep",
-    "winRate": "62.26",
+    "winRate": "61.48",
     "category": "SWING_TRADE"
   },
   "positionSizing": {
@@ -19,5 +19,5 @@
     "momentum_squeeze": "0.02",
     "divergence_play": "0.02"
   },
-  "updated": 1771408212363
+  "updated": 1771410016853
 }

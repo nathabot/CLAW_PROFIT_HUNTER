@@ -481,14 +481,14 @@ class DynamicTrader {
 
     console.log(`\n📊 Open positions: ${openPositions.length}/${maxConcurrent}`);
     console.log(`   Available slots: ${availableSlots}`);
+    console.log(`   🎯 EXECUTING ALL ${usableStrategies.length} STRATEGIES AT ONCE!`);
 
     // Track which strategies already have positions
     const strategiesWithPositions = new Set(openPositions.map(p => p.strategyId));
 
-    // Try each usable strategy
-    let executed = false;
+    // Execute ALL usable strategies at once!
+    const executionPromises = [];
     for (const strategy of usableStrategies) {
-      if (executed) break;
 
       // Skip if this strategy already has a position
       if (strategiesWithPositions.has(strategy.id)) {
@@ -669,15 +669,15 @@ class DynamicTrader {
       break;
     }
 
-    // If we couldn't execute with this strategy, try the next one
-    if (!executed) {
-      console.log(`\n⚠️  No suitable tokens for ${strategy.name}, trying next strategy...`);
+      // If we couldn't execute with this strategy, log it
+      if (!executed) {
+        console.log(`\n⚠️  No suitable tokens for ${strategy.name}`);
+      }
     }
-  }
 
-  // Return true if any trade was executed
-  return executed;
-}
+    // Return true
+    return true;
+  }
 
   /**
    * SYNC with Paper Trader - reload adaptive config
