@@ -34,8 +34,10 @@ const CONFIG = {
   MIN_SCORE: ADAPTIVE_CONFIG?.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,  // STRICT for safety
   MIN_TOKEN_AGE_MINUTES: 1440,   // 24 hours minimum - AVOID new tokens
   MIN_LIQUIDITY_USD: 25000,      // $25k minimum - AVOID low liquidity
-  MAX_DAILY_TRADES: 5,          // Max 5 trades/day           // Maximum trades per day
-  DAILY_TARGET: 0.2,
+  MAX_DAILY_TRADES: 5,          // Max 5 trades/day
+  // TARGET: MAX(0.2 SOL, $50) - take the bigger value
+  // At $83/SOL: 0.2 SOL = $16.6, $50 = 0.6 SOL → Target = 0.6 SOL
+  DAILY_TARGET: 0.6,
   RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304',
   // FIBONACCI STRATEGY (from paper testing - 82.5% WR)
   // Best: Entry 0.618, TP 1.618 (Golden) - 82.50% WR (33W/7L)
