@@ -1,55 +1,55 @@
 {
   "sr_breakout": {
     "strategyName": "S/R Breakout",
-    "strategyWR": "71.43",
+    "strategyWR": "70.00",
     "tokens": [
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 7,
+        "avgPnl": 10.745520202950146,
+        "lastTrade": 1771385047202
+      },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 6,
-        "avgPnl": 12.081861888262933,
+        "wins": 7,
+        "avgPnl": 13.099207326437035,
         "lastTrade": 1771385654369
       },
       {
         "symbol": "RAY",
         "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
-        "wins": 5,
-        "avgPnl": 9.941574391178746,
+        "wins": 6,
+        "avgPnl": 10.5013894265796,
         "lastTrade": 1771385047201
       },
       {
         "symbol": "mSOL",
         "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
-        "wins": 5,
-        "avgPnl": 11.481667992846903,
+        "wins": 6,
+        "avgPnl": 12.353267482960785,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 5,
-        "avgPnl": 10.502392687870403,
-        "lastTrade": 1771385047202
-      },
-      {
-        "symbol": "Bonk",
-        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 5,
-        "avgPnl": 12.5966942400897,
+        "wins": 6,
+        "avgPnl": 10.33244176032078,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "COPE",
         "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
-        "wins": 4,
-        "avgPnl": 8.677980181134744,
+        "wins": 6,
+        "avgPnl": 9.422646253842263,
         "lastTrade": 1771385654369
       },
       {
         "symbol": "$WIF",
         "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
-        "wins": 4,
-        "avgPnl": 12.790065579379295,
+        "wins": 5,
+        "avgPnl": 11.220103041098278,
         "lastTrade": 1771386610508
       },
       {

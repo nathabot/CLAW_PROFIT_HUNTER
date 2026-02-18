@@ -278,3 +278,43 @@
 [2026-02-18T01:00:03.620Z] ℹ️ SUMMARY: 2 new signals, 18 skipped
 [2026-02-18T01:00:03.620Z] ℹ️ ========================================
 
+[2026-02-18T05:00:01.360Z] ℹ️ ========================================
+[2026-02-18T05:00:01.369Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-18T05:00:01.370Z] ℹ️ Dynamic Signal Generation
+[2026-02-18T05:00:01.370Z] ℹ️ ========================================
+
+[2026-02-18T05:00:01.429Z] ℹ️ Database connected (schema updated)
+
+[2026-02-18T05:00:01.429Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-18T05:00:01.876Z] ℹ️ Found 20 trending tokens
+
+[2026-02-18T05:00:02.343Z] ⚠️ NeeDoh: Low liquidity ($13,772.94)
+[2026-02-18T05:00:02.381Z] ⚠️ DARK: Low liquidity ($0)
+[2026-02-18T05:00:02.419Z] ⚠️ Runner: Low liquidity ($0)
+[2026-02-18T05:00:02.454Z] ⚠️ AUTOMATON: Low liquidity ($0)
+[2026-02-18T05:00:02.488Z] ⚠️ Motherhood: Low liquidity ($0)
+[2026-02-18T05:00:02.536Z] ⚠️ Tangie: Low liquidity ($0)
+[2026-02-18T05:00:02.569Z] ⚠️ Tang: Low liquidity ($0)
+[2026-02-18T05:00:02.604Z] ⚠️ INIKI: Low liquidity ($13,624.16)
+[2026-02-18T05:00:02.667Z] ✅ LISA: ✅ INSERTED (6.5/10)
+[2026-02-18T05:00:02.668Z] ℹ️    Entry: $0.000273
+[2026-02-18T05:00:02.668Z] ℹ️    TP1: $0.000295 | TP2: $0.000314
+[2026-02-18T05:00:02.668Z] ℹ️    SL: $0.000259
+[2026-02-18T05:00:02.668Z] ℹ️    Reasons: Very high volume, Strong 24h momentum, More buyers than sellers
+
+[2026-02-18T05:00:03.202Z] ⚠️ Destiny: Low liquidity ($4,357.72)
+[2026-02-18T05:00:03.234Z] ⚠️ fren: Low liquidity ($5,737.05)
+[2026-02-18T05:00:03.266Z] ⚠️ Toly: Low liquidity ($0)
+[2026-02-18T05:00:03.299Z] ⚠️ DONALDMINAJ: Low liquidity ($3,136.04)
+[2026-02-18T05:00:03.329Z] ⚠️ BRRR: Low liquidity ($0)
+[2026-02-18T05:00:03.367Z] ⚠️ TCG: Confidence too low (3.0/10)
+[2026-02-18T05:00:03.397Z] ⚠️ $PMT: Low liquidity ($14,069.2)
+[2026-02-18T05:00:03.428Z] ⚠️ Berenstein: Low liquidity ($0)
+[2026-02-18T05:00:03.460Z] ⚠️ Grokius: Low liquidity ($0)
+[2026-02-18T05:00:03.499Z] ⚠️ INIKI: Low liquidity ($0)
+[2026-02-18T05:00:03.531Z] ⚠️ APEBACK: Low liquidity ($0)
+[2026-02-18T05:00:03.531Z] ℹ️ 
+========================================
+[2026-02-18T05:00:03.531Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
+[2026-02-18T05:00:03.532Z] ℹ️ ========================================
+
