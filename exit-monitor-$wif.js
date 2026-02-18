@@ -23,10 +23,10 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: '$WIF',
   ca: 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm',
-  entry: 0.2297,
-  stop: 0.2260248,
-  tp1: 0.2379692,
-  tp2: 0.2421038,
+  entry: 0.2296,
+  stop: 0.2259264,
+  tp1: 0.2378656,
+  tp2: 0.2419984,
   partialExit: 0.5,
   strategyId: 'fib_500_1272',
   strategyName: 'Fib 0.500 Entry'

@@ -1475,7 +1475,7 @@ class DynamicTrader {
   }
 
   /**
-   * Validate candle entry - prevent FOMO entries
+   * Validate candle entry with Fibonacci analysis - prevent FOMO + optimal entry
    */
   async validateCandleEntry(ca, currentPrice) {
     try {
@@ -1488,12 +1488,11 @@ class DynamicTrader {
         return { valid: true, reason: 'No historical data' };
       }
       
-      // Check recent price action
+      // Check recent price action (FOMO detection)
       const change5m = pair.priceChange?.m5 || 0;
       const change1h = pair.priceChange?.h1 || 0;
       const change24h = pair.priceChange?.h24 || 0;
       
-      // FOMO detection: Pumped too fast recently
       if (change5m > 20) {
         return { valid: false, reason: `FOMO ALERT: Pumped ${change5m.toFixed(1)}% in 5min` };
       }
@@ -1502,17 +1501,111 @@ class DynamicTrader {
         return { valid: false, reason: `FOMO ALERT: Pumped ${change1h.toFixed(1)}% in 1h` };
       }
       
-      // Check volume trend
+      // Check volume
       const vol24h = pair.volume?.h24 || 0;
       if (vol24h < 10000) {
         return { valid: false, reason: 'Low volume' };
       }
       
-      return { valid: true, reason: 'Entry valid', change5m, change1h, change24h };
+      // FIBONACCI ANALYSIS for optimal entry
+      const priceUsd = parseFloat(pair.priceUsd);
+      const priceChange24h = pair.priceChange?.h24 || 0;
+      
+      // Estimate high/low from 24h change
+      const high24 = priceUsd * (1 + Math.max(0, priceChange24h) / 100);
+      const low24 = priceUsd * (1 + Math.min(0, priceChange24h) / 100);
+      const range = high24 - low24;
+      
+      // Calculate Fibonacci levels
+      const fibLevels = {
+        0: high24,
+        0.236: high24 - (range * 0.236),
+        0.382: high24 - (range * 0.382),
+        0.500: high24 - (range * 0.500),
+        0.618: high24 - (range * 0.618),
+        0.786: high24 - (range * 0.786),
+        1.0: low24
+      };
+      
+      // Find nearest Fib level to current price
+      let nearestFib = null;
+      let minDiff = Infinity;
+      for (const [level, price] of Object.entries(fibLevels)) {
+        const diff = Math.abs(priceUsd - price) / priceUsd;
+        if (diff < minDiff) {
+          minDiff = diff;
+          nearestFib = { level: parseFloat(level), price, diff };
+        }
+      }
+      
+      // Entry logic: Current price should be NEAR or BELOW Fib 0.500 (discount zone)
+      const isNearOptimalEntry = nearestFib.level >= 0.382 && nearestFib.level <= 0.618;
+      const discountPercent = ((fibLevels[0.500] - priceUsd) / fibLevels[0.500]) * 100;
+      
+      if (!isNearOptimalEntry) {
+        return { 
+          valid: false, 
+          reason: `Price not at optimal Fib level (current: ${nearestFib.level.toFixed(3)})`,
+          fibLevels,
+          nearestFib
+        };
+      }
+      
+      // Calculate targets based on Fibonacci
+      const entryFib = nearestFib.level;
+      const targets = this.calculateFibTargets(priceUsd, entryFib);
+      
+      return { 
+        valid: true, 
+        reason: `Entry at Fib ${entryFib.toFixed(3)}`,
+        fibLevels,
+        nearestFib,
+        targets,
+        change5m, 
+        change1h, 
+        change24h 
+      };
     } catch (e) {
-      // If API fails, allow entry
-      return { valid: true, reason: 'Validation skipped' };
+      console.log('  ⚠️ Candle validation error:', e.message);
+      return { valid: true, reason: 'Validation skipped (error)' };
     }
+  }
+  
+  /**
+   * Calculate Fibonacci-based targets
+   */
+  calculateFibTargets(entryPrice, entryFib = 0.500) {
+    // Base ranges
+    const baseRange = entryPrice * 0.06; // 6% base
+    
+    // Adjust based on entry quality (deeper entry = tighter targets)
+    let tp1Multiplier = 0.60; // 3.6%
+    let tp2Multiplier = 0.90; // 5.4%
+    let slMultiplier = 0.27;  // 1.6%
+    
+    if (entryFib <= 0.382) {
+      // Shallow entry - more conservative
+      tp1Multiplier = 0.50;
+      tp2Multiplier = 0.75;
+      slMultiplier = 0.30;
+    } else if (entryFib >= 0.618) {
+      // Deep entry - more aggressive
+      tp1Multiplier = 0.75;
+      tp2Multiplier = 1.10;
+      slMultiplier = 0.25;
+    }
+    
+    return {
+      entryPrice,
+      fibEntry: entryFib,
+      stopLoss: entryPrice * (1 - slMultiplier * 0.06),
+      takeProfit1: entryPrice * (1 + tp1Multiplier * 0.06),
+      takeProfit2: entryPrice * (1 + tp2Multiplier * 0.06),
+      slPercent: -(slMultiplier * 6),
+      tp1Percent: (tp1Multiplier * 6),
+      tp2Percent: (tp2Multiplier * 6),
+      partialExitPercent: 50
+    };
   }
   
   checkBlacklist(ca, symbol) {
