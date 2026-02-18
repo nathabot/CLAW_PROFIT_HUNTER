@@ -1,7 +1,7 @@
 # BOK Intelligence Analytics
 
 *Auto-generated advanced analytics for trading optimization*
-*Updated: 2026-02-18T11:30:02.859Z*
+*Updated: 2026-02-18T12:00:03.963Z*
 
 ## Executive Summary
 
@@ -128,9 +128,11 @@ This report provides deep insights into strategy performance across different di
     },
     "18": {
       "wins": 0,
-      "losses": 0,
-      "total": 0,
-      "profit": 0
+      "losses": 3,
+      "total": 3,
+      "profit": -164.54731826400234,
+      "winRate": "0.0",
+      "avgProfit": "-54.85"
     },
     "19": {
       "wins": 0,
@@ -166,11 +168,11 @@ This report provides deep insights into strategy performance across different di
   "marketConditionPerformance": {
     "UNKNOWN": {
       "wins": 0,
-      "losses": 4,
-      "total": 4,
-      "profit": -30.722001890743645,
+      "losses": 7,
+      "total": 7,
+      "profit": -195.26932015474597,
       "winRate": "0.0",
-      "avgProfit": "-7.68"
+      "avgProfit": "-27.90"
     }
   },
   "tokenCategoryPerformance": {
@@ -198,15 +200,16 @@ This report provides deep insights into strategy performance across different di
     },
     "OTHER": {
       "wins": 0,
-      "losses": 2,
-      "total": 2,
-      "profit": -21.769259364649606,
+      "losses": 5,
+      "total": 5,
+      "profit": -186.31657762865194,
       "tokens": [
         "KIMCHI",
-        "Punch"
+        "Punch",
+        "DARKTRUMP"
       ],
       "winRate": "0.0",
-      "avgProfit": "-10.88"
+      "avgProfit": "-37.26"
     }
   },
   "strategyMarketFit": {
@@ -214,12 +217,20 @@ This report provides deep insights into strategy performance across different di
       "strategy": "fib_786_1000",
       "market": "UNKNOWN",
       "wins": 0,
-      "losses": 4,
-      "total": 4,
-      "profit": -30.722001890743645,
+      "losses": 6,
+      "total": 6,
+      "profit": -125.77458900100375,
       "winRate": "0.0",
-      "avgProfit": "-7.68",
-      "fitScore": -30.72
+      "avgProfit": "-20.96",
+      "fitScore": -83.84
+    },
+    "sr_breakout_UNKNOWN": {
+      "strategy": "sr_breakout",
+      "market": "UNKNOWN",
+      "wins": 0,
+      "losses": 1,
+      "total": 1,
+      "profit": -69.49473115374222
     }
   },
   "optimalSettings": {
@@ -228,23 +239,29 @@ This report provides deep insights into strategy performance across different di
         "hour": 17,
         "winRate": "0.0",
         "profit": "-7.68"
+      },
+      {
+        "hour": 18,
+        "winRate": "0.0",
+        "profit": "-54.85"
       }
     ],
     "bestMarketConditions": [
       {
         "condition": "UNKNOWN",
         "winRate": "0.0",
-        "profit": "-7.68"
+        "profit": "-27.90"
       }
     ],
     "avoidHours": [
-      17
+      17,
+      18
     ],
     "avoidConditions": [
       "UNKNOWN"
     ]
   },
-  "lastUpdate": "2026-02-18T11:30:02.859Z"
+  "lastUpdate": "2026-02-18T12:00:03.963Z"
 }
 ```
 
@@ -253,13 +270,14 @@ This report provides deep insights into strategy performance across different di
 | Hour | Trades | Win Rate | Avg Profit | Status |
 |------|--------|----------|------------|--------|
 | 17:00 | 4 | 0.0% | -7.68% | 🔴 |
+| 18:00 | 3 | 0.0% | -54.85% | 🔴 |
 
 
 ## Market Condition Performance
 
 | Condition | Trades | Win Rate | Avg Profit |
 |-----------|--------|----------|------------|
-| UNKNOWN | 4 | 0.0% | -7.68% |
+| UNKNOWN | 7 | 0.0% | -27.90% |
 
 
 ## Token Category Analysis
@@ -268,26 +286,26 @@ This report provides deep insights into strategy performance across different di
 |----------|--------|----------|------------|--------|
 | LST | 1 | 0.0% | -0.04% | mSOL |
 | GAMING | 1 | 0.0% | -8.91% | ATLAS |
-| OTHER | 2 | 0.0% | -10.88% | KIMCHI, Punch |
+| OTHER | 5 | 0.0% | -37.26% | KIMCHI, Punch, DARKTRUMP |
 
 
 ## Strategy-Market Fit
 
 | Strategy | Market | Trades | Win Rate | Fit Score |
 |----------|--------|--------|----------|-----------|
-| fib_786_1000 | UNKNOWN | 4 | 0.0% | -30.7 |
+| fib_786_1000 | UNKNOWN | 6 | 0.0% | -83.8 |
 
 
 ## Recommendations
 
 ### Best Trading Hours
-Trade during: 17:00
+Trade during: 17:00, 18:00
 
 ### Best Market Conditions
 - **UNKNOWN**: 0.0% WR
 
 ### Avoid Hours
-Avoid trading: 17:00
+Avoid trading: 17:00, 18:00
 
 
 
