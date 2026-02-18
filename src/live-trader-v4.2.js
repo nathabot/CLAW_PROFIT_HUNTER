@@ -2038,6 +2038,30 @@ async function recordTradeResult(isWin, pnlPercent) {
   } catch (e) { console.error('Tracker error:', e.message); }
 }
 
+// Mark position as exited in positions.json
+function markPositionExited(exitPrice, pnlPercent, exitType, txHash) {
+  try {
+    const fs = require('fs');
+    const positionsFile = '/root/trading-bot/positions.json';
+    
+    if (!fs.existsSync(positionsFile)) return;
+    
+    const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
+    const posIndex = positions.findIndex(p => p.ca === POS.ca && !p.exited);
+    
+    if (posIndex >= 0) {
+      positions[posIndex].exited = true;
+      positions[posIndex].exitPrice = exitPrice;
+      positions[posIndex].exitTime = Date.now();
+      positions[posIndex].pnlPercent = pnlPercent;
+      positions[posIndex].exitType = exitType;
+      positions[posIndex].exitTxHash = txHash;
+      fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
+      console.log(\`💾 Position marked as exited: \${exitType}\`);
+    }
+  } catch (e) { console.error('Mark exited error:', e.message); }
+}
+
 const BOT_TOKEN = '${BOT_TOKEN}';
 const CHAT_ID = '${CHAT_ID}';
 const TOPIC_ID = 24;
@@ -2187,6 +2211,7 @@ async function monitor() {
       console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
+        markPositionExited(price, pnl, 'MAX_HOLD', sellResult.signature);
         await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         await recordTradeResult(pnl > 0, pnl);
       }
@@ -2205,6 +2230,7 @@ async function monitor() {
       console.log(\`🛑 SL HIT (\${trailingActivated ? 'Trailing' : 'Initial'}) - Executing sell...\`);
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
+        markPositionExited(price, pnl, trailingActivated ? 'TRAILING_STOP' : 'STOP_LOSS', sellResult.signature);
         await notify(\`🛑 **\${trailingActivated ? 'TRAILING' : 'STOP LOSS'} EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         await recordTradeResult(pnl > 0, pnl);
       }
@@ -2217,6 +2243,22 @@ async function monitor() {
       const sellResult = await executeSell('50%');
       partialExited = true;
       if (sellResult.success) {
+        // Mark partial exit in positions.json
+        try {
+          const fs = require('fs');
+          const positionsFile = '/root/trading-bot/positions.json';
+          if (fs.existsSync(positionsFile)) {
+            const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
+            const posIndex = positions.findIndex(p => p.ca === POS.ca && !p.exited);
+            if (posIndex >= 0) {
+              positions[posIndex].partialExited = true;
+              positions[posIndex].partialExitPrice = price;
+              positions[posIndex].partialExitPnl = pnl;
+              positions[posIndex].partialExitTx = sellResult.signature;
+              fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
+            }
+          }
+        } catch (e) {}
         await notify(\`🎯 **TP1 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\nExited 50%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         // Lower TP2 after partial exit (lock profits)
         dynamicTP2 = Math.max(dynamicTP2, price * 1.02);
@@ -2228,6 +2270,7 @@ async function monitor() {
       console.log(\`🎯 TP2 HIT (Dynamic: $\${dynamicTP2.toFixed(8)}) - FINAL EXIT...\`);
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
+        markPositionExited(price, pnl, 'TAKE_PROFIT_2', sellResult.signature);
         await notify(\`🎯 **TP2 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n✅ Trade complete!\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         await recordTradeResult(true, pnl);
       }

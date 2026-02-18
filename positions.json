@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "symbol": "$WIF",
+    "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+    "entryPrice": 0.2296,
+    "entryTime": 1771385416000,
+    "positionSize": 0.005,
+    "tokensReceived": 1.851443,
+    "txHash": "5NfRCVDN3cZcUcRRq8TM...",
+    "strategy": "Fib 0.500 Entry",
+    "strategyId": "fib_500_1272",
+    "targets": {
+      "sl": 0.2259264,
+      "tp1": 0.2378656,
+      "tp2": 0.2419984
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "SIDEWAYS"
+  }
+]
