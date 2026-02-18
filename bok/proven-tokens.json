@@ -1,41 +1,41 @@
 {
   "sr_breakout": {
     "strategyName": "S/R Breakout",
-    "strategyWR": "61.59",
+    "strategyWR": "61.84",
     "tokens": [
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 28,
-        "avgPnl": 12.785286361813244,
+        "wins": 29,
+        "avgPnl": 11.258295943768138,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "RAY",
         "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
-        "wins": 25,
-        "avgPnl": 11.825890151192,
+        "wins": 26,
+        "avgPnl": 11.832818916338418,
         "lastTrade": 1771385047201
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 24,
-        "avgPnl": 12.795444060214484,
+        "wins": 25,
+        "avgPnl": 13.583241360999441,
         "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "COPE",
+        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "wins": 25,
+        "avgPnl": 12.636698540794288,
+        "lastTrade": 1771385654369
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
         "wins": 24,
         "avgPnl": 9.709473973147968,
-        "lastTrade": 1771385654369
-      },
-      {
-        "symbol": "COPE",
-        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
-        "wins": 24,
-        "avgPnl": 10.65552271339553,
         "lastTrade": 1771385654369
       },
       {
@@ -48,8 +48,8 @@
       {
         "symbol": "$WIF",
         "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
-        "wins": 18,
-        "avgPnl": 10.282432723729684,
+        "wins": 19,
+        "avgPnl": 12.363943195589538,
         "lastTrade": 1771386610508
       },
       {

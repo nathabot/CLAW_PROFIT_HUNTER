@@ -99,11 +99,33 @@ async function calculateTotalEquity() {
         
         const totalEquity = solBalance + positionsValueSOL;
         
+        // Calculate realized P/L from closed positions
+        let realizedPnl = 0;
+        const closedPositions = positions.filter(p => p.exited);
+        
+        for (const pos of closedPositions) {
+            const entryPrice = pos.entryPrice;
+            const exitPrice = pos.exitPrice;
+            const sizeSol = pos.positionSize || 0;
+            
+            if (exitPrice) {
+                const pnlPercent = ((exitPrice - entryPrice) / entryPrice) * 100;
+                realizedPnl += (pnlPercent / 100) * sizeSol;
+            }
+            
+            // Add partial exit P/L
+            if (pos.partialExited) {
+                realizedPnl += pos.partialExitPnl || 0;
+            }
+        }
+        
         return {
             solBalance: solBalance.toFixed(4),
             positionsValue: positionsValueSOL.toFixed(4),
             totalEquity: totalEquity.toFixed(4),
-            openPositions: openPositions.length
+            openPositions: openPositions.length,
+            realizedPnl: realizedPnl.toFixed(6),
+            closedPositions: closedPositions.length
         };
     } catch (e) {
         return {
@@ -622,6 +644,15 @@ async function generateDashboard() {
                     <div style="font-size: 11px; color: #6b7280; margin-top: 3px;">
                         Wallet: ${status.equity ? status.equity.solBalance : '0.0000'} | 
                         Pos: ${status.equity ? status.equity.positionsValue : '0.0000'}
+                    </div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">📈 Realized P/L</div>
+                    <div class="status-value" style="color: ${parseFloat(status.equity?.realizedPnl || 0) >= 0 ? '#10b981' : '#ef4444'};">
+                        ${status.equity ? (parseFloat(status.equity.realizedPnl) >= 0 ? '+' : '') + status.equity.realizedPnl : '0.000000'} SOL
+                    </div>
+                    <div style="font-size: 11px; color: #6b7280; margin-top: 3px;">
+                        Closed: ${status.equity ? status.equity.closedPositions : 0} trades
                     </div>
                 </div>
                 <div class="status-item ${status.positions > 0 ? 'warning' : ''} clickable" onclick="showPositions()">

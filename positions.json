@@ -36,9 +36,14 @@
       "tp1": 119.63728,
       "tp2": 121.71592000000001
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitPrice": 115.43,
+    "exitTime": 1771411327309,
+    "pnlPercent": -0.043297540699682724,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "4VYVy3jcwu9x1SFswp8NYeo2vzhSGN5h6dybNewPvwynp6LojWttgRsVzXqgXYHR5hipttNQ12pVjpC8EAq9jMLW"
   },
   {
     "symbol": "$WIF",
@@ -117,8 +122,13 @@
       "tp1": 0.010335136,
       "tp2": 0.010514704000000001
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitPrice": 0.009902,
+    "exitTime": 1771411353483,
+    "pnlPercent": -0.7417802726543798,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "24DEfg2PXJzMDFUNkqGBBCkXJYmtV1NeP3itmwQRUzfUsPDitoGTUCtxUs8FbhdVVAqH54MU7H6tBKkDccPh7i4b"
   }
 ]
