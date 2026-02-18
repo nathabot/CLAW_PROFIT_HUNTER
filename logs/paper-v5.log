@@ -7752,3 +7752,23 @@ Testing: Intelligence: KIMCHI (6.5/10 confidence)
 ============================================================
 ✅ Paper Trader v5 Complete
 
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 1 | Total Sims: 2 (2/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 2 signals from Intelligence Network
+
+🎯 Testing 2 Intelligence signals:
+
+Testing: Intelligence: TRADE (8/10 confidence)
+   Simulating Intelligence strategy: Intelligence: TRADE
+   Result: ✅ WIN 13.80% (0.0018 SOL)
+Testing: Intelligence: KIMCHI (6.5/10 confidence)
+   Simulating Intelligence strategy: Intelligence: KIMCHI
+   Result: ✅ WIN 11.50% (0.0010 SOL)

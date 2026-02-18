@@ -29,8 +29,8 @@ const INTELLIGENCE_CONFIG = {
 const CONFIG = {
   // Simulation Settings
   SIMULATION_COUNT: 50,           // Reset after 50 simulations
-  MIN_TOKEN_AGE_MINUTES: 1440,    // 24 hours minimum
-  MIN_LIQUIDITY: 25000,           // $25k minimum liquidity
+  MIN_TOKEN_AGE_MINUTES: 360,     // 6 hours minimum (was 24h)
+  MIN_LIQUIDITY: 10000,           // $10k minimum liquidity (was $25k)
   MIN_VOLUME: 10000,              // $10k minimum volume
   
   // Files
@@ -929,33 +929,56 @@ class PaperTraderV5 {
 
   async fetchMarketData() {
     try {
-      // DexScreener trending/hot tokens (already sorted by popularity/hotness)
+      // Get trending tokens from DexScreener
+      console.log('🔍 Fetching trending tokens...');
       const res = await fetch('https://api.dexscreener.com/token-profiles/latest/v1');
       const profiles = await res.json();
       
+      console.log(`📊 Got ${profiles.length} trending profiles`);
+      
       const tokens = [];
-      // Take top 100 hot/trending tokens (maintains DexScreener hot order)
+      // Take more profiles to find ones that pass filter
       for (const profile of profiles.slice(0, 100)) {
         try {
           const tokenRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${profile.tokenAddress}`);
           const tokenData = await tokenRes.json();
-          const pair = tokenData.pairs?.[0];
-          if (pair) {
-            // FILTER: Match Live Trader settings
-            const liq = parseFloat(pair.liquidity?.usd || 0);
-            const ageMinutes = pair.pairCreatedAt ? (Date.now() - pair.pairCreatedAt) / 60000 : 0;
+          // Get best pair (highest liquidity)
+          const pairs = tokenData.pairs || [];
+          const bestPair = pairs
+            .filter(p => p.chainId === 'solana')
+            .sort((a, b) => parseFloat(b.liquidity?.usd || 0) - parseFloat(a.liquidity?.usd || 0))[0];
+          
+          if (bestPair) {
+            const liq = parseFloat(bestPair.liquidity?.usd || 0);
+            const ageHours = bestPair.pairCreatedAt ? (Date.now() - bestPair.pairCreatedAt) / 3600000 : 0;
             
-            if (liq >= CONFIG.MIN_LIQUIDITY && ageMinutes >= CONFIG.MIN_TOKEN_AGE_MINUTES) {
-              tokens.push(pair);
+            if (liq >= CONFIG.MIN_LIQUIDITY && ageHours >= (CONFIG.MIN_TOKEN_AGE_MINUTES / 60)) {
+              tokens.push(bestPair);
             }
           }
         } catch (e) {}
       }
       
-      console.log(`📊 Filtered ${tokens.length} tokens (>=$${CONFIG.MIN_LIQUIDITY} liq, >=${CONFIG.MIN_TOKEN_AGE_MINUTES/60}h age)`);
+      // Sort by 24h volume
+      tokens.sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0));
+      
+      console.log(`✅ Filtered ${tokens.length} tokens (>=$${CONFIG.MIN_LIQUIDITY} liq, >=${CONFIG.MIN_TOKEN_AGE_MINUTES/60}h age)`);
+      
+      // Log found tokens
+      if (tokens.length > 0) {
+        console.log('\n📈 Top tokens by volume:');
+        tokens.slice(0, 10).forEach((p, i) => {
+          const ageH = p.pairCreatedAt ? ((Date.now() - p.pairCreatedAt) / 3600000).toFixed(1) : 'N/A';
+          const volK = p.volume?.h24 ? (p.volume.h24 / 1000).toFixed(0) : '0';
+          console.log(`   ${i+1}. ${p.baseToken?.symbol}: $${parseFloat(p.liquidity?.usd || 0).toFixed(0)} liq, ${ageH}h, $${volK}k vol`);
+        });
+      } else {
+        console.log('⚠️  No tokens passed filter - market may be dominated by new launches');
+      }
+      
       return tokens;
     } catch (e) {
-      console.error('Error fetching market data:', e.message);
+      console.error('❌ Error fetching market data:', e.message);
       return [];
     }
   }
