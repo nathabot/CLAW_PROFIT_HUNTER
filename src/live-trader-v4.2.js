@@ -32,8 +32,8 @@ const CONFIG = {
   FEE_RESERVE: 0.015,             // BOK: always keep 0.015 SOL minimum for sell fees
   // DYNAMIC THRESHOLD from paper trader results
   MIN_SCORE: ADAPTIVE_CONFIG?.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,  // STRICT for safety
-  MIN_TOKEN_AGE_MINUTES: 360,     // 6 hours minimum - AVOID new tokens
-  MIN_LIQUIDITY_USD: 10000,       // $10k minimum - AVOID low liquidity
+  MIN_TOKEN_AGE_MINUTES: 1440,   // 24 hours minimum - AVOID new tokens
+  MIN_LIQUIDITY_USD: 25000,      // $25k minimum - AVOID low liquidity
   MAX_DAILY_TRADES: 5,          // Max 5 trades/day           // Maximum trades per day
   DAILY_TARGET: 0.2,
   RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304',

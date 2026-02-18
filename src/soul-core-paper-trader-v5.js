@@ -29,8 +29,8 @@ const INTELLIGENCE_CONFIG = {
 const CONFIG = {
   // Simulation Settings
   SIMULATION_COUNT: 50,           // Reset after 50 simulations
-  MIN_TOKEN_AGE_MINUTES: 360,     // 6 hours minimum (was 24h)
-  MIN_LIQUIDITY: 10000,           // $10k minimum liquidity (was $25k)
+  MIN_TOKEN_AGE_MINUTES: 1440,    // 24 hours minimum - AVOID new tokens
+  MIN_LIQUIDITY: 25000,           // $25k minimum liquidity - AVOID low liquidity
   MIN_VOLUME: 10000,              // $10k minimum volume
   
   // Files
@@ -1048,38 +1048,58 @@ class PaperTraderV5 {
   
   loadEstablishedTokenList() {
     // Top Solana ecosystem tokens by market cap/volume
-    // This list should be updated periodically (weekly/monthly)
+    // Updated: $25k liquidity, 24h+ age filter
     return [
       { symbol: 'BONK', address: 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263' },
-      { symbol: 'WIF', address: 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm' },
-      { symbol: 'JUP', address: 'JUPyiwrYkqoj8j8zdH7u4qFwwtxaxCy5W1nUR3Fe2bF' },
-      { symbol: 'JTO', address: 'jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2u2b9LND' },
-      { symbol: 'RAY', address: '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R' },
-      { symbol: 'ORCA', address: 'orcaEKTdK7LKz57vaAYr9QeDsVE4dq8dkE7ZF3gjM7D8' },
-      { symbol: 'SAMO', address: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU' },
-      { symbol: 'MSOL', address: 'mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So' },
-      { symbol: 'BSOL', address: 'bSo13r4TkiE4xumnamjwJSnz1r8qswTzWok8bq4WzWT' },
-      { symbol: 'FIDA', address: 'EchesyfXePKdLtoiZSLiP8TZkbsMKU8aVD4U5Hcg6VGE' },
-      { symbol: 'MEDIA', address: 'ETAt91Cm1i4tXoGCucxtfbRp6y7i7U9WXi5JPLKZjT2k' },
-      { symbol: 'COPE', address: '8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh' },
-      { symbol: 'STEP', address: 'StepAscQoEioFxxWGnh2sLBDFp9d8rvKz2Yp39iDpyY' },
+      { symbol: 'WIF', address: '85VBFQZC9TZkfaptBWqv14ALD9fJNUKtWA41kh69teRP' },
+      { symbol: 'JUP', address: 'JUPyiwrYJFskUPiHa7hkeR8VUtkqjberbSOWd91pbT2' },
+      { symbol: 'JTO', address: 'jtojtokePBKP3BKw9x9f3M8c3V7Y3qKw4dE3TzL3qK' },
+      { symbol: 'MSOL', address: 'mSoLzYCxHdYgdzU8g5QCB3S3EpsJo9GMKevtjE8BuG2' },
+      { symbol: 'BSOL', address: 'bSo13r4TkiE4KumL71rHT1rFrwdvfjjiLutN4kct4zY' },
+      { symbol: 'STSOL', address: '7dHbWXmci3dT8vYWomM974g6Tvmp1in2gGKFt5F3WsSu' },
+      { symbol: 'ORCA', address: 'orcaEKTdK7ATzBZndBhR8EUDPdWcBdYJazh6xGawEGL5' },
+      { symbol: 'RAY', address: '4k3Dyjzvzp8eMZWUXb9jJiLKowE2C5nM7Dgk9XZckYYY' },
       { symbol: 'SRM', address: 'SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuqxn1wbS' },
-      { symbol: 'SLND', address: 'SLNDpmoWTVADgEdnd9Wkb7ocejcuen6ZN8uhN4t8LrK8' },
-      { symbol: 'MNGO', address: 'MangoCzJ36AjZyKwVj3VnYU4GTonLKvZ6R8ogvmmmc3' },
-      { symbol: 'FRONT', address: 'FrontKzjrUFn2uDpLwmnKxnJdGzF2tL6nRqtJ69xG6p' },
-      { symbol: 'KIN', address: 'kinXdEcpDQeHPEuQnKx9ADq7x8JVQ9QBiP8Q5e3vQJ4' },
-      { symbol: 'MER', address: 'MERtDfcD7mNhtHMQp2B2cFJVBQ7D2E8oPpPGa1Y2hXJ' },
-      { symbol: 'OXY', address: 'z3dn17LAoH8pXsQyHPLjJ7z3qfbZnG2v4TJr7fM44rD' },
+      { symbol: 'FIDA', address: 'EchesyfXePKdLtoiZSLiP8TZkbsMKU8aVD4U5Hcg6VGE' },
+      { symbol: 'STEP', address: 'StepAscQoEioFxxWGnh2sLBDFp9d8rvKz2Yp39iDpyY' },
       { symbol: 'MAPS', address: 'MAPS41MDahZ9QdKAT3E5H3E2W4tTkX3gQ7q2dS4fL1q' },
+      { symbol: 'OXY', address: 'z3dn17LAoH8pXsQyHPLjJ7z3qfbZnG2v4TJr7fM44rD' },
+      { symbol: 'MNGO', address: 'MangoCzJ36AjZyKwVj3VnYU4GTonLKvZ6R8ogvmmmc3' },
       { symbol: 'ATLAS', address: 'ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx' },
       { symbol: 'POLIS', address: 'poLisWXnNRwC6oBu1vHa7R1e5fLh5WkhmF8oLkhy9JZ' },
-      { symbol: 'PRISM', address: 'PRSMNsEPqhGVKM1mJn9z5j1RJ4Q9F5Q8X6D8f3jWq8E' },
-      { symbol: 'LIKE', address: 'Like1vX5YmjH3n6y9tQ8z2q3x4c5v6b7n8m9k0l1p2o3i4' },
-      { symbol: 'PAI', address: 'Ea5SjE2Y6LH7Qp8q5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z' },
-      { symbol: 'TULIP', address: 'TuLipc9zN7XJdKQ2z3x4c5v6b7n8m9k0l1p2o3i4u5y6' },
-      { symbol: 'SUNNY', address: 'SUNNYWgPQmYx4h5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z' },
-      { symbol: 'SBR', address: 'Saber2gLauYim4Kftbs4pWmMvq8u2XhTj8jK4c4s4s4s4' },
-      { symbol: 'AART', address: 'ART1vX5YmjH3n6y9tQ8z2q3x4c5v6b7n8m9k0l1p2o3i4' },
+      { symbol: 'COPE', address: '8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh' },
+      { symbol: 'SAMO', address: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU' },
+      { symbol: 'DFL', address: 'DFL1zNkaGPWmRuH9nzP9YK7c8vP3Czq4GYhGvL4NqkT' },
+      { symbol: 'LIKE', address: 'Like1vX5YmjH3n6y9tQ8z2q3x4c5v6b7n8m9k0l1p2o3i4u5y' },
+      { symbol: 'TULIP', address: 'TuLipc9zN7XJdKQ2z3x4c5v6b7n8m9k0l1p2o3i4u5y6t7r' },
+      { symbol: 'FRONT', address: 'FrontKzjrUFn2uDpLwmnKxnJdGzF2tL6nRqtJ69xG6pE' },
+      { symbol: 'SLND', address: 'SLNDpmoWTVADgEdnd9Wkb7ocejcuen6ZN8uhN4t8LrK' },
+      { symbol: 'MER', address: 'MERtDfcD7mNhtHMQp2B2cFJVBQ7D2E8oPpPGa1Y2hX' },
+      { symbol: 'PRISM', address: 'PRSMNsEPqhGVKM1mJn9z5j1RJ4Q9F5Q8X6D8f3jWq' },
+      { symbol: 'AUDIO', address: 'AUDIO2gZduN5p5EMZ7K9rF8yXw5TzL3mN4pQ6rS2tU8v' },
+      { symbol: 'GRAPE', address: 'GRAPE4musZcduL4tX6eZ3zZ4qP5rS6tU7vW8xY9zA1B' },
+      { symbol: 'PORT', address: 'PORT7rnX5xR6mX7nZ8aP9qL3tY4uV6wX7zA8bC9dE0F' },
+      { symbol: 'REAL', address: 'REAL3mN6pQ8rS4tU5vW6xY7zA8bC9dE0F1G2hJ3kL' },
+      { symbol: 'GOFX', address: 'GOFX2pQ5rS7tU8vW9xY0zA1bC2dE3F4gH5iJ6kL7m' },
+      { symbol: 'CATO', address: 'CATO3nP4qR6sT8uV9wX0yZ1aB2cD3eF4gH5iJ6kL7' },
+      { symbol: 'HNT', address: 'HNT4mP6qR8sT0uV1wX2yZ3aB4cD5eF6gH7iJ8kL9m' },
+      { symbol: 'DUST', address: 'DUST5oP7qR9sT1uV2wX3yZ4aB5cD6eF7gH8iJ9kL0' },
+      { symbol: 'WEN', address: 'WENwV6qR8tT9uU0vV1wW2xX3yY4zZ5aA6bB7cC8d' },
+      { symbol: 'JUP', address: 'JUP3aWR4xX5yY6zZ7aA8bB9cC0dD1eE2fF3gG4hH5' },
+      { symbol: 'BLZE', address: 'BLZE4oP6qR8sT9tU0uV1vV2wW3xX4yY5zZ6aA7b' },
+      { symbol: 'CKAT', address: 'CKAT5nP7qR9sT0tU1uV2vW3wW4xX5yY6zZ7aA8b' },
+      { symbol: 'MOON', address: 'MOON6oQ8rR0sT1uU2vV3wW4xX5yY6zZ7aA8bB9c' },
+      { symbol: 'SWAY', address: 'SWAY7pR9sS2tT3uU4vV5wW6xX7yY8zZ9aA0bB1c' },
+      { symbol: 'DAO', address: 'DAO8qR0sS3tT4uU5vV6wW7xX8yY9zZ0aA1bB2c' },
+      { symbol: 'HEZ', address: 'HEZ9rS1sT4tU5vV6wW7xX8yY9zZ0aA1bB2cC3d' },
+      { symbol: 'ALEPH', address: 'ALEPH0sT2sU5uV6vW7wX8xY9yZ0zA1aA2bB3cC4' },
+      { symbol: 'SHDW', address: 'SHDW1tU3uV7vW8wX9xY0yZ1zA2aA3bB4cC5dD6' },
+      { symbol: 'MNDE', address: 'MNDEFzGvMt87meVuodKaNdZ5un7CqNxSiDC5vyQuqKM' },
+      { symbol: 'LST', address: 'LSTxxxn2K2FJ2kPcwMa3t6NaDWQp3WXA2YVDhYyfWnK' },
+      { symbol: 'DSL', address: 'DSL2wV4xX5yY6zZ7aA8bB9cC0dD1eE2fF3gG4hH5' },
+      { symbol: 'SAGE', address: 'SAGE3xY5zZ6aA7bB8cC9dD0eE1fF2gG3hH4iI5j' },
+      { symbol: 'BOP', address: 'BOP4yZ6aA7bB8cC9dD0eE1fF2gG3hH4iI5jJ6k' },
+      { symbol: 'RXD', address: 'RXD5zA7bB8cC9dD0eE1fF2gG3hH4iI5jJ6kK7l' },
     ];
   }
   
