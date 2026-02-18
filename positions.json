@@ -152,5 +152,24 @@
     "exited": false,
     "partialExited": false,
     "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "DARKTRUMP",
+    "ca": "AATKamPGybywQ17gq3w23k3mPLraV9svLTMYPi8ppump",
+    "entryPrice": 0.003701,
+    "entryTime": 1771414186547,
+    "positionSize": 0.005,
+    "tokensReceived": 110.810789,
+    "txHash": "4Fn2ko6x5nwijyhjDvyxHjzXyJyNXmR2BLpWungYqrJdPraJsFG2FccZmHRig2XdnbvZdXdJ6hTi25xfCbjUsULu",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.0036269799999999997,
+      "tp1": 0.00384904,
+      "tp2": 0.00392306
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
   }
 ]

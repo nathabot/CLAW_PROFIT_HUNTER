@@ -1384,16 +1384,16 @@ class DynamicTrader {
       const score = await this.getSignalScore(symbol, pair);
       console.log(`  📊 Score: ${score}/10 | Age: ${ageCheck.age.toFixed(0)}m`);
       
+      // Honeypot test (SKIP for established tokens)
+      const knownBluechips = ['SOL', 'USDC', 'USDT', 'BONK', 'JUP', 'JTO', 'WIF', 'RAY', 'ORCA', 'MSOL', 'BSOL'];
+      const isBluechip = knownBluechips.includes(symbol.toUpperCase());
+      
       // Score check (relaxed for bluechips)
       const minScore = isBluechip ? Math.max(5, CONFIG.MIN_SCORE - 1) : CONFIG.MIN_SCORE;
       if (score < minScore) {
         console.log(`  ⏭️  Score too low (${score} < ${minScore})`);
         continue;
       }
-      
-      // Honeypot test (SKIP for established tokens)
-      const knownBluechips = ['SOL', 'USDC', 'USDT', 'BONK', 'JUP', 'JTO', 'WIF', 'RAY', 'ORCA', 'MSOL', 'BSOL'];
-      const isBluechip = knownBluechips.includes(symbol.toUpperCase());
       const ageHours = ageCheck.age / 60;
       const liq = parseFloat(pair.liquidity?.usd || 0);
       const isEstablished = isBluechip || (ageHours > 168 && liq > 100000); // 7 days + $100k liq

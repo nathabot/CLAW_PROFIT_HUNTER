@@ -1,55 +1,55 @@
 {
   "sr_breakout": {
     "strategyName": "S/R Breakout",
-    "strategyWR": "61.72",
+    "strategyWR": "61.18",
     "tokens": [
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 30,
-        "avgPnl": 11.905051379033143,
+        "wins": 31,
+        "avgPnl": 11.304224915558027,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "RAY",
         "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
-        "wins": 26,
-        "avgPnl": 11.832818916338418,
+        "wins": 27,
+        "avgPnl": 10.110846283654642,
         "lastTrade": 1771385047201
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 26,
-        "avgPnl": 12.324347236888785,
+        "wins": 27,
+        "avgPnl": 12.610290981680762,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 25,
-        "avgPnl": 8.940841637077485,
+        "wins": 26,
+        "avgPnl": 10.206165981161877,
         "lastTrade": 1771385654369
       },
       {
         "symbol": "COPE",
         "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
-        "wins": 25,
-        "avgPnl": 12.636698540794288,
+        "wins": 26,
+        "avgPnl": 11.315851957055145,
         "lastTrade": 1771385654369
       },
       {
         "symbol": "mSOL",
         "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
-        "wins": 22,
-        "avgPnl": 12.022603986766097,
+        "wins": 23,
+        "avgPnl": 10.290347952484037,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "$WIF",
         "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
-        "wins": 19,
-        "avgPnl": 12.363943195589538,
+        "wins": 20,
+        "avgPnl": 10.368182819858273,
         "lastTrade": 1771386610508
       },
       {
@@ -88,17 +88,12 @@
         "lastTrade": 1771385595995
       },
       {
-        "symbol": "\u4e19\u5348",
+        "symbol": "丙午",
         "ca": "DMYNp65mub3i7LRpBdB66CgBAceLcQnv4gsWeCi6pump",
         "wins": 1,
         "avgPnl": 7.393326608213909,
         "lastTrade": 1771385595995
       }
     ]
-  },
-  "fib_786_1000": {
-    "strategyName": "Fib 0.786 Deep",
-    "strategyWR": "60.69",
-    "tokens": []
   }
 }
