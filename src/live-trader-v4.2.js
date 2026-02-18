@@ -553,8 +553,8 @@ class DynamicTrader {
             continue;
           }
 
-          // Validate entry
-          const candleCheck = await this.validateCandleEntry(ca, price);
+          // Proven tokens skip Fib level check (already validated by paper trade)
+          const candleCheck = await this.validateCandleEntry(ca, price, true); // true = skipFibCheck
           if (!candleCheck.valid) {
             console.log(`   ⏭️  ${candleCheck.reason}`);
             continue;
@@ -1566,7 +1566,7 @@ class DynamicTrader {
   /**
    * Validate candle entry with Fibonacci analysis - prevent FOMO + optimal entry
    */
-  async validateCandleEntry(ca, currentPrice) {
+  async validateCandleEntry(ca, currentPrice, skipFibCheck = false) {
     try {
       // Get OHLCV data from DexScreener
       const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${ca}`);
@@ -1631,7 +1631,8 @@ class DynamicTrader {
       const isNearOptimalEntry = nearestFib.level >= 0.382 && nearestFib.level <= 0.618;
       const discountPercent = ((fibLevels[0.500] - priceUsd) / fibLevels[0.500]) * 100;
       
-      if (!isNearOptimalEntry) {
+      // Skip Fib check for proven tokens (already validated by paper trade)
+      if (!skipFibCheck && !isNearOptimalEntry) {
         return { 
           valid: false, 
           reason: `Price not at optimal Fib level (current: ${nearestFib.level.toFixed(3)})`,
