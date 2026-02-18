@@ -182,29 +182,86 @@ function getRecentLogs() {
 // API: Get all BOK strategies (positive + negative)
 function getStrategies() {
     const provenTokens = readJSON(`${TRADING_BOK_DIR}/proven-tokens.json`, {});
+    const strategyIds = new Set();
     
     const strategies = [];
     
     // Add strategies from proven-tokens.json
     for (const [strategyId, data] of Object.entries(provenTokens)) {
+        strategyIds.add(strategyId);
         const tokens = data.tokens || [];
-        if (tokens.length > 0) {
-            strategies.push({
-                id: strategyId,
-                name: data.strategyName || strategyId,
-                winRate: data.strategyWR || 'N/A',
-                status: parseFloat(data.strategyWR) >= 61 ? 'positive' : 'negative',
-                category: getStrategyCategory(strategyId),
-                technical: getStrategyTechnical(strategyId),
-                topTokens: tokens.slice(0, 3).map(t => ({
-                    symbol: t.symbol,
-                    wins: t.wins,
-                    avgPnl: t.avgPnl?.toFixed(1) || '0'
-                })),
-                totalWins: tokens.reduce((sum, t) => sum + (t.wins || 0), 0)
-            });
-        }
+        strategies.push({
+            id: strategyId,
+            name: data.strategyName || strategyId,
+            winRate: data.strategyWR || 'N/A',
+            status: parseFloat(data.strategyWR) >= 61 ? 'positive' : 'negative',
+            category: getStrategyCategory(strategyId),
+            technical: getStrategyTechnical(strategyId),
+            topTokens: tokens.slice(0, 3).map(t => ({
+                symbol: t.symbol,
+                wins: t.wins,
+                avgPnl: t.avgPnl?.toFixed(1) || '0'
+            })),
+            totalWins: tokens.reduce((sum, t) => sum + (t.wins || 0), 0)
+        });
     }
+    
+    // Parse BOK markdown files for additional strategies
+    const positiveFile = readFile(`${TRADING_BOK_DIR}/16-positive-strategies.md`, '');
+    const negativeFile = readFile(`${TRADING_BOK_DIR}/17-negative-strategies.md`, '');
+    
+    // Extract strategies from positive file
+    const positiveMatch = positiveFile.match(/### Strategy: (\w+)/g);
+    if (positiveMatch) {
+        positiveMatch.forEach(m => {
+            const strategyId = m.replace('### Strategy: ', '');
+            if (!strategyIds.has(strategyId)) {
+                strategyIds.add(strategyId);
+                const wrMatch = positiveFile.match(new RegExp(`### Strategy: ${strategyId}[\\s\\S]*?- \\*\\*Win Rate:\\*\\* ([\\d.]%)`));
+                const nameMatch = positiveFile.match(new RegExp(`### Strategy: ${strategyId}[\\s\\S]*?- \\*\\*Name:\\*\\* ([^\\n]+)`));
+                const catMatch = positiveFile.match(new RegExp(`### Strategy: ${strategyId}[\\s\\S]*?- \\*\\*Category:\\*\\* ([^\\n]+)`));
+                
+                strategies.push({
+                    id: strategyId,
+                    name: nameMatch ? nameMatch[1].trim() : strategyId,
+                    winRate: wrMatch ? wrMatch[1].replace('%', '') : 'N/A',
+                    status: 'positive',
+                    category: catMatch ? catMatch[1].trim() : getStrategyCategory(strategyId),
+                    technical: getStrategyTechnical(strategyId),
+                    topTokens: [],
+                    totalWins: 0
+                });
+            }
+        });
+    }
+    
+    // Extract strategies from negative file
+    const negativeMatch = negativeFile.match(/### Strategy: (\w+)/g);
+    if (negativeMatch) {
+        negativeMatch.forEach(m => {
+            const strategyId = m.replace('### Strategy: ', '');
+            if (!strategyIds.has(strategyId)) {
+                strategyIds.add(strategyId);
+                // More flexible regex for negative file format
+                const wrMatch = negativeFile.match(new RegExp(`${strategyId}[\\s\\S]*?- \\*\\*Win Rate:\\*\\* (\\d+\\.\\d+%)`));
+                const nameMatch = negativeFile.match(new RegExp(`${strategyId}[\\s\\S]*?- \\*\\*Name:\\*\\* ([^\\n]+)`));
+                
+                strategies.push({
+                    id: strategyId,
+                    name: nameMatch ? nameMatch[1].trim() : strategyId,
+                    winRate: wrMatch ? wrMatch[1].replace('%', '') : 'N/A',
+                    status: 'negative',
+                    category: getStrategyCategory(strategyId),
+                    technical: getStrategyTechnical(strategyId),
+                    topTokens: [],
+                    totalWins: 0
+                });
+            }
+        });
+    }
+    
+    // Sort by win rate descending
+    strategies.sort((a, b) => parseFloat(b.winRate || 0) - parseFloat(a.winRate || 0));
     
     return strategies;
 }
