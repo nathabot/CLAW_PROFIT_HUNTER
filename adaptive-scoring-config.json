@@ -2,7 +2,7 @@
   "bestStrategy": {
     "id": "sr_breakout",
     "name": "S/R Breakout",
-    "winRate": "70.00",
+    "winRate": "68.83",
     "category": "FAST_TRADE"
   },
   "positionSizing": {
@@ -15,9 +15,9 @@
     "smart_fib_combo": "0.02",
     "ob_funding_combo": "0.02",
     "whale_volume_combo": "0.02",
-    "sr_breakout": "0.04",
+    "sr_breakout": "0.03",
     "momentum_squeeze": "0.02",
     "divergence_play": "0.02"
   },
-  "updated": 1771390210303
+  "updated": 1771391408746
 }
