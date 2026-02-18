@@ -74,9 +74,14 @@
       "tp1": 0.0002127944,
       "tp2": 0.0002164916
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitPrice": 0.0001871,
+    "exitTime": 1771410751046,
+    "pnlPercent": -8.909444985394355,
+    "exitType": "STOP_LOSS",
+    "exitTxHash": "7vXQQz24ke1vpo5dnPTNPFNvhKzXujMaT2j35xHshauqX4jbidY8Bbe5QhHXCawjWbM7FRHujmpKLYEJjDuQfLD"
   },
   {
     "symbol": "KIMCHI",
