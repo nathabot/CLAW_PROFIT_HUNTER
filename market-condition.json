@@ -3,14 +3,14 @@
   "confidence": 50,
   "reasons": [],
   "indicators": {
-    "solPrice": 85.02,
-    "priceChange24h": -1.56,
-    "priceChange1h": -0.27,
-    "volume24h": 125521977.32,
-    "volatility": 0.335,
-    "bullishTokens": 4,
+    "solPrice": 85.085,
+    "priceChange24h": -1.03,
+    "priceChange1h": -0.28,
+    "volume24h": 124588622.65,
+    "volatility": 0.3229166666666667,
+    "bullishTokens": 6,
     "bearishTokens": 4,
-    "timestamp": 1771390803000
+    "timestamp": 1771392602373
   },
   "recommendations": {
     "primary": [
@@ -29,5 +29,5 @@
     "slMultiplier": 0.8,
     "tpMultiplier": 0.9
   },
-  "lastUpdate": "2026-02-18T05:00:03.000Z"
+  "lastUpdate": "2026-02-18T05:30:02.374Z"
 }

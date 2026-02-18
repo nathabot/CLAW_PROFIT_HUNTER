@@ -1955,11 +1955,11 @@ class DynamicTrader {
     );
     
     // Start exit monitor with strategy config
-    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 15;
+    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 360; // Default 6 hours
     this.startFibExitMonitor(setup, targets, maxHoldMinutes);
   }
 
-  startFibExitMonitor(setup, targets, maxHoldMinutes = 15) {
+  startFibExitMonitor(setup, targets, maxHoldMinutes = 360) {
     const monitorFile = `/root/trading-bot/exit-monitor-${setup.symbol.toLowerCase()}.js`;
     const monitorCode = `
 const { Connection, PublicKey, Keypair } = require('@solana/web3.js');
@@ -2150,7 +2150,7 @@ async function monitor() {
   console.log(\`  Initial SL: $\${POS.stop.toFixed(8)}\`);
   console.log(\`  Initial TP1: $\${POS.tp1.toFixed(8)}\`);
   console.log(\`  Initial TP2: $\${POS.tp2.toFixed(8)}\`);
-  console.log(\`  Max Hold: ${maxHoldMinutes} min\`);
+  console.log(\`  Max Hold: ${maxHoldMinutes} min (${(maxHoldMinutes/60).toFixed(1)} hours)\`);
   console.log(\`  Trailing: ENABLED (activates at +5%)\`);
   
   let lastPrice = POS.entry;
@@ -2212,7 +2212,7 @@ async function monitor() {
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
         markPositionExited(price, pnl, 'MAX_HOLD', sellResult.signature);
-        await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+        await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min (${(maxHoldMinutes/60).toFixed(0)}h) reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         await recordTradeResult(pnl > 0, pnl);
       }
       process.exit(0);
