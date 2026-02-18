@@ -1,0 +1,33 @@
+{
+  "regime": "SIDEWAYS",
+  "confidence": 50,
+  "reasons": [],
+  "indicators": {
+    "solPrice": 85.28,
+    "priceChange24h": -1.47,
+    "priceChange1h": 0.71,
+    "volume24h": 126742423.11,
+    "volatility": 0.77125,
+    "bullishTokens": 6,
+    "bearishTokens": 3,
+    "timestamp": 1771388447162
+  },
+  "recommendations": {
+    "primary": [
+      "range_bound_7321",
+      "mean_reversion_9904"
+    ],
+    "secondary": [
+      "fib_500_1272",
+      "orderbook_funding_2044"
+    ],
+    "avoid": [
+      "breakout_4449",
+      "momentum_squeeze_1782"
+    ],
+    "positionSize": 0.7,
+    "slMultiplier": 0.8,
+    "tpMultiplier": 0.9
+  },
+  "lastUpdate": "2026-02-18T04:20:47.162Z"
+}

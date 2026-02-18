@@ -9,10 +9,10 @@
  */
 
 const fs = require('fs');
-const MarketConditionAnalyzer = require('./src/market-condition-analyzer');
-const StrategyRotationSystem = require('./src/strategy-rotation-system');
-const LiveToPaperFeedback = require('./src/live-to-paper-feedback');
-const BOKIntelligenceLayer = require('./src/bok-intelligence-layer');
+const MarketConditionAnalyzer = require('./market-condition-analyzer');
+const StrategyRotationSystem = require('./strategy-rotation-system');
+const LiveToPaperFeedback = require('./live-to-paper-feedback');
+const BOKIntelligenceLayer = require('./bok-intelligence-layer');
 
 const CONFIG = {
   LOG_FILE: '/root/trading-bot/logs/adaptive-system.log',
