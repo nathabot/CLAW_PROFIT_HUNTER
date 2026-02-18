@@ -23,9 +23,18 @@
     "id": "fib_786_1000",
     "name": "Fib 0.786 Deep",
     "liveWins": 0,
-    "liveLosses": 3,
-    "liveTotal": 3,
-    "consecutiveLosses": 3,
-    "lastUpdated": 1771411354684
+    "liveLosses": 6,
+    "liveTotal": 6,
+    "consecutiveLosses": 6,
+    "lastUpdated": 1771414718821
+  },
+  "sr_breakout": {
+    "id": "sr_breakout",
+    "name": "S/R Breakout",
+    "liveWins": 0,
+    "liveLosses": 2,
+    "liveTotal": 2,
+    "consecutiveLosses": 2,
+    "lastUpdated": 1771414390424
   }
 }

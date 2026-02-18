@@ -1,9 +1,29 @@
 Wallet loaded: EpG25pVadjQ9M9NHJMXZ...
 📊 Monitoring DARKTRUMP (DYNAMIC TP/SL v2 - 5s interval)...
-  Entry: $0.00370100
-  Initial SL: $0.00362698
-  Initial TP1: $0.00384904
-  Initial TP2: $0.00392306
+  Entry: $0.00158200
+  Initial SL: $0.00155036
+  Initial TP1: $0.00164528
+  Initial TP2: $0.00167692
   Max Hold: 15 min (0.3 hours)
   Trailing: ENABLED (activates at +5%)
-6:29:50 PM | DARKTRUMP: $0.00370100 | PnL: 0.00% | Momentum: neutral | SL: $0.003627
+6:37:30 PM | DARKTRUMP: $0.00158200 | PnL: 0.00% | Momentum: neutral | SL: $0.001550
+6:37:35 PM | DARKTRUMP: $0.00158200 | PnL: 0.00% | Momentum: neutral | SL: $0.001550
+6:37:40 PM | DARKTRUMP: $0.00158200 | PnL: 0.00% | Momentum: neutral | SL: $0.001550
+6:37:45 PM | DARKTRUMP: $0.00158200 | PnL: 0.00% | Momentum: neutral | SL: $0.001550
+6:37:50 PM | DARKTRUMP: $0.00158200 | PnL: 0.00% | Momentum: neutral | SL: $0.001550
+6:37:55 PM | DARKTRUMP: $0.00158200 | PnL: 0.00% | Momentum: neutral | SL: $0.001550
+🎯 Trailing stop ACTIVATED at +5%
+🔄 Trailing SL raised to: $0.00231610
+6:38:01 PM | DARKTRUMP: $0.00243800 | PnL: +54.11% | Momentum: neutral 😐 | SL: $0.002316
+🎯 TP1 HIT (Dynamic: $0.00164528) - Exiting 50%...
+  🔄 Executing sell (50%)...
+6:38:08 PM | DARKTRUMP: $0.00243800 | PnL: +54.11% | Momentum: neutral 😐 | SL: $0.002316
+6:38:13 PM | DARKTRUMP: $0.00243800 | PnL: +54.11% | Momentum: neutral 😐 | SL: $0.002316
+6:38:18 PM | DARKTRUMP: $0.00243800 | PnL: +54.11% | Momentum: neutral 😐 | SL: $0.002316
+6:38:23 PM | DARKTRUMP: $0.00243800 | PnL: +54.11% | Momentum: neutral 😐 | SL: $0.002316
+6:38:28 PM | DARKTRUMP: $0.00243800 | PnL: +54.11% | Momentum: neutral 😐 | SL: $0.002316
+6:38:34 PM | DARKTRUMP: $0.00128100 | PnL: -19.03% | Momentum: neutral 😐 | SL: $0.002316
+🛑 SL HIT (Trailing) - Executing sell...
+  🔄 Executing sell (95%)...
+📊 Strategy Tracker: Fib 0.786 Deep | LOSS | Streak: 6
+⚠️  STRATEGY ALERT: Fib 0.786 Deep hit 3 losses - should move to NEGATIVE

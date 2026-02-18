@@ -23,13 +23,13 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: 'DARKTRUMP',
   ca: 'AATKamPGybywQ17gq3w23k3mPLraV9svLTMYPi8ppump',
-  entry: 0.003701,
-  stop: 0.0036269799999999997,
-  tp1: 0.00384904,
-  tp2: 0.00392306,
+  entry: 0.001582,
+  stop: 0.00155036,
+  tp1: 0.00164528,
+  tp2: 0.0016769200000000001,
   partialExit: 0.5,
-  strategyId: 'sr_breakout',
-  strategyName: 'S/R Breakout'
+  strategyId: 'fib_786_1000',
+  strategyName: 'Fib 0.786 Deep'
 };
 
 // DYNAMIC STATE

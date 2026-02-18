@@ -137,7 +137,7 @@
   {
     "symbol": "Bonk",
     "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-    "entryPrice": 0.000006474,
+    "entryPrice": 6.474e-06,
     "entryTime": 1771412285076,
     "positionSize": 0.005,
     "tokensReceived": 65039.68502,
@@ -145,9 +145,9 @@
     "strategy": "S/R Breakout",
     "strategyId": "sr_breakout",
     "targets": {
-      "sl": 0.0000063704160000000005,
-      "tp1": 0.000006707064,
-      "tp2": 0.000006823596000000001
+      "sl": 6.3704160000000005e-06,
+      "tp1": 6.707064e-06,
+      "tp2": 6.823596000000001e-06
     },
     "exited": false,
     "partialExited": false,
@@ -168,8 +168,64 @@
       "tp1": 0.00384904,
       "tp2": 0.00392306
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitPrice": 0.001129,
+    "exitTime": 1771414389160,
+    "pnlPercent": -69.49473115374222,
+    "exitType": "STOP_LOSS",
+    "exitTxHash": "3dQcjcHZtqozwA4hCSZQFDYcFwKtnNcgberEHKZENsXfX9KSHUEGqz7NuHKaExWbkpqWffBCMR2aPoBUQ8Hzekwo"
+  },
+  {
+    "symbol": "DARKTRUMP",
+    "ca": "AATKamPGybywQ17gq3w23k3mPLraV9svLTMYPi8ppump",
+    "entryPrice": 0.001613,
+    "entryTime": 1771414511365,
+    "positionSize": 0.005,
+    "tokensReceived": 1070.390042,
+    "txHash": "2trpc5QKP6ai2K7wR4Wpkgys3k97QgDYbVzfARwS8kCUoV5tarH7KBo5mBNT4LzVc6yVfFJW8rZ2NTRvSupXDgJH",
+    "strategy": "Fib 0.786 Deep",
+    "strategyId": "fib_786_1000",
+    "targets": {
+      "sl": 0.00158074,
+      "tp1": 0.00167752,
+      "tp2": 0.0017097800000000002
+    },
+    "exited": true,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN",
+    "exitPrice": 0.0003867,
+    "exitTime": 1771414553824,
+    "pnlPercent": -76.02603843769373,
+    "exitType": "STOP_LOSS",
+    "exitTxHash": "2uuNGqNjuHwyi9Rmpabs3dChoHtDuH8WoxsrYfFMZ7Vr4gbf4Vh5obbZs9qwN9HCnpqMhj7qBJR4LTk1Q8k6j4xj"
+  },
+  {
+    "symbol": "DARKTRUMP",
+    "ca": "AATKamPGybywQ17gq3w23k3mPLraV9svLTMYPi8ppump",
+    "entryPrice": 0.001582,
+    "entryTime": 1771414646013,
+    "positionSize": 0.005,
+    "tokensReceived": 265.056485,
+    "txHash": "UrKxgxVFWQ6FD7K7irGaudMpph5SjAut66ebabdM151GbHRxyNPNJWXsU99S977ozWFhMrDBRLpwHnsFkKskjUj",
+    "strategy": "Fib 0.786 Deep",
+    "strategyId": "fib_786_1000",
+    "targets": {
+      "sl": 0.00155036,
+      "tp1": 0.00164528,
+      "tp2": 0.0016769200000000001
+    },
+    "exited": true,
+    "partialExited": true,
+    "marketCondition": "UNKNOWN",
+    "partialExitPrice": 0.002438,
+    "partialExitPnl": 0.0027054361567635903,
+    "partialExitTx": "2mGpsv1TqLndaoqM4G4JyXjAM3cME7vBFoWMf9kii2KQ2KJkExKsJiqx9oCt9j8A8i7pUQ4M33y2wwej2aKCRRnA",
+    "exitPrice": 0.001281,
+    "exitTime": 1771414716433,
+    "pnlPercent": -19.026548672566378,
+    "exitType": "TRAILING_STOP",
+    "exitTxHash": "21q582yFA2k4yJBMa4WK2Xfhj8KxNP6QsPV35x9FjyLT3h1M9dQ18EUnsa5NG6MWiPFVxpUZbD3RreTJKneJUYXs"
   }
 ]

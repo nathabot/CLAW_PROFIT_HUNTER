@@ -1,9 +1,9 @@
 {
   "bestStrategy": {
-    "id": "sr_breakout",
-    "name": "S/R Breakout",
-    "winRate": "61.18",
-    "category": "FAST_TRADE"
+    "id": "fib_786_1000",
+    "name": "Fib 0.786 Deep",
+    "winRate": "60.13",
+    "category": "SWING_TRADE"
   },
   "positionSizing": {
     "fib_382_1618": "0.02",
@@ -15,9 +15,9 @@
     "smart_fib_combo": "0.02",
     "ob_funding_combo": "0.02",
     "whale_volume_combo": "0.02",
-    "sr_breakout": "0.04",
+    "sr_breakout": "0.02",
     "momentum_squeeze": "0.02",
     "divergence_play": "0.02"
   },
-  "updated": 1771413614575
+  "updated": 1771414818104
 }

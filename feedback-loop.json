@@ -7,10 +7,18 @@
       "oldWeight": 1,
       "newWeight": 0.85,
       "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771414202824,
+      "strategyId": "fib_786_1000",
+      "result": "LOSS",
+      "oldWeight": 0.85,
+      "newWeight": 0.7224999999999999,
+      "reason": "Live trade loss"
     }
   ],
   "currentWeights": {
-    "fib_786_1000": 0.85
+    "fib_786_1000": 0.7224999999999999
   },
-  "lastUpdate": "2026-02-18T11:00:06.125Z"
+  "lastUpdate": "2026-02-18T11:30:02.824Z"
 }
