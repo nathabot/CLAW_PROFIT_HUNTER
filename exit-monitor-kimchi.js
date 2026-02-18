@@ -123,7 +123,14 @@ async function getPrice() {
 }
 
 async function executeSell(percent = '100%') {
-  try {
+  // Timeout after 30 seconds
+  return new Promise(async (resolve) => {
+    const timeout = setTimeout(() => {
+      console.log('  ⚠️ SELL TIMEOUT - Retry with fallback...');
+      resolve({ success: false, error: 'Timeout' });
+    }, 30000);
+    
+    try {
     const wsol = 'So11111111111111111111111111111111111111112';
     const url = `https://swap-v2.solanatracker.io/swap?from=${POS.ca}&to=${wsol}&fromAmount=${encodeURIComponent(percent)}&slippage=30&payer=${wallet.publicKey.toString()}&priorityFee=auto&priorityFeeLevel=high&txVersion=v0`;
     
@@ -152,9 +159,12 @@ async function executeSell(percent = '100%') {
     
     await connection.confirmTransaction(signature, 'confirmed');
     return { success: true, signature, outputAmount: data.rate?.amountOut || 0 };
-  } catch (e) {
-    return { success: false, error: e.message };
-  }
+      clearTimeout(timeout);
+    } catch (e) {
+      clearTimeout(timeout);
+      resolve({ success: false, error: e.message });
+    }
+  });
 }
 
 let partialExited = false;
