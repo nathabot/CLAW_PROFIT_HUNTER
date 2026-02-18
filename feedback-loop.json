@@ -1,5 +1,16 @@
 {
-  "adjustments": [],
-  "currentWeights": {},
-  "lastUpdate": "2026-02-18T10:30:03.314Z"
+  "adjustments": [
+    {
+      "timestamp": 1771412406124,
+      "strategyId": "fib_786_1000",
+      "result": "LOSS",
+      "oldWeight": 1,
+      "newWeight": 0.85,
+      "reason": "Live trade loss"
+    }
+  ],
+  "currentWeights": {
+    "fib_786_1000": 0.85
+  },
+  "lastUpdate": "2026-02-18T11:00:06.125Z"
 }

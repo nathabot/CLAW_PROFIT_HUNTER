@@ -133,5 +133,24 @@
     "pnlPercent": -0.7417802726543798,
     "exitType": "MAX_HOLD",
     "exitTxHash": "24DEfg2PXJzMDFUNkqGBBCkXJYmtV1NeP3itmwQRUzfUsPDitoGTUCtxUs8FbhdVVAqH54MU7H6tBKkDccPh7i4b"
+  },
+  {
+    "symbol": "Bonk",
+    "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    "entryPrice": 0.000006474,
+    "entryTime": 1771412285076,
+    "positionSize": 0.005,
+    "tokensReceived": 65039.68502,
+    "txHash": "2HxpbGZbZ7Bfso89Aq7ngXqaLzw6SRskjshTotLHkcA7Ho4V2Vm44YCcERwr87K9vQVVUus1kD2zyn8AHjZPpV9D",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.0000063704160000000005,
+      "tp1": 0.000006707064,
+      "tp2": 0.000006823596000000001
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
   }
 ]

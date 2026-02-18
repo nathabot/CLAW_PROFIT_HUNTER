@@ -160,7 +160,7 @@ async function executeSell(percent = '100%') {
 let partialExited = false;
 
 const startTime = Date.now();
-const MAX_HOLD_MS = 15 * 60 * 1000;
+const MAX_HOLD_MS = 6 * 60 * 60 * 1000; // 6 hours
 
 async function getMarketData() {
   try {
