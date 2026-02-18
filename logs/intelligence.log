@@ -143,3 +143,138 @@
 [2026-02-17T13:00:04.244Z] ℹ️ SUMMARY: 3 new signals, 17 skipped
 [2026-02-17T13:00:04.244Z] ℹ️ ========================================
 
+[2026-02-17T17:00:01.275Z] ℹ️ ========================================
+[2026-02-17T17:00:01.276Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-17T17:00:01.276Z] ℹ️ Dynamic Signal Generation
+[2026-02-17T17:00:01.276Z] ℹ️ ========================================
+
+[2026-02-17T17:00:01.322Z] ℹ️ Database connected (schema updated)
+
+[2026-02-17T17:00:01.323Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-17T17:00:01.581Z] ℹ️ Found 20 trending tokens
+
+[2026-02-17T17:00:01.697Z] ⚠️ cashcow: Confidence too low (5.0/10)
+[2026-02-17T17:00:01.903Z] ⚠️ Swingers: Low liquidity ($0)
+[2026-02-17T17:00:01.958Z] ⚠️ Momiage: Low volume ($5,952.6)
+[2026-02-17T17:00:02.013Z] ⚠️ MPM: Low liquidity ($0)
+[2026-02-17T17:00:02.072Z] ⚠️ BORDS: Confidence too low (3.0/10)
+[2026-02-17T17:00:02.134Z] ⚠️ CREAM : Low liquidity ($9,122.6)
+[2026-02-17T17:00:02.476Z] ⚠️ FLY: Low volume ($18,761.21)
+[2026-02-17T17:00:02.554Z] ⚠️ Pepe: Low volume ($12,052.3)
+[2026-02-17T17:00:02.667Z] ⚠️ 144pHorse: Low liquidity ($0)
+[2026-02-17T17:00:02.722Z] ⚠️ PEPECASH: Low liquidity ($7,703.31)
+[2026-02-17T17:00:02.767Z] ⚠️ T2E: Low liquidity ($3,966.96)
+[2026-02-17T17:00:02.818Z] ⚠️ Tradoor: Low liquidity ($8,869.9)
+[2026-02-17T17:00:02.879Z] ✅ ponzi: ✅ INSERTED (6.0/10)
+[2026-02-17T17:00:02.879Z] ℹ️    Entry: $0.000095
+[2026-02-17T17:00:02.879Z] ℹ️    TP1: $0.000101 | TP2: $0.000106
+[2026-02-17T17:00:02.879Z] ℹ️    SL: $0.000091
+[2026-02-17T17:00:02.879Z] ℹ️    Reasons: Very high volume, Strong 24h momentum, Slight buying edge
+
+[2026-02-17T17:00:03.708Z] ⚠️ GOATSE: Confidence too low (3.0/10)
+[2026-02-17T17:00:03.753Z] ⚠️ IMG: Confidence too low (2.0/10)
+[2026-02-17T17:00:03.814Z] ⚠️ WAGMI: Low liquidity ($0)
+[2026-02-17T17:00:03.898Z] ⚠️ BTN: Low liquidity ($9,991.52)
+[2026-02-17T17:00:03.961Z] ⚠️ GoyNigga: Low volume ($14,109.87)
+[2026-02-17T17:00:04.027Z] ⚠️ ROI: Low liquidity ($5,007.51)
+[2026-02-17T17:00:04.080Z] ⚠️ Clawlana: Low liquidity ($0)
+[2026-02-17T17:00:04.080Z] ℹ️ 
+========================================
+[2026-02-17T17:00:04.081Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
+[2026-02-17T17:00:04.081Z] ℹ️ ========================================
+
+[2026-02-17T21:00:01.948Z] ℹ️ ========================================
+[2026-02-17T21:00:01.952Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-17T21:00:01.952Z] ℹ️ Dynamic Signal Generation
+[2026-02-17T21:00:01.952Z] ℹ️ ========================================
+
+[2026-02-17T21:00:02.079Z] ℹ️ Database connected (schema updated)
+
+[2026-02-17T21:00:02.080Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-17T21:00:02.571Z] ℹ️ Found 20 trending tokens
+
+[2026-02-17T21:00:02.671Z] ⚠️ CLAUTH: Confidence too low (5.5/10)
+[2026-02-17T21:00:02.958Z] ⚠️ PDF6900: Low liquidity ($0)
+[2026-02-17T21:00:02.990Z] ⚠️ SHIBES: Low liquidity ($0)
+[2026-02-17T21:00:03.031Z] ✅ KIMCHI: ✅ INSERTED (6.5/10)
+[2026-02-17T21:00:03.031Z] ℹ️    Entry: $0.000181
+[2026-02-17T21:00:03.031Z] ℹ️    TP1: $0.000195 | TP2: $0.000208
+[2026-02-17T21:00:03.031Z] ℹ️    SL: $0.000172
+[2026-02-17T21:00:03.031Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Heavy buying pressure
+
+[2026-02-17T21:00:03.819Z] ✅ HOD: ✅ INSERTED (6.5/10)
+[2026-02-17T21:00:03.819Z] ℹ️    Entry: $0.003136
+[2026-02-17T21:00:03.819Z] ℹ️    TP1: $0.003387 | TP2: $0.003606
+[2026-02-17T21:00:03.819Z] ℹ️    SL: $0.002979
+[2026-02-17T21:00:03.819Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Slight buying edge, Adequate liquidity
+
+[2026-02-17T21:00:04.349Z] ⚠️ OVOMEAL: Low liquidity ($0)
+[2026-02-17T21:00:04.382Z] ⚠️ GRAWD: Confidence too low (1.0/10)
+[2026-02-17T21:00:04.420Z] ✅ CSO: ✅ INSERTED (7.0/10)
+[2026-02-17T21:00:04.420Z] ℹ️    Entry: $0.002527
+[2026-02-17T21:00:04.420Z] ℹ️    TP1: $0.002729 | TP2: $0.002906
+[2026-02-17T21:00:04.420Z] ℹ️    SL: $0.002401
+[2026-02-17T21:00:04.420Z] ℹ️    Reasons: Good volume, Strong 24h momentum, More buyers than sellers, Adequate liquidity
+
+[2026-02-17T21:00:04.952Z] ⚠️ Dickcoin: Low liquidity ($0)
+[2026-02-17T21:00:04.980Z] ⚠️ Mojak: Low liquidity ($0)
+[2026-02-17T21:00:05.008Z] ⚠️ CALLIE: Low liquidity ($23,878.82)
+[2026-02-17T21:00:05.038Z] ⚠️ MOMO: Low liquidity ($0)
+[2026-02-17T21:00:05.066Z] ⚠️ KIMCHI: Low liquidity ($9,606.34)
+[2026-02-17T21:00:05.094Z] ⚠️ Obami: Low liquidity ($10,654.65)
+[2026-02-17T21:00:05.125Z] ⚠️ Skipping 0xB8a290: No data
+[2026-02-17T21:00:05.154Z] ⚠️ Shibe: Low liquidity ($0)
+[2026-02-17T21:00:05.184Z] ⚠️ INU: Low liquidity ($0)
+[2026-02-17T21:00:05.211Z] ⚠️ Amy Li: Low liquidity ($0)
+[2026-02-17T21:00:05.241Z] ⚠️ Catsby: Low liquidity ($16,058.39)
+[2026-02-17T21:00:05.272Z] ⚠️ San Chan : Low liquidity ($19,791.56)
+[2026-02-17T21:00:05.272Z] ℹ️ 
+========================================
+[2026-02-17T21:00:05.272Z] ℹ️ SUMMARY: 3 new signals, 17 skipped
+[2026-02-17T21:00:05.272Z] ℹ️ ========================================
+
+[2026-02-18T01:00:01.302Z] ℹ️ ========================================
+[2026-02-18T01:00:01.304Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-18T01:00:01.304Z] ℹ️ Dynamic Signal Generation
+[2026-02-18T01:00:01.304Z] ℹ️ ========================================
+
+[2026-02-18T01:00:01.342Z] ℹ️ Database connected (schema updated)
+
+[2026-02-18T01:00:01.343Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-18T01:00:01.605Z] ℹ️ Found 20 trending tokens
+
+[2026-02-18T01:00:01.678Z] ⚠️ FEES: Low liquidity ($7,259.07)
+[2026-02-18T01:00:01.707Z] ⚠️ LMEOW: Low liquidity ($23,693.12)
+[2026-02-18T01:00:01.737Z] ⚠️ MAYA: Low liquidity ($6,974.84)
+[2026-02-18T01:00:01.767Z] ⚠️ chicken: Low liquidity ($8,835.84)
+[2026-02-18T01:00:01.797Z] ⚠️ STUD: Low liquidity ($0)
+[2026-02-18T01:00:01.850Z] ⚠️ NIGLON: Low liquidity ($0)
+[2026-02-18T01:00:01.881Z] ⚠️ @everyone: Low liquidity ($0)
+[2026-02-18T01:00:01.935Z] ⚠️ Nubfrog: Low liquidity ($0)
+[2026-02-18T01:00:01.968Z] ⚠️ wolf: Low liquidity ($0)
+[2026-02-18T01:00:02.021Z] ⚠️ ΣΨΝΟ: Low liquidity ($0)
+[2026-02-18T01:00:02.055Z] ⚠️ Obamium : Low liquidity ($0)
+[2026-02-18T01:00:02.082Z] ⚠️ Cormorant: Low liquidity ($0)
+[2026-02-18T01:00:02.111Z] ⚠️ Web: Low liquidity ($0)
+[2026-02-18T01:00:02.155Z] ✅ TRADE: ✅ INSERTED (8.0/10)
+[2026-02-18T01:00:02.155Z] ℹ️    Entry: $0.000002
+[2026-02-18T01:00:02.155Z] ℹ️    TP1: $0.000002 | TP2: $0.000003
+[2026-02-18T01:00:02.155Z] ℹ️    SL: $0.000002
+[2026-02-18T01:00:02.155Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Heavy buying pressure, Adequate liquidity
+
+[2026-02-18T01:00:02.688Z] ⚠️ VVFIT: Low liquidity ($0)
+[2026-02-18T01:00:02.717Z] ⚠️ GAS: Confidence too low (4.5/10)
+[2026-02-18T01:00:02.746Z] ⚠️ JOLYNE: Low liquidity ($4,618.72)
+[2026-02-18T01:00:03.064Z] ✅ KIMCHI: ✅ INSERTED (6.5/10)
+[2026-02-18T01:00:03.064Z] ℹ️    Entry: $0.000235
+[2026-02-18T01:00:03.064Z] ℹ️    TP1: $0.000254 | TP2: $0.000270
+[2026-02-18T01:00:03.064Z] ℹ️    SL: $0.000223
+[2026-02-18T01:00:03.064Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Heavy buying pressure
+
+[2026-02-18T01:00:03.592Z] ⚠️ WIF: Low liquidity ($0)
+[2026-02-18T01:00:03.620Z] ⚠️ gs: Low liquidity ($6,633.16)
+[2026-02-18T01:00:03.620Z] ℹ️ 
+========================================
+[2026-02-18T01:00:03.620Z] ℹ️ SUMMARY: 2 new signals, 18 skipped
+[2026-02-18T01:00:03.620Z] ℹ️ ========================================
+

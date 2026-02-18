@@ -1,127 +1,46 @@
 {
-  "simulationCount": 48,
+  "simulationCount": 2,
   "results": {
-    "fib_382_1618": {
-      "id": "fib_382_1618",
-      "name": "Fib 0.382 Entry",
-      "category": "SCALPING",
-      "wins": 3,
-      "losses": 1,
-      "total": 4,
-      "totalProfit": 0.003946968275709801,
-      "totalLoss": -0.00042075000000000006
-    },
-    "fib_500_1272": {
-      "id": "fib_500_1272",
-      "name": "Fib 0.500 Entry",
-      "category": "SCALPING",
+    "intel_trade_1771383002003": {
+      "id": "intel_trade_1771383002003",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
       "wins": 1,
-      "losses": 3,
-      "total": 4,
-      "totalProfit": 0.0018662761595192824,
-      "totalLoss": -0.0009562500000000001
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0017595,
+      "totalLoss": 0,
+      "tokens": [
+        {
+          "symbol": "TRADE",
+          "ca": "0x9A03E9D5b38b9C2C87F69c654f6Ae1ACF11FAbA3",
+          "isWin": true,
+          "pnlPercent": 13.799999999999997,
+          "timestamp": 1771383002004
+        }
+      ]
     },
-    "fib_618_1618": {
-      "id": "fib_618_1618",
-      "name": "Fib 0.618 Golden",
-      "category": "SNIPER",
-      "wins": 3,
-      "losses": 1,
-      "total": 4,
-      "totalProfit": 0.0035265002925231907,
-      "totalLoss": -0.00026775000000000003
-    },
-    "fib_786_1000": {
-      "id": "fib_786_1000",
-      "name": "Fib 0.786 Deep",
-      "category": "SWING_TRADE",
-      "wins": 0,
-      "losses": 4,
-      "total": 4,
-      "totalProfit": 0,
-      "totalLoss": -0.0013770000000000002
-    },
-    "fib_rsi_combo": {
-      "id": "fib_rsi_combo",
-      "name": "Fib + RSI",
-      "category": "SCALPING",
-      "wins": 2,
-      "losses": 2,
-      "total": 4,
-      "totalProfit": 0.002074067494706893,
-      "totalLoss": -0.0006885000000000001
-    },
-    "fib_volume_combo": {
-      "id": "fib_volume_combo",
-      "name": "Fib + Volume",
+    "intel_kimchi_1771383002004": {
+      "id": "intel_kimchi_1771383002004",
+      "name": "Intelligence: KIMCHI",
       "category": "FAST_TRADE",
-      "wins": 3,
-      "losses": 1,
-      "total": 4,
-      "totalProfit": 0.0036803578531278886,
-      "totalLoss": -0.00026775000000000003
-    },
-    "smart_fib_combo": {
-      "id": "smart_fib_combo",
-      "name": "Smart Money + Fib",
-      "category": "SNIPER",
-      "wins": 3,
-      "losses": 1,
-      "total": 4,
-      "totalProfit": 0.004193991784376074,
-      "totalLoss": -0.00026775000000000003
-    },
-    "ob_funding_combo": {
-      "id": "ob_funding_combo",
-      "name": "Orderbook + Funding",
-      "category": "SWING_TRADE",
-      "wins": 3,
-      "losses": 1,
-      "total": 4,
-      "totalProfit": 0.003276156902111571,
-      "totalLoss": -0.00042075000000000006
-    },
-    "whale_volume_combo": {
-      "id": "whale_volume_combo",
-      "name": "Whale + Volume",
-      "category": "SNIPER",
-      "wins": 3,
-      "losses": 1,
-      "total": 4,
-      "totalProfit": 0.00428807858966352,
-      "totalLoss": -0.00026775000000000003
-    },
-    "sr_breakout": {
-      "id": "sr_breakout",
-      "name": "S/R Breakout",
-      "category": "FAST_TRADE",
-      "wins": 2,
-      "losses": 2,
-      "total": 4,
-      "totalProfit": 0.0022740827836733044,
-      "totalLoss": -0.0006885000000000001
-    },
-    "momentum_squeeze": {
-      "id": "momentum_squeeze",
-      "name": "Momentum Squeeze",
-      "category": "SCALPING",
+      "source": "StrategyIntelligence",
       "wins": 0,
-      "losses": 4,
-      "total": 4,
-      "totalProfit": 0,
-      "totalLoss": -0.0013770000000000002
-    },
-    "divergence_play": {
-      "id": "divergence_play",
-      "name": "RSI Divergence",
-      "category": "SWING_TRADE",
-      "wins": 3,
       "losses": 1,
-      "total": 4,
-      "totalProfit": 0.0037694813682692917,
-      "totalLoss": -0.00042075000000000006
+      "total": 1,
+      "totalProfit": 0,
+      "totalLoss": -0.00044625000000000047,
+      "tokens": [
+        {
+          "symbol": "KIMCHI",
+          "ca": "0xAbCC68990e9B7160c83d2B3a32614492A7E8ADd7",
+          "isWin": false,
+          "pnlPercent": -5.000000000000005,
+          "timestamp": 1771383002004
+        }
+      ]
     }
   },
-  "lastReset": 1771335601419,
-  "lastReportedSimCount": 48
+  "lastReset": 1771383001979
 }

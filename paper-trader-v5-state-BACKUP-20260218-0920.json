@@ -1,0 +1,392 @@
+{
+  "simulationCount": 340,
+  "results": {
+    "intel_trade_1771377002177": {
+      "id": "intel_trade_1771377002177",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
+      "wins": 0,
+      "losses": 1,
+      "total": 1,
+      "totalProfit": 0,
+      "totalLoss": -0.0007650000000000006
+    },
+    "intel_kimchi_1771377002179": {
+      "id": "intel_kimchi_1771377002179",
+      "name": "Intelligence: KIMCHI",
+      "category": "FAST_TRADE",
+      "source": "StrategyIntelligence",
+      "wins": 0,
+      "losses": 1,
+      "total": 1,
+      "totalProfit": 0,
+      "totalLoss": -0.00044625000000000047
+    },
+    "fib_382_1618": {
+      "id": "fib_382_1618",
+      "name": "Fib 0.382 Entry",
+      "category": "SCALPING",
+      "wins": 20,
+      "losses": 7,
+      "total": 27,
+      "totalProfit": 0.03172790549948846,
+      "totalLoss": -0.0023393700000000003
+    },
+    "fib_500_1272": {
+      "id": "fib_500_1272",
+      "name": "Fib 0.500 Entry",
+      "category": "SCALPING",
+      "wins": 21,
+      "losses": 6,
+      "total": 27,
+      "totalProfit": 0.03329754684974131,
+      "totalLoss": -0.0017503200000000003
+    },
+    "fib_618_1618": {
+      "id": "fib_618_1618",
+      "name": "Fib 0.618 Golden",
+      "category": "SNIPER",
+      "wins": 16,
+      "losses": 11,
+      "total": 27,
+      "totalProfit": 0.023493448064320438,
+      "totalLoss": -0.004417875
+    },
+    "fib_786_1000": {
+      "id": "fib_786_1000",
+      "name": "Fib 0.786 Deep",
+      "category": "SWING_TRADE",
+      "wins": 14,
+      "losses": 13,
+      "total": 27,
+      "totalProfit": 0.013664043842150999,
+      "totalLoss": -0.0031693950000000006
+    },
+    "fib_rsi_combo": {
+      "id": "fib_rsi_combo",
+      "name": "Fib + RSI",
+      "category": "SCALPING",
+      "wins": 15,
+      "losses": 12,
+      "total": 27,
+      "totalProfit": 0.017453563253202208,
+      "totalLoss": -0.003678120000000001
+    },
+    "fib_volume_combo": {
+      "id": "fib_volume_combo",
+      "name": "Fib + Volume",
+      "category": "FAST_TRADE",
+      "wins": 17,
+      "losses": 10,
+      "total": 27,
+      "totalProfit": 0.02088456680089743,
+      "totalLoss": -0.0031808700000000006
+    },
+    "smart_fib_combo": {
+      "id": "smart_fib_combo",
+      "name": "Smart Money + Fib",
+      "category": "SNIPER",
+      "wins": 17,
+      "losses": 10,
+      "total": 27,
+      "totalProfit": 0.022052198781044963,
+      "totalLoss": -0.003586320000000001
+    },
+    "ob_funding_combo": {
+      "id": "ob_funding_combo",
+      "name": "Orderbook + Funding",
+      "category": "SWING_TRADE",
+      "wins": 13,
+      "losses": 14,
+      "total": 27,
+      "totalProfit": 0.012167800364720415,
+      "totalLoss": -0.0035343
+    },
+    "whale_volume_combo": {
+      "id": "whale_volume_combo",
+      "name": "Whale + Volume",
+      "category": "SNIPER",
+      "wins": 12,
+      "losses": 15,
+      "total": 27,
+      "totalProfit": 0.011691415815068263,
+      "totalLoss": -0.003475395000000001
+    },
+    "sr_breakout": {
+      "id": "sr_breakout",
+      "name": "S/R Breakout",
+      "category": "FAST_TRADE",
+      "wins": 17,
+      "losses": 10,
+      "total": 27,
+      "totalProfit": 0.01949240036651164,
+      "totalLoss": -0.0027218700000000004
+    },
+    "momentum_squeeze": {
+      "id": "momentum_squeeze",
+      "name": "Momentum Squeeze",
+      "category": "SCALPING",
+      "wins": 15,
+      "losses": 12,
+      "total": 27,
+      "totalProfit": 0.016308645294062972,
+      "totalLoss": -0.003251250000000001
+    },
+    "divergence_play": {
+      "id": "divergence_play",
+      "name": "RSI Divergence",
+      "category": "SWING_TRADE",
+      "wins": 10,
+      "losses": 17,
+      "total": 27,
+      "totalProfit": 0.009768340612481188,
+      "totalLoss": -0.003714075
+    },
+    "intel_trade_1771377602146": {
+      "id": "intel_trade_1771377602146",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0017595,
+      "totalLoss": 0
+    },
+    "intel_kimchi_1771377602146": {
+      "id": "intel_kimchi_1771377602146",
+      "name": "Intelligence: KIMCHI",
+      "category": "FAST_TRADE",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0010263749999999995,
+      "totalLoss": 0
+    },
+    "intel_trade_1771378201351": {
+      "id": "intel_trade_1771378201351",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0017595,
+      "totalLoss": 0
+    },
+    "intel_kimchi_1771378201352": {
+      "id": "intel_kimchi_1771378201352",
+      "name": "Intelligence: KIMCHI",
+      "category": "FAST_TRADE",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0010263749999999995,
+      "totalLoss": 0
+    },
+    "intel_trade_1771378801790": {
+      "id": "intel_trade_1771378801790",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0017595,
+      "totalLoss": 0,
+      "tokens": [
+        {
+          "symbol": "TRADE",
+          "ca": "0x9A03E9D5b38b9C2C87F69c654f6Ae1ACF11FAbA3",
+          "isWin": true,
+          "pnlPercent": 13.799999999999997,
+          "timestamp": 1771378801791
+        }
+      ]
+    },
+    "intel_kimchi_1771378801791": {
+      "id": "intel_kimchi_1771378801791",
+      "name": "Intelligence: KIMCHI",
+      "category": "FAST_TRADE",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0010263749999999995,
+      "totalLoss": 0,
+      "tokens": [
+        {
+          "symbol": "KIMCHI",
+          "ca": "0xAbCC68990e9B7160c83d2B3a32614492A7E8ADd7",
+          "isWin": true,
+          "pnlPercent": 11.499999999999993,
+          "timestamp": 1771378801791
+        }
+      ]
+    },
+    "intel_trade_1771379402013": {
+      "id": "intel_trade_1771379402013",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0017595,
+      "totalLoss": 0,
+      "tokens": [
+        {
+          "symbol": "TRADE",
+          "ca": "0x9A03E9D5b38b9C2C87F69c654f6Ae1ACF11FAbA3",
+          "isWin": true,
+          "pnlPercent": 13.799999999999997,
+          "timestamp": 1771379402014
+        }
+      ]
+    },
+    "intel_kimchi_1771379402014": {
+      "id": "intel_kimchi_1771379402014",
+      "name": "Intelligence: KIMCHI",
+      "category": "FAST_TRADE",
+      "source": "StrategyIntelligence",
+      "wins": 0,
+      "losses": 1,
+      "total": 1,
+      "totalProfit": 0,
+      "totalLoss": -0.00044625000000000047,
+      "tokens": [
+        {
+          "symbol": "KIMCHI",
+          "ca": "0xAbCC68990e9B7160c83d2B3a32614492A7E8ADd7",
+          "isWin": false,
+          "pnlPercent": -5.000000000000005,
+          "timestamp": 1771379402014
+        }
+      ]
+    },
+    "intel_trade_1771380602186": {
+      "id": "intel_trade_1771380602186",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
+      "wins": 0,
+      "losses": 1,
+      "total": 1,
+      "totalProfit": 0,
+      "totalLoss": -0.0007650000000000006,
+      "tokens": [
+        {
+          "symbol": "TRADE",
+          "ca": "0x9A03E9D5b38b9C2C87F69c654f6Ae1ACF11FAbA3",
+          "isWin": false,
+          "pnlPercent": -6.000000000000004,
+          "timestamp": 1771380602186
+        }
+      ]
+    },
+    "intel_kimchi_1771380602186": {
+      "id": "intel_kimchi_1771380602186",
+      "name": "Intelligence: KIMCHI",
+      "category": "FAST_TRADE",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0010263749999999995,
+      "totalLoss": 0,
+      "tokens": [
+        {
+          "symbol": "KIMCHI",
+          "ca": "0xAbCC68990e9B7160c83d2B3a32614492A7E8ADd7",
+          "isWin": true,
+          "pnlPercent": 11.499999999999993,
+          "timestamp": 1771380602187
+        }
+      ]
+    },
+    "intel_trade_1771380922384": {
+      "id": "intel_trade_1771380922384",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
+      "wins": 0,
+      "losses": 1,
+      "total": 1,
+      "totalProfit": 0,
+      "totalLoss": -0.0007650000000000006,
+      "tokens": [
+        {
+          "symbol": "TRADE",
+          "ca": "0x9A03E9D5b38b9C2C87F69c654f6Ae1ACF11FAbA3",
+          "isWin": false,
+          "pnlPercent": -6.000000000000004,
+          "timestamp": 1771380922384
+        }
+      ]
+    },
+    "intel_kimchi_1771380922384": {
+      "id": "intel_kimchi_1771380922384",
+      "name": "Intelligence: KIMCHI",
+      "category": "FAST_TRADE",
+      "source": "StrategyIntelligence",
+      "wins": 0,
+      "losses": 1,
+      "total": 1,
+      "totalProfit": 0,
+      "totalLoss": -0.00044625000000000047,
+      "tokens": [
+        {
+          "symbol": "KIMCHI",
+          "ca": "0xAbCC68990e9B7160c83d2B3a32614492A7E8ADd7",
+          "isWin": false,
+          "pnlPercent": -5.000000000000005,
+          "timestamp": 1771380922384
+        }
+      ]
+    },
+    "intel_trade_1771381201483": {
+      "id": "intel_trade_1771381201483",
+      "name": "Intelligence: TRADE",
+      "category": "SNIPER",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0017595,
+      "totalLoss": 0,
+      "tokens": [
+        {
+          "symbol": "TRADE",
+          "ca": "0x9A03E9D5b38b9C2C87F69c654f6Ae1ACF11FAbA3",
+          "isWin": true,
+          "pnlPercent": 13.799999999999997,
+          "timestamp": 1771381201483
+        }
+      ]
+    },
+    "intel_kimchi_1771381201483": {
+      "id": "intel_kimchi_1771381201483",
+      "name": "Intelligence: KIMCHI",
+      "category": "FAST_TRADE",
+      "source": "StrategyIntelligence",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "totalProfit": 0.0010263749999999995,
+      "totalLoss": 0,
+      "tokens": [
+        {
+          "symbol": "KIMCHI",
+          "ca": "0xAbCC68990e9B7160c83d2B3a32614492A7E8ADd7",
+          "isWin": true,
+          "pnlPercent": 11.499999999999993,
+          "timestamp": 1771381201483
+        }
+      ]
+    }
+  },
+  "lastReset": 1771376401363
+}

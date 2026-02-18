@@ -507,6 +507,18 @@ class PaperTraderV5 {
       this.results[strategy.id].losses++;
       this.results[strategy.id].totalLoss += result.profitSol;
     }
+    
+    // Track tokens used by this strategy (for proven token list)
+    if (!this.results[strategy.id].tokens) {
+      this.results[strategy.id].tokens = [];
+    }
+    this.results[strategy.id].tokens.push({
+      symbol: result.token,
+      ca: result.tokenCA,
+      isWin: result.isWin,
+      pnlPercent: result.pnlPercent,
+      timestamp: result.timestamp
+    });
   }
 
   // ==================== BOK INTEGRATION ====================
@@ -517,11 +529,24 @@ class PaperTraderV5 {
     // Get current cycle number
     const currentCycle = Math.floor(this.simulationCount / CONFIG.SIMULATION_COUNT) + 1;
     
+    // Load existing negative strategies for re-testing
+    const existingNegative = this.loadExistingNegativeStrategies();
+    const liveTracker = this.loadLiveStrategyTracker();
+    
     for (const [strategyId, result] of Object.entries(this.results)) {
       if (result.total >= 3) { // Minimum 3 trades for validation
         const wr = (result.wins / result.total) * 100;
+        const wasNegative = existingNegative.includes(strategyId);
+        const liveRecord = liveTracker[strategyId];
         
         if (wr >= 70) {
+          // Check if this was previously negative - PROMOTE!
+          if (wasNegative) {
+            console.log(`\n🎉 PROMOTION: ${result.name} moved from NEGATIVE to POSITIVE!`);
+            console.log(`   WR: ${wr.toFixed(1)}% (${result.wins}W/${result.losses}L)`);
+            console.log(`   Previous status: Negative (now re-tested)`);
+          }
+          
           positiveStrategies.push({
             id: strategyId,
             name: result.name,
@@ -530,16 +555,18 @@ class PaperTraderV5 {
             category: result.category,
             cycle: currentCycle,
             trades: result.total,
-            expiryCycle: currentCycle + 1 // Valid for 1 cycle
+            expiryCycle: currentCycle + 5, // Valid for 5 cycles (accumulating mode)
+            promotedFromNegative: wasNegative
           });
         } else {
           negativeStrategies.push({
             id: strategyId,
             name: result.name,
             winRate: wr.toFixed(2),
-            reason: 'WR below 70%',
+            reason: wasNegative ? 'Still below 70% after re-test' : 'WR below 70%',
             cycle: currentCycle,
-            trades: result.total
+            trades: result.total,
+            canReTest: true
           });
         }
       }
@@ -551,19 +578,94 @@ class PaperTraderV5 {
     // Write to BOK Negative Strategies
     this.writeNegativeStrategies(negativeStrategies, currentCycle);
     
+    // Extract and save PROVEN TOKENS for positive strategies
+    this.saveProvenTokens(positiveStrategies);
+    
     // Clean up expired strategies from previous cycles
     this.cleanupExpiredStrategies(currentCycle);
   }
   
+  loadExistingNegativeStrategies() {
+    try {
+      const content = fs.readFileSync('/root/trading-bot/bok/17-negative-strategies.md', 'utf8');
+      const ids = [];
+      const matches = content.match(/\| (\w+) \|/g);
+      if (matches) {
+        matches.forEach(m => {
+          const id = m.match(/\| (\w+) \|/)[1];
+          if (id !== 'ID' && id !== '----') ids.push(id);
+        });
+      }
+      return ids;
+    } catch (e) {
+      return [];
+    }
+  }
+  
+  loadLiveStrategyTracker() {
+    try {
+      return JSON.parse(fs.readFileSync('/root/trading-bot/live-strategy-tracker.json', 'utf8'));
+    } catch (e) {
+      return {};
+    }
+  }
+
+  // Extract and save PROVEN TOKENS (WIN only) for positive strategies
+  saveProvenTokens(positiveStrategies) {
+    const provenTokens = {};
+
+    for (const strat of positiveStrategies) {
+      const stratData = this.results[strat.id];
+      if (!stratData || !stratData.tokens) continue;
+
+      // Get unique tokens with WIN results
+      const winTokens = stratData.tokens
+        .filter(t => t.isWin)
+        .reduce((acc, t) => {
+          if (!acc[t.ca]) {
+            acc[t.ca] = {
+              symbol: t.symbol,
+              ca: t.ca,
+              wins: 0,
+              avgPnl: 0,
+              lastTrade: t.timestamp
+            };
+          }
+          acc[t.ca].wins++;
+          acc[t.ca].avgPnl = (acc[t.ca].avgPnl + t.pnlPercent) / 2;
+          return acc;
+        }, {});
+
+      provenTokens[strat.id] = {
+        strategyName: strat.name,
+        strategyWR: strat.winRate,
+        tokens: Object.values(winTokens).sort((a, b) => b.wins - a.wins)
+      };
+    }
+
+    // Save to file
+    const provenFile = '/root/trading-bot/bok/proven-tokens.json';
+    fs.writeFileSync(provenFile, JSON.stringify(provenTokens, null, 2));
+
+    console.log(`\n💾 PROVEN TOKENS saved:`);
+    for (const [sid, data] of Object.entries(provenTokens)) {
+      console.log(`   • ${data.strategyName}: ${data.tokens.length} proven tokens`);
+      data.tokens.slice(0, 3).forEach(t => {
+        console.log(`     - ${t.symbol}: ${t.wins} wins, +${t.avgPnl.toFixed(1)}% avg`);
+      });
+    }
+  }
+
   cleanupExpiredStrategies(currentCycle) {
-    // Strategies from cycle N-2 are expired (valid for 1 cycle only)
-    const expiredCycle = currentCycle - 1;
+    // Strategies valid for 5 cycles (accumulating mode)
+    const expiredCycle = currentCycle - 5;
     
-    console.log(`\n🧹 Cleaning up expired strategies from Cycle ${expiredCycle}...`);
+    if (expiredCycle > 0) {
+      console.log(`\n🧹 Cleaning up strategies from Cycle ${expiredCycle} (expired)...`);
+    }
     
-    // This is handled automatically when we rewrite BOK files
-    // Only current cycle strategies are kept
-    console.log(`✅ BOK updated: Only Cycle ${currentCycle} strategies are active`);
+    // Keep strategies from last 5 cycles
+    console.log(`✅ BOK updated: Strategies from cycles ${Math.max(1, currentCycle-4)}-${currentCycle} are active`);
   }
 
   writePositiveStrategies(strategies, currentCycle) {
@@ -671,26 +773,29 @@ class PaperTraderV5 {
     return rules;
   }
 
-  // ==================== RESET LOGIC ====================
+  // ==================== CYCLE TRACKING (ACCUMULATING) ====================
   checkReset() {
-    if (this.simulationCount >= CONFIG.SIMULATION_COUNT) {
-      console.log(`\n🔄 REACHED ${CONFIG.SIMULATION_COUNT} SIMULATIONS - RESETTING...\n`);
+    // CYCLE TRACKING - Results accumulate, never reset
+    // Cycle number increases, but results keep building
+    const currentCycle = Math.floor(this.simulationCount / CONFIG.SIMULATION_COUNT) + 1;
+    
+    if (this.simulationCount > 0 && this.simulationCount % CONFIG.SIMULATION_COUNT === 0) {
+      console.log(`\n🔄 COMPLETED CYCLE ${currentCycle - 1} - CONTINUING TO CYCLE ${currentCycle}...\n`);
       
-      // Archive old results
-      const archiveFile = `/root/trading-bot/archive/paper-trader-v5-${Date.now()}.json`;
+      // Archive cycle snapshot (for history), but KEEP results
+      const archiveFile = `/root/trading-bot/archive/paper-trader-v5-cycle-${currentCycle - 1}-${Date.now()}.json`;
       fs.writeFileSync(archiveFile, JSON.stringify({
+        cycle: currentCycle - 1,
         results: this.results,
         simulationCount: this.simulationCount,
-        ended: Date.now()
+        archived: Date.now()
       }, null, 2));
       
-      // Reset state
-      this.simulationCount = 0;
-      this.results = {};
-      this.state = { simulationCount: 0, results: {}, lastReset: Date.now() };
-      this.saveState();
+      // DO NOT RESET - Keep accumulating results across cycles
+      // this.simulationCount keeps increasing
+      // this.results keeps accumulating
       
-      console.log(`✅ Reset complete. Starting fresh simulation cycle.`);
+      console.log(`✅ Cycle ${currentCycle - 1} archived. Continuing with ${this.simulationCount} total sims, ${Object.keys(this.results).length} strategies tracked.`);
       return true;
     }
     return false;
@@ -736,10 +841,12 @@ class PaperTraderV5 {
     console.log('📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE');
     console.log('='.repeat(60));
     
-    // Check reset
+    // Check cycle progress
     this.checkReset();
     
-    console.log(`\n📈 Simulation: ${this.simulationCount}/${CONFIG.SIMULATION_COUNT}`);
+    const currentCycle = Math.floor(this.simulationCount / CONFIG.SIMULATION_COUNT) + 1;
+    const simsInCycle = this.simulationCount % CONFIG.SIMULATION_COUNT;
+    console.log(`\n📈 Cycle: ${currentCycle} | Total Sims: ${this.simulationCount} (${simsInCycle}/${CONFIG.SIMULATION_COUNT} current)`);
     console.log(`💰 Wallet: ${CONFIG.WALLET_BALANCE} SOL`);
     console.log(`🎯 Daily Target: ${CONFIG.DAILY_TARGET} SOL\n`);
     
@@ -785,36 +892,14 @@ class PaperTraderV5 {
       
       // Simulate each strategy
       for (const strategy of BASE_STRATEGIES) {
-        // NOTE: Don't skip negative strategies in paper trading
-        // We need to test ALL strategies to find new winners
-        // if (this.negativeStrategies.includes(strategy.id)) {
-        //   continue;
-        // }
-        
         const result = await this.simulateStrategy(strategy, token, candleAnalysis, orderBook);
         
-        // Record result
-        if (!this.results[strategy.id]) {
-          this.results[strategy.id] = {
-            id: strategy.id,
-            name: strategy.name,
-            category: strategy.category,
-            wins: 0,
-            losses: 0,
-            total: 0,
-            totalProfit: 0,
-            totalLoss: 0
-          };
-        }
+        // Log result dengan token name
+        const winStatus = result.isWin ? '✅ WIN' : '❌ LOSS';
+        console.log(`   ${winStatus}: ${strategy.name} on ${symbol} (${result.pnlPercent.toFixed(1)}%)`);
         
-        this.results[strategy.id].total++;
-        if (result.isWin) {
-          this.results[strategy.id].wins++;
-          this.results[strategy.id].totalProfit += result.profitSol;
-        } else {
-          this.results[strategy.id].losses++;
-          this.results[strategy.id].totalLoss += result.profitSol;
-        }
+        // Record result (with token tracking)
+        this.recordResult(strategy, result);
         
         this.simulationCount++;
       }
@@ -844,20 +929,30 @@ class PaperTraderV5 {
 
   async fetchMarketData() {
     try {
+      // DexScreener trending/hot tokens (already sorted by popularity/hotness)
       const res = await fetch('https://api.dexscreener.com/token-profiles/latest/v1');
       const profiles = await res.json();
       
       const tokens = [];
-      for (const profile of profiles.slice(0, 20)) {
+      // Take top 100 hot/trending tokens (maintains DexScreener hot order)
+      for (const profile of profiles.slice(0, 100)) {
         try {
           const tokenRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${profile.tokenAddress}`);
           const tokenData = await tokenRes.json();
-          if (tokenData.pairs?.[0]) {
-            tokens.push(tokenData.pairs[0]);
+          const pair = tokenData.pairs?.[0];
+          if (pair) {
+            // FILTER: Match Live Trader settings
+            const liq = parseFloat(pair.liquidity?.usd || 0);
+            const ageMinutes = pair.pairCreatedAt ? (Date.now() - pair.pairCreatedAt) / 60000 : 0;
+            
+            if (liq >= CONFIG.MIN_LIQUIDITY && ageMinutes >= CONFIG.MIN_TOKEN_AGE_MINUTES) {
+              tokens.push(pair);
+            }
           }
         } catch (e) {}
       }
       
+      console.log(`📊 Filtered ${tokens.length} tokens (>=$${CONFIG.MIN_LIQUIDITY} liq, >=${CONFIG.MIN_TOKEN_AGE_MINUTES/60}h age)`);
       return tokens;
     } catch (e) {
       console.error('Error fetching market data:', e.message);
@@ -893,7 +988,9 @@ class PaperTraderV5 {
       // Build message
       let msg = `📊 **PAPER TRADER v5 REPORT**\n\n`;
       const currentCycle = Math.floor(this.simulationCount / CONFIG.SIMULATION_COUNT) + 1;
-      msg += `🎯 Cycle: ${currentCycle} | Simulations: ${this.simulationCount}/${CONFIG.SIMULATION_COUNT}\n`;
+      const simsInCycle = this.simulationCount % CONFIG.SIMULATION_COUNT;
+      msg += `🎯 Cycle: ${currentCycle} | Total Sims: ${this.simulationCount} (${simsInCycle}/${CONFIG.SIMULATION_COUNT} in current cycle)\n`;
+      msg += `📚 Accumulating results across all cycles (no reset)\n`;
       
       if (sorted.length === 0) {
         console.log('ℹ️ No strategies with 3+ trades yet, sending progress notification');
