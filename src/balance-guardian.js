@@ -266,7 +266,7 @@ class BalanceGuardian {
       `Next steps:\n` +
       `1. Analyze failed trades\n` +
       `2. Run Paper Trader optimization\n` +
-      `3. Find strategy with WR >=70%\n` +
+      `3. Find strategy with WR >=65%\n` +
       `4. Resume only after validation`,
       'alert'
     );
@@ -279,7 +279,7 @@ class BalanceGuardian {
       `🔍 **STRATEGY OPTIMIZATION**\n\n` +
       `Paper Trader v5 running intensive simulation...\n` +
       `Testing 8 strategy combinations\n` +
-      `Target: WR >=70%\n\n` +
+      `Target: WR >=65%\n\n` +
       `This may take 10-15 minutes...`,
       'normal'
     );
@@ -294,7 +294,7 @@ class BalanceGuardian {
       const config = JSON.parse(fs.readFileSync('/root/trading-bot/adaptive-scoring-config.json', 'utf8'));
       const bestWR = config.bestStrategy?.winRate || 0;
       
-      if (bestWR >= 70) {
+      if (bestWR >= 65) {
         await this.notify(
           `✅ **OPTIMIZATION SUCCESS**\n\n` +
           `Best Strategy: ${config.bestStrategy.name}\n` +

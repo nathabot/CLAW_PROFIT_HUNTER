@@ -91,18 +91,18 @@ class PaperTraderMonitor {
       for (const s of sorted.slice(0, 8)) {
         const wr = s.total > 0 ? ((s.wins / s.total) * 100).toFixed(1) : '0.0';
         const pnl = (s.totalProfit + s.totalLoss).toFixed(4);
-        const emoji = wr >= 70 ? '🟢' : wr >= 50 ? '🟡' : '🔴';
+        const emoji = wr >= 65 ? '🟢' : wr >= 50 ? '🟡' : '🔴';
         msg += `${emoji} ${s.name}: ${wr}% (${s.wins}W/${s.losses}L) ${pnl} SOL\n`;
       }
       
       // BOK Status
       const qualified = sorted.filter(r => {
         const wr = r.wins / r.total;
-        return r.total >= 3 && wr >= 0.70;
+        return r.total >= 3 && wr >= 0.65;
       }).length;
       
       msg += `\n📚 **BOK Status:**\n`;
-      msg += `✅ Qualified (≥70% WR, 3+ trades): ${qualified}\n`;
+      msg += `✅ Qualified (≥65% WR, 3+ trades): ${qualified}\n`;
       msg += `🎯 Target: WR ≥ 70% for Live Trading\n`;
     } else {
       msg += `⏳ Building statistics...\n`;

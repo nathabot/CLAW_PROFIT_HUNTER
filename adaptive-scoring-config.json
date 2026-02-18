@@ -1,15 +1,15 @@
 {
   "bestStrategy": {
-    "id": "sr_breakout",
-    "name": "S/R Breakout",
-    "winRate": "67.35",
-    "category": "FAST_TRADE"
+    "id": "fib_500_1272",
+    "name": "Fib 0.500 Entry",
+    "winRate": "62.89",
+    "category": "SCALPING"
   },
   "positionSizing": {
     "fib_382_1618": "0.02",
     "fib_500_1272": "0.03",
     "fib_618_1618": "0.02",
-    "fib_786_1000": "0.03",
+    "fib_786_1000": "0.02",
     "fib_rsi_combo": "0.02",
     "fib_volume_combo": "0.02",
     "smart_fib_combo": "0.02",
@@ -19,5 +19,5 @@
     "momentum_squeeze": "0.02",
     "divergence_play": "0.02"
   },
-  "updated": 1771393211959
+  "updated": 1771399812827
 }
