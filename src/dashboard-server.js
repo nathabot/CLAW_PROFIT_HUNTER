@@ -558,12 +558,31 @@ function generateDashboard() {
                     return;
                 }
                 
-                container.innerHTML = positions.map(pos => \`
+                container.innerHTML = positions.map(pos => {
+                    const pnlColor = pos.unrealizedPnL > 0 ? '#34d399' : pos.unrealizedPnL < 0 ? '#f87171' : '#9ca3af';
+                    const pnlIcon = pos.unrealizedPnL > 0 ? '🟢' : pos.unrealizedPnL < 0 ? '🔴' : '⚪';
+                    
+                    return \`
                     <div class="position-item">
                         <div class="position-header">
                             <div class="position-symbol">\${pos.symbol}</div>
                             <div class="position-status">\${pos.exited ? 'CLOSED' : 'ACTIVE'}</div>
                         </div>
+                        
+                        <!-- UNREALIZED P/L SECTION -->
+                        <div style="background: #0f1419; border-radius: 8px; padding: 12px; margin: 10px 0; text-align: center;">
+                            <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; margin-bottom: 5px;">Unrealized P/L</div>
+                            <div style="font-size: 24px; font-weight: 700; color: \${pnlColor};">
+                                \${pnlIcon} \${pos.unrealizedPnL > 0 ? '+' : ''}\${pos.unrealizedPnL || '0.00'}%
+                            </div>
+                            <div style="font-size: 13px; color: \${pnlColor}; margin-top: 3px;">
+                                \${pos.unrealizedPnLSOL > 0 ? '+' : ''}\${pos.unrealizedPnLSOL || '0.0000'} SOL
+                            </div>
+                            <div style="font-size: 12px; color: #6b7280; margin-top: 5px;">
+                                Entry: $\${pos.entryPrice?.toFixed(8)} → Current: $\${pos.currentPrice?.toFixed(8) || '...'}
+                            </div>
+                        </div>
+                        
                         <div class="position-details">
                             <div class="detail-row">
                                 <span class="detail-label">Entry Price</span>
@@ -603,7 +622,8 @@ function generateDashboard() {
                             </div>
                         </div>
                     </div>
-                \`).join('');
+                \`;
+                }).join('');
             } catch (e) {
                 document.getElementById('positionsContent').innerHTML = '<p style="color: #f87171; text-align: center;">Failed to load positions</p>';
             }
@@ -673,7 +693,7 @@ function generateDashboard() {
 }
 
 // HTTP Server
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
     const pathname = url.pathname;
     
@@ -699,8 +719,35 @@ const server = http.createServer((req, res) => {
     }
     else if (pathname === '/api/positions') {
         const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
+        
+        // Calculate unrealized P/L for active positions
+        const positionsWithPnL = await Promise.all(positions.map(async (pos) => {
+            if (pos.exited) return pos; // Skip closed positions
+            
+            try {
+                const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${pos.ca}`);
+                const data = await response.json();
+                const pair = data.pairs?.[0];
+                
+                if (pair) {
+                    const currentPrice = parseFloat(pair.priceUsd);
+                    const unrealizedPnL = ((currentPrice - pos.entryPrice) / pos.entryPrice) * 100;
+                    const unrealizedPnLSOL = (unrealizedPnL / 100) * pos.positionSize;
+                    
+                    return {
+                        ...pos,
+                        currentPrice,
+                        unrealizedPnL: unrealizedPnL.toFixed(2),
+                        unrealizedPnLSOL: unrealizedPnLSOL.toFixed(4)
+                    };
+                }
+            } catch (e) {}
+            
+            return pos;
+        }));
+        
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(positions));
+        res.end(JSON.stringify(positionsWithPnL));
     }
     else if (pathname === '/api/config') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
