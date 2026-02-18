@@ -1961,6 +1961,13 @@ const POS = {
   strategyName: '${this.currentStrategy?.name || 'Fib 0.618 Golden'}'
 };
 
+// DYNAMIC STATE
+let dynamicSL = POS.stop;
+let dynamicTP1 = POS.tp1;
+let dynamicTP2 = POS.tp2;
+let highestPrice = POS.entry;
+let trailingActivated = false;
+
 // BOK Feedback - Track live trade results
 async function recordTradeResult(isWin, pnlPercent) {
   try {
@@ -2060,20 +2067,89 @@ let partialExited = false;
 const startTime = Date.now();
 const MAX_HOLD_MS = ${maxHoldMinutes} * 60 * 1000;
 
+async function getMarketData() {
+  try {
+    const res = await fetch('https://api.dexscreener.com/latest/dex/tokens/' + POS.ca);
+    const data = await res.json();
+    const pair = data.pairs?.[0];
+    if (!pair) return null;
+    
+    return {
+      price: parseFloat(pair.priceUsd),
+      volume24h: pair.volume?.h24 || 0,
+      volumeChange: pair.volume?.change24h || 0,
+      buyPressure: pair.txns?.h24?.buys || 0,
+      sellPressure: pair.txns?.h24?.sells || 0,
+      priceChange5m: pair.priceChange?.m5 || 0,
+      priceChange1h: pair.priceChange?.h1 || 0
+    };
+  } catch (e) { return null; }
+}
+
 async function monitor() {
-  console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL)...');
-  console.log(\`  SL: $\${POS.stop.toFixed(8)}\`);
-  console.log(\`  TP1: $\${POS.tp1.toFixed(8)} (\${(POS.partialExit*100).toFixed(0)}% exit)\`);
-  console.log(\`  TP2: $\${POS.tp2.toFixed(8)} (final exit)\`);
+  console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL v2 - 5s interval)...');
+  console.log(\`  Entry: $\${POS.entry.toFixed(8)}\`);
+  console.log(\`  Initial SL: $\${POS.stop.toFixed(8)}\`);
+  console.log(\`  Initial TP1: $\${POS.tp1.toFixed(8)}\`);
+  console.log(\`  Initial TP2: $\${POS.tp2.toFixed(8)}\`);
   console.log(\`  Max Hold: ${maxHoldMinutes} min\`);
+  console.log(\`  Trailing: ENABLED (activates at +5%)\`);
+  
+  let lastPrice = POS.entry;
+  let momentum = 'neutral';
   
   while (true) {
-    const price = await getPrice();
+    const market = await getMarketData();
+    if (!market) { await new Promise(r => setTimeout(r, 5000)); continue; }
+    
+    const price = market.price;
+    const elapsedMs = Date.now() - startTime;
+    const pnl = ((price / POS.entry) - 1) * 100;
+    
+    // Update highest price for trailing
+    if (price > highestPrice) {
+      highestPrice = price;
+    }
+    
+    // === DYNAMIC SL/TP CALCULATION ===
+    const buyRatio = market.buyPressure / (market.sellPressure + 1);
+    const isHighMomentum = buyRatio > 2 && market.priceChange5m > 5;
+    const isDumping = buyRatio < 0.5 || market.priceChange5m < -10;
+    
+    // TRAILING STOP (activates at +5% profit)
+    if (pnl >= 5 && !trailingActivated) {
+      trailingActivated = true;
+      console.log('🎯 Trailing stop ACTIVATED at +5%');
+    }
+    
+    if (trailingActivated) {
+      // Move SL up to lock profits (never down)
+      const newSL = highestPrice * 0.95; // 5% below highest
+      if (newSL > dynamicSL) {
+        dynamicSL = newSL;
+        console.log(\`🔄 Trailing SL raised to: $\${dynamicSL.toFixed(8)}\`);
+      }
+      
+      // Adjust TP based on momentum
+      if (isHighMomentum && !partialExited) {
+        dynamicTP1 = Math.max(dynamicTP1, price * 1.02); // Extend TP1
+        dynamicTP2 = Math.max(dynamicTP2, price * 1.05); // Extend TP2
+        momentum = 'bullish 🚀';
+      } else if (isDumping) {
+        dynamicTP1 = Math.min(dynamicTP1, price * 1.01); // Lower TP1
+        momentum = 'bearish 📉';
+      } else {
+        momentum = 'neutral 😐';
+      }
+    }
+    
+    // Display status
+    const time = new Date().toLocaleTimeString();
+    const minutesLeft = Math.floor((MAX_HOLD_MS - elapsedMs) / 60000);
+    console.log(\`\${time} | \${POS.symbol}: $\${price.toFixed(8)} | PnL: \${pnl > 0 ? '+' : ''}\${pnl.toFixed(2)}% | Momentum: \${momentum} | SL: $\${dynamicSL.toFixed(6)}\`);
     
     // Check max hold time
-    const elapsedMs = Date.now() - startTime;
-    if (elapsedMs > MAX_HOLD_MS && price) {
-      const pnl = ((price / POS.entry) - 1) * 100;
+    if (elapsedMs > MAX_HOLD_MS) {
       console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
@@ -2083,60 +2159,48 @@ async function monitor() {
       process.exit(0);
     }
     
-    if (!price) { await new Promise(r => setTimeout(r, 5000)); continue; }
-    if (!price) { await new Promise(r => setTimeout(r, 5000)); continue; }
-    
-    const pnl = ((price / POS.entry) - 1) * 100;
-    const time = new Date().toLocaleTimeString();
-    const minutesLeft = Math.floor((MAX_HOLD_MS - elapsedMs) / 60000);
-    console.log(\`\${time} | \${POS.symbol}: $\${price.toFixed(8)} | PnL: \${pnl > 0 ? '+' : ''}\${pnl.toFixed(2)}% | Hold: \${minutesLeft}m left\`);
-    
-    // Kill switch (honeypot detected)
+    // Kill switch
     if (pnl <= -90) { 
-      console.log('💀 HONEYPOT DETECTED - KILL SWITCH');
-      await notify(\`💀 **HONEYPOT DETECTED**\\n\\n\${POS.symbol}: PnL -\${Math.abs(pnl).toFixed(2)}%\\n\\nPosition abandoned.\`);
+      console.log('💀 HONEYPOT DETECTED');
+      await notify(\`💀 **HONEYPOT**\\n\\n\${POS.symbol}: PnL -\${Math.abs(pnl).toFixed(2)}%\`);
       process.exit(0);
     }
     
-    // Stop loss - EXECUTE SELL
-    if (price <= POS.stop) {
-      console.log('🛑 STOP LOSS HIT - Executing sell...');
+    // DYNAMIC STOP LOSS (trailing or initial)
+    if (price <= dynamicSL) {
+      console.log(\`🛑 SL HIT (\${trailingActivated ? 'Trailing' : 'Initial'}) - Executing sell...\`);
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
-        await notify(\`🛑 **STOP LOSS EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
-        await recordTradeResult(false, pnl); // LOSS
-      } else {
-        await notify(\`🛑 **STOP LOSS HIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
+        await notify(\`🛑 **\${trailingActivated ? 'TRAILING' : 'STOP LOSS'} EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+        await recordTradeResult(pnl > 0, pnl);
       }
       process.exit(0);
     }
     
-    // Take profit 1 (partial exit) - EXECUTE SELL
-    if (!partialExited && price >= POS.tp1) {
-      console.log(\`🎯 TP1 HIT - Exiting \${(POS.partialExit*100).toFixed(0)}%...\`);
+    // DYNAMIC TP1
+    if (!partialExited && price >= dynamicTP1) {
+      console.log(\`🎯 TP1 HIT (Dynamic: $\${dynamicTP1.toFixed(8)}) - Exiting 50%...\`);
       const sellResult = await executeSell('50%');
       partialExited = true;
       if (sellResult.success) {
-        await notify(\`🎯 **TP1 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\nExited 50%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\\n\\nHolding 50% for TP2...\`);
-      } else {
-        await notify(\`🎯 **TP1 REACHED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
+        await notify(\`🎯 **TP1 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\nExited 50%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+        // Lower TP2 after partial exit (lock profits)
+        dynamicTP2 = Math.max(dynamicTP2, price * 1.02);
       }
     }
     
-    // Take profit 2 (final exit) - EXECUTE SELL
-    if (price >= POS.tp2) {
-      console.log('🎯 TP2 HIT - FINAL EXIT - Executing sell...');
-      const sellResult = await executeSell(partialExited ? '95%' : '95%');
+    // DYNAMIC TP2
+    if (price >= dynamicTP2) {
+      console.log(\`🎯 TP2 HIT (Dynamic: $\${dynamicTP2.toFixed(8)}) - FINAL EXIT...\`);
+      const sellResult = await executeSell('95%');
       if (sellResult.success) {
-        await notify(\`🎯 **TP2 EXECUTED - FINAL EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n✅ Trade complete!\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
-        await recordTradeResult(true, pnl); // WIN
-      } else {
-        await notify(\`🎯 **TP2 REACHED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
+        await notify(\`🎯 **TP2 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n✅ Trade complete!\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+        await recordTradeResult(true, pnl);
       }
       process.exit(0);
     }
     
-    await new Promise(r => setTimeout(r, 5000)); // 5s check
+    await new Promise(r => setTimeout(r, 5000)); // 5 second interval
   }
 }
 
