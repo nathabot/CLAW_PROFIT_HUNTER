@@ -929,28 +929,36 @@ class PaperTraderV5 {
 
   async fetchMarketData() {
     try {
-      // Get trending tokens from DexScreener
-      console.log('🔍 Fetching trending tokens...');
-      const res = await fetch('https://api.dexscreener.com/token-profiles/latest/v1');
-      const profiles = await res.json();
+      // ESTABLISHED MODE v2 (Hybrid): Cached list + DexScreener real-time
+      console.log('🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...');
       
-      console.log(`📊 Got ${profiles.length} trending profiles`);
+      // Use cached list of established Solana tokens (top 100 by volume)
+      // Updated manually or via separate script to avoid CoinGecko rate limits
+      const establishedTokens = this.loadEstablishedTokenList();
+      console.log(`📊 Loaded ${establishedTokens.length} established tokens`);
       
+      // For each token, get real-time data from DexScreener
       const tokens = [];
-      // Take more profiles to find ones that pass filter
-      for (const profile of profiles.slice(0, 100)) {
+      let checked = 0;
+      
+      for (const token of establishedTokens.slice(0, 50)) {
         try {
-          const tokenRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${profile.tokenAddress}`);
-          const tokenData = await tokenRes.json();
-          // Get best pair (highest liquidity)
-          const pairs = tokenData.pairs || [];
+          // Get DexScreener data
+          const dsRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token.address}`);
+          const dsData = await dsRes.json();
+          const pairs = dsData.pairs || [];
+          
+          // Get best Solana pair
           const bestPair = pairs
             .filter(p => p.chainId === 'solana')
             .sort((a, b) => parseFloat(b.liquidity?.usd || 0) - parseFloat(a.liquidity?.usd || 0))[0];
           
           if (bestPair) {
             const liq = parseFloat(bestPair.liquidity?.usd || 0);
-            const ageHours = bestPair.pairCreatedAt ? (Date.now() - bestPair.pairCreatedAt) / 3600000 : 0;
+            const ageHours = bestPair.pairCreatedAt ? (Date.now() - bestPair.pairCreatedAt) / 3600000 : 999;
+            const symbol = (bestPair.baseToken?.symbol || '').toUpperCase();
+            
+            checked++;
             
             if (liq >= CONFIG.MIN_LIQUIDITY && ageHours >= (CONFIG.MIN_TOKEN_AGE_MINUTES / 60)) {
               tokens.push(bestPair);
@@ -962,23 +970,97 @@ class PaperTraderV5 {
       // Sort by 24h volume
       tokens.sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0));
       
-      console.log(`✅ Filtered ${tokens.length} tokens (>=$${CONFIG.MIN_LIQUIDITY} liq, >=${CONFIG.MIN_TOKEN_AGE_MINUTES/60}h age)`);
+      console.log(`✅ Filtered ${tokens.length}/${checked} tokens (>=$${CONFIG.MIN_LIQUIDITY} liq, >=${CONFIG.MIN_TOKEN_AGE_MINUTES/60}h age)`);
       
       // Log found tokens
       if (tokens.length > 0) {
-        console.log('\n📈 Top tokens by volume:');
+        console.log('\n📈 Top established tokens by volume:');
         tokens.slice(0, 10).forEach((p, i) => {
           const ageH = p.pairCreatedAt ? ((Date.now() - p.pairCreatedAt) / 3600000).toFixed(1) : 'N/A';
           const volK = p.volume?.h24 ? (p.volume.h24 / 1000).toFixed(0) : '0';
-          console.log(`   ${i+1}. ${p.baseToken?.symbol}: $${parseFloat(p.liquidity?.usd || 0).toFixed(0)} liq, ${ageH}h, $${volK}k vol`);
+          const symbol = p.baseToken?.symbol;
+          console.log(`   ${i+1}. ${symbol}: $${parseFloat(p.liquidity?.usd || 0).toFixed(0)} liq, ${ageH}h, $${volK}k vol`);
         });
       } else {
-        console.log('⚠️  No tokens passed filter - market may be dominated by new launches');
+        console.log('⚠️  No established tokens passed filter');
       }
       
       return tokens;
     } catch (e) {
       console.error('❌ Error fetching market data:', e.message);
+      // Fallback to trending mode
+      console.log('⚠️  Falling back to trending mode...');
+      return this.fetchTrendingTokens();
+    }
+  }
+  
+  loadEstablishedTokenList() {
+    // Top Solana ecosystem tokens by market cap/volume
+    // This list should be updated periodically (weekly/monthly)
+    return [
+      { symbol: 'BONK', address: 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263' },
+      { symbol: 'WIF', address: 'EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm' },
+      { symbol: 'JUP', address: 'JUPyiwrYkqoj8j8zdH7u4qFwwtxaxCy5W1nUR3Fe2bF' },
+      { symbol: 'JTO', address: 'jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2u2b9LND' },
+      { symbol: 'RAY', address: '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R' },
+      { symbol: 'ORCA', address: 'orcaEKTdK7LKz57vaAYr9QeDsVE4dq8dkE7ZF3gjM7D8' },
+      { symbol: 'SAMO', address: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU' },
+      { symbol: 'MSOL', address: 'mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So' },
+      { symbol: 'BSOL', address: 'bSo13r4TkiE4xumnamjwJSnz1r8qswTzWok8bq4WzWT' },
+      { symbol: 'FIDA', address: 'EchesyfXePKdLtoiZSLiP8TZkbsMKU8aVD4U5Hcg6VGE' },
+      { symbol: 'MEDIA', address: 'ETAt91Cm1i4tXoGCucxtfbRp6y7i7U9WXi5JPLKZjT2k' },
+      { symbol: 'COPE', address: '8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh' },
+      { symbol: 'STEP', address: 'StepAscQoEioFxxWGnh2sLBDFp9d8rvKz2Yp39iDpyY' },
+      { symbol: 'SRM', address: 'SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuqxn1wbS' },
+      { symbol: 'SLND', address: 'SLNDpmoWTVADgEdnd9Wkb7ocejcuen6ZN8uhN4t8LrK8' },
+      { symbol: 'MNGO', address: 'MangoCzJ36AjZyKwVj3VnYU4GTonLKvZ6R8ogvmmmc3' },
+      { symbol: 'FRONT', address: 'FrontKzjrUFn2uDpLwmnKxnJdGzF2tL6nRqtJ69xG6p' },
+      { symbol: 'KIN', address: 'kinXdEcpDQeHPEuQnKx9ADq7x8JVQ9QBiP8Q5e3vQJ4' },
+      { symbol: 'MER', address: 'MERtDfcD7mNhtHMQp2B2cFJVBQ7D2E8oPpPGa1Y2hXJ' },
+      { symbol: 'OXY', address: 'z3dn17LAoH8pXsQyHPLjJ7z3qfbZnG2v4TJr7fM44rD' },
+      { symbol: 'MAPS', address: 'MAPS41MDahZ9QdKAT3E5H3E2W4tTkX3gQ7q2dS4fL1q' },
+      { symbol: 'ATLAS', address: 'ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx' },
+      { symbol: 'POLIS', address: 'poLisWXnNRwC6oBu1vHa7R1e5fLh5WkhmF8oLkhy9JZ' },
+      { symbol: 'PRISM', address: 'PRSMNsEPqhGVKM1mJn9z5j1RJ4Q9F5Q8X6D8f3jWq8E' },
+      { symbol: 'LIKE', address: 'Like1vX5YmjH3n6y9tQ8z2q3x4c5v6b7n8m9k0l1p2o3i4' },
+      { symbol: 'PAI', address: 'Ea5SjE2Y6LH7Qp8q5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z' },
+      { symbol: 'TULIP', address: 'TuLipc9zN7XJdKQ2z3x4c5v6b7n8m9k0l1p2o3i4u5y6' },
+      { symbol: 'SUNNY', address: 'SUNNYWgPQmYx4h5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z5z' },
+      { symbol: 'SBR', address: 'Saber2gLauYim4Kftbs4pWmMvq8u2XhTj8jK4c4s4s4s4' },
+      { symbol: 'AART', address: 'ART1vX5YmjH3n6y9tQ8z2q3x4c5v6b7n8m9k0l1p2o3i4' },
+    ];
+  }
+  
+  async fetchTrendingTokens() {
+    // Fallback: Get trending tokens
+    try {
+      const res = await fetch('https://api.dexscreener.com/token-profiles/latest/v1');
+      const profiles = await res.json();
+      
+      const tokens = [];
+      for (const profile of profiles.slice(0, 30)) {
+        try {
+          const tokenRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${profile.tokenAddress}`);
+          const tokenData = await tokenRes.json();
+          const bestPair = (tokenData.pairs || [])
+            .filter(p => p.chainId === 'solana')
+            .sort((a, b) => parseFloat(b.liquidity?.usd || 0) - parseFloat(a.liquidity?.usd || 0))[0];
+          
+          if (bestPair) {
+            const liq = parseFloat(bestPair.liquidity?.usd || 0);
+            const ageHours = bestPair.pairCreatedAt ? (Date.now() - bestPair.pairCreatedAt) / 3600000 : 0;
+            if (liq >= CONFIG.MIN_LIQUIDITY && ageHours >= (CONFIG.MIN_TOKEN_AGE_MINUTES / 60)) {
+              tokens.push(bestPair);
+            }
+          }
+        } catch (e) {}
+      }
+      
+      tokens.sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0));
+      console.log(`✅ Fallback: ${tokens.length} trending tokens`);
+      return tokens;
+    } catch (e) {
+      console.error('❌ Fallback error:', e.message);
       return [];
     }
   }

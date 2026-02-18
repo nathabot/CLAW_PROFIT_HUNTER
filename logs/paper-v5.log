@@ -7772,3 +7772,97 @@ Testing: Intelligence: TRADE (8/10 confidence)
 Testing: Intelligence: KIMCHI (6.5/10 confidence)
    Simulating Intelligence strategy: Intelligence: KIMCHI
    Result: ✅ WIN 11.50% (0.0010 SOL)
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 1 | Total Sims: 4 (4/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 2 signals from Intelligence Network
+
+🎯 Testing 2 Intelligence signals:
+
+Testing: Intelligence: TRADE (8/10 confidence)
+   Simulating Intelligence strategy: Intelligence: TRADE
+   Result: ✅ WIN 13.80% (0.0018 SOL)
+Testing: Intelligence: KIMCHI (6.5/10 confidence)
+   Simulating Intelligence strategy: Intelligence: KIMCHI
+   Result: ✅ WIN 11.50% (0.0010 SOL)
+🔍 Fetching trending tokens...
+📊 Got 30 trending profiles
+✅ Filtered 0 tokens (>=$10000 liq, >=6h age)
+⚠️  No tokens passed filter - market may be dominated by new launches
+
+📊 Found 0 tokens from market scan
+
+
+💾 PROVEN TOKENS saved:
+✅ BOK updated: Strategies from cycles 1-1 are active
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+ℹ️ No strategies with 3+ trades yet, sending progress notification
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 1 | Total Sims: 6 (6/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 2 signals from Intelligence Network
+
+🎯 Testing 2 Intelligence signals:
+
+Testing: Intelligence: TRADE (8/10 confidence)
+   Simulating Intelligence strategy: Intelligence: TRADE
+   Result: ✅ WIN 13.80% (0.0018 SOL)
+Testing: Intelligence: KIMCHI (6.5/10 confidence)
+   Simulating Intelligence strategy: Intelligence: KIMCHI
+   Result: ❌ LOSS -5.00% (-0.0004 SOL)
+🔍 Fetching trending tokens...
+📊 Got 30 trending profiles
+✅ Filtered 1 tokens (>=$10000 liq, >=6h age)
+
+📈 Top tokens by volume:
+   1. PEPE: $28706 liq, 6.1h, $473k vol
+
+📊 Found 1 tokens from market scan
+
+🔍 Testing: PEPE
+   ❌ FOMO ALERT: Pumped 61.1% in 5min - Wait for pullback
+
+💾 PROVEN TOKENS saved:
+✅ BOK updated: Strategies from cycles 1-1 are active
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+ℹ️ No strategies with 3+ trades yet, sending progress notification
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
