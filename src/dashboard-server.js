@@ -314,6 +314,103 @@ function generateDashboard() {
         }
         .tab.active { background: #3b82f6; color: white; }
         .tab:hover { background: #4b5563; }
+        
+        /* Popup styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid #374151;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #374151;
+        }
+        .modal-title { font-size: 20px; font-weight: 600; color: #fff; }
+        .modal-close {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .modal-close:hover { color: #fff; }
+        .position-item {
+            background: #111827;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-left: 4px solid #3b82f6;
+        }
+        .position-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .position-symbol { font-size: 18px; font-weight: 600; color: #fff; }
+        .position-status {
+            background: #10b981;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .position-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .detail-row { display: flex; justify-content: space-between; }
+        .detail-label { color: #9ca3af; font-size: 12px; }
+        .detail-value { color: #fff; font-size: 13px; font-weight: 500; }
+        .tx-link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .tx-link:hover { text-decoration: underline; }
+        .targets-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #374151;
+        }
+        .target-box {
+            background: #1f2937;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .target-label { font-size: 10px; color: #9ca3af; text-transform: uppercase; }
+        .target-value { font-size: 14px; font-weight: 600; margin-top: 3px; }
+        .target-sl { color: #f87171; }
+        .target-tp1 { color: #fbbf24; }
+        .target-tp2 { color: #34d399; }
+        
+        .clickable { cursor: pointer; }
+        .clickable:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -333,7 +430,7 @@ function generateDashboard() {
                     <div class="status-label">Peak</div>
                     <div class="status-value">${status.peakBalance.toFixed(4)} SOL</div>
                 </div>
-                <div class="status-item ${status.positions > 0 ? 'warning' : ''}">
+                <div class="status-item ${status.positions > 0 ? 'warning' : ''} clickable" onclick="showPositions()">
                     <div class="status-label">Positions</div>
                     <div class="status-value">${status.positions}</div>
                 </div>
@@ -425,7 +522,98 @@ function generateDashboard() {
         </div>
     </div>
     
+    <!-- Positions Modal -->
+    <div class="modal-overlay" id="positionsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">📊 Active Positions</div>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="positionsContent">
+                <p style="color: #9ca3af; text-align: center;">Loading positions...</p>
+            </div>
+        </div>
+    </div>
+    
     <script>
+        // Positions popup functions
+        async function showPositions() {
+            document.getElementById('positionsModal').classList.add('active');
+            await loadPositions();
+        }
+        
+        function closeModal() {
+            document.getElementById('positionsModal').classList.remove('active');
+        }
+        
+        async function loadPositions() {
+            try {
+                const response = await fetch('/api/positions');
+                const positions = await response.json();
+                
+                const container = document.getElementById('positionsContent');
+                
+                if (positions.length === 0) {
+                    container.innerHTML = '<p style="color: #9ca3af; text-align: center;">No active positions</p>';
+                    return;
+                }
+                
+                container.innerHTML = positions.map(pos => \`
+                    <div class="position-item">
+                        <div class="position-header">
+                            <div class="position-symbol">\${pos.symbol}</div>
+                            <div class="position-status">\${pos.exited ? 'CLOSED' : 'ACTIVE'}</div>
+                        </div>
+                        <div class="position-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Entry Price</span>
+                                <span class="detail-value">$\${pos.entryPrice?.toFixed(8) || 'N/A'}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Position Size</span>
+                                <span class="detail-value">\${pos.positionSize} SOL</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Strategy</span>
+                                <span class="detail-value">\${pos.strategy || 'N/A'}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Entry Time</span>
+                                <span class="detail-value">\${pos.entryTime ? new Date(pos.entryTime).toLocaleString() : 'N/A'}</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 12px;">
+                            <span class="detail-label">TX: </span>
+                            <a href="https://solscan.io/tx/\${pos.txHash}" target="_blank" class="tx-link">
+                                \${pos.txHash?.slice(0, 20)}...\${pos.txHash?.slice(-8)}
+                            </a>
+                        </div>
+                        <div class="targets-grid">
+                            <div class="target-box">
+                                <div class="target-label">Stop Loss</div>
+                                <div class="target-value target-sl">$\${pos.targets?.sl?.toFixed(8) || 'N/A'}</div>
+                            </div>
+                            <div class="target-box">
+                                <div class="target-label">TP1 (50%)</div>
+                                <div class="target-value target-tp1">$\${pos.targets?.tp1?.toFixed(8) || 'N/A'}</div>
+                            </div>
+                            <div class="target-box">
+                                <div class="target-label">TP2 (100%)</div>
+                                <div class="target-value target-tp2">$\${pos.targets?.tp2?.toFixed(8) || 'N/A'}</div>
+                            </div>
+                        </div>
+                    </div>
+                \`).join('');
+            } catch (e) {
+                document.getElementById('positionsContent').innerHTML = '<p style="color: #f87171; text-align: center;">Failed to load positions</p>';
+            }
+        }
+        
+        // Close modal on overlay click
+        document.getElementById('positionsModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        
         // Auto-refresh every 10 seconds
         setInterval(() => {
             location.reload();
@@ -508,6 +696,11 @@ const server = http.createServer((req, res) => {
     else if (pathname === '/api/status') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(getSystemStatus()));
+    }
+    else if (pathname === '/api/positions') {
+        const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(positions));
     }
     else if (pathname === '/api/config') {
         res.writeHead(200, { 'Content-Type': 'application/json' });

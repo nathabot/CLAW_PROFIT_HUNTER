@@ -1905,6 +1905,40 @@ class DynamicTrader {
     // Record trade for daily limit tracking
     this.recordTrade();
     
+    // Save position to positions.json
+    const positionData = {
+      symbol: setup.symbol,
+      ca: setup.ca,
+      entryPrice: setup.price,
+      entryTime: Date.now(),
+      positionSize: positionSize,
+      tokensReceived: swapResult.expectedOutput,
+      txHash: swapResult.signature,
+      strategy: this.currentStrategy?.name || 'Fib Dynamic',
+      strategyId: this.currentStrategy?.id || 'fib_dynamic',
+      targets: {
+        sl: targets.stopLoss,
+        tp1: targets.takeProfit1,
+        tp2: targets.takeProfit2
+      },
+      exited: false,
+      partialExited: false,
+      marketCondition: this.marketCondition?.regime || 'UNKNOWN'
+    };
+    
+    try {
+      const positionsFile = '/root/trading-bot/positions.json';
+      let positions = [];
+      if (fs.existsSync(positionsFile)) {
+        positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
+      }
+      positions.push(positionData);
+      fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
+      console.log(`   💾 Position saved to positions.json`);
+    } catch (e) {
+      console.log(`   ⚠️  Failed to save position: ${e.message}`);
+    }
+    
     await this.notify(
       `✅ **TRADE EXECUTED (FIB DYNAMIC)**\n\n` +
       `**Token:** ${setup.symbol}\n` +
