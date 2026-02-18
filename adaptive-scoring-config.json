@@ -1,23 +1,23 @@
 {
   "bestStrategy": {
-    "id": "fib_500_1272",
-    "name": "Fib 0.500 Entry",
-    "winRate": "62.89",
-    "category": "SCALPING"
+    "id": "fib_786_1000",
+    "name": "Fib 0.786 Deep",
+    "winRate": "62.26",
+    "category": "SWING_TRADE"
   },
   "positionSizing": {
     "fib_382_1618": "0.02",
-    "fib_500_1272": "0.03",
+    "fib_500_1272": "0.02",
     "fib_618_1618": "0.02",
-    "fib_786_1000": "0.02",
+    "fib_786_1000": "0.04",
     "fib_rsi_combo": "0.02",
     "fib_volume_combo": "0.02",
     "smart_fib_combo": "0.02",
     "ob_funding_combo": "0.02",
     "whale_volume_combo": "0.02",
-    "sr_breakout": "0.03",
+    "sr_breakout": "0.04",
     "momentum_squeeze": "0.02",
     "divergence_play": "0.02"
   },
-  "updated": 1771399812827
+  "updated": 1771408212363
 }

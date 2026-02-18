@@ -1,1 +1,196 @@
-{}
+{
+  "fib_786_1000": {
+    "strategyName": "Fib 0.786 Deep",
+    "strategyWR": "62.26",
+    "tokens": [
+      {
+        "symbol": "mSOL",
+        "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+        "wins": 24,
+        "avgPnl": 10.450260788643716,
+        "lastTrade": 1771385047201
+      },
+      {
+        "symbol": "COPE",
+        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "wins": 23,
+        "avgPnl": 10.151170445185286,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "$WIF",
+        "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+        "wins": 23,
+        "avgPnl": 13.464895802768323,
+        "lastTrade": 1771386011301
+      },
+      {
+        "symbol": "RAY",
+        "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+        "wins": 22,
+        "avgPnl": 11.191730465074848,
+        "lastTrade": 1771385047201
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 22,
+        "avgPnl": 11.524008127820046,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 21,
+        "avgPnl": 9.94223925111447,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "wins": 19,
+        "avgPnl": 12.592910969962979,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "KIMCHI",
+        "ca": "HaUXAdAWWUkb2WTmh8z1TdaEmZkYjnQnmC6tHUdTAHvi",
+        "wins": 1,
+        "avgPnl": 7.04303739621456,
+        "lastTrade": 1771385595993
+      },
+      {
+        "symbol": "Punch",
+        "ca": "NV2RYH954cTJ3ckFUpvfqaQXU4ARqqDH3562nFSpump",
+        "wins": 1,
+        "avgPnl": 6.661691250167619,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "MAYA",
+        "ca": "EtL967sgMgeDDSUrNhtQrbhe4T92idzqf4VuA6H7uGfQ",
+        "wins": 1,
+        "avgPnl": 5.978024434699005,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "house",
+        "ca": "84yCF7hyUuRNAra9BjFHVDpnRdGXmfsV2emyZwLjpump",
+        "wins": 1,
+        "avgPnl": 6.7066113134744905,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "maxxing",
+        "ca": "32CdQdBUxbCsLy5AUHWmyidfwhgGUr9N573NBUrDpump",
+        "wins": 1,
+        "avgPnl": 5.5523083630790735,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "NICE",
+        "ca": "7fj85y28pKMndm4So66Szkb5GMGfLHFEkwsZdDx2pump",
+        "wins": 1,
+        "avgPnl": 6.321090346355691,
+        "lastTrade": 1771385595995
+      }
+    ]
+  },
+  "sr_breakout": {
+    "strategyName": "S/R Breakout",
+    "strategyWR": "61.09",
+    "tokens": [
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 26,
+        "avgPnl": 12.073101241685665,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "RAY",
+        "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+        "wins": 25,
+        "avgPnl": 11.825890151192,
+        "lastTrade": 1771385047201
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "wins": 22,
+        "avgPnl": 9.841029868429558,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "COPE",
+        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "wins": 22,
+        "avgPnl": 10.508463334931099,
+        "lastTrade": 1771385654369
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 21,
+        "avgPnl": 11.388505824145627,
+        "lastTrade": 1771385654369
+      },
+      {
+        "symbol": "mSOL",
+        "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+        "wins": 18,
+        "avgPnl": 11.312946036301712,
+        "lastTrade": 1771385047202
+      },
+      {
+        "symbol": "$WIF",
+        "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+        "wins": 17,
+        "avgPnl": 12.336384007433736,
+        "lastTrade": 1771386610508
+      },
+      {
+        "symbol": "KIMCHI",
+        "ca": "HaUXAdAWWUkb2WTmh8z1TdaEmZkYjnQnmC6tHUdTAHvi",
+        "wins": 1,
+        "avgPnl": 7.3227697060166435,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "TST",
+        "ca": "HdvZF538TerjMWc1cmtWVKUaGkS8d77sGH5QaDCCpump",
+        "wins": 1,
+        "avgPnl": 5.645087700072459,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "MAYA",
+        "ca": "EtL967sgMgeDDSUrNhtQrbhe4T92idzqf4VuA6H7uGfQ",
+        "wins": 1,
+        "avgPnl": 5.366463020624311,
+        "lastTrade": 1771385595994
+      },
+      {
+        "symbol": "maxxing",
+        "ca": "32CdQdBUxbCsLy5AUHWmyidfwhgGUr9N573NBUrDpump",
+        "wins": 1,
+        "avgPnl": 4.505873094574783,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "NICE",
+        "ca": "7fj85y28pKMndm4So66Szkb5GMGfLHFEkwsZdDx2pump",
+        "wins": 1,
+        "avgPnl": 4.953005235150418,
+        "lastTrade": 1771385595995
+      },
+      {
+        "symbol": "丙午",
+        "ca": "DMYNp65mub3i7LRpBdB66CgBAceLcQnv4gsWeCi6pump",
+        "wins": 1,
+        "avgPnl": 7.393326608213909,
+        "lastTrade": 1771385595995
+      }
+    ]
+  }
+}

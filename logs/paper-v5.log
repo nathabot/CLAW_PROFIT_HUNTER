@@ -11890,3 +11890,2366 @@ RSI Divergence:
 ============================================================
 ✅ Paper Trader v5 Complete
 
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 41 | Total Sims: 2016 (16/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.98:1)
+   ✅ WIN: Fib 0.382 Entry on RAY (11.6%)
+   ✅ WIN: Fib 0.500 Entry on RAY (13.9%)
+   ✅ WIN: Fib 0.618 Golden on RAY (11.7%)
+   ✅ WIN: Fib 0.786 Deep on RAY (9.7%)
+   ✅ WIN: Fib + RSI on RAY (12.9%)
+   ❌ LOSS: Fib + Volume on RAY (-2.4%)
+   ✅ WIN: Smart Money + Fib on RAY (9.5%)
+   ❌ LOSS: Orderbook + Funding on RAY (-2.4%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ❌ LOSS: S/R Breakout on RAY (-2.4%)
+   ✅ WIN: Momentum Squeeze on RAY (9.4%)
+   ✅ WIN: RSI Divergence on RAY (12.6%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.96:1)
+   ❌ LOSS: Fib 0.382 Entry on $WIF (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on $WIF (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on $WIF (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on $WIF (13.1%)
+   ❌ LOSS: Fib + RSI on $WIF (-2.4%)
+   ❌ LOSS: Fib + Volume on $WIF (-2.4%)
+   ❌ LOSS: Smart Money + Fib on $WIF (-2.4%)
+   ❌ LOSS: Orderbook + Funding on $WIF (-2.4%)
+   ❌ LOSS: Whale + Volume on $WIF (-2.4%)
+   ✅ WIN: S/R Breakout on $WIF (10.0%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-2.4%)
+   ✅ WIN: RSI Divergence on $WIF (14.7%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.26:1)
+   ✅ WIN: Fib 0.382 Entry on mSOL (14.9%)
+   ✅ WIN: Fib 0.500 Entry on mSOL (14.5%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on mSOL (12.0%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ❌ LOSS: Fib + Volume on mSOL (-2.4%)
+   ❌ LOSS: Smart Money + Fib on mSOL (-2.4%)
+   ✅ WIN: Orderbook + Funding on mSOL (14.8%)
+   ❌ LOSS: Whale + Volume on mSOL (-2.4%)
+   ❌ LOSS: S/R Breakout on mSOL (-2.4%)
+   ❌ LOSS: Momentum Squeeze on mSOL (-2.4%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.97:1)
+   ✅ WIN: Fib 0.382 Entry on ATLAS (11.9%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (11.0%)
+   ✅ WIN: Fib 0.618 Golden on ATLAS (10.1%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (14.9%)
+   ✅ WIN: Fib + RSI on ATLAS (14.9%)
+   ❌ LOSS: Fib + Volume on ATLAS (-2.4%)
+   ❌ LOSS: Smart Money + Fib on ATLAS (-2.4%)
+   ❌ LOSS: Orderbook + Funding on ATLAS (-2.4%)
+   ✅ WIN: Whale + Volume on ATLAS (10.1%)
+   ❌ LOSS: S/R Breakout on ATLAS (-2.4%)
+   ✅ WIN: Momentum Squeeze on ATLAS (14.0%)
+   ✅ WIN: RSI Divergence on ATLAS (13.7%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.02:1)
+   ✅ WIN: Fib 0.382 Entry on Bonk (12.9%)
+   ✅ WIN: Fib 0.500 Entry on Bonk (14.4%)
+   ❌ LOSS: Fib 0.618 Golden on Bonk (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (11.5%)
+   ❌ LOSS: Fib + RSI on Bonk (-3.0%)
+   ❌ LOSS: Fib + Volume on Bonk (-3.0%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-3.0%)
+   ✅ WIN: Orderbook + Funding on Bonk (8.7%)
+   ❌ LOSS: Whale + Volume on Bonk (-3.0%)
+   ✅ WIN: S/R Breakout on Bonk (11.7%)
+   ❌ LOSS: Momentum Squeeze on Bonk (-3.0%)
+   ✅ WIN: RSI Divergence on Bonk (9.5%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.73:1)
+   ❌ LOSS: Fib 0.382 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ✅ WIN: Fib 0.618 Golden on SAMO (14.2%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (12.0%)
+   ✅ WIN: Fib + RSI on SAMO (14.7%)
+   ✅ WIN: Fib + Volume on SAMO (12.5%)
+   ✅ WIN: Smart Money + Fib on SAMO (9.7%)
+   ✅ WIN: Orderbook + Funding on SAMO (8.8%)
+   ✅ WIN: Whale + Volume on SAMO (13.7%)
+   ❌ LOSS: S/R Breakout on SAMO (-2.4%)
+   ✅ WIN: Momentum Squeeze on SAMO (10.7%)
+   ❌ LOSS: RSI Divergence on SAMO (-2.4%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.39:1)
+   ❌ LOSS: Fib 0.382 Entry on COPE (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on COPE (14.4%)
+   ✅ WIN: Fib 0.618 Golden on COPE (14.7%)
+   ✅ WIN: Fib 0.786 Deep on COPE (9.6%)
+   ❌ LOSS: Fib + RSI on COPE (-2.4%)
+   ✅ WIN: Fib + Volume on COPE (12.2%)
+   ✅ WIN: Smart Money + Fib on COPE (12.3%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ✅ WIN: Whale + Volume on COPE (12.7%)
+   ✅ WIN: S/R Breakout on COPE (11.7%)
+   ❌ LOSS: Momentum Squeeze on COPE (-2.4%)
+   ✅ WIN: RSI Divergence on COPE (10.3%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 38 (expired)...
+✅ BOK updated: Strategies from cycles 39-43 are active
+✅ Synced to Live Trader: Fib 0.500 Entry (63.58% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.500 Entry:
+   WR: 63.6% (110W/63L)
+   PnL: 0.1215 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 61.3% (106W/67L)
+   PnL: 0.1106 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 61.3% (106W/67L)
+   PnL: 0.1031 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 53.8% (93W/80L)
+   PnL: 0.0593 SOL
+   Category: SNIPER
+
+Fib + Volume:
+   WR: 52.0% (90W/83L)
+   PnL: 0.0718 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 50.9% (88W/85L)
+   PnL: 0.0568 SOL
+   Category: SCALPING
+
+Orderbook + Funding:
+   WR: 50.3% (87W/86L)
+   PnL: 0.0657 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 48.0% (83W/90L)
+   PnL: 0.0520 SOL
+   Category: SCALPING
+
+RSI Divergence:
+   WR: 47.4% (82W/91L)
+   PnL: 0.0579 SOL
+   Category: SWING_TRADE
+
+Fib 0.618 Golden:
+   WR: 46.8% (81W/92L)
+   PnL: 0.0471 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+🔄 COMPLETED CYCLE 42 - CONTINUING TO CYCLE 43...
+
+✅ Cycle 42 archived. Continuing with 2100 total sims, 36 strategies tracked.
+
+📈 Cycle: 43 | Total Sims: 2100 (0/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.97:1)
+   ✅ WIN: Fib 0.382 Entry on RAY (11.7%)
+   ❌ LOSS: Fib 0.500 Entry on RAY (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on RAY (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on RAY (-2.4%)
+   ❌ LOSS: Fib + RSI on RAY (-2.4%)
+   ✅ WIN: Fib + Volume on RAY (9.0%)
+   ❌ LOSS: Smart Money + Fib on RAY (-2.4%)
+   ❌ LOSS: Orderbook + Funding on RAY (-2.4%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ❌ LOSS: S/R Breakout on RAY (-2.4%)
+   ✅ WIN: Momentum Squeeze on RAY (10.8%)
+   ✅ WIN: RSI Divergence on RAY (13.6%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.00:1)
+   ✅ WIN: Fib 0.382 Entry on $WIF (13.1%)
+   ✅ WIN: Fib 0.500 Entry on $WIF (12.6%)
+   ❌ LOSS: Fib 0.618 Golden on $WIF (-3.0%)
+   ❌ LOSS: Fib 0.786 Deep on $WIF (-3.0%)
+   ✅ WIN: Fib + RSI on $WIF (9.1%)
+   ✅ WIN: Fib + Volume on $WIF (12.9%)
+   ✅ WIN: Smart Money + Fib on $WIF (13.5%)
+   ❌ LOSS: Orderbook + Funding on $WIF (-3.0%)
+   ❌ LOSS: Whale + Volume on $WIF (-3.0%)
+   ❌ LOSS: S/R Breakout on $WIF (-3.0%)
+   ✅ WIN: Momentum Squeeze on $WIF (9.8%)
+   ❌ LOSS: RSI Divergence on $WIF (-3.0%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.26:1)
+   ❌ LOSS: Fib 0.382 Entry on mSOL (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on mSOL (10.1%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on mSOL (13.4%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ❌ LOSS: Fib + Volume on mSOL (-2.4%)
+   ✅ WIN: Smart Money + Fib on mSOL (12.3%)
+   ✅ WIN: Orderbook + Funding on mSOL (13.4%)
+   ✅ WIN: Whale + Volume on mSOL (13.1%)
+   ❌ LOSS: S/R Breakout on mSOL (-2.4%)
+   ❌ LOSS: Momentum Squeeze on mSOL (-2.4%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.01:1)
+   ✅ WIN: Fib 0.382 Entry on ATLAS (8.2%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (10.2%)
+   ✅ WIN: Fib 0.618 Golden on ATLAS (12.8%)
+   ❌ LOSS: Fib 0.786 Deep on ATLAS (-3.0%)
+   ❌ LOSS: Fib + RSI on ATLAS (-3.0%)
+   ✅ WIN: Fib + Volume on ATLAS (13.5%)
+   ✅ WIN: Smart Money + Fib on ATLAS (13.8%)
+   ✅ WIN: Orderbook + Funding on ATLAS (9.7%)
+   ❌ LOSS: Whale + Volume on ATLAS (-3.0%)
+   ✅ WIN: S/R Breakout on ATLAS (14.4%)
+   ✅ WIN: Momentum Squeeze on ATLAS (11.6%)
+   ❌ LOSS: RSI Divergence on ATLAS (-3.0%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.02:1)
+   ✅ WIN: Fib 0.382 Entry on Bonk (12.8%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-3.0%)
+   ✅ WIN: Fib 0.618 Golden on Bonk (10.7%)
+   ❌ LOSS: Fib 0.786 Deep on Bonk (-3.0%)
+   ✅ WIN: Fib + RSI on Bonk (14.1%)
+   ✅ WIN: Fib + Volume on Bonk (9.2%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-3.0%)
+   ❌ LOSS: Orderbook + Funding on Bonk (-3.0%)
+   ❌ LOSS: Whale + Volume on Bonk (-3.0%)
+   ❌ LOSS: S/R Breakout on Bonk (-3.0%)
+   ❌ LOSS: Momentum Squeeze on Bonk (-3.0%)
+   ✅ WIN: RSI Divergence on Bonk (11.2%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.6% movement (Score: 6)
+   📊 Order Book: weak (0.66:1)
+   ❌ LOSS: Fib 0.382 Entry on SAMO (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on SAMO (10.1%)
+   ✅ WIN: Fib 0.618 Golden on SAMO (9.5%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (9.6%)
+   ✅ WIN: Fib + RSI on SAMO (12.9%)
+   ❌ LOSS: Fib + Volume on SAMO (-2.4%)
+   ✅ WIN: Smart Money + Fib on SAMO (14.8%)
+   ✅ WIN: Orderbook + Funding on SAMO (14.2%)
+   ❌ LOSS: Whale + Volume on SAMO (-2.4%)
+   ✅ WIN: S/R Breakout on SAMO (14.4%)
+   ✅ WIN: Momentum Squeeze on SAMO (9.8%)
+   ✅ WIN: RSI Divergence on SAMO (12.6%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.33:1)
+   ❌ LOSS: Fib 0.382 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on COPE (-2.4%)
+   ✅ WIN: Fib + RSI on COPE (10.8%)
+   ✅ WIN: Fib + Volume on COPE (13.6%)
+   ✅ WIN: Smart Money + Fib on COPE (10.2%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ✅ WIN: Whale + Volume on COPE (8.9%)
+   ❌ LOSS: S/R Breakout on COPE (-2.4%)
+   ✅ WIN: Momentum Squeeze on COPE (8.9%)
+   ❌ LOSS: RSI Divergence on COPE (-2.4%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 39 (expired)...
+✅ BOK updated: Strategies from cycles 40-44 are active
+✅ Synced to Live Trader: Fib 0.500 Entry (63.33% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.500 Entry:
+   WR: 63.3% (114W/66L)
+   PnL: 0.1254 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 60.0% (108W/72L)
+   PnL: 0.1110 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 60.0% (108W/72L)
+   PnL: 0.1049 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 54.4% (98W/82L)
+   PnL: 0.0637 SOL
+   Category: SNIPER
+
+Fib + Volume:
+   WR: 52.8% (95W/85L)
+   PnL: 0.0761 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 51.1% (92W/88L)
+   PnL: 0.0601 SOL
+   Category: SCALPING
+
+Orderbook + Funding:
+   WR: 50.0% (90W/90L)
+   PnL: 0.0675 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 48.9% (88W/92L)
+   PnL: 0.0553 SOL
+   Category: SCALPING
+
+RSI Divergence:
+   WR: 47.2% (85W/95L)
+   PnL: 0.0597 SOL
+   Category: SWING_TRADE
+
+Fib 0.618 Golden:
+   WR: 46.7% (84W/96L)
+   PnL: 0.0491 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 44 | Total Sims: 2184 (34/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 44 | Total Sims: 2184 (34/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.96:1)
+   ✅ WIN: Fib 0.382 Entry on RAY (15.0%)
+   ✅ WIN: Fib 0.500 Entry on RAY (11.4%)
+   ❌ LOSS: Fib 0.618 Golden on RAY (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on RAY (-2.4%)
+   ✅ WIN: Fib + RSI on RAY (8.1%)
+   ✅ WIN: Fib + Volume on RAY (8.6%)
+   ❌ LOSS: Smart Money + Fib on RAY (-2.4%)
+   ✅ WIN: Orderbook + Funding on RAY (14.0%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ✅ WIN: S/R Breakout on RAY (10.0%)
+   ❌ LOSS: Momentum Squeeze on RAY (-2.4%)
+   ✅ WIN: RSI Divergence on RAY (14.2%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.03:1)
+   ✅ WIN: Fib 0.382 Entry on $WIF (11.7%)
+   ❌ LOSS: Fib 0.500 Entry on $WIF (-3.0%)
+   ✅ WIN: Fib 0.618 Golden on $WIF (9.8%)
+   ✅ WIN: Fib 0.786 Deep on $WIF (11.0%)
+   ❌ LOSS: Fib + RSI on $WIF (-3.0%)
+   ✅ WIN: Fib + Volume on $WIF (11.0%)
+   ❌ LOSS: Smart Money + Fib on $WIF (-3.0%)
+   ✅ WIN: Orderbook + Funding on $WIF (14.8%)
+   ❌ LOSS: Whale + Volume on $WIF (-3.0%)
+   ✅ WIN: S/R Breakout on $WIF (14.3%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-3.0%)
+   ✅ WIN: RSI Divergence on $WIF (12.8%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.26:1)
+   ❌ LOSS: Fib 0.382 Entry on mSOL (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on mSOL (8.4%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on mSOL (9.5%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ✅ WIN: Fib + Volume on mSOL (9.8%)
+   ✅ WIN: Smart Money + Fib on mSOL (12.2%)
+   ❌ LOSS: Orderbook + Funding on mSOL (-2.4%)
+   ✅ WIN: Whale + Volume on mSOL (9.0%)
+   ✅ WIN: S/R Breakout on mSOL (14.6%)
+   ✅ WIN: Momentum Squeeze on mSOL (15.0%)
+   ✅ WIN: RSI Divergence on mSOL (9.9%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.06:1)
+   ✅ WIN: Fib 0.382 Entry on ATLAS (14.1%)
+   ❌ LOSS: Fib 0.500 Entry on ATLAS (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (10.5%)
+   ❌ LOSS: Fib + RSI on ATLAS (-3.0%)
+   ✅ WIN: Fib + Volume on ATLAS (9.9%)
+   ❌ LOSS: Smart Money + Fib on ATLAS (-3.0%)
+   ❌ LOSS: Orderbook + Funding on ATLAS (-3.0%)
+   ✅ WIN: Whale + Volume on ATLAS (10.2%)
+   ❌ LOSS: S/R Breakout on ATLAS (-3.0%)
+   ❌ LOSS: Momentum Squeeze on ATLAS (-3.0%)
+   ✅ WIN: RSI Divergence on ATLAS (9.6%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.02:1)
+   ❌ LOSS: Fib 0.382 Entry on Bonk (-3.0%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on Bonk (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (10.7%)
+   ❌ LOSS: Fib + RSI on Bonk (-3.0%)
+   ✅ WIN: Fib + Volume on Bonk (12.6%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-3.0%)
+   ❌ LOSS: Orderbook + Funding on Bonk (-3.0%)
+   ❌ LOSS: Whale + Volume on Bonk (-3.0%)
+   ✅ WIN: S/R Breakout on Bonk (14.5%)
+   ✅ WIN: Momentum Squeeze on Bonk (9.0%)
+   ✅ WIN: RSI Divergence on Bonk (11.3%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.62:1)
+   ✅ WIN: Fib 0.382 Entry on SAMO (14.9%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on SAMO (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (11.1%)
+   ✅ WIN: Fib + RSI on SAMO (11.1%)
+   ✅ WIN: Fib + Volume on SAMO (8.3%)
+   ❌ LOSS: Smart Money + Fib on SAMO (-2.4%)
+   ❌ LOSS: Orderbook + Funding on SAMO (-2.4%)
+   ❌ LOSS: Whale + Volume on SAMO (-2.4%)
+   ❌ LOSS: S/R Breakout on SAMO (-2.4%)
+   ✅ WIN: Momentum Squeeze on SAMO (14.7%)
+   ✅ WIN: RSI Divergence on SAMO (10.0%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.29:1)
+   ✅ WIN: Fib 0.382 Entry on COPE (10.8%)
+   ❌ LOSS: Fib 0.500 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on COPE (10.1%)
+   ❌ LOSS: Fib + RSI on COPE (-2.4%)
+   ❌ LOSS: Fib + Volume on COPE (-2.4%)
+   ✅ WIN: Smart Money + Fib on COPE (8.0%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ✅ WIN: Whale + Volume on COPE (11.0%)
+   ❌ LOSS: S/R Breakout on COPE (-2.4%)
+   ✅ WIN: Momentum Squeeze on COPE (10.5%)
+   ✅ WIN: RSI Divergence on COPE (8.6%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 41 (expired)...
+✅ BOK updated: Strategies from cycles 42-46 are active
+✅ Synced to Live Trader: Fib 0.500 Entry (62.03% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.500 Entry:
+   WR: 62.0% (116W/71L)
+   PnL: 0.1255 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 61.0% (114W/73L)
+   PnL: 0.1177 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 59.9% (112W/75L)
+   PnL: 0.1099 SOL
+   Category: FAST_TRADE
+
+Fib + Volume:
+   WR: 54.0% (101W/86L)
+   PnL: 0.0807 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 53.5% (100W/87L)
+   PnL: 0.0638 SOL
+   Category: SNIPER
+
+Fib 0.382 Entry:
+   WR: 51.9% (97W/90L)
+   PnL: 0.0646 SOL
+   Category: SCALPING
+
+Orderbook + Funding:
+   WR: 49.2% (92W/95L)
+   PnL: 0.0687 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 49.2% (92W/95L)
+   PnL: 0.0580 SOL
+   Category: SCALPING
+
+RSI Divergence:
+   WR: 49.2% (92W/95L)
+   PnL: 0.0654 SOL
+   Category: SWING_TRADE
+
+Fib 0.618 Golden:
+   WR: 45.5% (85W/102L)
+   PnL: 0.0488 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 46 | Total Sims: 2268 (18/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.98:1)
+   ✅ WIN: Fib 0.382 Entry on RAY (9.2%)
+   ❌ LOSS: Fib 0.500 Entry on RAY (-2.4%)
+   ✅ WIN: Fib 0.618 Golden on RAY (12.4%)
+   ✅ WIN: Fib 0.786 Deep on RAY (12.1%)
+   ❌ LOSS: Fib + RSI on RAY (-2.4%)
+   ✅ WIN: Fib + Volume on RAY (14.0%)
+   ❌ LOSS: Smart Money + Fib on RAY (-2.4%)
+   ❌ LOSS: Orderbook + Funding on RAY (-2.4%)
+   ✅ WIN: Whale + Volume on RAY (12.2%)
+   ✅ WIN: S/R Breakout on RAY (13.2%)
+   ❌ LOSS: Momentum Squeeze on RAY (-2.4%)
+   ✅ WIN: RSI Divergence on RAY (10.6%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.01:1)
+   ✅ WIN: Fib 0.382 Entry on $WIF (11.0%)
+   ❌ LOSS: Fib 0.500 Entry on $WIF (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on $WIF (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on $WIF (13.3%)
+   ✅ WIN: Fib + RSI on $WIF (14.9%)
+   ❌ LOSS: Fib + Volume on $WIF (-3.0%)
+   ✅ WIN: Smart Money + Fib on $WIF (11.5%)
+   ❌ LOSS: Orderbook + Funding on $WIF (-3.0%)
+   ✅ WIN: Whale + Volume on $WIF (10.6%)
+   ❌ LOSS: S/R Breakout on $WIF (-3.0%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-3.0%)
+   ❌ LOSS: RSI Divergence on $WIF (-3.0%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.25:1)
+   ✅ WIN: Fib 0.382 Entry on mSOL (9.6%)
+   ❌ LOSS: Fib 0.500 Entry on mSOL (-2.4%)
+   ✅ WIN: Fib 0.618 Golden on mSOL (14.9%)
+   ❌ LOSS: Fib 0.786 Deep on mSOL (-2.4%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ✅ WIN: Fib + Volume on mSOL (10.1%)
+   ✅ WIN: Smart Money + Fib on mSOL (9.7%)
+   ✅ WIN: Orderbook + Funding on mSOL (11.6%)
+   ❌ LOSS: Whale + Volume on mSOL (-2.4%)
+   ✅ WIN: S/R Breakout on mSOL (12.0%)
+   ✅ WIN: Momentum Squeeze on mSOL (8.1%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.15:1)
+   ❌ LOSS: Fib 0.382 Entry on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (14.3%)
+   ✅ WIN: Fib 0.618 Golden on ATLAS (12.0%)
+   ❌ LOSS: Fib 0.786 Deep on ATLAS (-3.0%)
+   ❌ LOSS: Fib + RSI on ATLAS (-3.0%)
+   ✅ WIN: Fib + Volume on ATLAS (9.5%)
+   ✅ WIN: Smart Money + Fib on ATLAS (10.8%)
+   ✅ WIN: Orderbook + Funding on ATLAS (13.6%)
+   ❌ LOSS: Whale + Volume on ATLAS (-3.0%)
+   ✅ WIN: S/R Breakout on ATLAS (8.7%)
+   ❌ LOSS: Momentum Squeeze on ATLAS (-3.0%)
+   ❌ LOSS: RSI Divergence on ATLAS (-3.0%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.00:1)
+   ❌ LOSS: Fib 0.382 Entry on Bonk (-3.0%)
+   ✅ WIN: Fib 0.500 Entry on Bonk (9.5%)
+   ❌ LOSS: Fib 0.618 Golden on Bonk (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (8.4%)
+   ✅ WIN: Fib + RSI on Bonk (14.2%)
+   ✅ WIN: Fib + Volume on Bonk (10.2%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-3.0%)
+   ✅ WIN: Orderbook + Funding on Bonk (14.0%)
+   ❌ LOSS: Whale + Volume on Bonk (-3.0%)
+   ✅ WIN: S/R Breakout on Bonk (13.4%)
+   ✅ WIN: Momentum Squeeze on Bonk (13.2%)
+   ✅ WIN: RSI Divergence on Bonk (9.2%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.54:1)
+   ✅ WIN: Fib 0.382 Entry on SAMO (10.5%)
+   ✅ WIN: Fib 0.500 Entry on SAMO (11.5%)
+   ❌ LOSS: Fib 0.618 Golden on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on SAMO (-2.4%)
+   ❌ LOSS: Fib + RSI on SAMO (-2.4%)
+   ❌ LOSS: Fib + Volume on SAMO (-2.4%)
+   ✅ WIN: Smart Money + Fib on SAMO (10.1%)
+   ❌ LOSS: Orderbook + Funding on SAMO (-2.4%)
+   ✅ WIN: Whale + Volume on SAMO (11.9%)
+   ❌ LOSS: S/R Breakout on SAMO (-2.4%)
+   ✅ WIN: Momentum Squeeze on SAMO (9.7%)
+   ✅ WIN: RSI Divergence on SAMO (12.4%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.5% movement (Score: 6)
+   📊 Order Book: weak (0.24:1)
+   ❌ LOSS: Fib 0.382 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on COPE (13.7%)
+   ✅ WIN: Fib + RSI on COPE (10.1%)
+   ✅ WIN: Fib + Volume on COPE (14.4%)
+   ❌ LOSS: Smart Money + Fib on COPE (-2.4%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ❌ LOSS: Whale + Volume on COPE (-2.4%)
+   ✅ WIN: S/R Breakout on COPE (10.7%)
+   ❌ LOSS: Momentum Squeeze on COPE (-2.4%)
+   ❌ LOSS: RSI Divergence on COPE (-2.4%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 43 (expired)...
+✅ BOK updated: Strategies from cycles 44-48 are active
+✅ Synced to Live Trader: Fib 0.500 Entry (61.34% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.500 Entry:
+   WR: 61.3% (119W/75L)
+   PnL: 0.1286 SOL
+   Category: SCALPING
+
+Fib 0.786 Deep:
+   WR: 60.8% (118W/76L)
+   PnL: 0.1219 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 60.3% (117W/77L)
+   PnL: 0.1153 SOL
+   Category: FAST_TRADE
+
+Fib + Volume:
+   WR: 54.6% (106W/88L)
+   PnL: 0.0848 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 53.6% (104W/90L)
+   PnL: 0.0665 SOL
+   Category: SNIPER
+
+Fib 0.382 Entry:
+   WR: 52.1% (101W/93L)
+   PnL: 0.0667 SOL
+   Category: SCALPING
+
+Orderbook + Funding:
+   WR: 49.0% (95W/99L)
+   PnL: 0.0712 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 49.0% (95W/99L)
+   PnL: 0.0595 SOL
+   Category: SCALPING
+
+RSI Divergence:
+   WR: 49.0% (95W/99L)
+   PnL: 0.0669 SOL
+   Category: SWING_TRADE
+
+Fib 0.618 Golden:
+   WR: 45.4% (88W/106L)
+   PnL: 0.0508 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 48 | Total Sims: 2352 (2/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.97:1)
+   ❌ LOSS: Fib 0.382 Entry on RAY (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on RAY (12.0%)
+   ❌ LOSS: Fib 0.618 Golden on RAY (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on RAY (-2.4%)
+   ❌ LOSS: Fib + RSI on RAY (-2.4%)
+   ❌ LOSS: Fib + Volume on RAY (-2.4%)
+   ✅ WIN: Smart Money + Fib on RAY (11.3%)
+   ✅ WIN: Orderbook + Funding on RAY (13.2%)
+   ✅ WIN: Whale + Volume on RAY (10.1%)
+   ❌ LOSS: S/R Breakout on RAY (-2.4%)
+   ✅ WIN: Momentum Squeeze on RAY (9.4%)
+   ✅ WIN: RSI Divergence on RAY (9.1%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.00:1)
+   ✅ WIN: Fib 0.382 Entry on $WIF (13.4%)
+   ❌ LOSS: Fib 0.500 Entry on $WIF (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on $WIF (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on $WIF (14.5%)
+   ✅ WIN: Fib + RSI on $WIF (14.1%)
+   ✅ WIN: Fib + Volume on $WIF (8.2%)
+   ✅ WIN: Smart Money + Fib on $WIF (12.4%)
+   ❌ LOSS: Orderbook + Funding on $WIF (-3.0%)
+   ✅ WIN: Whale + Volume on $WIF (12.2%)
+   ✅ WIN: S/R Breakout on $WIF (9.8%)
+   ✅ WIN: Momentum Squeeze on $WIF (10.6%)
+   ✅ WIN: RSI Divergence on $WIF (14.3%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.24:1)
+   ❌ LOSS: Fib 0.382 Entry on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on mSOL (-2.4%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ❌ LOSS: Fib + Volume on mSOL (-2.4%)
+   ❌ LOSS: Smart Money + Fib on mSOL (-2.4%)
+   ❌ LOSS: Orderbook + Funding on mSOL (-2.4%)
+   ✅ WIN: Whale + Volume on mSOL (13.9%)
+   ❌ LOSS: S/R Breakout on mSOL (-2.4%)
+   ✅ WIN: Momentum Squeeze on mSOL (13.0%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.15:1)
+   ❌ LOSS: Fib 0.382 Entry on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (11.3%)
+   ✅ WIN: Fib 0.618 Golden on ATLAS (13.8%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (12.4%)
+   ✅ WIN: Fib + RSI on ATLAS (8.4%)
+   ✅ WIN: Fib + Volume on ATLAS (14.9%)
+   ✅ WIN: Smart Money + Fib on ATLAS (10.6%)
+   ❌ LOSS: Orderbook + Funding on ATLAS (-3.0%)
+   ❌ LOSS: Whale + Volume on ATLAS (-3.0%)
+   ❌ LOSS: S/R Breakout on ATLAS (-3.0%)
+   ✅ WIN: Momentum Squeeze on ATLAS (9.5%)
+   ✅ WIN: RSI Divergence on ATLAS (11.9%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.00:1)
+   ❌ LOSS: Fib 0.382 Entry on Bonk (-3.0%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-3.0%)
+   ✅ WIN: Fib 0.618 Golden on Bonk (8.8%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (12.2%)
+   ✅ WIN: Fib + RSI on Bonk (9.7%)
+   ✅ WIN: Fib + Volume on Bonk (13.8%)
+   ✅ WIN: Smart Money + Fib on Bonk (13.3%)
+   ✅ WIN: Orderbook + Funding on Bonk (13.7%)
+   ❌ LOSS: Whale + Volume on Bonk (-3.0%)
+   ✅ WIN: S/R Breakout on Bonk (9.8%)
+   ✅ WIN: Momentum Squeeze on Bonk (12.1%)
+   ❌ LOSS: RSI Divergence on Bonk (-3.0%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.1% movement (Score: 6)
+   📊 Order Book: weak (0.56:1)
+   ✅ WIN: Fib 0.382 Entry on SAMO (8.7%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on SAMO (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (11.1%)
+   ❌ LOSS: Fib + RSI on SAMO (-2.4%)
+   ❌ LOSS: Fib + Volume on SAMO (-2.4%)
+   ❌ LOSS: Smart Money + Fib on SAMO (-2.4%)
+   ❌ LOSS: Orderbook + Funding on SAMO (-2.4%)
+   ❌ LOSS: Whale + Volume on SAMO (-2.4%)
+   ✅ WIN: S/R Breakout on SAMO (13.2%)
+   ❌ LOSS: Momentum Squeeze on SAMO (-2.4%)
+   ✅ WIN: RSI Divergence on SAMO (12.8%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.26:1)
+   ✅ WIN: Fib 0.382 Entry on COPE (11.5%)
+   ❌ LOSS: Fib 0.500 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on COPE (-2.4%)
+   ❌ LOSS: Fib + RSI on COPE (-2.4%)
+   ❌ LOSS: Fib + Volume on COPE (-2.4%)
+   ✅ WIN: Smart Money + Fib on COPE (15.0%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ❌ LOSS: Whale + Volume on COPE (-2.4%)
+   ✅ WIN: S/R Breakout on COPE (15.0%)
+   ✅ WIN: Momentum Squeeze on COPE (12.9%)
+   ✅ WIN: RSI Divergence on COPE (9.6%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 44 (expired)...
+✅ BOK updated: Strategies from cycles 45-49 are active
+✅ Synced to Live Trader: Fib 0.786 Deep (60.70% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.786 Deep:
+   WR: 60.7% (122W/79L)
+   PnL: 0.1273 SOL
+   Category: SWING_TRADE
+
+Fib 0.500 Entry:
+   WR: 60.2% (121W/80L)
+   PnL: 0.1297 SOL
+   Category: SCALPING
+
+S/R Breakout:
+   WR: 60.2% (121W/80L)
+   PnL: 0.1195 SOL
+   Category: FAST_TRADE
+
+Fib + Volume:
+   WR: 54.2% (109W/92L)
+   PnL: 0.0874 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 54.2% (109W/92L)
+   PnL: 0.0711 SOL
+   Category: SNIPER
+
+Fib 0.382 Entry:
+   WR: 51.7% (104W/97L)
+   PnL: 0.0684 SOL
+   Category: SCALPING
+
+Momentum Squeeze:
+   WR: 50.2% (101W/100L)
+   PnL: 0.0645 SOL
+   Category: SCALPING
+
+RSI Divergence:
+   WR: 49.8% (100W/101L)
+   PnL: 0.0708 SOL
+   Category: SWING_TRADE
+
+Orderbook + Funding:
+   WR: 48.3% (97W/104L)
+   PnL: 0.0723 SOL
+   Category: SWING_TRADE
+
+Fib 0.618 Golden:
+   WR: 44.8% (90W/111L)
+   PnL: 0.0519 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 49 | Total Sims: 2436 (36/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.97:1)
+   ❌ LOSS: Fib 0.382 Entry on RAY (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on RAY (10.7%)
+   ✅ WIN: Fib 0.618 Golden on RAY (12.3%)
+   ✅ WIN: Fib 0.786 Deep on RAY (9.6%)
+   ❌ LOSS: Fib + RSI on RAY (-2.4%)
+   ✅ WIN: Fib + Volume on RAY (13.0%)
+   ✅ WIN: Smart Money + Fib on RAY (13.1%)
+   ❌ LOSS: Orderbook + Funding on RAY (-2.4%)
+   ✅ WIN: Whale + Volume on RAY (9.7%)
+   ✅ WIN: S/R Breakout on RAY (13.3%)
+   ✅ WIN: Momentum Squeeze on RAY (13.0%)
+   ✅ WIN: RSI Divergence on RAY (14.7%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.01:1)
+   ❌ LOSS: Fib 0.382 Entry on $WIF (-3.0%)
+   ❌ LOSS: Fib 0.500 Entry on $WIF (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on $WIF (-3.0%)
+   ❌ LOSS: Fib 0.786 Deep on $WIF (-3.0%)
+   ❌ LOSS: Fib + RSI on $WIF (-3.0%)
+   ✅ WIN: Fib + Volume on $WIF (9.2%)
+   ❌ LOSS: Smart Money + Fib on $WIF (-3.0%)
+   ❌ LOSS: Orderbook + Funding on $WIF (-3.0%)
+   ✅ WIN: Whale + Volume on $WIF (8.2%)
+   ✅ WIN: S/R Breakout on $WIF (8.8%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-3.0%)
+   ❌ LOSS: RSI Divergence on $WIF (-3.0%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.24:1)
+   ✅ WIN: Fib 0.382 Entry on mSOL (9.2%)
+   ❌ LOSS: Fib 0.500 Entry on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on mSOL (12.3%)
+   ✅ WIN: Fib + RSI on mSOL (12.9%)
+   ❌ LOSS: Fib + Volume on mSOL (-2.4%)
+   ❌ LOSS: Smart Money + Fib on mSOL (-2.4%)
+   ✅ WIN: Orderbook + Funding on mSOL (9.1%)
+   ❌ LOSS: Whale + Volume on mSOL (-2.4%)
+   ✅ WIN: S/R Breakout on mSOL (12.0%)
+   ❌ LOSS: Momentum Squeeze on mSOL (-2.4%)
+   ✅ WIN: RSI Divergence on mSOL (11.8%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.13:1)
+   ❌ LOSS: Fib 0.382 Entry on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (9.5%)
+   ❌ LOSS: Fib 0.618 Golden on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (11.7%)
+   ✅ WIN: Fib + RSI on ATLAS (10.0%)
+   ✅ WIN: Fib + Volume on ATLAS (12.2%)
+   ✅ WIN: Smart Money + Fib on ATLAS (11.3%)
+   ❌ LOSS: Orderbook + Funding on ATLAS (-3.0%)
+   ❌ LOSS: Whale + Volume on ATLAS (-3.0%)
+   ✅ WIN: S/R Breakout on ATLAS (15.0%)
+   ✅ WIN: Momentum Squeeze on ATLAS (14.1%)
+   ✅ WIN: RSI Divergence on ATLAS (11.6%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.01:1)
+   ❌ LOSS: Fib 0.382 Entry on Bonk (-3.0%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on Bonk (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (10.5%)
+   ❌ LOSS: Fib + RSI on Bonk (-3.0%)
+   ✅ WIN: Fib + Volume on Bonk (10.1%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-3.0%)
+   ❌ LOSS: Orderbook + Funding on Bonk (-3.0%)
+   ❌ LOSS: Whale + Volume on Bonk (-3.0%)
+   ❌ LOSS: S/R Breakout on Bonk (-3.0%)
+   ❌ LOSS: Momentum Squeeze on Bonk (-3.0%)
+   ✅ WIN: RSI Divergence on Bonk (10.0%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.57:1)
+   ✅ WIN: Fib 0.382 Entry on SAMO (12.4%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on SAMO (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (9.1%)
+   ✅ WIN: Fib + RSI on SAMO (8.2%)
+   ❌ LOSS: Fib + Volume on SAMO (-2.4%)
+   ❌ LOSS: Smart Money + Fib on SAMO (-2.4%)
+   ✅ WIN: Orderbook + Funding on SAMO (12.2%)
+   ✅ WIN: Whale + Volume on SAMO (9.8%)
+   ✅ WIN: S/R Breakout on SAMO (12.3%)
+   ❌ LOSS: Momentum Squeeze on SAMO (-2.4%)
+   ✅ WIN: RSI Divergence on SAMO (9.6%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.26:1)
+   ✅ WIN: Fib 0.382 Entry on COPE (9.3%)
+   ❌ LOSS: Fib 0.500 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on COPE (-2.4%)
+   ✅ WIN: Fib + RSI on COPE (8.7%)
+   ✅ WIN: Fib + Volume on COPE (10.1%)
+   ❌ LOSS: Smart Money + Fib on COPE (-2.4%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ❌ LOSS: Whale + Volume on COPE (-2.4%)
+   ✅ WIN: S/R Breakout on COPE (8.1%)
+   ❌ LOSS: Momentum Squeeze on COPE (-2.4%)
+   ✅ WIN: RSI Divergence on COPE (14.7%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 46 (expired)...
+✅ BOK updated: Strategies from cycles 47-51 are active
+✅ Synced to Live Trader: Fib 0.786 Deep (61.06% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.786 Deep:
+   WR: 61.1% (127W/81L)
+   PnL: 0.1323 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 61.1% (127W/81L)
+   PnL: 0.1263 SOL
+   Category: FAST_TRADE
+
+Fib 0.500 Entry:
+   WR: 59.1% (123W/85L)
+   PnL: 0.1305 SOL
+   Category: SCALPING
+
+Fib + Volume:
+   WR: 54.8% (114W/94L)
+   PnL: 0.0916 SOL
+   Category: FAST_TRADE
+
+Smart Money + Fib:
+   WR: 53.4% (111W/97L)
+   PnL: 0.0722 SOL
+   Category: SNIPER
+
+Fib 0.382 Entry:
+   WR: 51.4% (107W/101L)
+   PnL: 0.0694 SOL
+   Category: SCALPING
+
+RSI Divergence:
+   WR: 51.0% (106W/102L)
+   PnL: 0.0757 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 49.5% (103W/105L)
+   PnL: 0.0655 SOL
+   Category: SCALPING
+
+Orderbook + Funding:
+   WR: 47.6% (99W/109L)
+   PnL: 0.0725 SOL
+   Category: SWING_TRADE
+
+Whale + Volume:
+   WR: 44.7% (93W/115L)
+   PnL: 0.0494 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 51 | Total Sims: 2520 (20/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.95:1)
+   ✅ WIN: Fib 0.382 Entry on RAY (13.5%)
+   ✅ WIN: Fib 0.500 Entry on RAY (11.4%)
+   ❌ LOSS: Fib 0.618 Golden on RAY (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on RAY (-2.4%)
+   ❌ LOSS: Fib + RSI on RAY (-2.4%)
+   ✅ WIN: Fib + Volume on RAY (11.9%)
+   ❌ LOSS: Smart Money + Fib on RAY (-2.4%)
+   ❌ LOSS: Orderbook + Funding on RAY (-2.4%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ✅ WIN: S/R Breakout on RAY (9.0%)
+   ❌ LOSS: Momentum Squeeze on RAY (-2.4%)
+   ❌ LOSS: RSI Divergence on RAY (-2.4%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.03:1)
+   ✅ WIN: Fib 0.382 Entry on $WIF (10.8%)
+   ✅ WIN: Fib 0.500 Entry on $WIF (12.3%)
+   ✅ WIN: Fib 0.618 Golden on $WIF (14.5%)
+   ❌ LOSS: Fib 0.786 Deep on $WIF (-3.0%)
+   ✅ WIN: Fib + RSI on $WIF (8.6%)
+   ❌ LOSS: Fib + Volume on $WIF (-3.0%)
+   ❌ LOSS: Smart Money + Fib on $WIF (-3.0%)
+   ✅ WIN: Orderbook + Funding on $WIF (11.1%)
+   ✅ WIN: Whale + Volume on $WIF (9.6%)
+   ✅ WIN: S/R Breakout on $WIF (14.8%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-3.0%)
+   ✅ WIN: RSI Divergence on $WIF (14.0%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.24:1)
+   ❌ LOSS: Fib 0.382 Entry on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on mSOL (-2.4%)
+   ✅ WIN: Fib + RSI on mSOL (8.9%)
+   ❌ LOSS: Fib + Volume on mSOL (-2.4%)
+   ❌ LOSS: Smart Money + Fib on mSOL (-2.4%)
+   ✅ WIN: Orderbook + Funding on mSOL (12.2%)
+   ✅ WIN: Whale + Volume on mSOL (12.2%)
+   ❌ LOSS: S/R Breakout on mSOL (-2.4%)
+   ❌ LOSS: Momentum Squeeze on mSOL (-2.4%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.07:1)
+   ✅ WIN: Fib 0.382 Entry on ATLAS (10.7%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (8.2%)
+   ❌ LOSS: Fib 0.618 Golden on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (9.4%)
+   ❌ LOSS: Fib + RSI on ATLAS (-3.0%)
+   ✅ WIN: Fib + Volume on ATLAS (10.5%)
+   ❌ LOSS: Smart Money + Fib on ATLAS (-3.0%)
+   ✅ WIN: Orderbook + Funding on ATLAS (11.7%)
+   ✅ WIN: Whale + Volume on ATLAS (12.1%)
+   ✅ WIN: S/R Breakout on ATLAS (10.6%)
+   ✅ WIN: Momentum Squeeze on ATLAS (10.6%)
+   ✅ WIN: RSI Divergence on ATLAS (11.9%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.03:1)
+   ✅ WIN: Fib 0.382 Entry on Bonk (11.1%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-3.0%)
+   ✅ WIN: Fib 0.618 Golden on Bonk (13.8%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (11.3%)
+   ✅ WIN: Fib + RSI on Bonk (9.0%)
+   ❌ LOSS: Fib + Volume on Bonk (-3.0%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-3.0%)
+   ✅ WIN: Orderbook + Funding on Bonk (8.6%)
+   ✅ WIN: Whale + Volume on Bonk (11.3%)
+   ✅ WIN: S/R Breakout on Bonk (9.5%)
+   ✅ WIN: Momentum Squeeze on Bonk (13.2%)
+   ❌ LOSS: RSI Divergence on Bonk (-3.0%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.60:1)
+   ❌ LOSS: Fib 0.382 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ✅ WIN: Fib 0.618 Golden on SAMO (11.8%)
+   ❌ LOSS: Fib 0.786 Deep on SAMO (-2.4%)
+   ✅ WIN: Fib + RSI on SAMO (12.7%)
+   ✅ WIN: Fib + Volume on SAMO (13.2%)
+   ✅ WIN: Smart Money + Fib on SAMO (14.5%)
+   ✅ WIN: Orderbook + Funding on SAMO (8.3%)
+   ✅ WIN: Whale + Volume on SAMO (12.6%)
+   ❌ LOSS: S/R Breakout on SAMO (-2.4%)
+   ✅ WIN: Momentum Squeeze on SAMO (12.3%)
+   ❌ LOSS: RSI Divergence on SAMO (-2.4%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.29:1)
+   ✅ WIN: Fib 0.382 Entry on COPE (14.9%)
+   ✅ WIN: Fib 0.500 Entry on COPE (9.5%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on COPE (14.1%)
+   ❌ LOSS: Fib + RSI on COPE (-2.4%)
+   ✅ WIN: Fib + Volume on COPE (11.0%)
+   ❌ LOSS: Smart Money + Fib on COPE (-2.4%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ✅ WIN: Whale + Volume on COPE (8.7%)
+   ✅ WIN: S/R Breakout on COPE (13.6%)
+   ❌ LOSS: Momentum Squeeze on COPE (-2.4%)
+   ✅ WIN: RSI Divergence on COPE (14.0%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 48 (expired)...
+✅ BOK updated: Strategies from cycles 49-53 are active
+✅ Synced to Live Trader: S/R Breakout (61.40% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+S/R Breakout:
+   WR: 61.4% (132W/83L)
+   PnL: 0.1323 SOL
+   Category: FAST_TRADE
+
+Fib 0.786 Deep:
+   WR: 60.5% (130W/85L)
+   PnL: 0.1351 SOL
+   Category: SWING_TRADE
+
+Fib 0.500 Entry:
+   WR: 59.1% (127W/88L)
+   PnL: 0.1341 SOL
+   Category: SCALPING
+
+Fib + Volume:
+   WR: 54.9% (118W/97L)
+   PnL: 0.0944 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 52.1% (112W/103L)
+   PnL: 0.0738 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 52.1% (112W/103L)
+   PnL: 0.0719 SOL
+   Category: SNIPER
+
+RSI Divergence:
+   WR: 50.7% (109W/106L)
+   PnL: 0.0782 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 49.3% (106W/109L)
+   PnL: 0.0677 SOL
+   Category: SCALPING
+
+Orderbook + Funding:
+   WR: 48.4% (104W/111L)
+   PnL: 0.0763 SOL
+   Category: SWING_TRADE
+
+Whale + Volume:
+   WR: 46.0% (99W/116L)
+   PnL: 0.0543 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 53 | Total Sims: 2604 (4/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 53 | Total Sims: 2604 (4/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.94:1)
+   ❌ LOSS: Fib 0.382 Entry on RAY (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on RAY (12.2%)
+   ✅ WIN: Fib 0.618 Golden on RAY (10.9%)
+   ❌ LOSS: Fib 0.786 Deep on RAY (-2.4%)
+   ❌ LOSS: Fib + RSI on RAY (-2.4%)
+   ❌ LOSS: Fib + Volume on RAY (-2.4%)
+   ✅ WIN: Smart Money + Fib on RAY (10.6%)
+   ❌ LOSS: Orderbook + Funding on RAY (-2.4%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ❌ LOSS: S/R Breakout on RAY (-2.4%)
+   ❌ LOSS: Momentum Squeeze on RAY (-2.4%)
+   ✅ WIN: RSI Divergence on RAY (13.8%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.02:1)
+   ❌ LOSS: Fib 0.382 Entry on $WIF (-3.0%)
+   ✅ WIN: Fib 0.500 Entry on $WIF (10.2%)
+   ❌ LOSS: Fib 0.618 Golden on $WIF (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on $WIF (10.8%)
+   ❌ LOSS: Fib + RSI on $WIF (-3.0%)
+   ❌ LOSS: Fib + Volume on $WIF (-3.0%)
+   ✅ WIN: Smart Money + Fib on $WIF (14.4%)
+   ✅ WIN: Orderbook + Funding on $WIF (13.0%)
+   ❌ LOSS: Whale + Volume on $WIF (-3.0%)
+   ❌ LOSS: S/R Breakout on $WIF (-3.0%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-3.0%)
+   ❌ LOSS: RSI Divergence on $WIF (-3.0%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.24:1)
+   ✅ WIN: Fib 0.382 Entry on mSOL (8.6%)
+   ✅ WIN: Fib 0.500 Entry on mSOL (12.2%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on mSOL (10.3%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ❌ LOSS: Fib + Volume on mSOL (-2.4%)
+   ✅ WIN: Smart Money + Fib on mSOL (11.0%)
+   ✅ WIN: Orderbook + Funding on mSOL (14.9%)
+   ❌ LOSS: Whale + Volume on mSOL (-2.4%)
+   ❌ LOSS: S/R Breakout on mSOL (-2.4%)
+   ❌ LOSS: Momentum Squeeze on mSOL (-2.4%)
+   ✅ WIN: RSI Divergence on mSOL (11.7%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.03:1)
+   ✅ WIN: Fib 0.382 Entry on ATLAS (11.6%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (10.9%)
+   ❌ LOSS: Fib 0.618 Golden on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (14.4%)
+   ❌ LOSS: Fib + RSI on ATLAS (-3.0%)
+   ❌ LOSS: Fib + Volume on ATLAS (-3.0%)
+   ❌ LOSS: Smart Money + Fib on ATLAS (-3.0%)
+   ✅ WIN: Orderbook + Funding on ATLAS (8.6%)
+   ✅ WIN: Whale + Volume on ATLAS (14.9%)
+   ❌ LOSS: S/R Breakout on ATLAS (-3.0%)
+   ✅ WIN: Momentum Squeeze on ATLAS (10.7%)
+   ❌ LOSS: RSI Divergence on ATLAS (-3.0%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.03:1)
+   ✅ WIN: Fib 0.382 Entry on Bonk (10.2%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on Bonk (-3.0%)
+   ❌ LOSS: Fib 0.786 Deep on Bonk (-3.0%)
+   ✅ WIN: Fib + RSI on Bonk (9.5%)
+   ✅ WIN: Fib + Volume on Bonk (14.1%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-3.0%)
+   ✅ WIN: Orderbook + Funding on Bonk (8.7%)
+   ❌ LOSS: Whale + Volume on Bonk (-3.0%)
+   ❌ LOSS: S/R Breakout on Bonk (-3.0%)
+   ✅ WIN: Momentum Squeeze on Bonk (13.8%)
+   ❌ LOSS: RSI Divergence on Bonk (-3.0%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.62:1)
+   ❌ LOSS: Fib 0.382 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ✅ WIN: Fib 0.618 Golden on SAMO (14.6%)
+   ❌ LOSS: Fib 0.786 Deep on SAMO (-2.4%)
+   ❌ LOSS: Fib + RSI on SAMO (-2.4%)
+   ❌ LOSS: Fib + Volume on SAMO (-2.4%)
+   ✅ WIN: Smart Money + Fib on SAMO (10.3%)
+   ✅ WIN: Orderbook + Funding on SAMO (12.8%)
+   ❌ LOSS: Whale + Volume on SAMO (-2.4%)
+   ✅ WIN: S/R Breakout on SAMO (13.5%)
+   ✅ WIN: Momentum Squeeze on SAMO (13.3%)
+   ❌ LOSS: RSI Divergence on SAMO (-2.4%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.36:1)
+   ✅ WIN: Fib 0.382 Entry on COPE (12.6%)
+   ✅ WIN: Fib 0.500 Entry on COPE (10.4%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on COPE (12.4%)
+   ✅ WIN: Fib + RSI on COPE (10.9%)
+   ❌ LOSS: Fib + Volume on COPE (-2.4%)
+   ❌ LOSS: Smart Money + Fib on COPE (-2.4%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ❌ LOSS: Whale + Volume on COPE (-2.4%)
+   ✅ WIN: S/R Breakout on COPE (9.3%)
+   ✅ WIN: Momentum Squeeze on COPE (10.0%)
+   ❌ LOSS: RSI Divergence on COPE (-2.4%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 49 (expired)...
+✅ BOK updated: Strategies from cycles 50-54 are active
+✅ Synced to Live Trader: Fib 0.786 Deep (60.36% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.786 Deep:
+   WR: 60.4% (134W/88L)
+   PnL: 0.1396 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 60.4% (134W/88L)
+   PnL: 0.1328 SOL
+   Category: FAST_TRADE
+
+Fib 0.500 Entry:
+   WR: 59.5% (132W/90L)
+   PnL: 0.1393 SOL
+   Category: SCALPING
+
+Fib + Volume:
+   WR: 53.6% (119W/103L)
+   PnL: 0.0944 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 52.3% (116W/106L)
+   PnL: 0.0765 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 52.3% (116W/106L)
+   PnL: 0.0745 SOL
+   Category: SNIPER
+
+RSI Divergence:
+   WR: 50.0% (111W/111L)
+   PnL: 0.0787 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 49.5% (110W/112L)
+   PnL: 0.0708 SOL
+   Category: SCALPING
+
+Orderbook + Funding:
+   WR: 49.1% (109W/113L)
+   PnL: 0.0805 SOL
+   Category: SWING_TRADE
+
+Whale + Volume:
+   WR: 45.0% (100W/122L)
+   PnL: 0.0545 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 54 | Total Sims: 2688 (38/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.94:1)
+   ✅ WIN: Fib 0.382 Entry on RAY (12.6%)
+   ✅ WIN: Fib 0.500 Entry on RAY (12.4%)
+   ✅ WIN: Fib 0.618 Golden on RAY (10.5%)
+   ✅ WIN: Fib 0.786 Deep on RAY (13.5%)
+   ✅ WIN: Fib + RSI on RAY (11.8%)
+   ✅ WIN: Fib + Volume on RAY (14.9%)
+   ✅ WIN: Smart Money + Fib on RAY (8.7%)
+   ✅ WIN: Orderbook + Funding on RAY (14.6%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ❌ LOSS: S/R Breakout on RAY (-2.4%)
+   ✅ WIN: Momentum Squeeze on RAY (11.4%)
+   ❌ LOSS: RSI Divergence on RAY (-2.4%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.02:1)
+   ❌ LOSS: Fib 0.382 Entry on $WIF (-3.0%)
+   ❌ LOSS: Fib 0.500 Entry on $WIF (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on $WIF (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on $WIF (9.4%)
+   ❌ LOSS: Fib + RSI on $WIF (-3.0%)
+   ✅ WIN: Fib + Volume on $WIF (10.4%)
+   ✅ WIN: Smart Money + Fib on $WIF (14.4%)
+   ✅ WIN: Orderbook + Funding on $WIF (10.7%)
+   ❌ LOSS: Whale + Volume on $WIF (-3.0%)
+   ❌ LOSS: S/R Breakout on $WIF (-3.0%)
+   ✅ WIN: Momentum Squeeze on $WIF (10.9%)
+   ✅ WIN: RSI Divergence on $WIF (10.6%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.24:1)
+   ✅ WIN: Fib 0.382 Entry on mSOL (9.3%)
+   ✅ WIN: Fib 0.500 Entry on mSOL (12.7%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on mSOL (-2.4%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ✅ WIN: Fib + Volume on mSOL (13.7%)
+   ❌ LOSS: Smart Money + Fib on mSOL (-2.4%)
+   ✅ WIN: Orderbook + Funding on mSOL (9.5%)
+   ✅ WIN: Whale + Volume on mSOL (9.1%)
+   ✅ WIN: S/R Breakout on mSOL (9.0%)
+   ❌ LOSS: Momentum Squeeze on mSOL (-2.4%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.03:1)
+   ❌ LOSS: Fib 0.382 Entry on ATLAS (-3.0%)
+   ❌ LOSS: Fib 0.500 Entry on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.618 Golden on ATLAS (9.7%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (13.2%)
+   ❌ LOSS: Fib + RSI on ATLAS (-3.0%)
+   ✅ WIN: Fib + Volume on ATLAS (13.0%)
+   ❌ LOSS: Smart Money + Fib on ATLAS (-3.0%)
+   ❌ LOSS: Orderbook + Funding on ATLAS (-3.0%)
+   ❌ LOSS: Whale + Volume on ATLAS (-3.0%)
+   ✅ WIN: S/R Breakout on ATLAS (8.3%)
+   ❌ LOSS: Momentum Squeeze on ATLAS (-3.0%)
+   ✅ WIN: RSI Divergence on ATLAS (13.1%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.01:1)
+   ✅ WIN: Fib 0.382 Entry on Bonk (14.6%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-3.0%)
+   ✅ WIN: Fib 0.618 Golden on Bonk (14.4%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (10.1%)
+   ❌ LOSS: Fib + RSI on Bonk (-3.0%)
+   ❌ LOSS: Fib + Volume on Bonk (-3.0%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-3.0%)
+   ✅ WIN: Orderbook + Funding on Bonk (10.3%)
+   ✅ WIN: Whale + Volume on Bonk (14.0%)
+   ✅ WIN: S/R Breakout on Bonk (8.4%)
+   ❌ LOSS: Momentum Squeeze on Bonk (-3.0%)
+   ✅ WIN: RSI Divergence on Bonk (13.8%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.63:1)
+   ❌ LOSS: Fib 0.382 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ✅ WIN: Fib 0.618 Golden on SAMO (9.7%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (9.3%)
+   ✅ WIN: Fib + RSI on SAMO (10.4%)
+   ❌ LOSS: Fib + Volume on SAMO (-2.4%)
+   ❌ LOSS: Smart Money + Fib on SAMO (-2.4%)
+   ✅ WIN: Orderbook + Funding on SAMO (9.0%)
+   ❌ LOSS: Whale + Volume on SAMO (-2.4%)
+   ✅ WIN: S/R Breakout on SAMO (9.1%)
+   ❌ LOSS: Momentum Squeeze on SAMO (-2.4%)
+   ❌ LOSS: RSI Divergence on SAMO (-2.4%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.36:1)
+   ❌ LOSS: Fib 0.382 Entry on COPE (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on COPE (11.2%)
+   ✅ WIN: Fib 0.618 Golden on COPE (12.8%)
+   ✅ WIN: Fib 0.786 Deep on COPE (11.8%)
+   ✅ WIN: Fib + RSI on COPE (12.0%)
+   ✅ WIN: Fib + Volume on COPE (14.5%)
+   ❌ LOSS: Smart Money + Fib on COPE (-2.4%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ✅ WIN: Whale + Volume on COPE (11.6%)
+   ❌ LOSS: S/R Breakout on COPE (-2.4%)
+   ✅ WIN: Momentum Squeeze on COPE (8.6%)
+   ✅ WIN: RSI Divergence on COPE (9.4%)
+
+💾 PROVEN TOKENS saved:
+
+🧹 Cleaning up strategies from Cycle 51 (expired)...
+✅ BOK updated: Strategies from cycles 52-56 are active
+✅ Synced to Live Trader: Fib 0.786 Deep (61.14% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.786 Deep:
+   WR: 61.1% (140W/89L)
+   PnL: 0.1466 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 60.3% (138W/91L)
+   PnL: 0.1357 SOL
+   Category: FAST_TRADE
+
+Fib 0.500 Entry:
+   WR: 59.0% (135W/94L)
+   PnL: 0.1412 SOL
+   Category: SCALPING
+
+Fib + Volume:
+   WR: 54.1% (124W/105L)
+   PnL: 0.0992 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 52.0% (119W/110L)
+   PnL: 0.0784 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 51.5% (118W/111L)
+   PnL: 0.0753 SOL
+   Category: SNIPER
+
+RSI Divergence:
+   WR: 50.2% (115W/114L)
+   PnL: 0.0822 SOL
+   Category: SWING_TRADE
+
+Orderbook + Funding:
+   WR: 49.8% (114W/115L)
+   PnL: 0.0840 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 49.3% (113W/116L)
+   PnL: 0.0722 SOL
+   Category: SCALPING
+
+Whale + Volume:
+   WR: 45.0% (103W/126L)
+   PnL: 0.0562 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 58 | Total Sims: 2856 (6/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.94:1)
+   ❌ LOSS: Fib 0.382 Entry on RAY (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on RAY (10.5%)
+   ✅ WIN: Fib 0.618 Golden on RAY (9.0%)
+   ✅ WIN: Fib 0.786 Deep on RAY (9.3%)
+   ❌ LOSS: Fib + RSI on RAY (-2.4%)
+   ❌ LOSS: Fib + Volume on RAY (-2.4%)
+   ❌ LOSS: Smart Money + Fib on RAY (-2.4%)
+   ✅ WIN: Orderbook + Funding on RAY (10.8%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ✅ WIN: S/R Breakout on RAY (9.3%)
+   ✅ WIN: Momentum Squeeze on RAY (13.9%)
+   ❌ LOSS: RSI Divergence on RAY (-2.4%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.03:1)
+   ✅ WIN: Fib 0.382 Entry on $WIF (12.6%)
+   ✅ WIN: Fib 0.500 Entry on $WIF (12.8%)
+   ✅ WIN: Fib 0.618 Golden on $WIF (11.2%)
+   ✅ WIN: Fib 0.786 Deep on $WIF (13.0%)
+   ❌ LOSS: Fib + RSI on $WIF (-3.0%)
+   ❌ LOSS: Fib + Volume on $WIF (-3.0%)
+   ❌ LOSS: Smart Money + Fib on $WIF (-3.0%)
+   ✅ WIN: Orderbook + Funding on $WIF (10.0%)
+   ✅ WIN: Whale + Volume on $WIF (9.9%)
+   ❌ LOSS: S/R Breakout on $WIF (-3.0%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-3.0%)
+   ❌ LOSS: RSI Divergence on $WIF (-3.0%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.24:1)
+   ✅ WIN: Fib 0.382 Entry on mSOL (8.5%)
+   ✅ WIN: Fib 0.500 Entry on mSOL (8.7%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on mSOL (9.1%)
+   ✅ WIN: Fib + RSI on mSOL (13.9%)
+   ❌ LOSS: Fib + Volume on mSOL (-2.4%)
+   ✅ WIN: Smart Money + Fib on mSOL (10.1%)
+   ❌ LOSS: Orderbook + Funding on mSOL (-2.4%)
+   ❌ LOSS: Whale + Volume on mSOL (-2.4%)
+   ❌ LOSS: S/R Breakout on mSOL (-2.4%)
+   ✅ WIN: Momentum Squeeze on mSOL (14.0%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.03:1)
+   ✅ WIN: Fib 0.382 Entry on ATLAS (8.4%)
+   ❌ LOSS: Fib 0.500 Entry on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.618 Golden on ATLAS (11.7%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (11.6%)
+   ✅ WIN: Fib + RSI on ATLAS (12.3%)
+   ❌ LOSS: Fib + Volume on ATLAS (-3.0%)
+   ✅ WIN: Smart Money + Fib on ATLAS (10.1%)
+   ✅ WIN: Orderbook + Funding on ATLAS (8.4%)
+   ✅ WIN: Whale + Volume on ATLAS (11.1%)
+   ❌ LOSS: S/R Breakout on ATLAS (-3.0%)
+   ❌ LOSS: Momentum Squeeze on ATLAS (-3.0%)
+   ❌ LOSS: RSI Divergence on ATLAS (-3.0%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (1.00:1)
+   ❌ LOSS: Fib 0.382 Entry on Bonk (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-2.4%)
+   ✅ WIN: Fib 0.618 Golden on Bonk (8.8%)
+   ❌ LOSS: Fib 0.786 Deep on Bonk (-2.4%)
+   ✅ WIN: Fib + RSI on Bonk (11.4%)
+   ❌ LOSS: Fib + Volume on Bonk (-2.4%)
+   ✅ WIN: Smart Money + Fib on Bonk (14.0%)
+   ❌ LOSS: Orderbook + Funding on Bonk (-2.4%)
+   ✅ WIN: Whale + Volume on Bonk (14.8%)
+   ✅ WIN: S/R Breakout on Bonk (11.8%)
+   ❌ LOSS: Momentum Squeeze on Bonk (-2.4%)
+   ✅ WIN: RSI Divergence on Bonk (13.0%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.63:1)
+   ❌ LOSS: Fib 0.382 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on SAMO (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (9.8%)
+   ❌ LOSS: Fib + RSI on SAMO (-2.4%)
+   ✅ WIN: Fib + Volume on SAMO (13.0%)
+   ❌ LOSS: Smart Money + Fib on SAMO (-2.4%)
+   ✅ WIN: Orderbook + Funding on SAMO (13.3%)
+   ❌ LOSS: Whale + Volume on SAMO (-2.4%)
+   ✅ WIN: S/R Breakout on SAMO (10.3%)
+   ✅ WIN: Momentum Squeeze on SAMO (11.4%)
+   ❌ LOSS: RSI Divergence on SAMO (-2.4%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.37:1)
+   ✅ WIN: Fib 0.382 Entry on COPE (14.8%)
+   ✅ WIN: Fib 0.500 Entry on COPE (11.5%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on COPE (-2.4%)
+   ❌ LOSS: Fib + RSI on COPE (-2.4%)
+   ❌ LOSS: Fib + Volume on COPE (-2.4%)
+   ✅ WIN: Smart Money + Fib on COPE (8.5%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ✅ WIN: Whale + Volume on COPE (14.8%)
+   ❌ LOSS: S/R Breakout on COPE (-2.4%)
+   ✅ WIN: Momentum Squeeze on COPE (11.3%)
+   ❌ LOSS: RSI Divergence on COPE (-2.4%)
+
+💾 PROVEN TOKENS saved:
+   • Fib 0.786 Deep: 13 proven tokens
+     - mSOL: 23 wins, +10.4% avg
+     - $WIF: 22 wins, +12.4% avg
+     - SAMO: 21 wins, +9.8% avg
+
+🧹 Cleaning up strategies from Cycle 54 (expired)...
+✅ BOK updated: Strategies from cycles 55-59 are active
+✅ Synced to Live Trader: Fib 0.786 Deep (61.32% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.786 Deep:
+   WR: 61.3% (149W/94L)
+   PnL: 0.1570 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 60.1% (146W/97L)
+   PnL: 0.1433 SOL
+   Category: FAST_TRADE
+
+Fib 0.500 Entry:
+   WR: 58.4% (142W/101L)
+   PnL: 0.1467 SOL
+   Category: SCALPING
+
+Fib + Volume:
+   WR: 53.1% (129W/114L)
+   PnL: 0.1022 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 51.4% (125W/118L)
+   PnL: 0.0823 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 51.0% (124W/119L)
+   PnL: 0.0779 SOL
+   Category: SNIPER
+
+Orderbook + Funding:
+   WR: 50.2% (122W/121L)
+   PnL: 0.0885 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 49.8% (121W/122L)
+   PnL: 0.0775 SOL
+   Category: SCALPING
+
+RSI Divergence:
+   WR: 49.0% (119W/124L)
+   PnL: 0.0834 SOL
+   Category: SWING_TRADE
+
+Fib 0.618 Golden:
+   WR: 44.9% (109W/134L)
+   PnL: 0.0640 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 59 | Total Sims: 2940 (40/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.95:1)
+   ❌ LOSS: Fib 0.382 Entry on RAY (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on RAY (10.5%)
+   ✅ WIN: Fib 0.618 Golden on RAY (11.4%)
+   ✅ WIN: Fib 0.786 Deep on RAY (10.7%)
+   ✅ WIN: Fib + RSI on RAY (10.1%)
+   ❌ LOSS: Fib + Volume on RAY (-2.4%)
+   ❌ LOSS: Smart Money + Fib on RAY (-2.4%)
+   ✅ WIN: Orderbook + Funding on RAY (13.7%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ✅ WIN: S/R Breakout on RAY (11.8%)
+   ❌ LOSS: Momentum Squeeze on RAY (-2.4%)
+   ✅ WIN: RSI Divergence on RAY (11.3%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.05:1)
+   ✅ WIN: Fib 0.382 Entry on $WIF (14.4%)
+   ✅ WIN: Fib 0.500 Entry on $WIF (11.7%)
+   ✅ WIN: Fib 0.618 Golden on $WIF (12.1%)
+   ✅ WIN: Fib 0.786 Deep on $WIF (14.6%)
+   ✅ WIN: Fib + RSI on $WIF (14.2%)
+   ❌ LOSS: Fib + Volume on $WIF (-3.0%)
+   ✅ WIN: Smart Money + Fib on $WIF (13.2%)
+   ✅ WIN: Orderbook + Funding on $WIF (10.4%)
+   ✅ WIN: Whale + Volume on $WIF (14.5%)
+   ❌ LOSS: S/R Breakout on $WIF (-3.0%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-3.0%)
+   ✅ WIN: RSI Divergence on $WIF (12.5%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.25:1)
+   ❌ LOSS: Fib 0.382 Entry on mSOL (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on mSOL (13.0%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on mSOL (-2.4%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ✅ WIN: Fib + Volume on mSOL (15.0%)
+   ✅ WIN: Smart Money + Fib on mSOL (9.9%)
+   ❌ LOSS: Orderbook + Funding on mSOL (-2.4%)
+   ✅ WIN: Whale + Volume on mSOL (8.8%)
+   ✅ WIN: S/R Breakout on mSOL (12.7%)
+   ❌ LOSS: Momentum Squeeze on mSOL (-2.4%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.04:1)
+   ❌ LOSS: Fib 0.382 Entry on ATLAS (-3.0%)
+   ❌ LOSS: Fib 0.500 Entry on ATLAS (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (10.5%)
+   ❌ LOSS: Fib + RSI on ATLAS (-3.0%)
+   ❌ LOSS: Fib + Volume on ATLAS (-3.0%)
+   ✅ WIN: Smart Money + Fib on ATLAS (12.4%)
+   ✅ WIN: Orderbook + Funding on ATLAS (14.9%)
+   ✅ WIN: Whale + Volume on ATLAS (12.2%)
+   ✅ WIN: S/R Breakout on ATLAS (10.2%)
+   ❌ LOSS: Momentum Squeeze on ATLAS (-3.0%)
+   ✅ WIN: RSI Divergence on ATLAS (12.3%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.99:1)
+   ❌ LOSS: Fib 0.382 Entry on Bonk (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on Bonk (8.0%)
+   ✅ WIN: Fib 0.618 Golden on Bonk (10.7%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (9.3%)
+   ✅ WIN: Fib + RSI on Bonk (9.6%)
+   ❌ LOSS: Fib + Volume on Bonk (-2.4%)
+   ❌ LOSS: Smart Money + Fib on Bonk (-2.4%)
+   ✅ WIN: Orderbook + Funding on Bonk (9.0%)
+   ❌ LOSS: Whale + Volume on Bonk (-2.4%)
+   ❌ LOSS: S/R Breakout on Bonk (-2.4%)
+   ❌ LOSS: Momentum Squeeze on Bonk (-2.4%)
+   ❌ LOSS: RSI Divergence on Bonk (-2.4%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.66:1)
+   ✅ WIN: Fib 0.382 Entry on SAMO (13.5%)
+   ✅ WIN: Fib 0.500 Entry on SAMO (12.2%)
+   ✅ WIN: Fib 0.618 Golden on SAMO (10.3%)
+   ❌ LOSS: Fib 0.786 Deep on SAMO (-2.4%)
+   ✅ WIN: Fib + RSI on SAMO (8.4%)
+   ❌ LOSS: Fib + Volume on SAMO (-2.4%)
+   ❌ LOSS: Smart Money + Fib on SAMO (-2.4%)
+   ❌ LOSS: Orderbook + Funding on SAMO (-2.4%)
+   ❌ LOSS: Whale + Volume on SAMO (-2.4%)
+   ✅ WIN: S/R Breakout on SAMO (12.8%)
+   ❌ LOSS: Momentum Squeeze on SAMO (-2.4%)
+   ❌ LOSS: RSI Divergence on SAMO (-2.4%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.38:1)
+   ✅ WIN: Fib 0.382 Entry on COPE (11.9%)
+   ✅ WIN: Fib 0.500 Entry on COPE (13.7%)
+   ✅ WIN: Fib 0.618 Golden on COPE (9.2%)
+   ✅ WIN: Fib 0.786 Deep on COPE (9.3%)
+   ❌ LOSS: Fib + RSI on COPE (-2.4%)
+   ✅ WIN: Fib + Volume on COPE (14.6%)
+   ✅ WIN: Smart Money + Fib on COPE (14.8%)
+   ✅ WIN: Orderbook + Funding on COPE (10.1%)
+   ✅ WIN: Whale + Volume on COPE (13.2%)
+   ✅ WIN: S/R Breakout on COPE (8.4%)
+   ❌ LOSS: Momentum Squeeze on COPE (-2.4%)
+   ✅ WIN: RSI Divergence on COPE (14.0%)
+
+💾 PROVEN TOKENS saved:
+   • Fib 0.786 Deep: 13 proven tokens
+     - mSOL: 23 wins, +10.4% avg
+     - $WIF: 23 wins, +13.5% avg
+     - COPE: 22 wins, +10.8% avg
+
+🧹 Cleaning up strategies from Cycle 56 (expired)...
+✅ BOK updated: Strategies from cycles 57-61 are active
+✅ Synced to Live Trader: Fib 0.786 Deep (61.60% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.786 Deep:
+   WR: 61.6% (154W/96L)
+   PnL: 0.1624 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 60.4% (151W/99L)
+   PnL: 0.1481 SOL
+   Category: FAST_TRADE
+
+Fib 0.500 Entry:
+   WR: 59.2% (148W/102L)
+   PnL: 0.1526 SOL
+   Category: SCALPING
+
+Fib + Volume:
+   WR: 52.4% (131W/119L)
+   PnL: 0.1031 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 51.2% (128W/122L)
+   PnL: 0.0845 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 51.2% (128W/122L)
+   PnL: 0.0813 SOL
+   Category: SNIPER
+
+Orderbook + Funding:
+   WR: 50.8% (127W/123L)
+   PnL: 0.0925 SOL
+   Category: SWING_TRADE
+
+RSI Divergence:
+   WR: 49.2% (123W/127L)
+   PnL: 0.0867 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 48.4% (121W/129L)
+   PnL: 0.0762 SOL
+   Category: SCALPING
+
+Fib 0.618 Golden:
+   WR: 45.6% (114W/136L)
+   PnL: 0.0673 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 61 | Total Sims: 3024 (24/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens
+✅ Filtered 7/7 tokens
+
+📊 Found 7 tokens from market scan
+
+🔍 Testing: RAY
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.95:1)
+   ❌ LOSS: Fib 0.382 Entry on RAY (-2.4%)
+   ✅ WIN: Fib 0.500 Entry on RAY (14.8%)
+   ❌ LOSS: Fib 0.618 Golden on RAY (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on RAY (11.7%)
+   ❌ LOSS: Fib + RSI on RAY (-2.4%)
+   ✅ WIN: Fib + Volume on RAY (12.2%)
+   ❌ LOSS: Smart Money + Fib on RAY (-2.4%)
+   ❌ LOSS: Orderbook + Funding on RAY (-2.4%)
+   ❌ LOSS: Whale + Volume on RAY (-2.4%)
+   ✅ WIN: S/R Breakout on RAY (12.2%)
+   ❌ LOSS: Momentum Squeeze on RAY (-2.4%)
+   ❌ LOSS: RSI Divergence on RAY (-2.4%)
+🔍 Testing: $WIF
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.07:1)
+   ✅ WIN: Fib 0.382 Entry on $WIF (12.7%)
+   ❌ LOSS: Fib 0.500 Entry on $WIF (-3.0%)
+   ✅ WIN: Fib 0.618 Golden on $WIF (13.0%)
+   ❌ LOSS: Fib 0.786 Deep on $WIF (-3.0%)
+   ✅ WIN: Fib + RSI on $WIF (11.8%)
+   ✅ WIN: Fib + Volume on $WIF (11.8%)
+   ❌ LOSS: Smart Money + Fib on $WIF (-3.0%)
+   ❌ LOSS: Orderbook + Funding on $WIF (-3.0%)
+   ✅ WIN: Whale + Volume on $WIF (14.9%)
+   ❌ LOSS: S/R Breakout on $WIF (-3.0%)
+   ❌ LOSS: Momentum Squeeze on $WIF (-3.0%)
+   ❌ LOSS: RSI Divergence on $WIF (-3.0%)
+🔍 Testing: mSOL
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.25:1)
+   ❌ LOSS: Fib 0.382 Entry on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on mSOL (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on mSOL (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on mSOL (10.5%)
+   ❌ LOSS: Fib + RSI on mSOL (-2.4%)
+   ✅ WIN: Fib + Volume on mSOL (11.7%)
+   ✅ WIN: Smart Money + Fib on mSOL (10.5%)
+   ❌ LOSS: Orderbook + Funding on mSOL (-2.4%)
+   ✅ WIN: Whale + Volume on mSOL (14.3%)
+   ✅ WIN: S/R Breakout on mSOL (10.9%)
+   ❌ LOSS: Momentum Squeeze on mSOL (-2.4%)
+   ❌ LOSS: RSI Divergence on mSOL (-2.4%)
+🔍 Testing: ATLAS
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: moderate (1.02:1)
+   ✅ WIN: Fib 0.382 Entry on ATLAS (14.6%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (14.1%)
+   ❌ LOSS: Fib 0.618 Golden on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (14.0%)
+   ✅ WIN: Fib + RSI on ATLAS (8.2%)
+   ✅ WIN: Fib + Volume on ATLAS (9.6%)
+   ✅ WIN: Smart Money + Fib on ATLAS (10.8%)
+   ❌ LOSS: Orderbook + Funding on ATLAS (-3.0%)
+   ❌ LOSS: Whale + Volume on ATLAS (-3.0%)
+   ✅ WIN: S/R Breakout on ATLAS (9.5%)
+   ✅ WIN: Momentum Squeeze on ATLAS (11.0%)
+   ✅ WIN: RSI Divergence on ATLAS (8.4%)
+🔍 Testing: Bonk
+   ✅ Candle: CONSOLIDATION: Stable price with good volume - ready for breakout (Score: 7)
+   📊 Order Book: weak (0.99:1)
+   ✅ WIN: Fib 0.382 Entry on Bonk (14.3%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-2.4%)
+   ✅ WIN: Fib 0.618 Golden on Bonk (8.9%)
+   ✅ WIN: Fib 0.786 Deep on Bonk (9.4%)
+   ❌ LOSS: Fib + RSI on Bonk (-2.4%)
+   ❌ LOSS: Fib + Volume on Bonk (-2.4%)
+   ✅ WIN: Smart Money + Fib on Bonk (13.2%)
+   ✅ WIN: Orderbook + Funding on Bonk (13.4%)
+   ✅ WIN: Whale + Volume on Bonk (8.0%)
+   ✅ WIN: S/R Breakout on Bonk (13.1%)
+   ✅ WIN: Momentum Squeeze on Bonk (13.6%)
+   ✅ WIN: RSI Divergence on Bonk (9.8%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.69:1)
+   ❌ LOSS: Fib 0.382 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on SAMO (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (13.3%)
+   ❌ LOSS: Fib + RSI on SAMO (-2.4%)
+   ✅ WIN: Fib + Volume on SAMO (9.8%)
+   ❌ LOSS: Smart Money + Fib on SAMO (-2.4%)
+   ✅ WIN: Orderbook + Funding on SAMO (13.8%)
+   ❌ LOSS: Whale + Volume on SAMO (-2.4%)
+   ✅ WIN: S/R Breakout on SAMO (10.5%)
+   ✅ WIN: Momentum Squeeze on SAMO (12.5%)
+   ✅ WIN: RSI Divergence on SAMO (8.6%)
+🔍 Testing: COPE
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.38:1)
+   ❌ LOSS: Fib 0.382 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on COPE (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on COPE (-2.4%)
+   ✅ WIN: Fib 0.786 Deep on COPE (9.5%)
+   ✅ WIN: Fib + RSI on COPE (9.9%)
+   ✅ WIN: Fib + Volume on COPE (12.3%)
+   ❌ LOSS: Smart Money + Fib on COPE (-2.4%)
+   ❌ LOSS: Orderbook + Funding on COPE (-2.4%)
+   ❌ LOSS: Whale + Volume on COPE (-2.4%)
+   ✅ WIN: S/R Breakout on COPE (11.6%)
+   ✅ WIN: Momentum Squeeze on COPE (13.3%)
+   ✅ WIN: RSI Divergence on COPE (12.1%)
+
+💾 PROVEN TOKENS saved:
+   • Fib 0.786 Deep: 13 proven tokens
+     - mSOL: 24 wins, +10.5% avg
+     - COPE: 23 wins, +10.2% avg
+     - $WIF: 23 wins, +13.5% avg
+   • S/R Breakout: 13 proven tokens
+     - Bonk: 26 wins, +12.1% avg
+     - RAY: 25 wins, +11.8% avg
+     - ATLAS: 22 wins, +9.8% avg
+
+🧹 Cleaning up strategies from Cycle 58 (expired)...
+✅ BOK updated: Strategies from cycles 59-63 are active
+✅ Synced to Live Trader: Fib 0.786 Deep (62.26% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.786 Deep:
+   WR: 62.3% (160W/97L)
+   PnL: 0.1686 SOL
+   Category: SWING_TRADE
+
+S/R Breakout:
+   WR: 61.1% (157W/100L)
+   PnL: 0.1541 SOL
+   Category: FAST_TRADE
+
+Fib 0.500 Entry:
+   WR: 58.4% (150W/107L)
+   PnL: 0.1540 SOL
+   Category: SCALPING
+
+Fib + Volume:
+   WR: 53.3% (137W/120L)
+   PnL: 0.1078 SOL
+   Category: FAST_TRADE
+
+Fib 0.382 Entry:
+   WR: 51.0% (131W/126L)
+   PnL: 0.0872 SOL
+   Category: SCALPING
+
+Smart Money + Fib:
+   WR: 51.0% (131W/126L)
+   PnL: 0.0831 SOL
+   Category: SNIPER
+
+Orderbook + Funding:
+   WR: 50.2% (129W/128L)
+   PnL: 0.0933 SOL
+   Category: SWING_TRADE
+
+RSI Divergence:
+   WR: 49.4% (127W/130L)
+   PnL: 0.0889 SOL
+   Category: SWING_TRADE
+
+Momentum Squeeze:
+   WR: 48.6% (125W/132L)
+   PnL: 0.0791 SOL
+   Category: SCALPING
+
+Fib 0.618 Golden:
+   WR: 45.1% (116W/141L)
+   PnL: 0.0682 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 63 | Total Sims: 3108 (8/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 30 established tokens

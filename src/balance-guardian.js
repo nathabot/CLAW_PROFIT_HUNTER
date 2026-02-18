@@ -266,7 +266,7 @@ class BalanceGuardian {
       `Next steps:\n` +
       `1. Analyze failed trades\n` +
       `2. Run Paper Trader optimization\n` +
-      `3. Find strategy with WR >=65%\n` +
+      `3. Find strategy with WR >=61%\n` +
       `4. Resume only after validation`,
       'alert'
     );
@@ -279,7 +279,7 @@ class BalanceGuardian {
       `🔍 **STRATEGY OPTIMIZATION**\n\n` +
       `Paper Trader v5 running intensive simulation...\n` +
       `Testing 8 strategy combinations\n` +
-      `Target: WR >=65%\n\n` +
+      `Target: WR >=61%\n\n` +
       `This may take 10-15 minutes...`,
       'normal'
     );

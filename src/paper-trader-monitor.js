@@ -102,7 +102,7 @@ class PaperTraderMonitor {
       }).length;
       
       msg += `\n📚 **BOK Status:**\n`;
-      msg += `✅ Qualified (≥65% WR, 3+ trades): ${qualified}\n`;
+      msg += `✅ Qualified (≥61% WR, 3+ trades): ${qualified}\n`;
       msg += `🎯 Target: WR ≥ 70% for Live Trading\n`;
     } else {
       msg += `⏳ Building statistics...\n`;

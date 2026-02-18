@@ -5,14 +5,14 @@
     "7/10 tokens pumping"
   ],
   "indicators": {
-    "solPrice": 84.74,
-    "priceChange24h": -1.46,
-    "priceChange1h": -0.46,
-    "volume24h": 122530474.67,
-    "volatility": 0.5208333333333334,
+    "solPrice": 85.34,
+    "priceChange24h": -0.62,
+    "priceChange1h": -0.13,
+    "volume24h": 121536592.31,
+    "volatility": 0.15583333333333332,
     "bullishTokens": 7,
     "bearishTokens": 2,
-    "timestamp": 1771399804190
+    "timestamp": 1771408804164
   },
   "recommendations": {
     "primary": [
@@ -32,5 +32,5 @@
     "slMultiplier": 1,
     "tpMultiplier": 1.2
   },
-  "lastUpdate": "2026-02-18T07:30:04.190Z"
+  "lastUpdate": "2026-02-18T10:00:04.164Z"
 }
