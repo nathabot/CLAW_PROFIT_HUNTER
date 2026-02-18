@@ -56,8 +56,66 @@ function tailFile(filePath, lines = 50) {
     }
 }
 
+// Calculate total equity (SOL balance + open positions value)
+async function calculateTotalEquity() {
+    try {
+        // Get SOL balance
+        const balance = readJSON(`${TRADING_BOT_DIR}/current-balance.json`, {});
+        const solBalance = parseFloat(balance.balance || balance.current || 0);
+        
+        // Get open positions
+        const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
+        const openPositions = positions.filter(p => !p.exited);
+        
+        // Calculate positions value in SOL
+        let positionsValueSOL = 0;
+        
+        for (const pos of openPositions) {
+            try {
+                // Get current price from DexScreener
+                const response = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${pos.ca}`);
+                const data = await response.json();
+                const pair = data.pairs?.[0];
+                
+                if (pair) {
+                    const currentPriceUSD = parseFloat(pair.priceUsd);
+                    const entryPriceUSD = pos.entryPrice;
+                    const tokenAmount = pos.tokensReceived || 0;
+                    const positionSizeSOL = pos.positionSize || 0;
+                    
+                    // Calculate current value in SOL
+                    // Value = (current_price / entry_price) * position_size_SOL
+                    const pnlMultiplier = currentPriceUSD / entryPriceUSD;
+                    const currentValueSOL = positionSizeSOL * pnlMultiplier;
+                    
+                    positionsValueSOL += currentValueSOL;
+                }
+            } catch (e) {
+                // If price fetch fails, use entry value as fallback
+                positionsValueSOL += (pos.positionSize || 0);
+            }
+        }
+        
+        const totalEquity = solBalance + positionsValueSOL;
+        
+        return {
+            solBalance: solBalance.toFixed(4),
+            positionsValue: positionsValueSOL.toFixed(4),
+            totalEquity: totalEquity.toFixed(4),
+            openPositions: openPositions.length
+        };
+    } catch (e) {
+        return {
+            solBalance: '0.0000',
+            positionsValue: '0.0000',
+            totalEquity: '0.0000',
+            openPositions: 0
+        };
+    }
+}
+
 // API: Get system status
-function getSystemStatus() {
+async function getSystemStatus() {
     const emergencyStop = fs.existsSync(`${TRADING_BOT_DIR}/EMERGENCY_STOP`);
     const pauseTrading = fs.existsSync(`${TRADING_BOT_DIR}/PAUSE_TRADING`);
     
@@ -65,6 +123,9 @@ function getSystemStatus() {
     const peakBalance = readJSON(`${TRADING_BOT_DIR}/peak-balance.json`, {});
     const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
     const watchdogIssues = readJSON(`${TRADING_BOT_DIR}/watchdog-issues.json`, { issues: [] });
+    
+    // Calculate total equity
+    const equity = await calculateTotalEquity();
     
     // Get cron jobs
     let cronJobs = [];
@@ -86,7 +147,8 @@ function getSystemStatus() {
         positions: positions.length,
         issues: watchdogIssues.issues || [],
         cronJobs,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        equity
     };
 }
 
@@ -117,8 +179,8 @@ function getRecentLogs() {
 }
 
 // Generate HTML Dashboard
-function generateDashboard() {
-    const status = getSystemStatus();
+async function generateDashboard() {
+    const status = await getSystemStatus();
     const config = getConfiguration();
     
     return `<!DOCTYPE html>
@@ -430,6 +492,14 @@ function generateDashboard() {
                     <div class="status-label">Peak</div>
                     <div class="status-value">${status.peakBalance.toFixed(4)} SOL</div>
                 </div>
+                <div class="status-item" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border: 2px solid #10b981;">
+                    <div class="status-label" style="color: #10b981;">💰 Total Equity</div>
+                    <div class="status-value" style="color: #10b981;">${status.equity ? status.equity.totalEquity : '0.0000'} SOL</div>
+                    <div style="font-size: 11px; color: #6b7280; margin-top: 3px;">
+                        Wallet: ${status.equity ? status.equity.solBalance : '0.0000'} | 
+                        Pos: ${status.equity ? status.equity.positionsValue : '0.0000'}
+                    </div>
+                </div>
                 <div class="status-item ${status.positions > 0 ? 'warning' : ''} clickable" onclick="showPositions()">
                     <div class="status-label">Positions</div>
                     <div class="status-value">${status.positions}</div>
@@ -710,12 +780,24 @@ const server = http.createServer(async (req, res) => {
     
     // Routes
     if (pathname === '/' || pathname === '/index.html') {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(generateDashboard());
+        try {
+            const html = await generateDashboard();
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(html);
+        } catch (e) {
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Error generating dashboard: ' + e.message);
+        }
     }
     else if (pathname === '/api/status') {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(getSystemStatus()));
+        try {
+            const status = await getSystemStatus();
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(status));
+        } catch (e) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: e.message }));
+        }
     }
     else if (pathname === '/api/positions') {
         const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
