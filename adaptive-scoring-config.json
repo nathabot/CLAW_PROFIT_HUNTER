@@ -2,12 +2,12 @@
   "bestStrategy": {
     "id": "fib_500_1272",
     "name": "Fib 0.500 Entry",
-    "winRate": "80.00",
+    "winRate": "76.19",
     "category": "SCALPING"
   },
   "positionSizing": {
     "fib_382_1618": "0.02",
-    "fib_500_1272": "0.05",
+    "fib_500_1272": "0.04",
     "fib_618_1618": "0.02",
     "fib_786_1000": "0.03",
     "fib_rsi_combo": "0.02",
@@ -19,5 +19,5 @@
     "momentum_squeeze": "0.02",
     "divergence_play": "0.02"
   },
-  "updated": 1771386610511
+  "updated": 1771387810314
 }
