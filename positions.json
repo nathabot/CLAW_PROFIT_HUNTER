@@ -103,9 +103,12 @@
       "tp1": 0.002601396,
       "tp2": 0.0026465940000000004
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitPrice": 0.001983,
+    "exitPnl": -0.000528,
+    "exitTime": 1771411800000
   },
   {
     "symbol": "Punch",
