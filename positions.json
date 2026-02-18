@@ -15,7 +15,10 @@
       "tp2": 0.2419984
     },
     "exited": false,
-    "partialExited": false,
+    "partialExited": true,
+    "partialExitPrice": 0.2298,
+    "partialExitPnl": 0.09,
+    "partialExitTx": "Mz9Q43xBpLKTJyAURpTJqmFzNppUgwRUvkMyN1FSkgxySA8imB3C1GsHiUhtiEMN7nUEcu1YtHNqNvjqyaGq812",
     "marketCondition": "SIDEWAYS"
   }
 ]

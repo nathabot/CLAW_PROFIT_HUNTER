@@ -76,10 +76,16 @@ class PerformanceEvaluator {
       console.error('Error reading positions:', e.message);
     }
 
-    // Calculate metrics
-    const closedPositions = positions.filter(p => p.exited);
-    const winningTrades = closedPositions.filter(p => (p.exitPrice / p.entryPrice - 1) > 0);
-    const losingTrades = closedPositions.filter(p => (p.exitPrice / p.entryPrice - 1) <= 0);
+    // Calculate metrics - include both full exits and partial exits
+    const closedPositions = positions.filter(p => p.exited || p.partialExited);
+    const winningTrades = closedPositions.filter(p => {
+      const exitPrice = p.exitPrice || p.partialExitPrice;
+      return (exitPrice / p.entryPrice - 1) > 0;
+    });
+    const losingTrades = closedPositions.filter(p => {
+      const exitPrice = p.exitPrice || p.partialExitPrice;
+      return (exitPrice / p.entryPrice - 1) <= 0;
+    });
     
     const totalTrades = closedPositions.length;
     const winRate = totalTrades > 0 ? (winningTrades.length / totalTrades) * 100 : 0;
@@ -89,17 +95,23 @@ class PerformanceEvaluator {
     let peak = 0;
     
     closedPositions.forEach(p => {
-      const pnl = (p.exitPrice / p.entryPrice - 1) * 100;
-      totalProfit += (pnl / 100) * (p.positionSize || 0.02);
+      const exitPrice = p.exitPrice || p.partialExitPrice || p.entryPrice;
+      const pnl = (exitPrice / p.entryPrice - 1) * 100;
+      // For partial exits, only count the exited portion (50%)
+      const positionSize = p.partialExited && !p.exited ? (p.positionSize || 0.02) * 0.5 : (p.positionSize || 0.02);
+      totalProfit += (pnl / 100) * positionSize;
       
       // Calculate drawdown
       if (totalProfit > peak) peak = totalProfit;
-      const drawdown = ((peak - totalProfit) / peak) * 100;
+      const drawdown = peak > 0 ? ((peak - totalProfit) / peak) * 100 : 0;
       if (drawdown > maxDrawdown) maxDrawdown = drawdown;
     });
 
     // Calculate volatility (standard deviation of returns)
-    const returns = closedPositions.map(p => (p.exitPrice / p.entryPrice - 1) * 100);
+    const returns = closedPositions.map(p => {
+      const exitPrice = p.exitPrice || p.partialExitPrice || p.entryPrice;
+      return (exitPrice / p.entryPrice - 1) * 100;
+    });
     const avgReturn = returns.reduce((a, b) => a + b, 0) / returns.length || 0;
     const variance = returns.reduce((sum, ret) => sum + Math.pow(ret - avgReturn, 2), 0) / returns.length || 0;
     const volatility = Math.sqrt(variance);

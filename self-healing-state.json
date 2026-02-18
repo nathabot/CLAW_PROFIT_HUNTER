@@ -1,29 +1,29 @@
 {
-  "lastCheck": 1771392824846,
+  "lastCheck": 1771393725010,
   "healCount": 0,
   "serviceStatus": {
     "exit-monitor-wif": {
-      "lastCheck": 1771392824832,
-      "healthy": true
+      "lastCheck": 1771393724998,
+      "healthy": false
     },
     "dashboard-server": {
-      "lastCheck": 1771392824845,
+      "lastCheck": 1771393725010,
       "healthy": false
     },
     "live-trader": {
-      "lastCheck": 1771392824846,
+      "lastCheck": 1771393725010,
       "healthy": true
     },
     "paper-trader": {
-      "lastCheck": 1771392824846,
+      "lastCheck": 1771393725010,
       "healthy": true
     },
     "balance-guardian": {
-      "lastCheck": 1771392824846,
+      "lastCheck": 1771393725010,
       "healthy": true
     },
     "sl-tracker": {
-      "lastCheck": 1771392824846,
+      "lastCheck": 1771393725010,
       "healthy": true
     }
   }

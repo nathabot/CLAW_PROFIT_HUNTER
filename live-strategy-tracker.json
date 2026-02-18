@@ -6,6 +6,17 @@
     "liveLosses": 0,
     "liveTotal": 1,
     "consecutiveLosses": 0,
-    "lastUpdated": 1771392155069
+    "lastUpdated": 1771393200000,
+    "trades": [
+      {
+        "symbol": "WIF",
+        "entryPrice": 0.2296,
+        "exitPrice": 0.2298,
+        "pnlPercent": 0.09,
+        "exitType": "PARTIAL_TP1",
+        "timestamp": 1771393200000,
+        "txHash": "Mz9Q43xBpLKTJyAURpTJqmFzNppUgwRUvkMyN1FSkgxySA8imB3C1GsHiUhtiEMN7nUEcu1YtHNqNvjqyaGq812"
+      }
+    ]
   }
 }
