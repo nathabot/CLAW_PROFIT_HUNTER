@@ -1473,6 +1473,47 @@ class DynamicTrader {
       this.notify(`🚫 **TOKEN BLACKLISTED**\n\n${symbol}\nCA: ${ca.slice(0, 15)}...\nReason: 3x SL hit\n\n🚫 NEVER TRADING THIS AGAIN`);
     }
   }
+
+  /**
+   * Validate candle entry - prevent FOMO entries
+   */
+  async validateCandleEntry(ca, currentPrice) {
+    try {
+      // Get OHLCV data from DexScreener
+      const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${ca}`);
+      const data = await res.json();
+      const pair = data.pairs?.[0];
+      
+      if (!pair || !pair.priceChange) {
+        return { valid: true, reason: 'No historical data' };
+      }
+      
+      // Check recent price action
+      const change5m = pair.priceChange?.m5 || 0;
+      const change1h = pair.priceChange?.h1 || 0;
+      const change24h = pair.priceChange?.h24 || 0;
+      
+      // FOMO detection: Pumped too fast recently
+      if (change5m > 20) {
+        return { valid: false, reason: `FOMO ALERT: Pumped ${change5m.toFixed(1)}% in 5min` };
+      }
+      
+      if (change1h > 50) {
+        return { valid: false, reason: `FOMO ALERT: Pumped ${change1h.toFixed(1)}% in 1h` };
+      }
+      
+      // Check volume trend
+      const vol24h = pair.volume?.h24 || 0;
+      if (vol24h < 10000) {
+        return { valid: false, reason: 'Low volume' };
+      }
+      
+      return { valid: true, reason: 'Entry valid', change5m, change1h, change24h };
+    } catch (e) {
+      // If API fails, allow entry
+      return { valid: true, reason: 'Validation skipped' };
+    }
+  }
   
   checkBlacklist(ca, symbol) {
     // Check blacklist
