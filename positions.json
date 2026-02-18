@@ -20,5 +20,100 @@
     "partialExitPnl": 0.09,
     "partialExitTx": "Mz9Q43xBpLKTJyAURpTJqmFzNppUgwRUvkMyN1FSkgxySA8imB3C1GsHiUhtiEMN7nUEcu1YtHNqNvjqyaGq812",
     "marketCondition": "SIDEWAYS"
+  },
+  {
+    "symbol": "mSOL",
+    "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+    "entryPrice": 115.48,
+    "entryTime": 1771410419863,
+    "positionSize": 0.005,
+    "tokensReceived": 0.003677737,
+    "txHash": "2Ai4jj6eXFrbYiBr7U5BtkWSUjaQ82iW96PyrRTFaZZ12foj5m1CJK5dYkpB3jSumcL16wPjif67va7RmvnuQWjv",
+    "strategy": "Fib 0.786 Deep",
+    "strategyId": "fib_786_1000",
+    "targets": {
+      "sl": 113.63232,
+      "tp1": 119.63728,
+      "tp2": 121.71592000000001
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "$WIF",
+    "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+    "entryPrice": 0.2323,
+    "entryTime": 1771410425784,
+    "positionSize": 0.005,
+    "tokensReceived": 1.827726,
+    "txHash": "V7Ph8xtNbiCiPjKjCVK41hTwimcF8MauxsU1G5VwmVbtjUMURSaoqCqjQbQ86WFVuP1fpGs7Dm7Ainv7iyVwShA",
+    "strategy": "Fib 0.786 Deep",
+    "strategyId": "fib_786_1000",
+    "targets": {
+      "sl": 0.22858320000000001,
+      "tp1": 0.2406628,
+      "tp2": 0.2448442
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "ATLAS",
+    "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+    "entryPrice": 0.0002054,
+    "entryTime": 1771410434237,
+    "positionSize": 0.005,
+    "tokensReceived": 2065.90162048,
+    "txHash": "3NKD2Gr7b6kZy9JrGKHKzPxHzXN5mHT8oBhopaGLUMuVhuD6gQK5FCEQZ3jA9tqFCPtorijprbUJaBvjhNm3aUL",
+    "strategy": "Fib 0.786 Deep",
+    "strategyId": "fib_786_1000",
+    "targets": {
+      "sl": 0.0002021136,
+      "tp1": 0.0002127944,
+      "tp2": 0.0002164916
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "KIMCHI",
+    "ca": "HaUXAdAWWUkb2WTmh8z1TdaEmZkYjnQnmC6tHUdTAHvi",
+    "entryPrice": 0.002511,
+    "entryTime": 1771410439392,
+    "positionSize": 0.005,
+    "tokensReceived": 170.57247,
+    "txHash": "2TS6Ry5AKuauS3iXpR1Pt77taRkszQHRhRh2APbbcX7EPKyBChJFkeHqsDQnMAhsPgMMa9aZeffyFY3w6nLkhQYp",
+    "strategy": "Fib 0.786 Deep",
+    "strategyId": "fib_786_1000",
+    "targets": {
+      "sl": 0.0024708240000000004,
+      "tp1": 0.002601396,
+      "tp2": 0.0026465940000000004
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "Punch",
+    "ca": "NV2RYH954cTJ3ckFUpvfqaQXU4ARqqDH3562nFSpump",
+    "entryPrice": 0.009976,
+    "entryTime": 1771410444514,
+    "positionSize": 0.005,
+    "tokensReceived": 42.265804,
+    "txHash": "3UjUQnuea5HNWcdALgCvZJnHx9VzainfmozVLzKxi3E9LrqhkfdnFMU2CKA27QDM2fVveA8WKGeqn4SBttaYZok6",
+    "strategy": "Fib 0.786 Deep",
+    "strategyId": "fib_786_1000",
+    "targets": {
+      "sl": 0.009816384000000001,
+      "tp1": 0.010335136,
+      "tp2": 0.010514704000000001
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
   }
 ]

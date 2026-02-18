@@ -520,6 +520,7 @@ class DynamicTrader {
       });
       console.log('\n🔄 Checking current prices of proven tokens...');
 
+      let executed = false;
       // Check each proven token
       for (const proven of strategyProvenTokens.slice(0, 10)) {
         try {
