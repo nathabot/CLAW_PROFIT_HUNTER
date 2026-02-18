@@ -48,6 +48,96 @@
 
 ---
 
+## 🧠 INTELLIGENCE ENHANCEMENTS (v2.0+)
+
+Sistem ini telah diperluas dengan 4 Intelligent Systems tambahan untuk meningkatkan akurasi dan adaptasi:
+
+### 1. Market Condition Analyzer
+- **File:** `market-condition-analyzer.js`
+- **Fungsi:** Analisis kondisi market real-time
+- **Input:** Fear & Greed Index, BTC Dominance, Whale Activity
+- **Output:** Market sentiment score (0-100)
+- **Penggunaan:** dynamic-threshold adjustment
+
+### 2. Strategy Rotation System
+- **File:** `strategy-rotation-system.js`
+- **Fungsi:** Rotasi strategi berdasarkan WR performance
+- **Logic:**
+  - WR ≥ 61% → Strategy POSITIVE → Auto-sync ke Live Trader
+  - WR < 61% → Strategy NEGATIVE → Test di Paper Trader
+- **Threshold:** 61% (dari sebelumnya 70%)
+
+### 3. Live to Paper Feedback Loop
+- **File:** `live-to-paper-feedback.js`
+- **Fungsi:** Transfer learning dari live trades ke paper trading
+- **Data:** Winning patterns → BOK Intelligence
+- **Analysis:** Loss patterns → Paper Trader improvement
+
+### 4. BOK Intelligence Layer
+- **File:** `bok-intelligence-layer.js`
+- **Fungsi:** Strategi ranking dan proven tokens tracking
+- **Database:** `proven-tokens.json`
+- **Features:**
+  - Track token per strategy
+  - Win pattern detection
+  - Signal network analysis
+
+---
+
+## 🔄 Adaptive System Orchestrator
+
+Sistem utama yang mengkoordinasikan semua komponen:
+
+### File: `adaptive-system-orchestrator.js`
+
+```
+┌─────────────────────────────────────────────────────────┐
+│            ADAPTIVE SYSTEM ORCHESTRATOR                  │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  ┌──────────────┐    ┌──────────────┐                  │
+│  │ Market       │    │ Strategy     │                  │
+│  │ Condition    │───▶│ Rotation     │                  │
+│  │ Analyzer     │    │ System       │                  │
+│  └──────────────┘    └──────┬───────┘                  │
+│                             │                           │
+│                             ▼                           │
+│  ┌──────────────┐    ┌──────────────┐                  │
+│  │ Live → Paper │    │ BOK          │                  │
+│  │ Feedback     │───▶│ Intelligence │                  │
+│  └──────────────┘    └──────────────┘                  │
+│                             │                           │
+│                             ▼                           │
+│  ┌──────────────┐    ┌──────────────┐                  │
+│  │ Live Trader  │◀───│ Paper Trader │                  │
+│  │ (v4.2)       │    │ (v5)         │                  │
+│  └──────────────┘    └──────────────┘                  │
+│                             │                           │
+│                             ▼                           │
+│  ┌──────────────────────────────────┐                  │
+│  │ Self-Healing Watchdog v3.0       │                  │
+│  │ (auto-restart, duplicate killer) │                  │
+│  └──────────────────────────────────┘                  │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Adaptive State: `adaptive-system-state.json`
+
+```json
+{
+  "currentStrategy": "Fib 0.786 Deep",
+  "strategyWR": 61.5,
+  "marketCondition": "FEAR",
+  "threshold": 6,
+  "activePositions": 3,
+  "dailyProfit": 0.15,
+  "drawdown": 15.2
+}
+```
+
+---
+
 ## 🛡️ Supporting Agents
 
 | Agent | File | Fungsi | Jadwal |
@@ -56,6 +146,9 @@
 | **SL Tracker** | sl-tracker.js | 3-strike blacklist system | Tiap 5 menit |
 | **Evaluation System** | evaluate-performance.js | Evaluasi 2 jam, auto-pause kalau WR < 60% | Tiap 2 jam |
 | **System Monitor** | system-monitor.js | Pantau duplikat, integritas sistem | Tiap 15 menit |
+| **Self-Healing Watchdog** | self-healing-watchdog.js | Auto-restart crashed processes, kill duplicates | Continuously |
+| **Target Tracker** | target-tracker.js | Monitor daily profit vs target | Tiap jam |
+| **Paper Trader Monitor** | paper-trader-monitor.js | Monitor paper trader cycles | Tiap cycle |
 
 ---
 
@@ -205,7 +298,7 @@ echo $(date +%s) > EMERGENCY_STOP
 
 ---
 
-## 📁 Struktur File
+## 📁 Struktur File (v2.0)
 
 ```
 CLAW_PROFIT_HUNTER/
@@ -214,14 +307,33 @@ CLAW_PROFIT_HUNTER/
 │   ├── soul-core-paper-trader-v5.js  # Paper simulation
 │   ├── strategy-intelligence-v2.js   # Signal generation
 │   ├── dynamic-tpsl-engine.js      # TP/SL calculation
-│   ├── balance-guardian.js         # Balance protection
-│   ├── sl-tracker.js               # Blacklist system
-│   ├── evaluate-performance.js     # Evaluation
-│   └── system-monitor.js           # Integrity monitor
+│   │
+│   ├── INTELLIGENCE LAYER (v2.0)  # NEW
+│   │   ├── adaptive-system-orchestrator.js   # Main coordinator
+│   │   ├── market-condition-analyzer.js       # Market sentiment
+│   │   ├── strategy-rotation-system.js        # Strategy rotation
+│   │   ├── live-to-paper-feedback.js         # Feedback loop
+│   │   └── bok-intelligence-layer.js         # BOK intelligence
+│   │
+│   ├── SUPPORTING AGENTS          # NEW & ORIGINAL
+│   │   ├── balance-guardian.js         # Balance protection
+│   │   ├── sl-tracker.js               # Blacklist system
+│   │   ├── evaluate-performance.js      # Evaluation
+│   │   ├── system-monitor.js           # Integrity monitor
+│   │   ├── self-healing-watchdog.js    # Auto-healing (NEW)
+│   │   ├── target-tracker.js           # Daily target (NEW)
+│   │   └── paper-trader-monitor.js     # Paper monitor (NEW)
+│   │
+│   └── EXIT MONITORS              # Per-position
+│       ├── exit-monitor-wif.js
+│       ├── exit-monitor-$wif.js
+│       ├── exit-monitor-bonk.js
+│       └── exit-monitor-{TOKEN}.js
 │
 ├── config/                        # Configuration
 │   ├── adaptive-scoring-config.json
-│   ├── package.json
+│   ├── adaptive-system-state.json  # NEW
+│   ├── market-condition.json       # NEW
 │   └── wallet.json (encrypted)
 │
 ├── bok/                           # Book of Knowledge
@@ -233,11 +345,12 @@ CLAW_PROFIT_HUNTER/
 │   ├── 14-external-intelligence.md
 │   ├── 15-performance-evaluations.md
 │   ├── 16-positive-strategies.md
-│   └── 17-negative-strategies.md
+│   ├── 17-negative-strategies.md
+│   ├── proven-tokens.json         # NEW
+│   └── 20-intelligence-analytics.md  # NEW
 │
-├── sandbox/                       # Development
-│   ├── experiments/               # Fitur baru
-│   └── strategies/                # Strategi baru
+├── dashboard/                      # Web Dashboard
+│   └── dashboard-server.js        # Port 8080
 │
 ├── docs/                          # Dokumentasi
 ├── logs/                          # Logs (gitignored)
@@ -403,6 +516,7 @@ MIT License - See [LICENSE](LICENSE) file
 
 ---
 
-**Last Updated:** 2026-02-17  
-**Version:** 1.0.0  
-**Status:** Production Ready ✅
+**Last Updated:** 2026-02-18  
+**Version:** 2.0.0  
+**Status:** Production Ready ✅  
+**Enhancements:** Intelligence Layer v2.0, Self-Healing, Strategy Rotation
