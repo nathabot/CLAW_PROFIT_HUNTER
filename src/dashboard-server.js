@@ -684,9 +684,13 @@ async function generateDashboard() {
                         Closed: ${status.equity ? status.equity.closedPositions : 0} trades
                     </div>
                 </div>
-                <div class="status-item ${status.positions > 0 ? 'warning' : ''} clickable" onclick="showPositions()">
-                    <div class="status-label">Positions</div>
-                    <div class="status-value">${status.positions}</div>
+                <div class="status-item ${status.equity.openPositions > 0 ? 'warning' : ''} clickable" onclick="showActivePositions()">
+                    <div class="status-label">📊 Active Positions</div>
+                    <div class="status-value">${status.equity.openPositions}</div>
+                </div>
+                <div class="status-item clickable" onclick="showClosedPositions()">
+                    <div class="status-label">✅ Closed Trades</div>
+                    <div class="status-value">${status.equity.closedPositions}</div>
                 </div>
                 <div class="status-item ${status.issues.length > 0 ? 'warning' : ''}">
                     <div class="status-label">Issues</div>
@@ -816,7 +820,7 @@ async function generateDashboard() {
     <div class="modal-overlay" id="positionsModal">
         <div class="modal">
             <div class="modal-header">
-                <div class="modal-title">📊 Active Positions</div>
+                <div class="modal-title" id="positionsModalTitle">📊 Active Positions</div>
                 <button class="modal-close" onclick="closeModal()">&times;</button>
             </div>
             <div id="positionsContent">
@@ -828,18 +832,38 @@ async function generateDashboard() {
     <script>
         // Positions popup functions
         async function showPositions() {
+            document.getElementById('positionsModalTitle').textContent = '📊 All Positions';
             document.getElementById('positionsModal').classList.add('active');
-            await loadPositions();
+            await loadPositions('all');
+        }
+        
+        async function showActivePositions() {
+            document.getElementById('positionsModalTitle').textContent = '📊 Active Positions';
+            document.getElementById('positionsModal').classList.add('active');
+            await loadPositions('active');
+        }
+        
+        async function showClosedPositions() {
+            document.getElementById('positionsModalTitle').textContent = '✅ Closed Trades';
+            document.getElementById('positionsModal').classList.add('active');
+            await loadPositions('closed');
         }
         
         function closeModal() {
             document.getElementById('positionsModal').classList.remove('active');
         }
         
-        async function loadPositions() {
+        async function loadPositions(filter = 'all') {
             try {
                 const response = await fetch('/api/positions');
-                const positions = await response.json();
+                let positions = await response.json();
+                
+                // Filter based on type
+                if (filter === 'active') {
+                    positions = positions.filter(p => !p.exited);
+                } else if (filter === 'closed') {
+                    positions = positions.filter(p => p.exited);
+                }
                 
                 // Sort: ACTIVE positions first, then CLOSED
                 const sortedPositions = [...positions].sort((a, b) => {
