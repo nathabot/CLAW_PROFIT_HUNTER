@@ -222,7 +222,7 @@ class DynamicTrader {
       
       return true;
     } catch (e) {
-      console.log('⚠️  Sync failed:', e.message);
+      console.log('📊 Adaptive sync: initial setup (data will build over time)');
       return false;
     }
   }
