@@ -451,3 +451,24 @@
 🛑 EMERGENCY STOP!
 ✅ Evaluation complete!
 
+🔍 Starting Performance Evaluation...
+
+📊 Metrics:
+  Win Rate: 17.65%
+  Profit: -0.0101 SOL
+  Drawdown: 466152.53%
+  Volatility: 23.13%
+  Total Trades: 17
+
+📋 Verdict: NEGATIVE
+🎯 Action: EMERGENCY_STOP
+
+🔍 Performing ROOT CAUSE ANALYSIS...
+⚡ Applying AUTO-FIXES...
+   → Making TP less aggressive: -0.05
+   → Improving Risk/Reward: target 2
+   → Raising TP2 target
+   → Setting consecutive loss limit: 2
+🛑 EMERGENCY STOP!
+✅ Evaluation complete!
+
