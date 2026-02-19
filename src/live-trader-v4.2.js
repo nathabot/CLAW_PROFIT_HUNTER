@@ -1306,12 +1306,31 @@ class DynamicTrader {
     const tracking = this.loadTokenTracking();
     const tokenData = tracking[ca];
     
+    // Check if there's an open position for this token
+    try {
+      const positions = JSON.parse(fs.readFileSync('/root/trading-bot/positions.json', 'utf8'));
+      const openPosition = positions.find(p => p.ca === ca && !p.exited);
+      if (openPosition) {
+        return { canTrade: false, reason: 'Position already open for this token' };
+      }
+    } catch (e) {
+      // Ignore errors
+    }
+    
     if (!tokenData) {
       // First time trading this token - allow it
       return { canTrade: true, reason: 'New token', trades: 0 };
     }
     
-    const { trades, totalWins, totalLosses, consecutiveSL, totalProfit, entryWR } = tokenData;
+    const { trades, totalWins, totalLosses, consecutiveSL, totalProfit, entryWR, lastTrade } = tokenData;
+    
+    // Check cooldown between trades
+    if (CONFIG.TOKEN_TRACKING.COOLDOWN_MINUTES && lastTrade) {
+      const minutesSinceLastTrade = (Date.now() - lastTrade) / (1000 * 60);
+      if (minutesSinceLastTrade < CONFIG.TOKEN_TRACKING.COOLDOWN_MINUTES) {
+        return { canTrade: false, reason: `Cooldown: ${Math.floor(minutesSinceLastTrade)}/${CONFIG.TOKEN_TRACKING.COOLDOWN_MINUTES} min` };
+      }
+    }
     
     // Check 1: Max trades reached
     if (trades >= CONFIG.TOKEN_TRACKING.MAX_TRADES_PER_TOKEN) {

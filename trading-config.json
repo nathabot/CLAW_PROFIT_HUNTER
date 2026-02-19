@@ -146,9 +146,10 @@
     },
     "TOKEN_TRACKING": {
       "ENABLED": true,
-      "MAX_TRADES_PER_TOKEN": 50,
+      "MAX_TRADES_PER_TOKEN": 3,
       "MAX_CONSECUTIVE_SL": 3,
-      "PROFIT_DROP_THRESHOLD": 0.30
+      "PROFIT_DROP_THRESHOLD": 0.30,
+      "COOLDOWN_MINUTES": 60
     }
   }
 }
