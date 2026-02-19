@@ -2,17 +2,17 @@
   "regime": "BULL",
   "confidence": 65,
   "reasons": [
-    "1/10 tokens pumping"
+    "5/10 tokens pumping"
   ],
   "indicators": {
-    "solPrice": 81.61,
-    "priceChange24h": -3.98,
-    "priceChange1h": -0.11,
-    "volume24h": 109206674.13,
-    "volatility": 0.2758333333333333,
-    "bullishTokens": 1,
-    "bearishTokens": 0,
-    "timestamp": 1771479003226
+    "solPrice": 81.83,
+    "priceChange24h": -3.54,
+    "priceChange1h": 0.48,
+    "volume24h": 109562832.13,
+    "volatility": 0.6275,
+    "bullishTokens": 5,
+    "bearishTokens": 2,
+    "timestamp": 1771480803915
   },
   "recommendations": {
     "primary": [
@@ -32,5 +32,5 @@
     "slMultiplier": 1,
     "tpMultiplier": 1.2
   },
-  "lastUpdate": "2026-02-19T05:30:03.226Z"
+  "lastUpdate": "2026-02-19T06:00:03.915Z"
 }
