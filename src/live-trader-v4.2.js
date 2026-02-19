@@ -15,29 +15,22 @@ const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
 const SOLANA_TRACKER_API_KEY = 'af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a';
 const SOLANA_TRACKER_BASE_URL = 'https://swap-v2.solanatracker.io';
 
-let ADAPTIVE_CONFIG = {};
-try {
-  ADAPTIVE_CONFIG = JSON.parse(fs.readFileSync('/root/trading-bot/adaptive-scoring-config.json', 'utf8'));
-} catch (e) {
-  console.log('⚠️  Could not load adaptive config, using defaults');
-}
+const ADAPTIVE_CONFIG = JSON.parse(fs.readFileSync('/root/trading-bot/adaptive-scoring-config.json', 'utf8'));
 
 const CONFIG = {
   WALLET: 'EpG25pVadjQ9M9NHJMXZSc6SsB3Mshj4Kk9uzDVB8kum',
   WALLET_PATH: '/root/trading-bot/wallet.json',
   // POSITION SIZING (Flexible - BOK Standard)
-  MIN_POSITION_SIZE: 0.008,      // SUPER CONSERVATIVE: 0.005 SOL       // Minimum position (BOK)
-  MAX_POSITION_SIZE: 0.01,       // Max 0.01 SOL        // Maximum position (BOK)
-  DEFAULT_POSITION_SIZE: 0.008,   // 0.005 SOL max   // Default size
+  MIN_POSITION_SIZE: 0.015,       // Minimum position (BOK)
+  MAX_POSITION_SIZE: 0.05,        // Maximum position (BOK)
+  DEFAULT_POSITION_SIZE: 0.015,   // Default size
   FEE_RESERVE: 0.015,             // BOK: always keep 0.015 SOL minimum for sell fees
   // DYNAMIC THRESHOLD from paper trader results
-  MIN_SCORE: ADAPTIVE_CONFIG?.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,  // STRICT for safety
-  MIN_TOKEN_AGE_MINUTES: 1440,   // 24 hours minimum - AVOID new tokens
-  MIN_LIQUIDITY_USD: 25000,      // $25k minimum - AVOID low liquidity
-  MAX_DAILY_TRADES: 5,          // Max 5 trades/day
-  // TARGET: MAX(0.2 SOL, $50) - take the bigger value
-  // At $83/SOL: 0.2 SOL = $16.6, $50 = 0.6 SOL → Target = 0.6 SOL
-  DAILY_TARGET: 0.6,
+  MIN_SCORE: ADAPTIVE_CONFIG.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,
+  MIN_TOKEN_AGE_MINUTES: 1440,    // 24 hours minimum token age
+  MIN_LIQUIDITY_USD: 25000,       // $25k minimum liquidity
+  MAX_DAILY_TRADES: 10,           // Maximum trades per day
+  DAILY_TARGET: 0.2,
   RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304',
   // FIBONACCI STRATEGY (from paper testing - 82.5% WR)
   // Best: Entry 0.618, TP 1.618 (Golden) - 82.50% WR (33W/7L)
@@ -63,7 +56,7 @@ const CONFIG = {
   AVOID_PUMP_PERCENT: 10,        // Avoid if pumped >10% in 5min
   // BALANCE PROTECTION
   STARTING_BALANCE: 0.1,      // Starting SOL balance (updated for new wallet)
-  MAX_DRAWDOWN_PERCENT: 60,      // Max 50% drawdown from peak
+  MAX_DRAWDOWN_PERCENT: 30,      // Max 30% drawdown from peak
   PEAK_BALANCE_FILE: '/root/trading-bot/peak-balance.json',
   EMERGENCY_STOP_FILE: '/root/trading-bot/EMERGENCY_STOP'
 };
@@ -165,539 +158,6 @@ class DynamicTrader {
     return currentPrice > lastPrice;
   }
 
-  // ==================== BOK FEEDBACK SYSTEM ====================
-  // Track live trade results and update strategy classification
-  
-  loadLiveStrategyTracker() {
-    const trackerFile = '/root/trading-bot/live-strategy-tracker.json';
-    try {
-      if (fs.existsSync(trackerFile)) {
-        return JSON.parse(fs.readFileSync(trackerFile, 'utf8'));
-      }
-    } catch (e) {}
-    return {};
-  }
-  
-  saveLiveStrategyTracker(tracker) {
-    const trackerFile = '/root/trading-bot/live-strategy-tracker.json';
-    fs.writeFileSync(trackerFile, JSON.stringify(tracker, null, 2));
-  }
-  
-  recordLiveTradeResult(strategyId, strategyName, isWin, pnlPercent) {
-    const tracker = this.loadLiveStrategyTracker();
-    
-    if (!tracker[strategyId]) {
-      tracker[strategyId] = {
-        id: strategyId,
-        name: strategyName,
-        liveWins: 0,
-        liveLosses: 0,
-        liveTotal: 0,
-        consecutiveLosses: 0,
-        lastUpdated: Date.now()
-      };
-    }
-    
-    const strat = tracker[strategyId];
-    strat.liveTotal++;
-    
-    if (isWin) {
-      strat.liveWins++;
-      strat.consecutiveLosses = 0; // Reset on win
-    } else {
-      strat.liveLosses++;
-      strat.consecutiveLosses++;
-    }
-    
-    strat.lastUpdated = Date.now();
-    this.saveLiveStrategyTracker(tracker);
-    
-    console.log(`📊 Live Trade Recorded: ${strategyName} | ${isWin ? 'WIN' : 'LOSS'} | Consecutive Losses: ${strat.consecutiveLosses}`);
-    
-    // Check if strategy should be moved to negative (3 consecutive losses)
-    if (strat.consecutiveLosses >= 3) {
-      console.log(`⚠️  Strategy ${strategyName} hit 3 consecutive losses - moving to NEGATIVE`);
-      this.moveStrategyToNegative(strategyId, strategyName, strat);
-    }
-    
-    // If profitable trade on positive strategy, confirm it stays positive
-    if (isWin && strat.liveWins >= 1) {
-      this.confirmPositiveStrategy(strategyId, strategyName, strat);
-    }
-    
-    return strat;
-  }
-  
-  moveStrategyToNegative(strategyId, strategyName, tracker) {
-    const timestamp = new Date().toISOString();
-    const negativeFile = '/root/trading-bot/bok/17-negative-strategies.md';
-    
-    let content = '';
-    try {
-      content = fs.readFileSync(negativeFile, 'utf8');
-    } catch (e) {
-      content = '# 17 - Negative Strategies (WR <61% or 3+ Live Losses)\n\n**Auto-generated by Live Trader + Paper Trader**\n\n';
-    }
-    
-    // Check if already in negative
-    if (content.includes(`| ${strategyId} |`)) {
-      console.log(`   ℹ️  Strategy ${strategyId} already in negative`);
-      return;
-    }
-    
-    // Add to negative
-    const entry = `| ${strategyId} | ${strategyName} | 3 Live Losses | Live Trading | ${timestamp} |\n`;
-    
-    // Find the table and append
-    if (content.includes('## Strategies')) {
-      content = content.replace(/(## Strategies\n\n.*?\n)(\|[-:]+\|[-:]+\|[-:]+\|[-:]+\|[-:]+\|)/, `$1$2\n${entry}`);
-    } else {
-      content += `\n## Strategies\n\n| ID | Name | Reason | Source | Date |\n|----|------|--------|--------|------|\n${entry}`;
-    }
-    
-    fs.writeFileSync(negativeFile, content);
-    console.log(`   ✅ Added ${strategyName} to NEGATIVE strategies`);
-    
-    // Remove from positive if exists
-    this.removeFromPositive(strategyId);
-  }
-  
-  confirmPositiveStrategy(strategyId, strategyName, tracker) {
-    const timestamp = new Date().toISOString();
-    const positiveFile = '/root/trading-bot/bok/16-positive-strategies.md';
-    
-    let content = '';
-    try {
-      content = fs.readFileSync(positiveFile, 'utf8');
-    } catch (e) {
-      content = '# 16 - Positive Strategies (WR >=61%)\n\n**Auto-generated by Paper Trader v5**\n\n';
-    }
-    
-    // Check if already in positive
-    if (content.includes(`| ${strategyId} |`)) {
-      return; // Already positive, no action needed
-    }
-    
-    // Add to positive
-    const wr = ((tracker.liveWins / tracker.liveTotal) * 100).toFixed(1);
-    const entry = `| ${strategyId} | ${strategyName} | ${wr}% | Live Trading | ${tracker.liveTotal} | ${timestamp} |\n`;
-    
-    if (content.includes('## High-Performing Strategies')) {
-      content = content.replace(/(## High-Performing Strategies\n\n.*?\n)(\|[-:]+\|[-:]+\|[-:]+\|[-:]+\|[-:]+\|[-:]+\|)/, `$1$2\n${entry}`);
-    } else {
-      content += `\n## High-Performing Strategies\n\n| ID | Name | Win Rate | Source | Trades | Date |\n|----|------|----------|--------|--------|------|\n${entry}`;
-    }
-    
-    // Update the "no strategies" text if present
-    content = content.replace('*No strategies currently meet the 61% WR threshold*', '');
-    
-    fs.writeFileSync(positiveFile, content);
-    console.log(`   ✅ Confirmed ${strategyName} in POSITIVE strategies (${wr}% WR)`);
-  }
-  
-  removeFromPositive(strategyId) {
-    const positiveFile = '/root/trading-bot/bok/16-positive-strategies.md';
-    try {
-      let content = fs.readFileSync(positiveFile, 'utf8');
-      const lines = content.split('\n');
-      const newLines = lines.filter(line => !line.includes(`| ${strategyId} |`));
-      fs.writeFileSync(positiveFile, newLines.join('\n'));
-      console.log(`   🗑️  Removed ${strategyId} from POSITIVE`);
-    } catch (e) {}
-  }
-
-  // ==================== MARKET DATA FETCH ====================
-  async fetchMarketData() {
-    try {
-      const res = await fetch('https://api.dexscreener.com/token-profiles/latest/v1');
-      const profiles = await res.json();
-      
-      const tokens = [];
-      for (const profile of profiles.slice(0, 100)) {
-        try {
-          const tokenRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${profile.tokenAddress}`);
-          const tokenData = await tokenRes.json();
-          if (tokenData.pairs?.[0]) {
-            tokens.push(tokenData.pairs[0]);
-          }
-        } catch (e) {}
-      }
-      
-      return tokens;
-    } catch (e) {
-      console.error('Error fetching market data:', e.message);
-      return [];
-    }
-  }
-
-  // ==================== BOK POSITIVE STRATEGY EXECUTION ====================
-  // If BOK has positive strategies, execute directly without scanning
-  
-  loadPositiveStrategiesFromBOK() {
-    try {
-      const positiveFile = '/root/trading-bot/bok/16-positive-strategies.md';
-      if (!fs.existsSync(positiveFile)) return [];
-
-      const content = fs.readFileSync(positiveFile, 'utf8');
-      const strategies = [];
-
-      // Parse header format (### Strategy: id)
-      const strategyBlocks = content.split('### Strategy:');
-      
-      for (let i = 1; i < strategyBlocks.length; i++) {
-        const block = strategyBlocks[i];
-        const lines = block.split('\n');
-        
-        // First line is the strategy ID
-        const id = lines[0].trim();
-        
-        // Parse bullet points
-        let name = '', winRate = '', trades = '';
-        
-        for (const line of lines) {
-          if (line.includes('- **Name:**')) {
-            name = line.split('**Name:**')[1].trim();
-          }
-          if (line.includes('- **Win Rate:**')) {
-            const wrMatch = line.match(/(\d+\.?\d*)%/);
-            if (wrMatch) winRate = wrMatch[1] + '%';
-            const tradeMatch = line.match(/\((\d+) trades?\)/);
-            if (tradeMatch) trades = tradeMatch[1];
-          }
-        }
-        
-        if (id && name) {
-          strategies.push({
-            id: id,
-            name: name,
-            winRate: winRate,
-            source: 'Paper Trader',
-            trades: trades
-          });
-        }
-      }
-
-      console.log(`📚 Loaded ${strategies.length} positive strategies from BOK`);
-      return strategies;
-    } catch (e) {
-      console.log('⚠️  Could not load positive strategies:', e.message);
-      return [];
-    }
-  }
-
-  loadProvenTokens() {
-    try {
-      const provenFile = '/root/trading-bot/bok/proven-tokens.json';
-      if (!fs.existsSync(provenFile)) return {};
-
-      return JSON.parse(fs.readFileSync(provenFile, 'utf8'));
-    } catch (e) {
-      console.log('⚠️  Could not load proven tokens:', e.message);
-      return {};
-    }
-  }
-  
-  // Get live WR from live-strategy-tracker.json
-  getLiveWinRate(strategyId) {
-    try {
-      const trackerFile = '/root/trading-bot/live-strategy-tracker.json';
-      if (fs.existsSync(trackerFile)) {
-        const tracker = JSON.parse(fs.readFileSync(trackerFile, 'utf8'));
-        const strat = tracker[strategyId];
-        if (strat && strat.liveTotal > 0) {
-          return (strat.liveWins / strat.liveTotal) * 100;
-        }
-      }
-    } catch (e) {}
-    return null; // No live data yet
-  }
-
-  // Check if strategy should be used 
-  // BOK threshold: WR ≥55% = positive strategy - allow execution
-  isStrategyUsable(strategy) {
-    const liveWR = this.getLiveWinRate(strategy.id);
-    
-    // Parse BOK WR from string (e.g., "55.53%" -> 55.53)
-    let bokWR = 0;
-    if (typeof strategy.winRate === 'string') {
-      bokWR = parseFloat(strategy.winRate.replace('%', ''));
-    } else if (typeof strategy.winRate === 'number') {
-      bokWR = strategy.winRate;
-    }
-    
-    // If BOK WR ≥55%, allow execution even with low live WR
-    // Live WR will improve with more trades
-    if (bokWR >= 55) {
-      return { usable: true, reason: `BOK WR: ${bokWR.toFixed(1)}% ≥55%` };
-    }
-    
-    if (liveWR === null) {
-      // No live data yet, strategy is usable
-      return { usable: true, reason: 'No live data yet' };
-    }
-    if (liveWR > 55) {
-      return { usable: true, reason: `Live WR: ${liveWR.toFixed(1)}%` };
-    }
-    // Live WR <= 55%, strategy not usable
-    return { usable: false, reason: `Live WR: ${liveWR.toFixed(1)}% (≤55%)` };
-  }
-
-  hasPositiveStrategies() {
-    const strategies = this.loadPositiveStrategiesFromBOK();
-    return strategies.length > 0;
-  }
-
-  async executeWithPositiveStrategy() {
-    console.log('\n' + '='.repeat(60));
-    console.log('🎯 BOK POSITIVE STRATEGY MODE (Multi-Strategy)');
-    console.log('Rule: Use strategy until live WR ≤55% → Switch to next');
-    console.log('='.repeat(60));
-
-    const positiveStrategies = this.loadPositiveStrategiesFromBOK();
-    const provenTokens = this.loadProvenTokens();
-
-    if (positiveStrategies.length === 0) {
-      console.log('⚠️  No positive strategies in BOK, falling back to scan mode');
-      return false;
-    }
-
-    // Filter strategies: skip those with live WR ≤ 60%
-    const usableStrategies = [];
-    console.log(`\n📚 Found ${positiveStrategies.length} positive strategy(s):`);
-    for (const s of positiveStrategies) {
-      const check = this.isStrategyUsable(s);
-      console.log(`   • ${s.name}: ${s.winRate} | Live: ${check.reason}`);
-      if (check.usable) {
-        usableStrategies.push(s);
-      }
-    }
-
-    if (usableStrategies.length === 0) {
-      console.log('\n⚠️  ALL strategies have live WR ≤55% - Need new strategies from BOK');
-      return false;
-    }
-
-    console.log(`\n✅ ${usableStrategies.length} strategy(s) usable for trading`);
-
-    // Check current open positions
-    const positionsFile = '/root/trading-bot/positions.json';
-    let openPositions = [];
-    try {
-      if (fs.existsSync(positionsFile)) {
-        openPositions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
-        openPositions = openPositions.filter(p => !p.exited);
-      }
-    } catch (e) {}
-
-    const maxConcurrent = 7;
-    const availableSlots = maxConcurrent - openPositions.length;
-
-    if (availableSlots <= 0) {
-      console.log(`\n⏸️  Max concurrent positions (${maxConcurrent}) reached`);
-      return false;
-    }
-
-    console.log(`\n📊 Open positions: ${openPositions.length}/${maxConcurrent}`);
-    console.log(`   Available slots: ${availableSlots}`);
-    console.log(`   🎯 EXECUTING ALL ${usableStrategies.length} STRATEGIES AT ONCE!`);
-
-    // Track which strategies already have positions
-    const strategiesWithPositions = new Set(openPositions.map(p => p.strategyId));
-
-    // Execute ALL usable strategies at once!
-    const executionPromises = [];
-    for (const strategy of usableStrategies) {
-
-      // Skip if this strategy already has a position
-      if (strategiesWithPositions.has(strategy.id)) {
-        console.log(`\n⏭️  ${strategy.name}: Already has position, skipping`);
-        continue;
-      }
-
-      console.log(`\n${'='.repeat(50)}`);
-      console.log(`🎯 Testing strategy: ${strategy.name}`);
-      console.log('='.repeat(50));
-
-      // Set current strategy
-      this.currentStrategy = {
-        id: strategy.id,
-        name: strategy.name,
-        category: 'SCALPING'
-      };
-
-      // Apply strategy params
-      this.applyStrategyParams(this.currentStrategy, null);
-
-      // CHECK: Ada proven tokens untuk strategy ini?
-      const strategyProvenTokens = provenTokens[strategy.id]?.tokens || [];
-
-      if (strategyProvenTokens.length > 0) {
-      console.log(`\n💎 FOUND ${strategyProvenTokens.length} PROVEN TOKEN(S):`);
-      strategyProvenTokens.slice(0, 5).forEach(t => {
-        console.log(`   • ${t.symbol}: ${t.wins} wins, +${t.avgPnl.toFixed(1)}% avg`);
-      });
-      console.log('\n🔄 Checking current prices of proven tokens...');
-
-      let executed = false;
-      // Check each proven token
-      for (const proven of strategyProvenTokens.slice(0, 10)) {
-        try {
-          const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${proven.ca}`);
-          const data = await res.json();
-          const pair = data.pairs?.[0];
-
-          if (!pair) {
-            console.log(`   ⏭️  ${proven.symbol}: No data`);
-            continue;
-          }
-
-          const symbol = pair.baseToken?.symbol || proven.symbol;
-          const ca = proven.ca;
-          const price = parseFloat(pair.priceUsd);
-          const liq = parseFloat(pair.liquidity?.usd || 0);
-
-          console.log(`\n🔍 Checking PROVEN: ${symbol}`);
-          console.log(`   Price: $${price.toFixed(8)} | Liq: $${liq.toFixed(0)}`);
-
-          // Filters
-          if (liq < CONFIG.MIN_LIQUIDITY_USD) {
-            console.log(`   ⏭️  Low liquidity`);
-            continue;
-          }
-
-          // Check existing
-          const existing = await this.checkExistingPosition(ca);
-          if (existing) {
-            console.log(`   ⏭️  Already have position`);
-            continue;
-          }
-
-          // Proven tokens skip Fib level check (already validated by paper trade)
-          const candleCheck = await this.validateCandleEntry(ca, price, true); // true = skipFibCheck
-          if (!candleCheck.valid) {
-            console.log(`   ⏭️  ${candleCheck.reason}`);
-            continue;
-          }
-
-          // Honeypot
-          const knownBluechips = ['SOL', 'USDC', 'USDT', 'BONK', 'JUP', 'JTO', 'WIF', 'RAY', 'ORCA'];
-          const isBluechip = knownBluechips.includes(symbol.toUpperCase());
-
-          if (!isBluechip) {
-            console.log(`   🔒 Honeypot test...`);
-            const honeypot = await this.honeypotTest(ca);
-            if (!honeypot.safe) {
-              console.log(`   ⚠️  HONEYPOT`);
-              continue;
-            }
-          }
-
-          // EXECUTE PROVEN TOKEN!
-          console.log(`\n🚀🚀🚀 EXECUTING PROVEN TOKEN: ${symbol} 🚀🚀🚀`);
-          console.log(`   Strategy: ${strategy.name}`);
-          console.log(`   History: ${proven.wins} wins with this strategy!`);
-          const setup = {
-            symbol,
-            ca,
-            price,
-            score: 9, // Higher score for proven
-            provenToken: true,
-            strategyId: strategy.id,
-            strategyName: strategy.name
-          };
-          await this.executeTrade(setup);
-          executed = true;
-          break;
-
-        } catch (e) {
-          console.log(`   ⚠️  Error checking ${proven.symbol}: ${e.message}`);
-        }
-      }
-
-      console.log('\n⚠️  No proven tokens available for entry, falling back to trending...');
-    } else {
-      console.log('\n⚠️  No proven tokens recorded, using trending tokens...');
-    }
-
-    // FALLBACK: Cari di trending tokens
-    console.log('\n🔍 Fetching trending tokens for execution...');
-    const tokens = await this.fetchMarketData();
-
-    if (tokens.length === 0) {
-      console.log('❌ No tokens available');
-      return false;
-    }
-
-    // Check trending tokens
-    for (const token of tokens.slice(0, 20)) {
-      const symbol = token.baseToken?.symbol || 'UNKNOWN';
-      const ca = token.baseToken?.address;
-
-      if (!ca) continue;
-
-      console.log(`\n🔍 Checking: ${symbol}`);
-
-      const liq = parseFloat(token.liquidity?.usd || 0);
-      const age = this.getTokenAgeMinutes(token);
-
-      if (liq < CONFIG.MIN_LIQUIDITY_USD) {
-        console.log(`  ⏭️  Low liquidity`);
-        continue;
-      }
-
-      if (age < CONFIG.MIN_TOKEN_AGE_MINUTES) {
-        console.log(`  ⏭️  Too young`);
-        continue;
-      }
-
-      const existing = await this.checkExistingPosition(ca);
-      if (existing) {
-        console.log(`  ⏭️  Already have position`);
-        continue;
-      }
-
-      const candleCheck = await this.validateCandleEntry(ca, parseFloat(token.priceUsd));
-      if (!candleCheck.valid) {
-        console.log(`  ⏭️  ${candleCheck.reason}`);
-        continue;
-      }
-
-      const knownBluechips = ['SOL', 'USDC', 'USDT', 'BONK', 'JUP', 'JTO', 'WIF', 'RAY', 'ORCA'];
-      const isBluechip = knownBluechips.includes(symbol.toUpperCase());
-
-      if (!isBluechip) {
-        console.log(`  🔒 Honeypot test...`);
-        const honeypot = await this.honeypotTest(ca);
-        if (!honeypot.safe) {
-          console.log(`  ⚠️  HONEYPOT`);
-          continue;
-        }
-      }
-
-      console.log(`\n🚀 EXECUTING (trending): ${symbol}`);
-      const setup = {
-        symbol,
-        ca,
-        price: parseFloat(token.priceUsd),
-        score: 8,
-        strategyId: strategy.id,
-        strategyName: strategy.name
-      };
-      await this.executeTrade(setup);
-      executed = true;
-      break;
-    }
-
-      // If we couldn't execute with this strategy, log it
-      if (!executed) {
-        console.log(`\n⚠️  No suitable tokens for ${strategy.name}`);
-      }
-    }
-
-    // Return true
-    return true;
-  }
-
   /**
    * SYNC with Paper Trader - reload adaptive config
    */
@@ -705,15 +165,9 @@ class DynamicTrader {
     try {
       const adaptiveConfig = JSON.parse(fs.readFileSync('/root/trading-bot/adaptive-scoring-config.json', 'utf8'));
       
-      // Check if adaptiveThresholds exists (old format compatibility)
-      if (!adaptiveConfig.adaptiveThresholds) {
-        console.log('⚠️  Sync: adaptiveThresholds not found, using defaults');
-        return false;
-      }
-      
       // Sync threshold
-      const paperThreshold = adaptiveConfig.adaptiveThresholds?.paperTrader?.optimalThreshold;
-      const liveThreshold = adaptiveConfig.adaptiveThresholds?.liveTrader?.currentThreshold;
+      const paperThreshold = adaptiveConfig.adaptiveThresholds.paperTrader.optimalThreshold;
+      const liveThreshold = adaptiveConfig.adaptiveThresholds.liveTrader?.currentThreshold;
       
       if (paperThreshold && paperThreshold !== CONFIG.MIN_SCORE) {
         console.log(`📊 SYNC: Threshold updated ${CONFIG.MIN_SCORE} → ${paperThreshold}`);
@@ -721,7 +175,7 @@ class DynamicTrader {
       }
       
       // SYNC STRATEGY: Always use HIGHEST WR% from Paper Trader
-      const fibStrategies = adaptiveConfig.fibStrategies || {};
+      const fibStrategies = adaptiveConfig.fibStrategies;
       let bestStrategy = null;
       let bestWR = 0;
       let bestTrades = 0;
@@ -752,7 +206,7 @@ class DynamicTrader {
       console.log(`📊 SYNC: Position size ${this.currentPositionSize} SOL (based on strategy performance)`);
       
       // Update liveTrader section
-      if (adaptiveConfig.adaptiveThresholds?.liveTrader) {
+      if (adaptiveConfig.adaptiveThresholds.liveTrader) {
         adaptiveConfig.adaptiveThresholds.liveTrader.currentThreshold = CONFIG.MIN_SCORE;
         adaptiveConfig.adaptiveThresholds.liveTrader.lastSync = new Date().toISOString();
         fs.writeFileSync('/root/trading-bot/adaptive-scoring-config.json', JSON.stringify(adaptiveConfig, null, 2));
@@ -791,7 +245,7 @@ class DynamicTrader {
       return 0.035; // Good confidence
     } else if (bestWR >= 75) {
       return 0.03; // Moderate confidence
-    } else if (bestWR >= 65) {
+    } else if (bestWR >= 70) {
       return 0.025; // Default
     } else if (bestWR >= 65) {
       return 0.02; // Lower confidence
@@ -990,6 +444,95 @@ class DynamicTrader {
     }
   }
 
+  // ==================== QUICKNODE SWAP (PRIMARY) ====================
+  
+  async executeQuickNodeSwap(params) {
+    const { fromToken, toToken, amount, slippage = 10 } = params;
+    
+    let qnConfig = {};
+    try {
+      const configData = fs.readFileSync('/root/trading-bot/trading-config.json', 'utf8');
+      qnConfig = JSON.parse(configData).QUICKNODE || {};
+    } catch (e) { return null; }
+    
+    if (!qnConfig.JUPITER_SWAP) { return null; }
+    
+    try {
+      // Get priority fee
+      let fee = 0.001;
+      if (qnConfig.PRIORITY_FEE) {
+        try {
+          const feeRes = await fetch(qnConfig.PRIORITY_FEE);
+          const feeData = await feeRes.json();
+          fee = feeData?.medium || 0.001;
+        } catch (e) {}
+      }
+      
+      const swapParams = {
+        fromToken, toToken,
+        amount: Math.floor(amount * 1e9),
+        slippage, priorityFee: fee,
+        fromAddress: this.wallet.publicKey.toString(),
+        quoteMode: 'Auto'
+      };
+      
+      const res = await fetch(qnConfig.JUPITER_SWAP, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(swapParams)
+      });
+      
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      
+      const txBuf = Buffer.from(data.swapTransaction, 'base64');
+      const transaction = VersionedTransaction.deserialize(txBuf);
+      transaction.sign([this.wallet]);
+      
+      const signature = await this.connection.sendTransaction(transaction, {
+        maxRetries: 3, preflightCommitment: 'confirmed'
+      });
+      
+      await this.connection.confirmTransaction(signature, 'confirmed');
+      
+      return { success: true, signature, expectedOutput: data.outputAmount, platform: 'QuickNode' };
+    } catch (e) {
+      console.log(`  ⚠️ QuickNode: ${e.message}`);
+      return null;
+    }
+  }
+  
+  // Fallback: QuickNode → SolanaTracker
+  async executeBuyWithFallback(tokenCA, amountSol) {
+    console.log('  🔄 Swap: QuickNode primary...');
+    
+    const qn = await this.executeQuickNodeSwap({
+      fromToken: 'So11111111111111111111111111111111111111112',
+      toToken: tokenCA, amount: amountSol, slippage: 10
+    });
+    
+    if (qn) { console.log('  ✅ QuickNode SUCCESS'); return qn; }
+    
+    console.log('  🔄 Fallback: SolanaTracker...');
+    return await this.executeSolanaTrackerBuy(tokenCA, amountSol);
+  }
+  
+  async executeSellWithFallback(tokenCA, percent = '95%') {
+    console.log('  🔄 Sell: QuickNode primary...');
+    
+    const qn = await this.executeQuickNodeSwap({
+      fromToken: tokenCA,
+      toToken: 'So11111111111111111111111111111111111111112',
+      amount: 1, slippage: 30
+    });
+    
+    if (qn) { console.log('  ✅ QuickNode SUCCESS'); return qn; }
+    
+    console.log('  🔄 Fallback: SolanaTracker...');
+    return await this.executeSolanaTrackerSell(tokenCA, percent);
+  }
+
   /**
    * Honeypot check via Solana Tracker
    */
@@ -1082,7 +625,7 @@ class DynamicTrader {
       const paperStats = adaptiveConfig.adaptiveThresholds.paperTrader;
       
       // If paper trader has 50+ trades and WR > 70%, use its optimal threshold
-      if (paperStats.totalTrades >= 50 && paperStats.winRate >= 65) {
+      if (paperStats.totalTrades >= 50 && paperStats.winRate >= 70) {
         const recommendedThreshold = paperStats.optimalThreshold;
         
         if (recommendedThreshold !== CONFIG.MIN_SCORE) {
@@ -1112,23 +655,12 @@ class DynamicTrader {
       const data = await res.json();
       const pair = data.pairs?.[0];
       
-      // Try pairCreatedAt first, fallback to other methods
-      let ageMinutes = 0;
-      
-      if (pair?.pairCreatedAt) {
-        ageMinutes = (Date.now() - pair.pairCreatedAt) / 60000;
-      } else if (pair?.baseToken?.firstTradeDate) {
-        // Fallback to token first trade date if available
-        ageMinutes = (Date.now() - new Date(pair.baseToken.firstTradeDate).getTime()) / 60000;
-      } else {
-        // If no age data, check if it's a known bluechip by symbol
-        const knownBluechips = ['SOL', 'USDC', 'USDT', 'BONK', 'JUP', 'JTO', 'WIF', 'RAY', 'ORCA'];
-        if (pair?.baseToken?.symbol && knownBluechips.includes(pair.baseToken.symbol.toUpperCase())) {
-          console.log(`  🏛️ Bluechip detected: ${pair.baseToken.symbol}, skipping age check`);
-          return { valid: true, age: 999999 }; // Treat as very old
-        }
+      if (!pair || !pair.pairCreatedAt) {
         return { valid: false, age: 0 };
       }
+      
+      const createdMs = pair.pairCreatedAt;
+      const ageMinutes = (Date.now() - createdMs) / 60000;
       
       return {
         valid: ageMinutes >= CONFIG.MIN_TOKEN_AGE_MINUTES,
@@ -1140,16 +672,8 @@ class DynamicTrader {
   }
 
   getTokenAgeMinutes(pair) {
-    if (!pair) return 0;
-    if (pair.pairCreatedAt) {
-      return (Date.now() - pair.pairCreatedAt) / 60000;
-    }
-    // Fallback for known bluechips
-    const knownBluechips = ['SOL', 'USDC', 'USDT', 'BONK', 'JUP', 'JTO', 'WIF', 'RAY', 'ORCA'];
-    if (pair.baseToken?.symbol && knownBluechips.includes(pair.baseToken.symbol.toUpperCase())) {
-      return 999999; // Treat as very old
-    }
-    return 0;
+    if (!pair || !pair.pairCreatedAt) return 0;
+    return (Date.now() - pair.pairCreatedAt) / 60000;
   }
 
   /**
@@ -1215,53 +739,37 @@ class DynamicTrader {
       // Fallback to local calculation
     }
     
-    // LOCAL FALLBACK SCORING (Enhanced for bluechips)
+    // LOCAL FALLBACK SCORING (from paper trader success)
     if (!pairData) return 5; // Base score if no data
     
-    const tokenSymbol = pairData.baseToken?.symbol || symbol; // Fallback to param if no pairData
-    const knownBluechips = ['SOL', 'USDC', 'USDT', 'BONK', 'JUP', 'JTO', 'WIF', 'RAY', 'ORCA', 'MSOL', 'BSOL'];
-    const isBluechip = knownBluechips.includes(tokenSymbol.toUpperCase());
+    let score = 5; // Base score
     
-    let score = isBluechip ? 6 : 5; // Bluechips start with 6, others with 5
-    
-    // Volume score (relaxed for bluechips)
+    // Volume score
     const vol = parseFloat(pairData.volume?.h24 || 0);
     if (vol > 100000) score += 2;
     else if (vol > 50000) score += 1;
-    else if (isBluechip && vol > 25000) score += 1; // Bluechips get bonus at lower volume
     
-    // Price change score (relaxed - stable is OK)
+    // Price change score
     const change = parseFloat(pairData.priceChange?.h24 || 0);
-    if (Math.abs(change) > 20) score += 1;  // Any significant movement (up or down)
+    if (change > 20) score += 1;
     if (change > 50) score += 1;
-    if (isBluechip && Math.abs(change) < 15) score += 1; // Stable bluechips get bonus
     
-    // Liquidity score (enhanced)
+    // Liquidity score
     const liq = parseFloat(pairData.liquidity?.usd || 0);
-    if (liq > 100000) score += 2;  // $100k+ = +2
-    else if (liq > 50000) score += 1;  // $50k+ = +1
-    else if (liq > 25000) score += 0.5; // $25k+ = +0.5
+    if (liq > 50000) score += 1;
     
     // Buy pressure score
     const buys = parseFloat(pairData.txns?.h24?.buys || 0);
     const sells = parseFloat(pairData.txns?.h24?.sells || 0);
     if (buys > sells * 1.5) score += 1;
-    else if (buys > sells) score += 0.5; // Any buy pressure
     
-    // Bluechip bonus for high liquidity
-    if (isBluechip && liq > 50000) score += 1;
-    
-    return Math.min(Math.floor(score), 10);
+    return Math.min(score, 10);
   }
 
   async scanAndTrade() {
     console.log('\n🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER');
     console.log('='.repeat(50));
     
-    // Track API usage for this scan
-    const { scan } = require('./update-economics.js');
-    scan();
-
     // CHECK: Pause/Stop flags from evaluation system
     try {
       if (fs.existsSync('/root/trading-bot/EMERGENCY_STOP')) {
@@ -1276,47 +784,36 @@ class DynamicTrader {
         return;
       }
     } catch (e) {}
-
+    
     // Sync with paper trader for optimal threshold
     if (CONFIG.ADAPTIVE_MODE) {
       this.syncAdaptiveThreshold();
     }
-
+    
     const balance = await this.getBalance();
-
+    
     // CHECK: Balance Protection (Drawdown limit)
     const canContinue = await this.checkBalanceProtection(balance);
     if (!canContinue) {
       console.log('🛑 Trading halted due to drawdown limit');
       process.exit(0);
     }
-
+    
     console.log(`📊 Min Score Threshold: ${CONFIG.MIN_SCORE} (adaptive)`);
-
+    
     if (balance < CONFIG.POSITION_SIZE + CONFIG.FEE_RESERVE) {
       console.log('❌ Insufficient balance');
       return;
     }
-
+    
     if (this.tradesToday >= CONFIG.MAX_DAILY_TRADES) {
       console.log(`⏸️  Daily limit reached (${this.tradesToday}/${CONFIG.MAX_DAILY_TRADES})`);
       return;
     }
-
+    
     // SYNC with Paper Trader before each scan
     console.log('\n🔄 Syncing with Paper Trader...');
     this.syncWithPaperTrader();
-
-    // CHECK: If BOK has positive strategies, use them directly!
-    if (this.hasPositiveStrategies()) {
-      console.log('\n✅ BOK has positive strategies - entering DIRECT EXECUTION mode');
-      const executed = await this.executeWithPositiveStrategy();
-      if (executed) {
-        console.log('\n✅ Trade executed using BOK positive strategy');
-        return;
-      }
-      console.log('\n⚠️  No suitable tokens for positive strategy, falling back to scan mode');
-    }
     console.log(`📊 Current threshold: Score ${CONFIG.MIN_SCORE}+`);
     
     // Update market cache for TP/SL engine
@@ -1365,22 +862,17 @@ class DynamicTrader {
       }
     }
     
-    // EXPANDED DEX WHITELIST - Include major Solana DEXes
-    const ALLOWED_DEXES = ['raydium', 'orca', 'meteora', 'pumpfun', 'pumpswap', 
-                           'lifinity', 'phoenix', 'saros', 'cropper', 'goosefx',
-                           'raydium-cl', 'whirlpool', 'invariant', 'sanctum'];
-    
     // Filter candidates - Match paper trader settings (aggressive for more trades)
     const candidates = allPairs.filter(p => {
       const liq = parseFloat(p.liquidity?.usd || 0);
       const vol = parseFloat(p.volume?.h24 || 0);
       const age = this.getTokenAgeMinutes(p);
       return p.chainId === 'solana' &&
-             ALLOWED_DEXES.includes(p.dexId) &&
+             (p.dexId === 'raydium' || p.dexId === 'orca' || p.dexId === 'meteora' || p.dexId === 'pumpfun' || p.dexId === 'pumpswap') &&
              liq >= CONFIG.MIN_LIQUIDITY_USD &&  // $25k minimum liquidity
              vol >= 10000 &&   // $10k minimum volume
              age >= CONFIG.MIN_TOKEN_AGE_MINUTES;
-    }).slice(0, 100) || [];  // Keep DexScreener hot/trending order, take top 100
+    }).sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0)).slice(0, 50) || [];  // More candidates
     
     console.log(`📊 Found ${candidates.length} candidates`);
     
@@ -1406,33 +898,22 @@ class DynamicTrader {
       const score = await this.getSignalScore(symbol, pair);
       console.log(`  📊 Score: ${score}/10 | Age: ${ageCheck.age.toFixed(0)}m`);
       
-      // Honeypot test (SKIP for established tokens)
-      const knownBluechips = ['SOL', 'USDC', 'USDT', 'BONK', 'JUP', 'JTO', 'WIF', 'RAY', 'ORCA', 'MSOL', 'BSOL'];
-      const isBluechip = knownBluechips.includes(symbol.toUpperCase());
-      
-      // Score check (relaxed for bluechips)
-      const minScore = isBluechip ? Math.max(5, CONFIG.MIN_SCORE - 1) : CONFIG.MIN_SCORE;
-      if (score < minScore) {
-        console.log(`  ⏭️  Score too low (${score} < ${minScore})`);
+      if (score < CONFIG.MIN_SCORE) {
+        console.log(`  ⏭️  Score too low (${score} < ${CONFIG.MIN_SCORE})`);
         continue;
       }
-      const ageHours = ageCheck.age / 60;
-      const liq = parseFloat(pair.liquidity?.usd || 0);
-      const isEstablished = isBluechip || (ageHours > 168 && liq > 100000); // 7 days + $100k liq
       
-      if (isEstablished) {
-        console.log(`  🏛️ Established token - skipping honeypot test`);
-      } else {
-        console.log(`  🔒 Honeypot test...`);
-        const honeypot = await this.honeypotTest(token.baseToken.address);
-        
-        if (!honeypot.safe) {
-          console.log(`  ⚠️  HONEYPOT DETECTED: ${honeypot.reason}`);
-          await this.notify(`⚠️ **HONEYPOT BLOCKED**\n\n${symbol}: ${honeypot.reason}`);
-          continue;
-        }
-        console.log(`  ✅ SAFE - Honeypot test passed`);
+      // Honeypot test
+      console.log(`  🔒 Honeypot test...`);
+      const honeypot = await this.honeypotTest(token.baseToken.address);
+      
+      if (!honeypot.safe) {
+        console.log(`  ⚠️  HONEYPOT DETECTED: ${honeypot.reason}`);
+        await this.notify(`⚠️ **HONEYPOT BLOCKED**\n\n${symbol}: ${honeypot.reason}`);
+        continue;
       }
+      
+      console.log(`  ✅ SAFE - Honeypot test passed`);
       
       // SYNC Strategy from Paper Trader
       this.syncStrategyFromPaperTrader();
@@ -1584,141 +1065,6 @@ class DynamicTrader {
       console.log(`🚫 BLACKLISTED: ${symbol} - 3x SL hit`);
       this.notify(`🚫 **TOKEN BLACKLISTED**\n\n${symbol}\nCA: ${ca.slice(0, 15)}...\nReason: 3x SL hit\n\n🚫 NEVER TRADING THIS AGAIN`);
     }
-  }
-
-  /**
-   * Validate candle entry with Fibonacci analysis - prevent FOMO + optimal entry
-   */
-  async validateCandleEntry(ca, currentPrice, skipFibCheck = false) {
-    try {
-      // Get OHLCV data from DexScreener
-      const res = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${ca}`);
-      const data = await res.json();
-      const pair = data.pairs?.[0];
-      
-      if (!pair || !pair.priceChange) {
-        return { valid: true, reason: 'No historical data' };
-      }
-      
-      // Check recent price action (FOMO detection)
-      const change5m = pair.priceChange?.m5 || 0;
-      const change1h = pair.priceChange?.h1 || 0;
-      const change24h = pair.priceChange?.h24 || 0;
-      
-      if (change5m > 20) {
-        return { valid: false, reason: `FOMO ALERT: Pumped ${change5m.toFixed(1)}% in 5min` };
-      }
-      
-      if (change1h > 50) {
-        return { valid: false, reason: `FOMO ALERT: Pumped ${change1h.toFixed(1)}% in 1h` };
-      }
-      
-      // Check volume
-      const vol24h = pair.volume?.h24 || 0;
-      if (vol24h < 10000) {
-        return { valid: false, reason: 'Low volume' };
-      }
-      
-      // FIBONACCI ANALYSIS for optimal entry
-      const priceUsd = parseFloat(pair.priceUsd);
-      const priceChange24h = pair.priceChange?.h24 || 0;
-      
-      // Estimate high/low from 24h change
-      const high24 = priceUsd * (1 + Math.max(0, priceChange24h) / 100);
-      const low24 = priceUsd * (1 + Math.min(0, priceChange24h) / 100);
-      const range = high24 - low24;
-      
-      // Calculate Fibonacci levels
-      const fibLevels = {
-        0: high24,
-        0.236: high24 - (range * 0.236),
-        0.382: high24 - (range * 0.382),
-        0.500: high24 - (range * 0.500),
-        0.618: high24 - (range * 0.618),
-        0.786: high24 - (range * 0.786),
-        1.0: low24
-      };
-      
-      // Find nearest Fib level to current price
-      let nearestFib = null;
-      let minDiff = Infinity;
-      for (const [level, price] of Object.entries(fibLevels)) {
-        const diff = Math.abs(priceUsd - price) / priceUsd;
-        if (diff < minDiff) {
-          minDiff = diff;
-          nearestFib = { level: parseFloat(level), price, diff };
-        }
-      }
-      
-      // Entry logic: Current price should be NEAR or BELOW Fib 0.500 (discount zone)
-      const isNearOptimalEntry = nearestFib.level >= 0.382 && nearestFib.level <= 0.618;
-      const discountPercent = ((fibLevels[0.500] - priceUsd) / fibLevels[0.500]) * 100;
-      
-      // Skip Fib check for proven tokens (already validated by paper trade)
-      if (!skipFibCheck && !isNearOptimalEntry) {
-        return { 
-          valid: false, 
-          reason: `Price not at optimal Fib level (current: ${nearestFib.level.toFixed(3)})`,
-          fibLevels,
-          nearestFib
-        };
-      }
-      
-      // Calculate targets based on Fibonacci
-      const entryFib = nearestFib.level;
-      const targets = this.calculateFibTargets(priceUsd, entryFib);
-      
-      return { 
-        valid: true, 
-        reason: `Entry at Fib ${entryFib.toFixed(3)}`,
-        fibLevels,
-        nearestFib,
-        targets,
-        change5m, 
-        change1h, 
-        change24h 
-      };
-    } catch (e) {
-      console.log('  ⚠️ Candle validation error:', e.message);
-      return { valid: true, reason: 'Validation skipped (error)' };
-    }
-  }
-  
-  /**
-   * Calculate Fibonacci-based targets
-   */
-  calculateFibTargets(entryPrice, entryFib = 0.500) {
-    // Base ranges
-    const baseRange = entryPrice * 0.06; // 6% base
-    
-    // Adjust based on entry quality (deeper entry = tighter targets)
-    let tp1Multiplier = 0.60; // 3.6%
-    let tp2Multiplier = 0.90; // 5.4%
-    let slMultiplier = 0.27;  // 1.6%
-    
-    if (entryFib <= 0.382) {
-      // Shallow entry - more conservative
-      tp1Multiplier = 0.50;
-      tp2Multiplier = 0.75;
-      slMultiplier = 0.30;
-    } else if (entryFib >= 0.618) {
-      // Deep entry - more aggressive
-      tp1Multiplier = 0.75;
-      tp2Multiplier = 1.10;
-      slMultiplier = 0.25;
-    }
-    
-    return {
-      entryPrice,
-      fibEntry: entryFib,
-      stopLoss: entryPrice * (1 - slMultiplier * 0.06),
-      takeProfit1: entryPrice * (1 + tp1Multiplier * 0.06),
-      takeProfit2: entryPrice * (1 + tp2Multiplier * 0.06),
-      slPercent: -(slMultiplier * 6),
-      tp1Percent: (tp1Multiplier * 6),
-      tp2Percent: (tp2Multiplier * 6),
-      partialExitPercent: 50
-    };
   }
   
   checkBlacklist(ca, symbol) {
@@ -1999,11 +1345,10 @@ class DynamicTrader {
     // Use flexible position size based on strategy performance
     const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
     
-    // Execute buy via Solana Tracker
+    // Execute buy via QuickNode (with SolanaTracker fallback)
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
-    console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
-    console.log(`   Platform: Solana Tracker`);
-    const swapResult = await this.executeSolanaTrackerBuy(setup.ca, positionSize);
+    console.log(`   Amount: ${positionSize} SOL`);
+    const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
     
     if (!swapResult.success) {
       console.log(`   ❌ SWAP FAILED: ${swapResult.error}`);
@@ -2017,40 +1362,6 @@ class DynamicTrader {
     
     // Record trade for daily limit tracking
     this.recordTrade();
-    
-    // Save position to positions.json
-    const positionData = {
-      symbol: setup.symbol,
-      ca: setup.ca,
-      entryPrice: setup.price,
-      entryTime: Date.now(),
-      positionSize: positionSize,
-      tokensReceived: swapResult.expectedOutput,
-      txHash: swapResult.signature,
-      strategy: this.currentStrategy?.name || 'Fib Dynamic',
-      strategyId: this.currentStrategy?.id || 'fib_dynamic',
-      targets: {
-        sl: targets.stopLoss,
-        tp1: targets.takeProfit1,
-        tp2: targets.takeProfit2
-      },
-      exited: false,
-      partialExited: false,
-      marketCondition: this.marketCondition?.regime || 'UNKNOWN'
-    };
-    
-    try {
-      const positionsFile = '/root/trading-bot/positions.json';
-      let positions = [];
-      if (fs.existsSync(positionsFile)) {
-        positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
-      }
-      positions.push(positionData);
-      fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
-      console.log(`   💾 Position saved to positions.json`);
-    } catch (e) {
-      console.log(`   ⚠️  Failed to save position: ${e.message}`);
-    }
     
     await this.notify(
       `✅ **TRADE EXECUTED (FIB DYNAMIC)**\n\n` +
@@ -2068,11 +1379,11 @@ class DynamicTrader {
     );
     
     // Start exit monitor with strategy config
-    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 360; // Default 6 hours
+    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 15;
     this.startFibExitMonitor(setup, targets, maxHoldMinutes);
   }
 
-  startFibExitMonitor(setup, targets, maxHoldMinutes = 360) {
+  startFibExitMonitor(setup, targets, maxHoldMinutes = 15) {
     const monitorFile = `/root/trading-bot/exit-monitor-${setup.symbol.toLowerCase()}.js`;
     const monitorCode = `
 const { Connection, PublicKey, Keypair } = require('@solana/web3.js');
@@ -2103,74 +1414,8 @@ const POS = {
   stop: ${targets.stopLoss},
   tp1: ${targets.takeProfit1},
   tp2: ${targets.takeProfit2},
-  partialExit: ${targets.partialExitPercent / 100},
-  strategyId: '${this.currentStrategy?.id || 'fib_618_1618'}',
-  strategyName: '${this.currentStrategy?.name || 'Fib 0.618 Golden'}'
+  partialExit: ${targets.partialExitPercent / 100}
 };
-
-// DYNAMIC STATE
-let dynamicSL = POS.stop;
-let dynamicTP1 = POS.tp1;
-let dynamicTP2 = POS.tp2;
-let highestPrice = POS.entry;
-let trailingActivated = false;
-
-// BOK Feedback - Track live trade results
-async function recordTradeResult(isWin, pnlPercent) {
-  try {
-    const fs = require('fs');
-    const updateEconomics = require('./update-economics.js');
-    const trackerFile = '/root/trading-bot/live-strategy-tracker.json';
-    let tracker = {};
-    
-    if (fs.existsSync(trackerFile)) {
-      tracker = JSON.parse(fs.readFileSync(trackerFile, 'utf8'));
-    }
-    
-    const sid = POS.strategyId;
-    if (!tracker[sid]) {
-      tracker[sid] = { id: sid, name: POS.strategyName, liveWins: 0, liveLosses: 0, liveTotal: 0, consecutiveLosses: 0 };
-    }
-    
-    tracker[sid].liveTotal++;
-    if (isWin) {
-      tracker[sid].liveWins++;
-      tracker[sid].consecutiveLosses = 0;
-    } else {
-      tracker[sid].liveLosses++;
-      tracker[sid].consecutiveLosses++;
-    }
-    tracker[sid].lastUpdated = Date.now();
-    
-    
-    // Update trading economics
-    updateEconomics.trade(pnlPercent, isWin);
-  } catch (e) { console.error('Tracker error:', e.message); }
-}
-
-// Mark position as exited in positions.json
-function markPositionExited(exitPrice, pnlPercent, exitType, txHash) {
-  try {
-    const fs = require('fs');
-    const positionsFile = '/root/trading-bot/positions.json';
-    
-    if (!fs.existsSync(positionsFile)) return;
-    
-    const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
-    const posIndex = positions.findIndex(p => p.ca === POS.ca && !p.exited);
-    
-    if (posIndex >= 0) {
-      positions[posIndex].exited = true;
-      positions[posIndex].exitPrice = exitPrice;
-      positions[posIndex].exitTime = Date.now();
-      positions[posIndex].pnlPercent = pnlPercent;
-      positions[posIndex].exitType = exitType;
-      positions[posIndex].exitTxHash = txHash;
-      fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
-      console.log(\`💾 Position marked as exited: \${exitType}\`);
-    }
-  } catch (e) { console.error('Mark exited error:', e.message); }
-}
 
 const BOT_TOKEN = '${BOT_TOKEN}';
 const CHAT_ID = '${CHAT_ID}';
@@ -2235,162 +1480,80 @@ let partialExited = false;
 const startTime = Date.now();
 const MAX_HOLD_MS = ${maxHoldMinutes} * 60 * 1000;
 
-async function getMarketData() {
-  try {
-    const res = await fetch('https://api.dexscreener.com/latest/dex/tokens/' + POS.ca);
-    const data = await res.json();
-    const pair = data.pairs?.[0];
-    if (!pair) return null;
-    
-    return {
-      price: parseFloat(pair.priceUsd),
-      volume24h: pair.volume?.h24 || 0,
-      volumeChange: pair.volume?.change24h || 0,
-      buyPressure: pair.txns?.h24?.buys || 0,
-      sellPressure: pair.txns?.h24?.sells || 0,
-      priceChange5m: pair.priceChange?.m5 || 0,
-      priceChange1h: pair.priceChange?.h1 || 0
-    };
-  } catch (e) { return null; }
-}
-
 async function monitor() {
-  console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL v2 - 5s interval)...');
-  console.log(\`  Entry: $\${POS.entry.toFixed(8)}\`);
-  console.log(\`  Initial SL: $\${POS.stop.toFixed(8)}\`);
-  console.log(\`  Initial TP1: $\${POS.tp1.toFixed(8)}\`);
-  console.log(\`  Initial TP2: $\${POS.tp2.toFixed(8)}\`);
-  console.log(\`  Max Hold: ${maxHoldMinutes} min (${(maxHoldMinutes/60).toFixed(1)} hours)\`);
-  console.log(\`  Trailing: ENABLED (activates at +5%)\`);
-  
-  let lastPrice = POS.entry;
-  let momentum = 'neutral';
+  console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL)...');
+  console.log(\`  SL: $\${POS.stop.toFixed(8)}\`);
+  console.log(\`  TP1: $\${POS.tp1.toFixed(8)} (\${(POS.partialExit*100).toFixed(0)}% exit)\`);
+  console.log(\`  TP2: $\${POS.tp2.toFixed(8)} (final exit)\`);
+  console.log(\`  Max Hold: ${maxHoldMinutes} min\`);
   
   while (true) {
-    const market = await getMarketData();
-    if (!market) { await new Promise(r => setTimeout(r, 5000)); continue; }
-    
-    const price = market.price;
-    const elapsedMs = Date.now() - startTime;
-    const pnl = ((price / POS.entry) - 1) * 100;
-    
-    // Update highest price for trailing
-    if (price > highestPrice) {
-      highestPrice = price;
-    }
-    
-    // === DYNAMIC SL/TP CALCULATION ===
-    const buyRatio = market.buyPressure / (market.sellPressure + 1);
-    const isHighMomentum = buyRatio > 2 && market.priceChange5m > 5;
-    const isDumping = buyRatio < 0.5 || market.priceChange5m < -10;
-    
-    // TRAILING STOP (activates at +5% profit)
-    if (pnl >= 5 && !trailingActivated) {
-      trailingActivated = true;
-      console.log('🎯 Trailing stop ACTIVATED at +5%');
-    }
-    
-    if (trailingActivated) {
-      // Move SL up to lock profits (never down)
-      const newSL = highestPrice * 0.95; // 5% below highest
-      if (newSL > dynamicSL) {
-        dynamicSL = newSL;
-        console.log(\`🔄 Trailing SL raised to: $\${dynamicSL.toFixed(8)}\`);
-      }
-      
-      // Adjust TP based on momentum
-      if (isHighMomentum && !partialExited) {
-        dynamicTP1 = Math.max(dynamicTP1, price * 1.02); // Extend TP1
-        dynamicTP2 = Math.max(dynamicTP2, price * 1.05); // Extend TP2
-        momentum = 'bullish 🚀';
-      } else if (isDumping) {
-        dynamicTP1 = Math.min(dynamicTP1, price * 1.01); // Lower TP1
-        momentum = 'bearish 📉';
-      } else {
-        momentum = 'neutral 😐';
-      }
-    }
-    
-    // Display status
-    const time = new Date().toLocaleTimeString();
-    const minutesLeft = Math.floor((MAX_HOLD_MS - elapsedMs) / 60000);
-    console.log(\`\${time} | \${POS.symbol}: $\${price.toFixed(8)} | PnL: \${pnl > 0 ? '+' : ''}\${pnl.toFixed(2)}% | Momentum: \${momentum} | SL: $\${dynamicSL.toFixed(6)}\`);
+    const price = await getPrice();
     
     // Check max hold time
-    if (elapsedMs > MAX_HOLD_MS) {
+    const elapsedMs = Date.now() - startTime;
+    if (elapsedMs > MAX_HOLD_MS && price) {
+      const pnl = ((price / POS.entry) - 1) * 100;
       console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
-        markPositionExited(price, pnl, 'MAX_HOLD', sellResult.signature);
-        await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min (${(maxHoldMinutes/60).toFixed(0)}h) reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
-        await recordTradeResult(pnl > 0, pnl);
+        await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
       }
       process.exit(0);
     }
     
-    // Kill switch
+    if (!price) { await new Promise(r => setTimeout(r, 5000)); continue; }
+    if (!price) { await new Promise(r => setTimeout(r, 5000)); continue; }
+    
+    const pnl = ((price / POS.entry) - 1) * 100;
+    const time = new Date().toLocaleTimeString();
+    const minutesLeft = Math.floor((MAX_HOLD_MS - elapsedMs) / 60000);
+    console.log(\`\${time} | \${POS.symbol}: $\${price.toFixed(8)} | PnL: \${pnl > 0 ? '+' : ''}\${pnl.toFixed(2)}% | Hold: \${minutesLeft}m left\`);
+    
+    // Kill switch (honeypot detected)
     if (pnl <= -90) { 
-      console.log('💀 HONEYPOT DETECTED');
-      await notify(\`💀 **HONEYPOT**\\n\\n\${POS.symbol}: PnL -\${Math.abs(pnl).toFixed(2)}%\`);
+      console.log('💀 HONEYPOT DETECTED - KILL SWITCH');
+      await notify(\`💀 **HONEYPOT DETECTED**\\n\\n\${POS.symbol}: PnL -\${Math.abs(pnl).toFixed(2)}%\\n\\nPosition abandoned.\`);
       process.exit(0);
     }
     
-    // DYNAMIC STOP LOSS (trailing or initial)
-    if (price <= dynamicSL) {
-      console.log(\`🛑 SL HIT (\${trailingActivated ? 'Trailing' : 'Initial'}) - Executing sell...\`);
+    // Stop loss - EXECUTE SELL
+    if (price <= POS.stop) {
+      console.log('🛑 STOP LOSS HIT - Executing sell...');
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
-        markPositionExited(price, pnl, trailingActivated ? 'TRAILING_STOP' : 'STOP_LOSS', sellResult.signature);
-        await notify(\`🛑 **\${trailingActivated ? 'TRAILING' : 'STOP LOSS'} EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
-        await recordTradeResult(pnl > 0, pnl);
+        await notify(\`🛑 **STOP LOSS EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+      } else {
+        await notify(\`🛑 **STOP LOSS HIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
       }
       process.exit(0);
     }
     
-    // DYNAMIC TP1
-    if (!partialExited && price >= dynamicTP1) {
-      console.log(\`🎯 TP1 HIT (Dynamic: $\${dynamicTP1.toFixed(8)}) - Exiting 50%...\`);
+    // Take profit 1 (partial exit) - EXECUTE SELL
+    if (!partialExited && price >= POS.tp1) {
+      console.log(\`🎯 TP1 HIT - Exiting \${(POS.partialExit*100).toFixed(0)}%...\`);
       const sellResult = await executeSell('50%');
       partialExited = true;
       if (sellResult.success) {
-        // Mark partial exit in positions.json
-        try {
-          const fs = require('fs');
-          const positionsFile = '/root/trading-bot/positions.json';
-          if (fs.existsSync(positionsFile)) {
-            const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
-            const posIndex = positions.findIndex(p => p.ca === POS.ca && !p.exited);
-            if (posIndex >= 0) {
-              positions[posIndex].partialExited = true;
-              positions[posIndex].partialExitPrice = price;
-              // Store as SOL value, not percentage
-              const pnlSol = (pnl / 100) * POS.size;
-              positions[posIndex].partialExitPnl = pnlSol;
-              positions[posIndex].partialExitPnlPercent = pnl; // Keep percentage for reference
-              positions[posIndex].partialExitTx = sellResult.signature;
-              fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
-            }
-          }
-        } catch (e) {}
-        await notify(\`🎯 **TP1 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\nExited 50%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
-        // Lower TP2 after partial exit (lock profits)
-        dynamicTP2 = Math.max(dynamicTP2, price * 1.02);
+        await notify(\`🎯 **TP1 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\nExited 50%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\\n\\nHolding 50% for TP2...\`);
+      } else {
+        await notify(\`🎯 **TP1 REACHED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
       }
     }
     
-    // DYNAMIC TP2
-    if (price >= dynamicTP2) {
-      console.log(\`🎯 TP2 HIT (Dynamic: $\${dynamicTP2.toFixed(8)}) - FINAL EXIT...\`);
-      const sellResult = await executeSell('95%');
+    // Take profit 2 (final exit) - EXECUTE SELL
+    if (price >= POS.tp2) {
+      console.log('🎯 TP2 HIT - FINAL EXIT - Executing sell...');
+      const sellResult = await executeSell(partialExited ? '95%' : '95%');
       if (sellResult.success) {
-        markPositionExited(price, pnl, 'TAKE_PROFIT_2', sellResult.signature);
-        await notify(\`🎯 **TP2 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n✅ Trade complete!\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
-        await recordTradeResult(true, pnl);
+        await notify(\`🎯 **TP2 EXECUTED - FINAL EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n✅ Trade complete!\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+      } else {
+        await notify(\`🎯 **TP2 REACHED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
       }
       process.exit(0);
     }
     
-    await new Promise(r => setTimeout(r, 5000)); // 5 second interval
+    await new Promise(r => setTimeout(r, 5000)); // 5s check
   }
 }
 
