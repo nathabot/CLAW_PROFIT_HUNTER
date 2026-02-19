@@ -677,20 +677,52 @@ class DynamicTrader {
     return Math.min(score, 10);
   }
 
+  // ==================== TRADING MODE SELECTOR ====================
+  getTradingMode() {
+    try {
+      const configPath = '/root/trading-bot/trading-config.json';
+      if (!fs.existsSync(configPath)) {
+        return { mode: 'manual', active: 'established' };
+      }
+      const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+      return {
+        mode: config.TRADING_MODE?.MODE || 'manual',
+        active: config.TRADING_MODE?.ACTIVE || 'established',
+        autoType: config.TRADING_MODE?.AUTO_TYPE || 'performance',
+        timeInterval: config.TRADING_MODE?.TIME_INTERVAL_HOURS || 6,
+        degenEnabled: config.TRADING_MODE?.DEGEN_ENABLED || false
+      };
+    } catch (e) {
+      return { mode: 'manual', active: 'established' };
+    }
+  }
+
   // ==================== PROVEN TOKENS EXECUTOR ====================
   async scanProvenTokens() {
-    console.log('\n🎯 EXECUTOR MODE: Scanning PROVEN TOKENS from Paper Trader...');
+    const tradingMode = this.getTradingMode();
+    console.log(`\n🎯 EXECUTOR MODE: Scanning PROVEN ${tradingMode.active.toUpperCase()} tokens...`);
     
     try {
-      const provenFile = '/root/trading-bot/bok/proven-tokens.json';
+      // Select proven file based on mode
+      const modeFile = tradingMode.active === 'degen' 
+        ? '/root/trading-bot/bok/proven-degen.json'
+        : '/root/trading-bot/bok/proven-established.json';
+      
+      // Fallback to legacy if new file doesn't exist
+      const provenFile = fs.existsSync(modeFile) 
+        ? modeFile 
+        : '/root/trading-bot/bok/proven-tokens.json';
+      
       if (!fs.existsSync(provenFile)) {
-        console.log('   ⚠️ No proven-tokens.json found, using fallback scan');
+        console.log(`   ⚠️ No proven file found (${provenFile}), using fallback scan`);
         return null;
       }
       
       const provenData = JSON.parse(fs.readFileSync(provenFile, 'utf8'));
       const timestamp = Date.now();
-      const maxAge = 24 * 60 * 60 * 1000; // 24 hours
+      const maxAge = tradingMode.active === 'degen' 
+        ? 6 * 60 * 60 * 1000  // 6 hours for degen
+        : 24 * 60 * 60 * 1000; // 24 hours for established
       
       // Flatten all proven tokens from all strategies
       let validatedTokens = [];
@@ -801,8 +833,10 @@ class DynamicTrader {
   }
 
   async scanAndTrade() {
+    const tradingMode = this.getTradingMode();
     console.log('\n🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER');
     console.log('='.repeat(50));
+    console.log(`📊 Mode: ${tradingMode.mode.toUpperCase()} | Active: ${tradingMode.active.toUpperCase()}`);
     
     // CHECK: Pause/Stop flags from evaluation system
     try {

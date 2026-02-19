@@ -116,5 +116,31 @@
   },
   "ENTRY_FILTERS": {
     "min_signal_score": 7
+  },
+  "TRADING_MODE": {
+    "VERSION": "1.0",
+    "MODE": "manual",
+    "ACTIVE": "established",
+    "DEGEN_ENABLED": false,
+    "AUTO_TYPE": "performance",
+    "TIME_INTERVAL_HOURS": 6,
+    "AUTO_CONFIG": {
+      "PERFORMANCE_THRESHOLD": 10,
+      "MIN_SAMPLE_SIZE": 10
+    },
+    "DEGEN_FILTERS": {
+      "MIN_LIQUIDITY": 5000,
+      "MIN_AGE_HOURS": 6,
+      "MAX_HOLD_MINUTES": 10,
+      "MIN_VOLUME_24H": 20000,
+      "MIN_SCORE": 6
+    },
+    "ESTABLISHED_FILTERS": {
+      "MIN_LIQUIDITY": 10000,
+      "MIN_AGE_HOURS": 24,
+      "MAX_HOLD_MINUTES": 180,
+      "MIN_VOLUME_24H": 30000,
+      "MIN_SCORE": 6
+    }
   }
 }

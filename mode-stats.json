@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "updated": null,
+  "established": {
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "winRate": 0,
+    "totalProfit": 0,
+    "avgProfit": 0,
+    "bestTrade": 0,
+    "worstTrade": 0,
+    "lastTrade": null
+  },
+  "degen": {
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "winRate": 0,
+    "totalProfit": 0,
+    "avgProfit": 0,
+    "bestTrade": 0,
+    "worstTrade": 0,
+    "lastTrade": null
+  },
+  "lastSwitch": null,
+  "currentMode": "established",
+  "switchHistory": []
+}

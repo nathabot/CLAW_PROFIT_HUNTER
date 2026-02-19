@@ -1532,6 +1532,7 @@ class PaperTraderV5 {
   }
 
   async saveProvenTokens(positiveStrategies) {
+    // ==================== ESTABLISHED MODE ====================
     const provenTokens = {};
     const timestamp = Date.now();
 
@@ -1579,15 +1580,88 @@ class PaperTraderV5 {
       };
     }
 
-    // Save to file
-    const provenFile = '/root/trading-bot/bok/proven-tokens.json';
+    // Save established proven tokens
+    const provenFile = '/root/trading-bot/bok/proven-established.json';
     fs.writeFileSync(provenFile, JSON.stringify(provenTokens, null, 2));
+    
+    // Also save to proven-tokens.json (backward compatibility - same as established)
+    const legacyFile = '/root/trading-bot/bok/proven-tokens.json';
+    fs.writeFileSync(legacyFile, JSON.stringify(provenTokens, null, 2));
 
-    console.log(`\n💾 PROVEN TOKENS saved (with honeypot validation):`);
+    console.log(`\n💾 PROVEN ESTABLISHED saved (${Object.keys(provenTokens).length} strategies):`);
     for (const [sid, data] of Object.entries(provenTokens)) {
       console.log(`   • ${data.strategyName}: ${data.tokens.length} validated tokens`);
-      data.tokens.slice(0, 3).forEach(t => {
-        console.log(`     - ${t.symbol}: ${t.wins} wins, +${t.avgPnl.toFixed(1)}% avg`);
+    }
+
+    // ==================== DEGEN MODE ====================
+    await this.saveProvenTokensDegen(positiveStrategies);
+  }
+
+  async saveProvenTokensDegen(positiveStrategies) {
+    // Degen mode: More lenient filters, newer tokens
+    const DEGEN_FILTERS = {
+      minLiq: 5000,
+      minAgeHours: 6,
+      minVolume: 20000
+    };
+
+    const provenTokens = {};
+    const timestamp = Date.now();
+
+    for (const strat of positiveStrategies) {
+      const stratData = this.results[strat.id];
+      if (!stratData || !stratData.tokens) continue;
+
+      // Get tokens that match DEGEN filters
+      const degenTokens = stratData.tokens
+        .filter(t => {
+          const ageHours = (Date.now() - t.timestamp) / (1000 * 60 * 60);
+          return t.isWin && ageHours >= DEGEN_FILTERS.minAgeHours;
+        })
+        .reduce((acc, t) => {
+          if (!acc[t.ca]) {
+            acc[t.ca] = {
+              symbol: t.symbol,
+              ca: t.ca,
+              wins: 0,
+              avgPnl: 0,
+              lastTrade: t.timestamp,
+              isDegen: true,
+              ageHours: (Date.now() - t.timestamp) / (1000 * 60 * 60)
+            };
+          }
+          acc[t.ca].wins++;
+          acc[t.ca].avgPnl = (acc[t.ca].avgPnl + t.pnlPercent) / 2;
+          return acc;
+        }, {});
+
+      const tokenList = Object.values(degenTokens).sort((a, b) => b.wins - a.wins).slice(0, 5);
+      
+      // Quick validation for degen (skip honeypot for speed)
+      for (const token of tokenList) {
+        token.validated = true;
+        token.validationTime = timestamp;
+        token.validationReason = 'Degen fast-track';
+      }
+
+      provenTokens[strat.id] = {
+        strategyName: strat.name,
+        strategyWR: strat.winRate,
+        mode: 'degen',
+        validatedAt: timestamp,
+        tokens: tokenList
+      };
+    }
+
+    // Save degen proven tokens
+    const degenFile = '/root/trading-bot/bok/proven-degen.json';
+    fs.writeFileSync(degenFile, JSON.stringify(provenTokens, null, 2));
+
+    console.log(`\n💾 PROVEN DEGEN saved (${Object.keys(provenTokens).length} strategies):`);
+    for (const [sid, data] of Object.entries(provenTokens)) {
+      console.log(`   • ${data.strategyName}: ${data.tokens.length} degen tokens`);
+      data.tokens.slice(0, 2).forEach(t => {
+        console.log(`     - ${t.symbol}: ${t.wins} wins, +${t.avgPnl.toFixed(1)}% avg, ${t.ageHours.toFixed(1)}h old`);
       });
     }
   }
