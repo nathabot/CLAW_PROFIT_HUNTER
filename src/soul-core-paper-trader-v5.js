@@ -2282,6 +2282,73 @@ class PaperTraderV5 {
       msg += `\n📚 BOK: ${positiveCount} strategies ≥55% WR\n`;
       msg += `💰 Target: ${CONFIG.DAILY_TARGET} SOL/day\n`;
       
+      // ==================== DUAL MODE REPORT ====================
+      msg += `\n══════════════════════════════\n`;
+      msg += `🎯 **DUAL MODE STATUS**\n`;
+      msg += `══════════════════════════════\n`;
+      
+      // Load proven tokens for both modes
+      let establishedCount = 0;
+      let degenCount = 0;
+      let establishedTokens = [];
+      let degenTokens = [];
+      
+      try {
+        const estFile = '/root/trading-bot/bok/proven-established.json';
+        if (fs.existsSync(estFile)) {
+          const estData = JSON.parse(fs.readFileSync(estFile, 'utf8'));
+          for (const [sid, data] of Object.entries(estData)) {
+            establishedCount += data.tokens?.length || 0;
+            if (data.tokens?.length > 0) {
+              establishedTokens.push(`${data.tokens[0].symbol} (${data.tokens.length})`);
+            }
+          }
+        }
+      } catch (e) {}
+      
+      try {
+        const degenFile = '/root/trading-bot/bok/proven-degen.json';
+        if (fs.existsSync(degenFile)) {
+          const degenData = JSON.parse(fs.readFileSync(degenFile, 'utf8'));
+          for (const [sid, data] of Object.entries(degenData)) {
+            degenCount += data.tokens?.length || 0;
+            if (data.tokens?.length > 0) {
+              degenTokens.push(`${data.tokens[0].symbol} (${data.tokens.length})`);
+            }
+          }
+        }
+      } catch (e) {}
+      
+      // Established Mode
+      msg += `\n🏛️ **ESTABLISHED MODE:**\n`;
+      if (establishedCount > 0) {
+        msg += `✅ ${establishedCount} validated tokens ready\n`;
+        msg += `📋 Top: ${establishedTokens.slice(0, 3).join(', ')}\n`;
+      } else {
+        msg += `⚠️ 0 tokens (honeypot validation pending)\n`;
+      }
+      
+      // Degen Mode  
+      msg += `\n🎰 **DEGEN MODE:**\n`;
+      if (degenCount > 0) {
+        msg += `✅ ${degenCount} degen tokens ready\n`;
+        msg += `📋 Top: ${degenTokens.slice(0, 3).join(', ')}\n`;
+      } else {
+        msg += `⚠️ 0 tokens\n`;
+      }
+      
+      // Current active mode
+      const tradingConfig = JSON.parse(fs.readFileSync('/root/trading-bot/trading-config.json', 'utf8'));
+      const mode = tradingConfig.TRADING_MODE?.MODE || 'manual';
+      const active = tradingConfig.TRADING_MODE?.ACTIVE || 'established';
+      const autoType = tradingConfig.TRADING_MODE?.AUTO_TYPE || 'performance';
+      
+      msg += `\n⚡ **CURRENT:** ${mode.toUpperCase()} | ${active.toUpperCase()}`;
+      if (mode === 'auto') {
+        msg += ` (${autoType})`;
+      }
+      msg += `\n`;
+      
       // Send notification
       await fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/sendMessage`, {
         method: 'POST',

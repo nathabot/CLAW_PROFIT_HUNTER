@@ -147,6 +147,27 @@ async function getSystemStatus() {
     const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
     const watchdogIssues = readJSON(`${TRADING_BOT_DIR}/watchdog-issues.json`, { issues: [] });
     
+    // Get trading mode config
+    const tradingConfig = readJSON(`${TRADING_BOT_DIR}/trading-config.json`, {});
+    const modeStats = readJSON(`${TRADING_BOT_DIR}/mode-stats.json`, {});
+    const tradingMode = tradingConfig.TRADING_MODE || { MODE: 'manual', ACTIVE: 'established' };
+    
+    // Get proven tokens count
+    let establishedCount = 0;
+    let degenCount = 0;
+    try {
+        const estData = readJSON(`${TRADING_BOK_DIR}/proven-established.json`, {});
+        for (const [sid, data] of Object.entries(estData)) {
+            establishedCount += data.tokens?.length || 0;
+        }
+    } catch (e) {}
+    try {
+        const degenData = readJSON(`${TRADING_BOK_DIR}/proven-degen.json`, {});
+        for (const [sid, data] of Object.entries(degenData)) {
+            degenCount += data.tokens?.length || 0;
+        }
+    } catch (e) {}
+    
     // Calculate total equity
     const equity = await calculateTotalEquity();
     
@@ -171,7 +192,15 @@ async function getSystemStatus() {
         issues: watchdogIssues.issues || [],
         cronJobs,
         timestamp: new Date().toISOString(),
-        equity
+        equity,
+        tradingMode: {
+            mode: tradingMode.MODE || 'manual',
+            active: tradingMode.ACTIVE || 'established',
+            autoType: tradingMode.AUTO_TYPE || 'performance',
+            establishedTokens: establishedCount,
+            degenTokens: degenCount,
+            modeStats: modeStats
+        }
     };
 }
 
@@ -662,6 +691,16 @@ async function generateDashboard() {
                 <div class="status-item ${status.issues.length > 0 ? 'warning' : ''}">
                     <div class="status-label">Issues</div>
                     <div class="status-value">${status.issues.length}</div>
+                </div>
+                <div class="status-item" style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); border: 2px solid #3b82f6;">
+                    <div class="status-label" style="color: #60a5fa;">🎯 Mode</div>
+                    <div class="status-value" style="color: #60a5fa;">${status.tradingMode.mode.toUpperCase()}</div>
+                    <div style="font-size: 11px; color: #9ca3af; margin-top: 3px;">
+                        Active: ${status.tradingMode.active.toUpperCase()}
+                    </div>
+                    <div style="font-size: 10px; color: #6b7280; margin-top: 2px;">
+                        Est: ${status.tradingMode.establishedTokens} | Degen: ${status.tradingMode.degenTokens} tokens
+                    </div>
                 </div>
             </div>
         </header>
