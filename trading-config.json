@@ -1,5 +1,5 @@
 {
-  "VERSION": "2.0",
+  "VERSION": "2.1",
   
   "POSITION_SIZING": {
     "DEFAULT": 0.008,
@@ -21,13 +21,70 @@
     "TP1_PERCENT": 30,
     "TP2_PERCENT": 50,
     "PARTIAL_EXIT_PERCENT": 50,
-    "AGGRESSIVE_EXIT": true
+    "AGGRESSIVE_EXIT": true,
+    "DYNAMIC_MODE": true
   },
   
   "STOP_LOSS": {
     "PERCENT": 15,
     "TRAILING_PERCENT": 10,
     "KILL_SWITCH_BALANCE": 0.03
+  },
+  
+  "DYNAMIC_TPSL": {
+    "ENABLED": true,
+    "ADAPTIVE_FIB": true,
+    "REGIME_DETECTION": true,
+    
+    "LEVELS": {
+      "BEAR": {
+        "name": "Bearish/Flat - Tight Scalp",
+        "sl": 3,
+        "tp1": 6,
+        "tp2": 10,
+        "partial": 50
+      },
+      "VOLATILE_BEAR": {
+        "name": "Volatile Bear - Ultra Tight",
+        "sl": 2.5,
+        "tp1": 4,
+        "tp2": 6,
+        "partial": 60
+      },
+      "NEUTRAL": {
+        "name": "Neutral - Balanced",
+        "sl": 5,
+        "tp1": 12,
+        "tp2": 20,
+        "partial": 50
+      },
+      "RANGING_BULL": {
+        "name": "Ranging Bull - Swing Entry",
+        "sl": 6,
+        "tp1": 15,
+        "tp2": 25,
+        "partial": 40
+      },
+      "BULL": {
+        "name": "Bull Market - Let it Run",
+        "sl": 8,
+        "tp1": 25,
+        "tp2": 40,
+        "partial": 30
+      }
+    },
+    
+    "FEAR_GREED_THRESHOLDS": {
+      "EXTREME_FEAR": 20,
+      "FEAR": 40,
+      "NEUTRAL": 50,
+      "GREED": 60
+    },
+    
+    "VOLATILITY_THRESHOLDS": {
+      "LOW": 15,
+      "HIGH": 20
+    }
   },
   
   "DAILY_TARGET": {
