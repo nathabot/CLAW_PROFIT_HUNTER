@@ -1,5 +1,5 @@
 {
-  "simulationCount": 12591,
+  "simulationCount": 12636,
   "results": {
     "intel_trade_1771383002003": {
       "id": "intel_trade_1771383002003",
@@ -246,10 +246,10 @@
       "name": "Fib 0.382 Entry",
       "category": "SCALPING",
       "source": "MarketScan",
-      "wins": 479,
+      "wins": 482,
       "losses": 488,
-      "total": 967,
-      "totalProfit": 0.4059257926656217,
+      "total": 970,
+      "totalProfit": 0.4085470512445809,
       "totalLoss": -0.08823247499999987,
       "tokens": [
         {
@@ -7020,6 +7020,27 @@
           "isWin": true,
           "pnlPercent": 10.820907408008535,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 10.10939444411568,
+          "timestamp": 1771533015797
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 11.63952292959886,
+          "timestamp": 1771533015799
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 11.016814863276034,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -7028,10 +7049,10 @@
       "name": "Fib 0.500 Entry",
       "category": "SCALPING",
       "source": "MarketScan",
-      "wins": 538,
+      "wins": 541,
       "losses": 429,
-      "total": 967,
-      "totalProfit": 0.5565669882863299,
+      "total": 970,
+      "totalProfit": 0.5597138620475787,
       "totalLoss": -0.09192044999999967,
       "tokens": [
         {
@@ -13802,6 +13823,27 @@
           "isWin": true,
           "pnlPercent": 12.788381386424746,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 10.237814151886056,
+          "timestamp": 1771533015797
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 14.931622583981664,
+          "timestamp": 1771533015799
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 14.166485279741497,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -13810,10 +13852,10 @@
       "name": "Fib 0.618 Golden",
       "category": "SNIPER",
       "source": "MarketScan",
-      "wins": 485,
+      "wins": 488,
       "losses": 482,
-      "total": 967,
-      "totalProfit": 0.40095763496798004,
+      "total": 970,
+      "totalProfit": 0.4039466500177102,
       "totalLoss": -0.0868059749999999,
       "tokens": [
         {
@@ -20584,6 +20626,27 @@
           "isWin": true,
           "pnlPercent": 8.808615573834636,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 14.827387513103194,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 9.292287231125279,
+          "timestamp": 1771533015799
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 13.243013377397737,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -20592,11 +20655,11 @@
       "name": "Fib 0.786 Deep",
       "category": "SWING_TRADE",
       "source": "MarketScan",
-      "wins": 511,
-      "losses": 456,
-      "total": 967,
-      "totalProfit": 0.5222967781560516,
-      "totalLoss": -0.09795592499999964,
+      "wins": 513,
+      "losses": 457,
+      "total": 970,
+      "totalProfit": 0.5240360299017819,
+      "totalLoss": -0.09819592499999964,
       "tokens": [
         {
           "symbol": "RAY",
@@ -27366,6 +27429,27 @@
           "isWin": true,
           "pnlPercent": 12.100372176859096,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 9.93324499706262,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 11.807401824566064,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": false,
+          "pnlPercent": -3,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -27374,10 +27458,10 @@
       "name": "Fib + RSI",
       "category": "SCALPING",
       "source": "MarketScan",
-      "wins": 442,
+      "wins": 445,
       "losses": 525,
-      "total": 967,
-      "totalProfit": 0.36838480344985797,
+      "total": 970,
+      "totalProfit": 0.37117200424937047,
       "totalLoss": -0.09422107499999989,
       "tokens": [
         {
@@ -34148,6 +34232,27 @@
           "isWin": true,
           "pnlPercent": 11.834251136408728,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 14.183670333511424,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 11.853819963218779,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 8.802519697176447,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -34156,10 +34261,10 @@
       "name": "Fib + Volume",
       "category": "FAST_TRADE",
       "source": "MarketScan",
-      "wins": 477,
+      "wins": 480,
       "losses": 490,
-      "total": 967,
-      "totalProfit": 0.42090470724889595,
+      "total": 970,
+      "totalProfit": 0.4239886811477582,
       "totalLoss": -0.0918887249999999,
       "tokens": [
         {
@@ -40930,6 +41035,27 @@
           "isWin": false,
           "pnlPercent": -3,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 13.832996004657899,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 10.70427818872894,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 14.012399542390932,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -40938,11 +41064,11 @@
       "name": "Smart Money + Fib",
       "category": "SNIPER",
       "source": "MarketScan",
-      "wins": 454,
-      "losses": 513,
-      "total": 967,
-      "totalProfit": 0.3784679734815296,
-      "totalLoss": -0.09501352499999988,
+      "wins": 456,
+      "losses": 514,
+      "total": 970,
+      "totalProfit": 0.3804230267408601,
+      "totalLoss": -0.09520552499999987,
       "tokens": [
         {
           "symbol": "RAY",
@@ -47712,6 +47838,27 @@
           "isWin": false,
           "pnlPercent": -3,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 10.997419181599557,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 13.440746560031762,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -47720,11 +47867,11 @@
       "name": "Orderbook + Funding",
       "category": "SWING_TRADE",
       "source": "MarketScan",
-      "wins": 469,
-      "losses": 498,
-      "total": 967,
-      "totalProfit": 0.3976218990365152,
-      "totalLoss": -0.09223252499999988,
+      "wins": 471,
+      "losses": 499,
+      "total": 970,
+      "totalProfit": 0.3996220406122555,
+      "totalLoss": -0.09242452499999988,
       "tokens": [
         {
           "symbol": "RAY",
@@ -54494,6 +54641,27 @@
           "isWin": false,
           "pnlPercent": -3,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 14.23807290427489,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 10.763696792478857,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -54502,11 +54670,11 @@
       "name": "Whale + Volume",
       "category": "SNIPER",
       "source": "MarketScan",
-      "wins": 451,
-      "losses": 516,
-      "total": 967,
-      "totalProfit": 0.36808637746860884,
-      "totalLoss": -0.09403102499999988,
+      "wins": 452,
+      "losses": 518,
+      "total": 970,
+      "totalProfit": 0.3690969722515415,
+      "totalLoss": -0.09441502499999987,
       "tokens": [
         {
           "symbol": "RAY",
@@ -61276,6 +61444,27 @@
           "isWin": false,
           "pnlPercent": -3,
           "timestamp": 1771532416227
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 12.632434786658095,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -61284,11 +61473,11 @@
       "name": "S/R Breakout",
       "category": "FAST_TRADE",
       "source": "MarketScan",
-      "wins": 540,
-      "losses": 427,
-      "total": 967,
-      "totalProfit": 0.5506442071594371,
-      "totalLoss": -0.09465554999999956,
+      "wins": 541,
+      "losses": 429,
+      "total": 970,
+      "totalProfit": 0.5517789676376754,
+      "totalLoss": -0.09508754999999956,
       "tokens": [
         {
           "symbol": "RAY",
@@ -68058,6 +68247,27 @@
           "isWin": false,
           "pnlPercent": -3,
           "timestamp": 1771532416228
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 14.184505977978809,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": false,
+          "pnlPercent": -3,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -68066,10 +68276,10 @@
       "name": "Momentum Squeeze",
       "category": "SCALPING",
       "source": "MarketScan",
-      "wins": 429,
+      "wins": 432,
       "losses": 538,
-      "total": 967,
-      "totalProfit": 0.3513202706702567,
+      "total": 970,
+      "totalProfit": 0.35389943511712213,
       "totalLoss": -0.09849944999999985,
       "tokens": [
         {
@@ -74840,6 +75050,27 @@
           "isWin": false,
           "pnlPercent": -3,
           "timestamp": 1771532416228
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 12.850168597953886,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 10.588579567676023,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 8.800807420188443,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -74848,11 +75079,11 @@
       "name": "RSI Divergence",
       "category": "SWING_TRADE",
       "source": "MarketScan",
-      "wins": 464,
-      "losses": 503,
-      "total": 967,
-      "totalProfit": 0.3982929332683247,
-      "totalLoss": -0.09136574999999988,
+      "wins": 466,
+      "losses": 504,
+      "total": 970,
+      "totalProfit": 0.39970879022207584,
+      "totalLoss": -0.09160574999999989,
       "tokens": [
         {
           "symbol": "RAY",
@@ -81622,6 +81853,27 @@
           "isWin": true,
           "pnlPercent": 9.233707522399499,
           "timestamp": 1771532416228
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": true,
+          "pnlPercent": 9.272632191519431,
+          "timestamp": 1771533015798
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 8.425579730369325,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": false,
+          "pnlPercent": -3,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -82470,11 +82722,11 @@
       "name": "Cycloid CVCA",
       "category": "SNIPER",
       "source": "MarketScan",
-      "wins": 148,
-      "losses": 175,
-      "total": 323,
-      "totalProfit": 0.13187390885723493,
-      "totalLoss": -0.033213900000000074,
+      "wins": 149,
+      "losses": 177,
+      "total": 326,
+      "totalProfit": 0.1325284019181426,
+      "totalLoss": -0.03364590000000007,
       "tokens": [
         {
           "symbol": "ATLAS",
@@ -84736,6 +84988,27 @@
           "isWin": true,
           "pnlPercent": 8.816783704621805,
           "timestamp": 1771532416228
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015799
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": true,
+          "pnlPercent": 8.181163261345839,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": false,
+          "pnlPercent": -3,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -84744,11 +85017,11 @@
       "name": "MA Crossover",
       "category": "TREND_FOLLOWING",
       "source": "MarketScan",
-      "wins": 134,
-      "losses": 177,
-      "total": 311,
-      "totalProfit": 0.11314610411492486,
-      "totalLoss": -0.0319827000000001,
+      "wins": 135,
+      "losses": 179,
+      "total": 314,
+      "totalProfit": 0.11403865481455489,
+      "totalLoss": -0.032366700000000095,
       "tokens": [
         {
           "symbol": "ATLAS",
@@ -86926,6 +87199,27 @@
           "isWin": false,
           "pnlPercent": -3,
           "timestamp": 1771532416228
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015799
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": true,
+          "pnlPercent": 11.156883745375346,
+          "timestamp": 1771533015801
         }
       ]
     },
@@ -86935,10 +87229,10 @@
       "category": "SNIPER",
       "source": "MarketScan",
       "wins": 65,
-      "losses": 234,
-      "total": 299,
+      "losses": 237,
+      "total": 302,
       "totalProfit": 0.05753852337036629,
-      "totalLoss": -0.041324249999999986,
+      "totalLoss": -0.04194824999999998,
       "tokens": [
         {
           "symbol": "ATLAS",
@@ -89032,6 +89326,27 @@
           "isWin": false,
           "pnlPercent": -3,
           "timestamp": 1771532416228
+        },
+        {
+          "symbol": "ATLAS",
+          "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015799
+        },
+        {
+          "symbol": "Bonk",
+          "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "isWin": false,
+          "pnlPercent": -2.4000000000000004,
+          "timestamp": 1771533015800
+        },
+        {
+          "symbol": "SAMO",
+          "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          "isWin": false,
+          "pnlPercent": -3,
+          "timestamp": 1771533015801
         }
       ]
     }

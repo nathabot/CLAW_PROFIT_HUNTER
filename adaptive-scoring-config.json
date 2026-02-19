@@ -1,9 +1,9 @@
 {
   "bestStrategy": {
-    "id": "sr_breakout",
-    "name": "S/R Breakout",
-    "winRate": "55.84",
-    "category": "FAST_TRADE"
+    "id": "fib_500_1272",
+    "name": "Fib 0.500 Entry",
+    "winRate": "55.77",
+    "category": "SCALPING"
   },
   "positionSizing": {
     "fib_382_1618": "0.02",
@@ -22,5 +22,5 @@
     "ma_crossover": "0.02",
     "liquidation_hunter": "0.02"
   },
-  "updated": 1771532416230
+  "updated": 1771533015804
 }

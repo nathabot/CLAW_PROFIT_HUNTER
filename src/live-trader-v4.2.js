@@ -1273,61 +1273,85 @@ class DynamicTrader {
   canTradeToken(ca, simulatedWR = 55) {
     if (!CONFIG.TOKEN_TRACKING.ENABLED) return { canTrade: true, reason: 'Tracking disabled' };
     
-    const tracking = this.loadTokenTracking();
-    const tokenData = tracking[ca];
-    
-    // Check if there's an open position for this token
+    // Check if there's an open position for this token (prevent buying while in trade)
     try {
       const positions = JSON.parse(fs.readFileSync('/root/trading-bot/positions.json', 'utf8'));
       const openPosition = positions.find(p => p.ca === ca && !p.exited);
       if (openPosition) {
-        return { canTrade: false, reason: 'Position already open for this token' };
+        return { canTrade: false, reason: 'Position still open - waiting for exit' };
       }
+      
+      // Count COMPLETED cycles (exited trades) for this token
+      const completedPositions = positions.filter(p => p.ca === ca && p.exited && p.exitType);
+      const completedCycles = completedPositions.length;
+      
+      // Get token stats from completed trades
+      let totalWins = 0, totalLosses = 0, consecutiveSL = 0, totalProfit = 0;
+      let lastWasSL = false;
+      
+      for (const pos of completedPositions) {
+        const pnl = pos.pnlPercent || 0;
+        if (pnl > 0) {
+          totalWins++;
+          totalProfit += pnl;
+          lastWasSL = false;
+        } else {
+          totalLosses++;
+          totalProfit += pnl;
+          if (lastWasSL) {
+            consecutiveSL++;
+          } else {
+            consecutiveSL = 1;
+            lastWasSL = true;
+          }
+        }
+      }
+      
+      // Check 1: Max completed cycles reached (50 siklus = 50x beli+jual)
+      if (completedCycles >= CONFIG.TOKEN_TRACKING.MAX_TRADES_PER_TOKEN) {
+        return { canTrade: false, reason: `Max ${CONFIG.TOKEN_TRACKING.MAX_TRADES_PER_TOKEN} cycles completed` };
+      }
+      
+      // Check 2: Max consecutive SL (3x SL berturut-turut)
+      if (consecutiveSL >= CONFIG.TOKEN_TRACKING.MAX_CONSECUTIVE_SL) {
+        return { canTrade: false, reason: `${consecutiveSL}x consecutive SL hit` };
+      }
+      
+      // Check 3: WR dropped below simulated (only after 5 cycles)
+      const currentWR = completedCycles > 0 ? (totalWins / completedCycles) * 100 : 0;
+      if (completedCycles >= 5 && currentWR < simulatedWR - 10) {
+        return { canTrade: false, reason: `WR ${currentWR.toFixed(1)}% < simulated ${simulatedWR}%` };
+      }
+      
+      // Check 4: Profit dropped 30% from peak
+      if (totalProfit > 0 && completedCycles >= 3) {
+        const avgProfitPerTrade = totalProfit / completedCycles;
+        // If current avg profit is 30% less than best average
+        // For simplicity, check if total profit went negative after being positive
+        const profitHistory = completedPositions.map(p => p.pnlPercent || 0);
+        const peakProfit = Math.max(...profitHistory.filter(p => p > 0).map((_, i) => 
+          profitHistory.slice(0, i + 1).reduce((a, b) => a + b, 0)
+        ), 0);
+        
+        if (peakProfit > 0 && totalProfit < peakProfit * 0.7) {
+          return { canTrade: false, reason: `Profit dropped 30%+ from peak` };
+        }
+      }
+      
+      return { 
+        canTrade: true, 
+        reason: 'OK', 
+        completedCycles,
+        totalWins,
+        totalLosses,
+        currentWR: currentWR.toFixed(1),
+        consecutiveSL
+      };
+      
     } catch (e) {
-      // Ignore errors
+      // If error, allow trading
+      return { canTrade: true, reason: 'Error reading positions: ' + e.message };
     }
-    
-    if (!tokenData) {
-      // First time trading this token - allow it
-      return { canTrade: true, reason: 'New token', trades: 0 };
-    }
-    
-    const { trades, totalWins, totalLosses, consecutiveSL, totalProfit, entryWR, lastTrade } = tokenData;
-    
-    // Check cooldown between trades
-    if (CONFIG.TOKEN_TRACKING.COOLDOWN_MINUTES && lastTrade) {
-      const minutesSinceLastTrade = (Date.now() - lastTrade) / (1000 * 60);
-      if (minutesSinceLastTrade < CONFIG.TOKEN_TRACKING.COOLDOWN_MINUTES) {
-        return { canTrade: false, reason: `Cooldown: ${Math.floor(minutesSinceLastTrade)}/${CONFIG.TOKEN_TRACKING.COOLDOWN_MINUTES} min` };
-      }
-    }
-    
-    // Check 1: Max trades reached
-    if (trades >= CONFIG.TOKEN_TRACKING.MAX_TRADES_PER_TOKEN) {
-      return { canTrade: false, reason: `Max ${CONFIG.TOKEN_TRACKING.MAX_TRADES_PER_TOKEN} trades reached` };
-    }
-    
-    // Check 2: Max consecutive SL
-    if (consecutiveSL >= CONFIG.TOKEN_TRACKING.MAX_CONSECUTIVE_SL) {
-      return { canTrade: false, reason: `${consecutiveSL}x consecutive SL hit` };
-    }
-    
-    // Check 3: WR dropped below simulated
-    const currentWR = trades > 0 ? (totalWins / trades) * 100 : 0;
-    if (trades >= 5 && currentWR < entryWR - 10) {
-      return { canTrade: false, reason: `WR ${currentWR.toFixed(1)}% < entry ${entryWR}%` };
-    }
-    
-    // Check 4: Profit dropped 30% from peak
-    if (totalProfit > 0) {
-      const initialProfit = entryWR > 0 ? (entryWR / 100) * trades * 0.01 * CONFIG.DEFAULT_POSITION_SIZE : 0;
-      const profitDrop = initialProfit > 0 ? (initialProfit - totalProfit) / initialProfit : 0;
-      if (profitDrop > CONFIG.TOKEN_TRACKING.PROFIT_DROP_THRESHOLD) {
-        return { canTrade: false, reason: `Profit dropped ${(profitDrop * 100).toFixed(0)}% from peak` };
-      }
-    }
-    
-    return { canTrade: true, reason: 'OK', ...tokenData };
   }
   
   recordTokenTrade(ca, symbol, isWin, isSL, pnlPercent, strategyWR) {
@@ -1711,9 +1735,6 @@ class DynamicTrader {
       `🔗 **Tx:** https://solscan.io/tx/${swapResult.signature}\n\n` +
       `🤖 Exit monitor starting...`
     );
-    
-    // Record token trade in tracking system (pending - will update on exit)
-    this.recordTokenTrade(setup.ca, setup.symbol, false, false, 0, setup.strategyWR || 55);
     
     // Start exit monitor with strategy config
     const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 180;
