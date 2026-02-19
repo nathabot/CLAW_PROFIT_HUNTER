@@ -516,7 +516,74 @@ MIT License - See [LICENSE](LICENSE) file
 
 ---
 
-**Last Updated:** 2026-02-18  
+**Last Updated:** 2026-02-19  
 **Version:** 2.0.0  
 **Status:** Production Ready ✅  
 **Enhancements:** Intelligence Layer v2.0, Self-Healing, Strategy Rotation
+
+---
+
+## 💰 Trading Economics & Cost Tracking (2026-02-19)
+
+Sistem tracking profitabilitas dan API costs.
+
+### Files
+
+| File | Deskripsi |
+|------|-----------|
+| `trading-economics.json` | Trading metrics (days alive, WR, profit) |
+| `api-costs.json` | API usage tracking |
+
+### Trading Economics Metrics
+
+```json
+{
+  "started": "2026-02-10T00:00:00Z",
+  "totalTrades": 0,
+  "winningTrades": 0,
+  "losingTrades": 0,
+  "totalProfit": 0,
+  "totalLoss": 0,
+  "netProfit": 0,
+  "bestTrade": 0,
+  "worstTrade": 0,
+  "totalCost": 0,
+  "netProfitAfterCost": 0,
+  "lastTradeTime": null,
+  "daysAlive": 0,
+  "survivalRate": "0"
+}
+```
+
+### API Cost Tracking
+
+| API | Est. Cost per Call |
+|-----|-------------------|
+| DexScreener | $0.00005 |
+| Helius (RPC) | $0.00025 |
+| SolanaTracker | $0.00010 |
+| Groq | $0.0001 + $0.40/1M tokens |
+
+### Module
+
+**File:** `src/update-economics.js`
+
+```javascript
+// Usage
+const { trade, scan, trackApiCall } = require('./update-economics.js');
+
+// After each scan
+scan();
+
+// After each trade exit
+trade(pnlPercent, isWin);  // e.g., trade(5.5, true)
+
+// Track specific API
+trackApiCall('groq', 5000);  // with 5000 tokens
+```
+
+---
+
+**Last Updated:** 2026-02-19  
+**Version:** 2.1.0  
+**New Features:** Trading Economics, API Cost Tracking
