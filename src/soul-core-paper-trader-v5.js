@@ -509,15 +509,8 @@ class PaperTraderV5 {
   }
 
   calculatePositionSize(strategy, winProbability) {
-    // Base position size based on wallet balance
-    const tradeableBalance = CONFIG.WALLET_BALANCE - CONFIG.FEE_RESERVE;
-    const baseSize = tradeableBalance * 0.15; // 15% per trade
-    
-    // Adjust based on win probability
-    if (winProbability > 0.65) return baseSize * 1.5;  // High conviction
-    if (winProbability > 0.60) return baseSize * 1.0;  // Normal
-    if (winProbability > 0.50) return baseSize * 0.7;  // Lower size
-    return baseSize * 0.5;  // Minimum size
+    // Fixed position size - same as live trading
+    return 0.005;
   }
   
   // ==================== CYCLOID CVCA STRATEGY ====================
