@@ -105,11 +105,21 @@ async function calculateTotalEquity() {
         
         for (const pos of closedPositions) {
             const entryPrice = pos.entryPrice;
-            const exitPrice = pos.exitPrice;
+            const exitPriceRaw = pos.exitPrice;
             const sizeSol = pos.positionSize || 0;
             
-            if (exitPrice) {
-                const pnlPercent = ((exitPrice - entryPrice) / entryPrice) * 100;
+            // Handle exitPrice (could be number or "MARKET" string)
+            let pnlPercent = pos.pnlPercent;
+            if (pnlPercent === undefined || pnlPercent === null) {
+                if (typeof exitPriceRaw === 'number') {
+                    pnlPercent = ((exitPriceRaw - entryPrice) / entryPrice) * 100;
+                } else {
+                    // If exitPrice is "MARKET" or unknown, use 0% PnL (neutral)
+                    pnlPercent = 0;
+                }
+            }
+            
+            if (sizeSol > 0) {
                 realizedPnl += (pnlPercent / 100) * sizeSol;
             }
             

@@ -143,6 +143,12 @@
       "MAX_HOLD_MINUTES": 180,
       "MIN_VOLUME_24H": 30000,
       "MIN_SCORE": 6
+    },
+    "TOKEN_TRACKING": {
+      "ENABLED": true,
+      "MAX_TRADES_PER_TOKEN": 50,
+      "MAX_CONSECUTIVE_SL": 3,
+      "PROFIT_DROP_THRESHOLD": 0.30
     }
   }
 }

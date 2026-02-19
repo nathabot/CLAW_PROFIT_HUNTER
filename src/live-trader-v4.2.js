@@ -43,6 +43,14 @@ const CONFIG = {
   // Adaptive scoring
   ADAPTIVE_MODE: true,
   SCORE_CONFIG_PATH: '/root/trading-bot/adaptive-scoring-config.json',
+  // TOKEN TRACKING - Sticky Strategy System
+  TOKEN_TRACKING_FILE: '/root/trading-bot/token-tracking.json',
+  TOKEN_TRACKING: {
+    ENABLED: true,
+    MAX_TRADES_PER_TOKEN: 50,
+    MAX_CONSECUTIVE_SL: 3,
+    PROFIT_DROP_THRESHOLD: 0.30
+  },
   // BLACKLIST & STRIKE SYSTEM
   BLACKLIST_FILE: '/root/trading-bot/blacklist.json',
   STRIKE_COUNT_FILE: '/root/trading-bot/token-strike-count.json',
@@ -794,6 +802,16 @@ class DynamicTrader {
           
           console.log(`      💰 Price: $${price} | Liq: $${(liquidity/1000).toFixed(1)}k | Vol: $${(volume24h/1000).toFixed(1)}k`);
           
+          // Check token tracking (sticky strategy system)
+          const canTrade = this.canTradeToken(token.ca, token.strategyWR);
+          if (!canTrade.canTrade) {
+            console.log(`      ⏭️ ${canTrade.reason} - skipping`);
+            continue;
+          }
+          if (canTrade.trades > 0) {
+            console.log(`      🔄 Token history: ${canTrade.trades} trades, WR ${canTrade.reason === 'OK' ? canTrade.totalWins/canTrade.trades*100 : 'N/A'}%`);
+          }
+          
           // Check if price moved up >5% (momentum entry)
           const priceChange = parseFloat(pair.priceChange?.h1 || 0);
           if (priceChange < 1) {
@@ -1148,6 +1166,98 @@ class DynamicTrader {
     }
   }
   
+  // ==================== TOKEN TRACKING (Sticky Strategy) ====================
+  loadTokenTracking() {
+    try {
+      if (fs.existsSync(CONFIG.TOKEN_TRACKING_FILE)) {
+        return JSON.parse(fs.readFileSync(CONFIG.TOKEN_TRACKING_FILE, 'utf8'));
+      }
+    } catch (e) {}
+    return {};
+  }
+  
+  saveTokenTracking(data) {
+    fs.writeFileSync(CONFIG.TOKEN_TRACKING_FILE, JSON.stringify(data, null, 2));
+  }
+  
+  canTradeToken(ca, simulatedWR = 55) {
+    if (!CONFIG.TOKEN_TRACKING.ENABLED) return { canTrade: true, reason: 'Tracking disabled' };
+    
+    const tracking = this.loadTokenTracking();
+    const tokenData = tracking[ca];
+    
+    if (!tokenData) {
+      // First time trading this token - allow it
+      return { canTrade: true, reason: 'New token', trades: 0 };
+    }
+    
+    const { trades, totalWins, totalLosses, consecutiveSL, totalProfit, entryWR } = tokenData;
+    
+    // Check 1: Max trades reached
+    if (trades >= CONFIG.TOKEN_TRACKING.MAX_TRADES_PER_TOKEN) {
+      return { canTrade: false, reason: `Max ${CONFIG.TOKEN_TRACKING.MAX_TRADES_PER_TOKEN} trades reached` };
+    }
+    
+    // Check 2: Max consecutive SL
+    if (consecutiveSL >= CONFIG.TOKEN_TRACKING.MAX_CONSECUTIVE_SL) {
+      return { canTrade: false, reason: `${consecutiveSL}x consecutive SL hit` };
+    }
+    
+    // Check 3: WR dropped below simulated
+    const currentWR = trades > 0 ? (totalWins / trades) * 100 : 0;
+    if (trades >= 5 && currentWR < entryWR - 10) {
+      return { canTrade: false, reason: `WR ${currentWR.toFixed(1)}% < entry ${entryWR}%` };
+    }
+    
+    // Check 4: Profit dropped 30% from peak
+    if (totalProfit > 0) {
+      const initialProfit = entryWR > 0 ? (entryWR / 100) * trades * 0.01 * CONFIG.DEFAULT_POSITION_SIZE : 0;
+      const profitDrop = initialProfit > 0 ? (initialProfit - totalProfit) / initialProfit : 0;
+      if (profitDrop > CONFIG.TOKEN_TRACKING.PROFIT_DROP_THRESHOLD) {
+        return { canTrade: false, reason: `Profit dropped ${(profitDrop * 100).toFixed(0)}% from peak` };
+      }
+    }
+    
+    return { canTrade: true, reason: 'OK', ...tokenData };
+  }
+  
+  recordTokenTrade(ca, symbol, isWin, isSL, pnlPercent, strategyWR) {
+    const tracking = this.loadTokenTracking();
+    
+    if (!tracking[ca]) {
+      tracking[ca] = {
+        symbol,
+        trades: 0,
+        totalWins: 0,
+        totalLosses: 0,
+        consecutiveSL: 0,
+        totalProfit: 0,
+        entryWR: strategyWR || 55,
+        firstTrade: Date.now(),
+        lastTrade: Date.now()
+      };
+    }
+    
+    const tokenData = tracking[ca];
+    tokenData.trades++;
+    tokenData.lastTrade = Date.now();
+    
+    if (isWin) {
+      tokenData.totalWins++;
+      tokenData.consecutiveSL = 0; // Reset on win
+      tokenData.totalProfit += Math.max(0, pnlPercent);
+    } else {
+      tokenData.totalLosses++;
+      if (isSL) {
+        tokenData.consecutiveSL++;
+      }
+      tokenData.totalProfit += pnlPercent;
+    }
+    
+    this.saveTokenTracking(tracking);
+    console.log(`   📊 Token ${symbol}: ${tokenData.trades} trades, WR ${((tokenData.totalWins/tokenData.trades)*100).toFixed(1)}%, ${tokenData.consecutiveSL}x consecutive SL`);
+  }
+  
   checkBlacklist(ca, symbol) {
     // Check blacklist
     const blacklist = this.loadBlacklist();
@@ -1459,6 +1569,9 @@ class DynamicTrader {
       `🔗 **Tx:** https://solscan.io/tx/${swapResult.signature}\n\n` +
       `🤖 Exit monitor starting...`
     );
+    
+    // Record token trade in tracking system (pending - will update on exit)
+    this.recordTokenTrade(setup.ca, setup.symbol, false, false, 0, setup.strategyWR || 55);
     
     // Start exit monitor with strategy config
     const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 180;
