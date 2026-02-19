@@ -17,12 +17,24 @@ const CONFIG = {
   STATE_FILE: '/root/trading-bot/evaluation-state.json',
   POSITIONS_FILE: '/root/trading-bot/positions.json',
   TRADES_LOG: '/root/trading-bot/live-trades.log',
-  THRESHOLDS: {
-    MIN_WIN_RATE: 55,        // Minimum 55% WR
-    MIN_PROFIT_SOL: 0.05,    // Minimum 0.05 SOL profit
-    MAX_DRAWDOWN: 20,        // Max 20% drawdown
-    MAX_VOLATILITY: 40       // Max 40% volatility
-  }
+  // Read from shared config
+  ...(() => {
+    try {
+      const config = JSON.parse(fs.readFileSync('/root/trading-bot/trading-config.json', 'utf8'));
+      return {
+        THRESHOLDS: config.THRESHOLDS || {}
+      };
+    } catch (e) {
+      return {
+        THRESHOLDS: {
+          MIN_WIN_RATE: 55,
+          MIN_PROFIT_SOL: 0.05,
+          MAX_DRAWDOWN: 20,
+          MAX_VOLATILITY: 40
+        }
+      };
+    }
+  })()
 };
 
 class PerformanceEvaluator {
