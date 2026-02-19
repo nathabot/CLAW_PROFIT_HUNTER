@@ -1352,11 +1352,10 @@ class DynamicTrader {
     // Use flexible position size based on strategy performance
     const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
     
-    // Execute buy via Solana Tracker
+    // Execute buy via QuickNode (with SolanaTracker fallback)
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
-    console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
-    console.log(`   Platform: Solana Tracker`);
-    const swapResult = await this.executeSolanaTrackerBuy(setup.ca, positionSize);
+    console.log(`   Amount: ${positionSize} SOL`);
+    const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
     
     if (!swapResult.success) {
       console.log(`   ❌ SWAP FAILED: ${swapResult.error}`);

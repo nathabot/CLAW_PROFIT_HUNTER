@@ -2,7 +2,7 @@
   "bestStrategy": {
     "id": "sr_breakout",
     "name": "S/R Breakout",
-    "winRate": "56.78",
+    "winRate": "56.82",
     "category": "FAST_TRADE"
   },
   "positionSizing": {
@@ -22,5 +22,5 @@
     "ma_crossover": "0.02",
     "liquidation_hunter": "0.02"
   },
-  "updated": 1771499418331
+  "updated": 1771500018287
 }
