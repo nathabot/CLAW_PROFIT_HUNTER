@@ -85256,5 +85256,17 @@
       ]
     }
   },
-  "lastReset": 1771383001979
+  "lastReset": 1771383001979,
+  "strategyWeights": {
+    "fib_786_1000": {
+      "weight": 0.3,
+      "priority": "AVOID",
+      "lastUpdated": 1771524005296
+    },
+    "fib_500_1272": {
+      "weight": 0.3,
+      "priority": "AVOID",
+      "lastUpdated": 1771524005297
+    }
+  }
 }
