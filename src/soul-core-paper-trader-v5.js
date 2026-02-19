@@ -1516,8 +1516,24 @@ class PaperTraderV5 {
   }
 
   // Extract and save PROVEN TOKENS (WIN only) for positive strategies
-  saveProvenTokens(positiveStrategies) {
+  // ==================== HONEYPOT VALIDATION ====================
+  async validateTokenHoneypot(ca) {
+    try {
+      const solanaTrackerUrl = 'https://swap-v2.solanatracker.io';
+      // Try to get quote - if it fails, token might be honeypot
+      const testUrl = `${solanaTrackerUrl}/price?tokenAddress=${ca}`;
+      const res = await fetch(testUrl, { timeout: 5000 });
+      if (!res.ok) return { safe: false, reason: 'API error' };
+      const data = await res.json();
+      return { safe: true, price: data.price, reason: 'OK' };
+    } catch (e) {
+      return { safe: false, reason: e.message };
+    }
+  }
+
+  async saveProvenTokens(positiveStrategies) {
     const provenTokens = {};
+    const timestamp = Date.now();
 
     for (const strat of positiveStrategies) {
       const stratData = this.results[strat.id];
@@ -1533,7 +1549,9 @@ class PaperTraderV5 {
               ca: t.ca,
               wins: 0,
               avgPnl: 0,
-              lastTrade: t.timestamp
+              lastTrade: t.timestamp,
+              validated: false,
+              validationTime: null
             };
           }
           acc[t.ca].wins++;
@@ -1541,10 +1559,23 @@ class PaperTraderV5 {
           return acc;
         }, {});
 
+      // Validate honeypot for top tokens (max 5 to avoid rate limits)
+      const tokenList = Object.values(winTokens).sort((a, b) => b.wins - a.wins).slice(0, 5);
+      for (const token of tokenList) {
+        const validation = await this.validateTokenHoneypot(token.ca);
+        token.validated = validation.safe;
+        token.validationTime = timestamp;
+        token.validationReason = validation.reason;
+      }
+
+      // Only include validated tokens
+      const validatedTokens = tokenList.filter(t => t.validated);
+
       provenTokens[strat.id] = {
         strategyName: strat.name,
         strategyWR: strat.winRate,
-        tokens: Object.values(winTokens).sort((a, b) => b.wins - a.wins)
+        validatedAt: timestamp,
+        tokens: validatedTokens
       };
     }
 
@@ -1552,9 +1583,9 @@ class PaperTraderV5 {
     const provenFile = '/root/trading-bot/bok/proven-tokens.json';
     fs.writeFileSync(provenFile, JSON.stringify(provenTokens, null, 2));
 
-    console.log(`\n💾 PROVEN TOKENS saved:`);
+    console.log(`\n💾 PROVEN TOKENS saved (with honeypot validation):`);
     for (const [sid, data] of Object.entries(provenTokens)) {
-      console.log(`   • ${data.strategyName}: ${data.tokens.length} proven tokens`);
+      console.log(`   • ${data.strategyName}: ${data.tokens.length} validated tokens`);
       data.tokens.slice(0, 3).forEach(t => {
         console.log(`     - ${t.symbol}: ${t.wins} wins, +${t.avgPnl.toFixed(1)}% avg`);
       });

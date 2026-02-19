@@ -677,6 +677,110 @@ class DynamicTrader {
     return Math.min(score, 10);
   }
 
+  // ==================== PROVEN TOKENS EXECUTOR ====================
+  async scanProvenTokens() {
+    console.log('\n🎯 EXECUTOR MODE: Scanning PROVEN TOKENS from Paper Trader...');
+    
+    try {
+      const provenFile = '/root/trading-bot/bok/proven-tokens.json';
+      if (!fs.existsSync(provenFile)) {
+        console.log('   ⚠️ No proven-tokens.json found, using fallback scan');
+        return null;
+      }
+      
+      const provenData = JSON.parse(fs.readFileSync(provenFile, 'utf8'));
+      const timestamp = Date.now();
+      const maxAge = 24 * 60 * 60 * 1000; // 24 hours
+      
+      // Flatten all proven tokens from all strategies
+      let allProvenTokens = [];
+      for (const [stratId, stratData] of Object.entries(provenData)) {
+        if (!stratData.tokens) continue;
+        for (const token of stratData.tokens) {
+          // Check if validated recently (within 24h)
+          const validatedAt = token.validationTime || 0;
+          if (timestamp - validatedAt > maxAge) continue;
+          if (!token.validated) continue;
+          
+          allProvenTokens.push({
+            ...token,
+            strategyId: stratId,
+            strategyName: stratData.strategyName,
+            strategyWR: stratData.strategyWR
+          });
+        }
+      }
+      
+      // Sort by wins (most proven first)
+      allProvenTokens.sort((a, b) => b.wins - a.wins);
+      
+      console.log(`   📊 Found ${allProvenTokens.length} validated proven tokens`);
+      
+      // Try each proven token until one executes
+      for (const token of allProvenTokens.slice(0, 10)) {
+        console.log(`\n   🔍 Checking proven token: ${token.symbol}`);
+        console.log(`      Strategy: ${token.strategyName} (${token.strategyWR}% WR)`);
+        console.log(`      Wins: ${token.wins} | Avg PnL: +${token.avgPnl.toFixed(1)}%`);
+        
+        try {
+          // Get current price data
+          const tokenRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token.ca}`);
+          if (!tokenRes.ok) {
+            console.log(`      ⚠️ Failed to get price data`);
+            continue;
+          }
+          
+          const tokenData = await tokenRes.json();
+          const pair = tokenData.pairs?.[0];
+          if (!pair) {
+            console.log(`      ⚠️ No trading pair found`);
+            continue;
+          }
+          
+          const price = parseFloat(pair.priceUsd);
+          const liquidity = parseFloat(pair.liquidity?.usd || 0);
+          const volume24h = parseFloat(pair.volume?.h24 || 0);
+          
+          console.log(`      💰 Price: $${price} | Liq: $${(liquidity/1000).toFixed(1)}k | Vol: $${(volume24h/1000).toFixed(1)}k`);
+          
+          // Check if price moved up >5% (momentum entry)
+          const priceChange = parseFloat(pair.priceChange?.h1 || 0);
+          if (priceChange < 3) {
+            console.log(`      ⏭️ Low momentum (${priceChange}%/1h), skipping`);
+            continue;
+          }
+          
+          // Execute!
+          console.log(`      ✅ MOMENTUM DETECTED - Executing trade!`);
+          await this.executeTrade({
+            symbol: token.symbol,
+            ca: token.ca,
+            price: price,
+            score: 8, // High score for proven tokens
+            age: 24 * 60, // Assume old enough
+            token: pair,
+            fromProven: true,
+            strategyName: token.strategyName,
+            strategyWR: token.strategyWR
+          });
+          
+          return true; // Trade executed
+          
+        } catch (e) {
+          console.log(`      ⚠️ Error: ${e.message}`);
+          continue;
+        }
+      }
+      
+      console.log('   ⚠️ No proven token triggered (low momentum or API errors)');
+      return false;
+      
+    } catch (e) {
+      console.log('   ❌ Error scanning proven tokens:', e.message);
+      return null;
+    }
+  }
+
   async scanAndTrade() {
     console.log('\n🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER');
     console.log('='.repeat(50));
@@ -720,6 +824,19 @@ class DynamicTrader {
     if (this.tradesToday >= CONFIG.MAX_DAILY_TRADES) {
       console.log(`⏸️  Daily limit reached (${this.tradesToday}/${CONFIG.MAX_DAILY_TRADES})`);
       return;
+    }
+    
+    // PRIORITY: Try proven tokens from Paper Trader first!
+    console.log('\n🎯 PRIORITY: Checking proven tokens from Paper Trader...');
+    const provenResult = await this.scanProvenTokens();
+    if (provenResult === true) {
+      console.log('✅ Trade executed from proven tokens!\n');
+      return;
+    }
+    
+    // FALLBACK: If no proven token triggered, use regular scan
+    if (provenResult === false) {
+      console.log('   ➡️ No proven token triggered, falling back to regular scan...\n');
     }
     
     // SYNC with Paper Trader before each scan
