@@ -14,12 +14,16 @@
       "tp1": 0.2378656,
       "tp2": 0.2419984
     },
-    "exited": false,
+    "exited": true,
     "partialExited": true,
     "partialExitPrice": 0.2298,
     "partialExitPnl": 0.09,
     "partialExitTx": "Mz9Q43xBpLKTJyAURpTJqmFzNppUgwRUvkMyN1FSkgxySA8imB3C1GsHiUhtiEMN7nUEcu1YtHNqNvjqyaGq812",
-    "marketCondition": "SIDEWAYS"
+    "marketCondition": "SIDEWAYS",
+    "exitTime": 1771529539852,
+    "exitPrice": "MARKET",
+    "pnlPercent": -100,
+    "notes": "Force closed - network issues"
   },
   {
     "symbol": "mSOL",
@@ -60,9 +64,13 @@
       "tp1": 0.2406628,
       "tp2": 0.2448442
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771529539852,
+    "exitPrice": "MARKET",
+    "pnlPercent": -100,
+    "notes": "Force closed - network issues"
   },
   {
     "symbol": "ATLAS",
@@ -149,9 +157,13 @@
       "tp1": 0.000006707064,
       "tp2": 0.000006823596000000001
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771529539852,
+    "exitPrice": "MARKET",
+    "pnlPercent": -100,
+    "notes": "Force closed - network issues"
   },
   {
     "symbol": "DARKTRUMP",
@@ -467,9 +479,13 @@
       "tp1": 0.000117312,
       "tp2": 0.000119568
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771529539852,
+    "exitPrice": "MARKET",
+    "pnlPercent": -100,
+    "notes": "Force closed - network issues"
   },
   {
     "symbol": "LoD",
@@ -486,9 +502,13 @@
       "tp1": 0.00011741600000000002,
       "tp2": 0.000119674
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771529539852,
+    "exitPrice": "MARKET",
+    "pnlPercent": -100,
+    "notes": "Force closed - network issues"
   },
   {
     "symbol": "LoD",
@@ -505,8 +525,12 @@
       "tp1": 0.000119912,
       "tp2": 0.000122218
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771529539852,
+    "exitPrice": "MARKET",
+    "pnlPercent": -100,
+    "notes": "Force closed - network issues"
   }
 ]
