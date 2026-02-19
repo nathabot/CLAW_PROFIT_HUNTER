@@ -2,12 +2,12 @@
   "bestStrategy": {
     "id": "sr_breakout",
     "name": "S/R Breakout",
-    "winRate": "60.30",
+    "winRate": "56.87",
     "category": "FAST_TRADE"
   },
   "positionSizing": {
     "fib_382_1618": "0.02",
-    "fib_500_1272": "0.02",
+    "fib_500_1272": "0.04",
     "fib_618_1618": "0.02",
     "fib_786_1000": "0.02",
     "fib_rsi_combo": "0.02",
@@ -15,9 +15,12 @@
     "smart_fib_combo": "0.02",
     "ob_funding_combo": "0.02",
     "whale_volume_combo": "0.02",
-    "sr_breakout": "0.03",
+    "sr_breakout": "0.04",
     "momentum_squeeze": "0.02",
-    "divergence_play": "0.02"
+    "divergence_play": "0.02",
+    "cycloid_cvca": "0.02",
+    "ma_crossover": "0.02",
+    "liquidation_hunter": "0.02"
   },
-  "updated": 1771416611769
+  "updated": 1771479718566
 }

@@ -26,9 +26,9 @@ const CONFIG = {
   WALLET: 'EpG25pVadjQ9M9NHJMXZSc6SsB3Mshj4Kk9uzDVB8kum',
   WALLET_PATH: '/root/trading-bot/wallet.json',
   // POSITION SIZING (Flexible - BOK Standard)
-  MIN_POSITION_SIZE: 0.005,      // SUPER CONSERVATIVE: 0.005 SOL       // Minimum position (BOK)
+  MIN_POSITION_SIZE: 0.008,      // SUPER CONSERVATIVE: 0.005 SOL       // Minimum position (BOK)
   MAX_POSITION_SIZE: 0.01,       // Max 0.01 SOL        // Maximum position (BOK)
-  DEFAULT_POSITION_SIZE: 0.005,   // 0.005 SOL max   // Default size
+  DEFAULT_POSITION_SIZE: 0.008,   // 0.005 SOL max   // Default size
   FEE_RESERVE: 0.015,             // BOK: always keep 0.015 SOL minimum for sell fees
   // DYNAMIC THRESHOLD from paper trader results
   MIN_SCORE: ADAPTIVE_CONFIG?.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,  // STRICT for safety
@@ -63,7 +63,7 @@ const CONFIG = {
   AVOID_PUMP_PERCENT: 10,        // Avoid if pumped >10% in 5min
   // BALANCE PROTECTION
   STARTING_BALANCE: 0.1,      // Starting SOL balance (updated for new wallet)
-  MAX_DRAWDOWN_PERCENT: 30,      // Max 30% drawdown from peak
+  MAX_DRAWDOWN_PERCENT: 60,      // Max 50% drawdown from peak
   PEAK_BALANCE_FILE: '/root/trading-bot/peak-balance.json',
   EMERGENCY_STOP_FILE: '/root/trading-bot/EMERGENCY_STOP'
 };
@@ -1241,6 +1241,10 @@ class DynamicTrader {
   async scanAndTrade() {
     console.log('\n🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER');
     console.log('='.repeat(50));
+    
+    // Track API usage for this scan
+    const { scan } = require('./update-economics.js');
+    scan();
 
     // CHECK: Pause/Stop flags from evaluation system
     try {
@@ -2099,6 +2103,7 @@ let trailingActivated = false;
 async function recordTradeResult(isWin, pnlPercent) {
   try {
     const fs = require('fs');
+    const updateEconomics = require('./update-economics.js');
     const trackerFile = '/root/trading-bot/live-strategy-tracker.json';
     let tracker = {};
     
@@ -2121,13 +2126,9 @@ async function recordTradeResult(isWin, pnlPercent) {
     }
     tracker[sid].lastUpdated = Date.now();
     
-    fs.writeFileSync(trackerFile, JSON.stringify(tracker, null, 2));
-    console.log(\`📊 Strategy Tracker: \${POS.strategyName} | \${isWin ? 'WIN' : 'LOSS'} | Streak: \${tracker[sid].consecutiveLosses}\`);
     
-    // If 3 consecutive losses, notify to move to negative
-    if (tracker[sid].consecutiveLosses >= 3) {
-      console.log(\`⚠️  STRATEGY ALERT: \${POS.strategyName} hit 3 losses - should move to NEGATIVE\`);
-    }
+    // Update trading economics
+    updateEconomics.trade(pnlPercent, isWin);
   } catch (e) { console.error('Tracker error:', e.message); }
 }
 

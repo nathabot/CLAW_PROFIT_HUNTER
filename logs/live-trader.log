@@ -3,51 +3,321 @@
 🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER
 ==================================================
 ⚠️  Adaptive sync failed: Cannot read properties of undefined (reading 'paperTrader')
-📊 Balance: 0.1119 SOL | Peak: 0.1485 SOL | Drawdown: 24.6%
-⚠️  WARNING: Drawdown 24.6% - approaching limit
-📊 Min Score Threshold: 5 (adaptive)
+📊 Balance: 0.1048 SOL | Peak: 0.1485 SOL | Drawdown: 29.4%
+⚠️  WARNING: Drawdown 29.4% - approaching limit
+📊 Min Score Threshold: 6 (adaptive)
 
 🔄 Syncing with Paper Trader...
 ⚠️  Sync: adaptiveThresholds not found, using defaults
 📚 Loaded 0 positive strategies from BOK
-📊 Current threshold: Score 5+
+📊 Current threshold: Score 6+
 📊 Market cache updated: F&G 8, Vol 10.00%
 
 🔎 Scanning trending tokens (Paper Trader v3.1 method)...
 📊 Found 1 candidates
 
-🔍 Checking: DARKTRUMP
-  📊 Score: 10/10 | Age: 189m
+🔍 Checking: LoD
+  📊 Score: 10/10 | Age: 1469m
   🔒 Honeypot test...
   ✅ SAFE - Honeypot test passed
 
-🎯 STRATEGY UPDATE: Fib 0.786 Deep
-   Category: SWING_TRADE
-   WR: 60.19% (undefined trades)
+🎯 STRATEGY UPDATE: Fib 0.500 Entry
+   Category: SCALPING
+   WR: 58.08% (undefined trades)
    TP/SL: 2% / 4% / 6%
    Max Hold: 15 min
 
 🎯 STRATEGY TARGETS (from Paper Trader):
-  Strategy: Fib 0.786 Deep
-  Category: SWING_TRADE
-  SL: $0.00155036 (-2.00%)
-  TP1: $0.00164528 (+4.00%)
-  TP2: $0.00167692 (+6.00%)
+  Strategy: Fib 0.500 Entry
+  Category: SCALPING
+  SL: $0.00011054 (-2.00%)
+  TP1: $0.00011731 (+4.00%)
+  TP2: $0.00011957 (+6.00%)
   Partial Exit: 50% at TP1
   Max Hold: 15 min
 
-🚀 EXECUTING BUY: DARKTRUMP
+🚀 EXECUTING BUY: LoD
    Amount: 0.005 SOL (flexible based on WR)
    Platform: Solana Tracker
   🔄 Getting quote from Solana Tracker...
-   ✅ SWAP SUCCESS: UrKxgxVFWQ6FD7K7irGa...
+   ✅ SWAP SUCCESS: 3K22kVvbfugNxPvoQRPE...
    Platform: SolanaTracker
-   Expected: 265.056485 tokens
+   Expected: 3581.903911 tokens
 📊 Trade recorded: 1/5 today
    💾 Position saved to positions.json
   ⚠️ Telegram send failed (400), retry 1/3 in 1000ms...
   ⚠️ Telegram send failed (400), retry 2/3 in 2000ms...
-✅ Dynamic exit monitor started for DARKTRUMP
+✅ Dynamic exit monitor started for LoD
+
+==================================================
+✅ Scan complete
+
+🔑 Wallet loaded: EpG25pVadjQ9M9NHJMXZ...
+
+🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER
+==================================================
+⚠️  Adaptive sync failed: Cannot read properties of undefined (reading 'paperTrader')
+📊 Balance: 0.0977 SOL | Peak: 0.1485 SOL | Drawdown: 34.2%
+⚠️  WARNING: Drawdown 34.2% - approaching limit
+📊 Min Score Threshold: 6 (adaptive)
+
+🔄 Syncing with Paper Trader...
+⚠️  Sync: adaptiveThresholds not found, using defaults
+📚 Loaded 0 positive strategies from BOK
+📊 Current threshold: Score 6+
+📊 Market cache updated: F&G 8, Vol 10.00%
+
+🔎 Scanning trending tokens (Paper Trader v3.1 method)...
+📊 Found 1 candidates
+
+🔍 Checking: LoD
+  📊 Score: 10/10 | Age: 1469m
+  🔒 Honeypot test...
+  ✅ SAFE - Honeypot test passed
+
+🎯 STRATEGY UPDATE: Fib 0.500 Entry
+   Category: SCALPING
+   WR: 58.08% (undefined trades)
+   TP/SL: 2% / 4% / 6%
+   Max Hold: 15 min
+
+🎯 STRATEGY TARGETS (from Paper Trader):
+  Strategy: Fib 0.500 Entry
+  Category: SCALPING
+  SL: $0.00011054 (-2.00%)
+  TP1: $0.00011731 (+4.00%)
+  TP2: $0.00011957 (+6.00%)
+  Partial Exit: 50% at TP1
+  Max Hold: 15 min
+
+🚀 EXECUTING BUY: LoD
+   Amount: 0.005 SOL (flexible based on WR)
+   Platform: Solana Tracker
+  🔄 Getting quote from Solana Tracker...
+   ✅ SWAP SUCCESS: 5tovNAvMoT5L3LVb3V4J...
+   Platform: SolanaTracker
+   Expected: 3581.680434 tokens
+📊 Trade recorded: 1/5 today
+   💾 Position saved to positions.json
+  ⚠️ Telegram send failed (400), retry 1/3 in 1000ms...
+  ⚠️ Telegram send failed (400), retry 2/3 in 2000ms...
+✅ Dynamic exit monitor started for LoD
+
+==================================================
+✅ Scan complete
+
+🔑 Wallet loaded: EpG25pVadjQ9M9NHJMXZ...
+
+🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER
+==================================================
+⚠️  Adaptive sync failed: Cannot read properties of undefined (reading 'paperTrader')
+📊 Balance: 0.0977 SOL | Peak: 0.1485 SOL | Drawdown: 34.2%
+⚠️  WARNING: Drawdown 34.2% - approaching limit
+📊 Min Score Threshold: 6 (adaptive)
+
+🔄 Syncing with Paper Trader...
+⚠️  Sync: adaptiveThresholds not found, using defaults
+📚 Loaded 0 positive strategies from BOK
+📊 Current threshold: Score 6+
+📊 Market cache updated: F&G 8, Vol 10.00%
+
+🔎 Scanning trending tokens (Paper Trader v3.1 method)...
+📊 Found 1 candidates
+
+🔍 Checking: LoD
+  📊 Score: 10/10 | Age: 1470m
+  🔒 Honeypot test...
+  ✅ SAFE - Honeypot test passed
+
+🎯 STRATEGY UPDATE: Fib 0.500 Entry
+   Category: SCALPING
+   WR: 58.08% (undefined trades)
+   TP/SL: 2% / 4% / 6%
+   Max Hold: 15 min
+
+🎯 STRATEGY TARGETS (from Paper Trader):
+  Strategy: Fib 0.500 Entry
+  Category: SCALPING
+  SL: $0.00011054 (-2.00%)
+  TP1: $0.00011731 (+4.00%)
+  TP2: $0.00011957 (+6.00%)
+  Partial Exit: 50% at TP1
+  Max Hold: 15 min
+
+🚀 EXECUTING BUY: LoD
+   Amount: 0.005 SOL (flexible based on WR)
+   Platform: Solana Tracker
+  🔄 Getting quote from Solana Tracker...
+   ✅ SWAP SUCCESS: 3g1219AN7GQJXPcZbdPu...
+   Platform: SolanaTracker
+   Expected: 3581.456978 tokens
+📊 Trade recorded: 1/5 today
+   💾 Position saved to positions.json
+  ⚠️ Telegram send failed (400), retry 1/3 in 1000ms...
+  ⚠️ Telegram send failed (400), retry 2/3 in 2000ms...
+✅ Dynamic exit monitor started for LoD
+
+==================================================
+✅ Scan complete
+
+🔑 Wallet loaded: EpG25pVadjQ9M9NHJMXZ...
+
+🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER
+==================================================
+⚠️  Adaptive sync failed: Cannot read properties of undefined (reading 'paperTrader')
+📊 Balance: 0.0926 SOL | Peak: 0.1485 SOL | Drawdown: 37.6%
+⚠️  WARNING: Drawdown 37.6% - approaching limit
+📊 Min Score Threshold: 6 (adaptive)
+
+🔄 Syncing with Paper Trader...
+⚠️  Sync: adaptiveThresholds not found, using defaults
+📚 Loaded 0 positive strategies from BOK
+📊 Current threshold: Score 6+
+📊 Market cache updated: F&G 8, Vol 10.00%
+
+🔎 Scanning trending tokens (Paper Trader v3.1 method)...
+📊 Found 1 candidates
+
+🔍 Checking: LoD
+  📊 Score: 10/10 | Age: 1470m
+  🔒 Honeypot test...
+  ✅ SAFE - Honeypot test passed
+
+🎯 STRATEGY UPDATE: Fib 0.500 Entry
+   Category: SCALPING
+   WR: 58.08% (undefined trades)
+   TP/SL: 2% / 4% / 6%
+   Max Hold: 15 min
+
+🎯 STRATEGY TARGETS (from Paper Trader):
+  Strategy: Fib 0.500 Entry
+  Category: SCALPING
+  SL: $0.00011054 (-2.00%)
+  TP1: $0.00011731 (+4.00%)
+  TP2: $0.00011957 (+6.00%)
+  Partial Exit: 50% at TP1
+  Max Hold: 15 min
+
+🚀 EXECUTING BUY: LoD
+   Amount: 0.005 SOL (flexible based on WR)
+   Platform: Solana Tracker
+  🔄 Getting quote from Solana Tracker...
+   ✅ SWAP SUCCESS: 4yAq9n7zmngowRwxsN4n...
+   Platform: SolanaTracker
+   Expected: 3576.328161 tokens
+📊 Trade recorded: 1/5 today
+   💾 Position saved to positions.json
+  ⚠️ Telegram send failed (400), retry 1/3 in 1000ms...
+  ⚠️ Telegram send failed (400), retry 2/3 in 2000ms...
+✅ Dynamic exit monitor started for LoD
+
+==================================================
+✅ Scan complete
+
+🔑 Wallet loaded: EpG25pVadjQ9M9NHJMXZ...
+
+🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER
+==================================================
+⚠️  Adaptive sync failed: Cannot read properties of undefined (reading 'paperTrader')
+📊 Balance: 0.0876 SOL | Peak: 0.1485 SOL | Drawdown: 41.0%
+⚠️  WARNING: Drawdown 41.0% - approaching limit
+📊 Min Score Threshold: 6 (adaptive)
+
+🔄 Syncing with Paper Trader...
+⚠️  Sync: adaptiveThresholds not found, using defaults
+📚 Loaded 0 positive strategies from BOK
+📊 Current threshold: Score 6+
+📊 Market cache updated: F&G 8, Vol 10.00%
+
+🔎 Scanning trending tokens (Paper Trader v3.1 method)...
+📊 Found 1 candidates
+
+🔍 Checking: LoD
+  📊 Score: 10/10 | Age: 1470m
+  🔒 Honeypot test...
+  ✅ SAFE - Honeypot test passed
+
+🎯 STRATEGY UPDATE: Fib 0.500 Entry
+   Category: SCALPING
+   WR: 58.08% (undefined trades)
+   TP/SL: 2% / 4% / 6%
+   Max Hold: 15 min
+
+🎯 STRATEGY TARGETS (from Paper Trader):
+  Strategy: Fib 0.500 Entry
+  Category: SCALPING
+  SL: $0.00011054 (-2.00%)
+  TP1: $0.00011731 (+4.00%)
+  TP2: $0.00011957 (+6.00%)
+  Partial Exit: 50% at TP1
+  Max Hold: 15 min
+
+🚀 EXECUTING BUY: LoD
+   Amount: 0.005 SOL (flexible based on WR)
+   Platform: Solana Tracker
+  🔄 Getting quote from Solana Tracker...
+   ✅ SWAP SUCCESS: 3TsyCmWy47LBPEbS9caw...
+   Platform: SolanaTracker
+   Expected: 3576.105206 tokens
+📊 Trade recorded: 1/5 today
+   💾 Position saved to positions.json
+  ⚠️ Telegram send failed (400), retry 1/3 in 1000ms...
+  ⚠️ Telegram send failed (400), retry 2/3 in 2000ms...
+✅ Dynamic exit monitor started for LoD
+
+==================================================
+✅ Scan complete
+
+🔑 Wallet loaded: EpG25pVadjQ9M9NHJMXZ...
+
+🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER
+==================================================
+⚠️  Adaptive sync failed: Cannot read properties of undefined (reading 'paperTrader')
+📊 Balance: 0.0825 SOL | Peak: 0.1485 SOL | Drawdown: 44.4%
+⚠️  WARNING: Drawdown 44.4% - approaching limit
+📊 Min Score Threshold: 6 (adaptive)
+
+🔄 Syncing with Paper Trader...
+⚠️  Sync: adaptiveThresholds not found, using defaults
+📚 Loaded 0 positive strategies from BOK
+📊 Current threshold: Score 6+
+📊 Market cache updated: F&G 8, Vol 10.00%
+
+🔎 Scanning trending tokens (Paper Trader v3.1 method)...
+📊 Found 1 candidates
+
+🔍 Checking: LoD
+  📊 Score: 10/10 | Age: 1470m
+  🔒 Honeypot test...
+  ✅ SAFE - Honeypot test passed
+
+🎯 STRATEGY UPDATE: Fib 0.500 Entry
+   Category: SCALPING
+   WR: 58.08% (undefined trades)
+   TP/SL: 2% / 4% / 6%
+   Max Hold: 15 min
+
+🎯 STRATEGY TARGETS (from Paper Trader):
+  Strategy: Fib 0.500 Entry
+  Category: SCALPING
+  SL: $0.00011064 (-2.00%)
+  TP1: $0.00011742 (+4.00%)
+  TP2: $0.00011967 (+6.00%)
+  Partial Exit: 50% at TP1
+  Max Hold: 15 min
+
+🚀 EXECUTING BUY: LoD
+   Amount: 0.005 SOL (flexible based on WR)
+   Platform: Solana Tracker
+  🔄 Getting quote from Solana Tracker...
+   ✅ SWAP SUCCESS: 276Ue3tfqSe9VYk7sv6o...
+   Platform: SolanaTracker
+   Expected: 3575.882272 tokens
+📊 Trade recorded: 1/5 today
+   💾 Position saved to positions.json
+  ⚠️ Telegram send failed (400), retry 1/3 in 1000ms...
+  ⚠️ Telegram send failed (400), retry 2/3 in 2000ms...
+✅ Dynamic exit monitor started for LoD
 
 ==================================================
 ✅ Scan complete

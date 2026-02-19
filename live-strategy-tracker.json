@@ -3,10 +3,10 @@
     "id": "fib_500_1272",
     "name": "Fib 0.500 Entry",
     "liveWins": 1,
-    "liveLosses": 0,
-    "liveTotal": 1,
-    "consecutiveLosses": 0,
-    "lastUpdated": 1771393200000,
+    "liveLosses": 5,
+    "liveTotal": 6,
+    "consecutiveLosses": 5,
+    "lastUpdated": 1771456698278,
     "trades": [
       {
         "symbol": "WIF",
@@ -22,11 +22,11 @@
   "fib_786_1000": {
     "id": "fib_786_1000",
     "name": "Fib 0.786 Deep",
-    "liveWins": 0,
-    "liveLosses": 6,
-    "liveTotal": 6,
-    "consecutiveLosses": 6,
-    "lastUpdated": 1771414718821
+    "liveWins": 2,
+    "liveLosses": 10,
+    "liveTotal": 12,
+    "consecutiveLosses": 2,
+    "lastUpdated": 1771433861712
   },
   "sr_breakout": {
     "id": "sr_breakout",

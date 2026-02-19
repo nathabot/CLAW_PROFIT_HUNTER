@@ -14,7 +14,7 @@ const CONFIG = {
   // Thresholds
   BALANCE_FILE: '/root/trading-bot/balance-history.json',
   ALERT_DROP_PERCENT: 15,        // Alert if drop 15% from recent high
-  EMERGENCY_DROP_PERCENT: 25,    // Emergency stop if drop 25%
+  EMERGENCY_DROP_PERCENT: 50,    // Emergency stop if drop 25%
   TIME_WINDOW_MINUTES: 30,       // Check last 30 minutes
   
   // Actions

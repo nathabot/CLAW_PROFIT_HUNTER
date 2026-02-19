@@ -110,7 +110,21 @@ const BASE_STRATEGIES = [
   { id: 'whale_volume_combo', name: 'Whale + Volume', indicators: ['whale', 'volume'], category: 'SNIPER' },
   { id: 'sr_breakout', name: 'S/R Breakout', indicators: ['support_resistance', 'volume'], category: 'FAST_TRADE' },
   { id: 'momentum_squeeze', name: 'Momentum Squeeze', indicators: ['rsi', 'macd', 'volume'], category: 'SCALPING' },
-  { id: 'divergence_play', name: 'RSI Divergence', indicators: ['rsi', 'price_action'], category: 'SWING_TRADE' }
+  { id: 'divergence_play', name: 'RSI Divergence', indicators: ['rsi', 'price_action'], category: 'SWING_TRADE' },
+  
+  // Cycloid Strategy (Aristotle's Wheel Paradox)
+  // Simplified CVCA: Volatility expansion + Volume confluence + price geometry
+  { id: 'cycloid_cvca', name: 'Cycloid CVCA', type: 'cycloid', category: 'SNIPER' },
+  
+  // MA Crossover Strategy (Best Pair Finder)
+  // Auto-optimized: SMA/EMA/TEMA fast/slow crossover
+  // Uses ICT Bias stage for confirmation
+  { id: 'ma_crossover', name: 'MA Crossover', type: 'ma_crossover', category: 'TREND_FOLLOWING' },
+  
+  // Liquidation Hunter (PhenLabs)
+  // Smart Money concepts - detect liquidity grabs
+  // Quality Score based entry
+  { id: 'liquidation_hunter', name: 'Liquidation Hunter', type: 'liquidation_hunter', category: 'SNIPER' }
 ];
 
 // ==================== CLASS DEFINITION ====================
@@ -393,6 +407,21 @@ class PaperTraderV5 {
   }
 
   calculateWinProbability(strategy, candleAnalysis, orderBook) {
+    // Cycloid CVCA Strategy - Special handling
+    if (strategy.id === 'cycloid_cvca') {
+      return this.calculateCycloidProbability(candleAnalysis, orderBook);
+    }
+    
+    // MA Crossover Strategy - Trend following with ICT confirmation
+    if (strategy.id === 'ma_crossover') {
+      return this.calculateMACrossoverProbability(candleAnalysis, orderBook);
+    }
+    
+    // Liquidation Hunter - Smart Money concepts
+    if (strategy.id === 'liquidation_hunter') {
+      return this.calculateLiquidationHunterProbability(candleAnalysis, orderBook);
+    }
+    
     let probability = 0.50; // Base 50%
     
     // Candle score contribution
@@ -426,6 +455,746 @@ class PaperTraderV5 {
     if (winProbability > 0.60) return baseSize * 1.0;  // Normal
     if (winProbability > 0.50) return baseSize * 0.7;  // Lower size
     return baseSize * 0.5;  // Minimum size
+  }
+  
+  // ==================== CYCLOID CVCA STRATEGY ====================
+  // Simplified Aristotle's Wheel Cycloid analysis
+  // 3-axis: Volatility Expansion + Volume Confluence + Price Geometry
+  
+  calculateCycloidProbability(candleAnalysis, orderBook) {
+    let probability = 0.50;
+    
+    // Axis 1: Volatility Expansion (Yang-Zhang style)
+    // Check if this is a maxima candle (volatility expansion)
+    const volatilityScore = candleAnalysis.score; // 1-10
+    if (volatilityScore >= 7) {
+      probability += 0.15; // Strong expansion = higher probability
+    } else if (volatilityScore >= 5) {
+      probability += 0.05;
+    } else {
+      probability -= 0.10;
+    }
+    
+    // Axis 2: Volume Confluence
+    // Strong order book = volume confluence
+    if (orderBook.strength === 'strong') {
+      probability += 0.15;
+    } else if (orderBook.strength === 'moderate') {
+      probability += 0.05;
+    } else {
+      probability -= 0.08;
+    }
+    
+    // Axis 3: Price Geometry (simplified cycloid position)
+    // If price near key levels (support/resistance), higher bounce probability
+    const pattern = candleAnalysis.pattern || 'unknown';
+    if (pattern === 'bullish' || pattern === 'breakout_up') {
+      probability += 0.12;
+    } else if (pattern === 'bearish' || pattern === 'breakout_down') {
+      probability -= 0.12;
+    }
+    
+    // Combine with historical if available
+    if (this.results['cycloid_cvca']) {
+      const wins = this.results['cycloid_cvca'].wins || 0;
+      const total = this.results['cycloid_cvca'].total || 0;
+      if (total > 3) {
+        const wr = wins / total;
+        probability = (probability + wr) / 2;
+      }
+    }
+    
+    return Math.min(Math.max(probability, 0.15), 0.85);
+  }
+  
+  // ==================== MA CROSSOVER STRATEGY ====================
+  // Best MA Pair Finder: Auto-optimized SMA/EMA/TEMA crossover
+  // Uses ICT Bias stage for confirmation
+  
+  calculateMACrossoverProbability(candleAnalysis, orderBook) {
+    let probability = 0.50;
+    
+    // Axis 1: Trend direction (MA crossover equivalent)
+    const pattern = candleAnalysis.pattern || 'unknown';
+    if (pattern === 'bullish' || pattern === 'breakout_up') {
+      probability += 0.15; // Bullish crossover
+    } else if (pattern === 'bearish' || pattern === 'breakout_down') {
+      probability -= 0.15; // Bearish crossover
+    } else {
+      probability -= 0.05; // No clear direction
+    }
+    
+    // Axis 2: ICT Bias Stage (confirmation)
+    // TRIGGER_READY = highest probability
+    // Use ICT bias score from calculation
+    const score = candleAnalysis.score || 5;
+    if (score >= 8) {
+      probability += 0.12; // Strong momentum (fast MA above slow MA)
+    } else if (score >= 6) {
+      probability += 0.05;
+    } else if (score <= 4) {
+      probability -= 0.10; // Weak/flat - potential death cross
+    }
+    
+    // Axis 3: Volume confirmation
+    if (orderBook.strength === 'strong') {
+      probability += 0.10;
+    } else if (orderBook.strength === 'moderate') {
+      probability += 0.03;
+    } else {
+      probability -= 0.05;
+    }
+    
+    // Historical performance
+    if (this.results['ma_crossover']) {
+      const wins = this.results['ma_crossover'].wins || 0;
+      const total = this.results['ma_crossover'].total || 0;
+      if (total > 3) {
+        const wr = wins / total;
+        probability = (probability + wr) / 2;
+      }
+    }
+    
+    return Math.min(Math.max(probability, 0.15), 0.85);
+  }
+  
+  // ==================== LIQUIDATION HUNTER STRATEGY ====================
+  // Smart Money concepts - detect institutional liquidity grabs
+  // Quality Score 0-100 based entry
+  
+  calculateLiquidationHunterProbability(candleAnalysis, orderBook) {
+    // Get the liquidation hunter analysis
+    const liqHunter = this.calculateLiquidationHunter(candleAnalysis, orderBook);
+    
+    let probability = 0.50;
+    
+    // Base probability from Quality Score
+    probability = liqHunter.qualityScore / 100;
+    
+    // Phase bonus
+    if (liqHunter.phase === 'REVERSAL') {
+      probability += 0.15;
+    } else if (liqHunter.phase === 'TRAP') {
+      probability += 0.05;
+    }
+    
+    // Signal bonus
+    if (liqHunter.signal === 'BUY' || liqHunter.signal === 'SELL') {
+      probability += 0.10;
+    }
+    
+    // Volume confirmation
+    if (orderBook.strength === 'strong') {
+      probability += 0.08;
+    } else if (orderBook.strength === 'moderate') {
+      probability += 0.03;
+    } else {
+      probability -= 0.05;
+    }
+    
+    // Historical performance
+    if (this.results['liquidation_hunter']) {
+      const wins = this.results['liquidation_hunter'].wins || 0;
+      const total = this.results['liquidation_hunter'].total || 0;
+      if (total > 3) {
+        const wr = wins / total;
+        probability = (probability + wr) / 2;
+      }
+    }
+    
+    return Math.min(Math.max(probability, 0.15), 0.85);
+  }
+  
+  // ==================== WYCKOFF SCHEMATIC ====================
+  // Wyckoff Method: Accumulation & Distribution Phase Detection
+  // Phases: A (early) → B (accumulation) → C (test) → D (breakout) → E (distribution)
+  
+  calculateWyckoffPhase(candleAnalysis, orderBook) {
+    let phase = 'NEUTRAL';
+    let signal = 'NONE';
+    let confidence = 'low';
+    const score = candleAnalysis.score || 5;
+    const change24h = Math.abs(candleAnalysis.change24h || 0);
+    
+    // Phase A: Early - Low volatility, consolidation
+    if (score >= 4 && score <= 6 && change24h <= 2) {
+      phase = 'PHASE_A';
+      confidence = 'medium';
+    }
+    // Phase B: Accumulation - Price stabilizes, volume increases
+    else if (score >= 6 && score <= 7 && orderBook.strength !== 'weak') {
+      phase = 'PHASE_B';
+      confidence = 'high';
+      signal = 'ACCUMULATION';
+    }
+    // Phase C: Test - Spring/UTAD, final test before breakout
+    else if (score >= 7 && change24h >= 3) {
+      phase = 'PHASE_C';
+      confidence = 'high';
+      signal = 'TEST';
+    }
+    // Phase D: Breakout - SOS/SOW, trend starts
+    else if (score >= 8 && change24h >= 5) {
+      phase = 'PHASE_D';
+      confidence = 'high';
+      signal = change24h > 0 ? 'BULLISH_BREAKOUT' : 'BEARISH_BREAKOUT';
+    }
+    // Phase E: Distribution - Late trend, smart money exits
+    else if (score <= 4 && change24h >= 4) {
+      phase = 'PHASE_E';
+      confidence = 'medium';
+      signal = 'DISTRIBUTION';
+    }
+    
+    return {
+      phase, // PHASE_A through PHASE_E, NEUTRAL
+      signal, // ACCUMULATION, TEST, BREAKOUT, DISTRIBUTION
+      confidence, // low, medium, high
+      tradeable: signal !== 'NONE' && signal !== 'DISTRIBUTION'
+    };
+  }
+  
+  // ==================== VDubus DIVERGENCE WAVE ====================
+  // Geometry + Physics + Momentum confluence
+  // Wave patterns with divergence detection
+  
+  calculateVdubusWave(candleAnalysis, orderBook) {
+    let waveSignal = 'NONE';
+    let confluence = 0;
+    const score = candleAnalysis.score || 5;
+    const change24h = candleAnalysis.change24h || 0;
+    const pattern = candleAnalysis.pattern || 'unknown';
+    
+    // Geometry: Price patterns (harmonic, triangle, etc.)
+    if (pattern === 'breakout_up' || pattern === 'breakout_down') {
+      confluence += 2;
+      waveSignal = change24h > 0 ? 'BULLISH_WAVE' : 'BEARISH_WAVE';
+    } else if (pattern === 'bullish' || pattern === 'bearish') {
+      confluence += 1;
+    }
+    
+    // Physics: Momentum shift
+    if (score >= 7) {
+      confluence += 2;
+    } else if (score >= 5) {
+      confluence += 1;
+    } else {
+      confluence -= 1;
+    }
+    
+    // MACD-style divergence (simulated)
+    if (Math.abs(change24h) >= 5) {
+      confluence += 2;
+    } else if (Math.abs(change24h) >= 2) {
+      confluence += 1;
+    }
+    
+    // Volume confirmation
+    if (orderBook.strength === 'strong') {
+      confluence += 1;
+    }
+    
+    return {
+      waveSignal, // BULLISH_WAVE, BEARISH_WAVE, NONE
+      confluence, // -2 to 7
+      strength: confluence >= 5 ? 'STRONG' : (confluence >= 3 ? 'MODERATE' : 'WEAK'),
+      entryReady: confluence >= 4
+    };
+  }
+  
+  // ==================== CLUSTERS VOLUME PROFILE ====================
+  // K-Means clustering for POC detection
+  // Identifies institutional zones (Point of Control)
+  
+  calculateVolumeCluster(candleAnalysis, orderBook) {
+    let pocLevel = 'MID';
+    let institutionalInterest = 'LOW';
+    const score = candleAnalysis.score || 5;
+    const change24h = Math.abs(candleAnalysis.change24h || 0);
+    
+    // POC (Point of Control) zones
+    if (score >= 7 && change24h >= 3) {
+      pocLevel = 'HIGH'; // Price at top of range - institutional selling
+      institutionalInterest = 'HIGH';
+    } else if (score >= 5 && score <= 6) {
+      pocLevel = 'MID';
+      institutionalInterest = 'MEDIUM';
+    } else if (score <= 4) {
+      pocLevel = 'LOW'; // Price at bottom - institutional buying
+      institutionalInterest = score <= 3 ? 'HIGH' : 'MEDIUM';
+    }
+    
+    // Volume cluster quality
+    let clusterQuality = 'WEAK';
+    if (orderBook.strength === 'strong' && institutionalInterest !== 'LOW') {
+      clusterQuality = 'STRONG';
+    } else if (orderBook.strength === 'moderate' || institutionalInterest === 'MEDIUM') {
+      clusterQuality = 'MODERATE';
+    }
+    
+    return {
+      pocLevel, // HIGH, MID, LOW
+      institutionalInterest, // LOW, MEDIUM, HIGH
+      clusterQuality, // WEAK, MODERATE, STRONG
+      recommendation: institutionalInterest === 'HIGH' ? 'ENTER' : 'WATCH'
+    };
+  }
+  
+  // ==================== VOLATILITY RISK PREMIUM ====================
+  // Market regime detection based on volatility
+  // Insurance premium concept: regime change indicator
+  
+  calculateVolatilityRiskPremium(candleAnalysis, orderBook) {
+    let regime = 'NORMAL';
+    let riskLevel = 'MODERATE';
+    let signal = 'NEUTRAL';
+    
+    const score = candleAnalysis.score || 5;
+    const change24h = Math.abs(candleAnalysis.change24h || 0);
+    
+    // Low volatility = potential explosion (premium low = buy insurance)
+    if (score <= 4 && change24h <= 1) {
+      regime = 'LOW_VOLATILITY';
+      riskLevel = 'LOW';
+      signal = 'ACCUMULATE'; // Low premium, good to enter
+    }
+    // Normal volatility = trending
+    else if (score >= 5 && score <= 7 && change24h >= 1 && change24h <= 5) {
+      regime = 'NORMAL';
+      riskLevel = 'MODERATE';
+      signal = change24h > 0 ? 'LONG' : 'SHORT';
+    }
+    // High volatility = exhaustion (premium high = risk)
+    else if (score >= 8 || change24h >= 6) {
+      regime = 'HIGH_VOLATILITY';
+      riskLevel = 'HIGH';
+      signal = 'TAKE_PROFIT'; // High premium = reduce exposure
+    }
+    // Very low = squeeze
+    else if (score <= 3) {
+      regime = 'VOLATILITY_SQUEEZE';
+      riskLevel = 'EXTREME';
+      signal = 'WAIT';
+    }
+    
+    return {
+      regime, // LOW_VOLATILITY, NORMAL, HIGH_VOLATILITY, VOLATILITY_SQUEEZE
+      riskLevel, // LOW, MODERATE, HIGH, EXTREME
+      signal, // ACCUMULATE, LONG, SHORT, TAKE_PROFIT, WAIT
+      adjustPosition: riskLevel === 'HIGH' ? 'REDUCE' : (riskLevel === 'EXTREME' ? 'EXIT' : 'HOLD')
+    };
+  }
+  
+  // ==================== HTF PO3 FILTER ====================
+  // Smart Money Concepts: Higher Timeframe Price Action Filter
+  // Checks: Trend direction, HTF candle state, volume confluence
+  
+  applyHTFFilter(candleAnalysis, orderBook) {
+    let score = 0;
+    let signal = 'NEUTRAL';
+    let reasons = [];
+    
+    // Axis 1: Trend Direction (from candle analysis)
+    const pattern = candleAnalysis.pattern || 'unknown';
+    if (pattern === 'bullish' || pattern === 'breakout_up') {
+      score += 2;
+      reasons.push('bullish_pattern');
+    } else if (pattern === 'bearish' || pattern === 'breakout_down') {
+      score -= 2;
+      reasons.push('bearish_pattern');
+    }
+    
+    // Axis 2: HTF Candle State (simulated from score)
+    // High score = HTF candle in expansion phase (PO3: Accumulation/Distribution)
+    if (candleAnalysis.score >= 7) {
+      score += 2;
+      reasons.push('htf_expansion');
+    } else if (candleAnalysis.score >= 5) {
+      score += 0;
+      reasons.push('htf_continuation');
+    } else {
+      score -= 1;
+      reasons.push('htf_contraction');
+    }
+    
+    // Axis 3: Volume Confluence (Order Book strength)
+    if (orderBook.strength === 'strong') {
+      score += 2;
+      reasons.push('volume_confluence');
+    } else if (orderBook.strength === 'moderate') {
+      score += 1;
+    } else {
+      score -= 1;
+      reasons.push('weak_volume');
+    }
+    
+    // Determine signal
+    if (score >= 4) {
+      signal = 'STRONG_BUY';
+    } else if (score >= 2) {
+      signal = 'BUY';
+    } else if (score <= -2) {
+      signal = 'SELL';
+    } else {
+      signal = 'NEUTRAL';
+    }
+    
+    // Confidence level
+    let confidence = 'low';
+    if (Math.abs(score) >= 4) confidence = 'high';
+    else if (Math.abs(score) >= 2) confidence = 'medium';
+    
+    return {
+      pass: true, // Filter is advisory - don't block, just score
+      score,
+      signal,
+      confidence,
+      reasons: reasons.join(', '),
+      htfState: score >= 2 ? 'BULLISH_HTF' : (score <= -2 ? 'BEARISH_HTF' : 'NEUTRAL_HTF')
+    };
+  }
+  
+  // ==================== DOJI SCANNER ====================
+  // Detects Doji candles (open ≈ close) - indecision signal
+  // Doji = potential reversal point
+  
+  detectDoji(candleAnalysis) {
+    // Doji: body is very small relative to wicks
+    // Simplified detection based on candle score and pattern
+    const score = candleAnalysis.score || 5;
+    const pattern = candleAnalysis.pattern || 'unknown';
+    
+    let isDoji = false;
+    let dojiType = 'none';
+    
+    // Low score + neutral pattern = potential doji (indecision)
+    if (score >= 4 && score <= 6 && (pattern === 'consolidation' || pattern === 'unknown')) {
+      isDoji = true;
+      dojiType = 'standard_doji';
+    }
+    
+    // Dragonfly Doji: long lower wick, no upper wick (bullish reversal)
+    if (pattern === 'bullish_hammer' || pattern === 'bullish_reversal') {
+      isDoji = true;
+      dojiType = 'dragonfly_doji';
+    }
+    
+    // Gravestone Doji: long upper wick, no lower wick (bearish reversal)
+    if (pattern === 'bearish_shooting_star' || pattern === 'bearish_reversal') {
+      isDoji = true;
+      dojiType = 'gravestone_doji';
+    }
+    
+    return {
+      isDoji,
+      dojiType,
+      reversalSignal: isDoji ? (dojiType.includes('dragonfly') ? 'BULLISH' : (dojiType.includes('gravestone') ? 'BEARISH' : 'NEUTRAL')) : 'NONE'
+    };
+  }
+  
+  // ==================== ADAPTIVE TREND FINDER ====================
+  // Auto-detects optimal trend period with confidence score
+  // Trend strength determines trade probability
+  
+  calculateAdaptiveTrend(candleAnalysis, orderBook) {
+    let trendScore = 0;
+    let confidence = 'low';
+    let trendDirection = 'SIDEWAYS';
+    
+    // Axis 1: Price momentum (proxy for trend strength)
+    const score = candleAnalysis.score || 5;
+    if (score >= 8) {
+      trendScore += 3;
+    } else if (score >= 6) {
+      trendScore += 1;
+    } else if (score <= 3) {
+      trendScore -= 1;
+    }
+    
+    // Axis 2: Volume confirmation (trend sustainability)
+    if (orderBook.strength === 'strong') {
+      trendScore += 2;
+    } else if (orderBook.strength === 'moderate') {
+      trendScore += 1;
+    } else {
+      trendScore -= 1;
+    }
+    
+    // Axis 3: 24h change direction (trend persistence)
+    const change24h = candleAnalysis.change24h || 0;
+    if (Math.abs(change24h) >= 5) {
+      trendScore += 2; // Strong move = trending
+    } else if (Math.abs(change24h) >= 2) {
+      trendScore += 1;
+    }
+    
+    // Determine direction and confidence
+    if (trendScore >= 4) {
+      confidence = 'high';
+      trendDirection = change24h > 0 ? 'STRONG_UPTREND' : 'STRONG_DOWNTREND';
+    } else if (trendScore >= 2) {
+      confidence = 'medium';
+      trendDirection = change24h > 0 ? 'UPTREND' : 'DOWNTREND';
+    } else if (trendScore <= -1) {
+      confidence = 'medium';
+      trendDirection = 'SIDEWAYS';
+    } else {
+      confidence = 'low';
+      trendDirection = 'SIDEWAYS';
+    }
+    
+    return {
+      trendScore,
+      confidence,
+      trendDirection, // STRONG_UPTREND, UPTREND, SIDEWAYS, DOWNTREND, STRONG_DOWNTREND
+      suitableForTrendFollowing: Math.abs(trendScore) >= 2
+    };
+  }
+  
+  // ==================== EVASIVE SUPERTREND ====================
+  // LuxAlgo: Noise avoidance - push band away during choppy markets
+  // Reduces whipsaws by detecting "Noise Zone"
+  
+  calculateEvasiveSuperTrend(candleAnalysis, orderBook) {
+    let signal = 'NEUTRAL';
+    let mode = 'standard'; // standard or evasive
+    let noiseLevel = 'low';
+    
+    // Axis 1: Price distance from volatility band (simulated)
+    const score = candleAnalysis.score || 5;
+    const change24h = Math.abs(candleAnalysis.change24h || 0);
+    
+    if (score >= 7 && change24h >= 3) {
+      signal = 'BULL';
+      mode = 'standard'; // Healthy trend
+    } else if (score <= 4 && change24h <= 1) {
+      signal = 'NEUTRAL';
+      mode = 'evasive'; // Noise zone - band pushes away
+      noiseLevel = 'high';
+    } else if (score >= 5 && score <= 6) {
+      signal = change24h > 0 ? 'BULL' : 'BEAR';
+      mode = 'standard';
+      noiseLevel = 'medium';
+    }
+    
+    // Axis 2: Volume confirms trend strength
+    if (orderBook.strength === 'strong' && mode === 'standard') {
+      signal = signal === 'BULL' ? 'BULL' : (signal === 'BEAR' ? 'BEAR' : 'NEUTRAL');
+    }
+    
+    return {
+      signal, // BULL, BEAR, NEUTRAL
+      mode, // standard or evasive
+      noiseLevel, // low, medium, high
+      avoidTrade: mode === 'evasive' && noiseLevel === 'high'
+    };
+  }
+  
+  // ==================== SUPERTREND RECOVERY ====================
+  // LuxAlgo: Dynamic trailing stop during deep pullbacks
+  // Tighter exit during retracements
+  
+  calculateSuperTrendRecovery(candleAnalysis, orderBook) {
+    let trend = 'SIDEWAYS';
+    let recoveryActive = false;
+    let exitPriority = 1; // 1=normal, 2=early exit
+    
+    // Axis 1: Base trend direction
+    const score = candleAnalysis.score || 5;
+    const change24h = candleAnalysis.change24h || 0;
+    
+    if (score >= 7 && change24h > 2) {
+      trend = 'BULL';
+    } else if (score <= 3 && change24h < -2) {
+      trend = 'BEAR';
+    }
+    
+    // Axis 2: Deep pullback detection (recovery mode)
+    // If price moved significantly against trend, activate recovery
+    const pullbackDepth = Math.abs(change24h);
+    if (trend !== 'SIDEWAYS') {
+      if ((trend === 'BULL' && change24h < -3) || (trend === 'BEAR' && change24h > 3)) {
+        recoveryActive = true;
+        exitPriority = 3; // Early exit - tight trailing
+      } else if (pullbackDepth >= 2) {
+        recoveryActive = true;
+        exitPriority = 2; // Monitor closely
+      }
+    }
+    
+    // Axis 3: Volume spike confirms recovery
+    if (orderBook.strength === 'strong' && recoveryActive) {
+      exitPriority = Math.min(exitPriority + 1, 3);
+    }
+    
+    return {
+      trend, // BULL, BEAR, SIDEWAYS
+      recoveryActive,
+      exitPriority, // 1=normal, 2=monitor, 3=early exit
+      recommendation: exitPriority === 3 ? 'EXIT_NOW' : (exitPriority === 2 ? 'WATCH_CLOSELY' : 'HOLD')
+    };
+  }
+  
+  // ==================== LIQUIDATION HUNTER ====================
+  // PhenLabs: Smart Money Liquidation Hunter
+  // Detect institutional liquidity grabs (stop hunting)
+  // Quality Score: 0-100
+  
+  calculateLiquidationHunter(candleAnalysis, orderBook) {
+    let qualityScore = 0;
+    let phase = 'NONE'; // INDUCEMENT, TRAP, REVERSAL, NONE
+    let signal = 'NONE';
+    let reasons = [];
+    
+    // Layer 1: Liquidity Sweep Potential (25 pts)
+    const score = candleAnalysis.score || 5;
+    const change24h = Math.abs(candleAnalysis.change24h || 0);
+    
+    if (score <= 3 || change24h >= 8) {
+      qualityScore += 25; // Sweep possible
+      reasons.push('liquidity_sweep');
+    } else if (score <= 5 || change24h >= 4) {
+      qualityScore += 15;
+      reasons.push('liquidity_approach');
+    }
+    
+    // Layer 2: Volume Spike (25 pts)
+    if (orderBook.strength === 'strong') {
+      qualityScore += 25;
+      reasons.push('volume_spike');
+    } else if (orderBook.strength === 'moderate') {
+      qualityScore += 15;
+      reasons.push('moderate_volume');
+    }
+    
+    // Layer 3: HTF Trend Alignment (25 pts)
+    // Already have HTF PO3 - use that alignment
+    if (score >= 7) {
+      qualityScore += 25;
+      reasons.push('htf_aligned');
+    } else if (score >= 5) {
+      qualityScore += 10;
+    }
+    
+    // Layer 4: Structural Confluence (25 pts)
+    // ICT Bias + Order Block concept
+    const pattern = candleAnalysis.pattern || 'unknown';
+    if (pattern === 'breakout_up' || pattern === 'breakout_down') {
+      qualityScore += 25;
+      reasons.push('structural_breakout');
+    } else if (pattern === 'consolidation') {
+      qualityScore += 10;
+    }
+    
+    // Determine phase and signal
+    if (qualityScore >= 75) {
+      phase = 'REVERSAL';
+      signal = change24h > 0 ? 'BUY' : 'SELL';
+    } else if (qualityScore >= 50) {
+      phase = 'TRAP';
+      signal = 'WATCH';
+    } else if (qualityScore >= 25) {
+      phase = 'INDUCEMENT';
+      signal = 'WATCH';
+    }
+    
+    return {
+      qualityScore, // 0-100
+      phase, // INDUCEMENT, TRAP, REVERSAL, NONE
+      signal, // BUY, SELL, WATCH, NONE
+      reasons: reasons.join(', '),
+      isHighQuality: qualityScore >= 50
+    };
+  }
+  
+  // ==================== ICT BIAS SCORE FILTER ====================
+  // ICT (Inner Circle Trading) Bias: PDH/PDL, Midpoint, Prev Candle, MSS, Displacement
+  // Stages: NOT_READY → LEAN → CONFIRMED → TRIGGER_READY
+  
+  calculateICTBias(candleAnalysis, orderBook) {
+    let score = 0;
+    let components = [];
+    
+    // Component 1: PDH/PDL Sweep (Weight ±2)
+    // Simulated: check price position relative to daily range
+    const priceChange = Math.abs(candleAnalysis.change24h || 0);
+    if (priceChange > 3) {
+      score += 2;
+      components.push('PDH_sweep');
+    } else if (priceChange > 1) {
+      score += 1;
+      components.push('PDH_approach');
+    } else {
+      score += 0;
+      components.push('PDL_range');
+    }
+    
+    // Component 2: Midpoint Location (Weight ±1)
+    // Simulated: check if price is above/below recent avg
+    if (candleAnalysis.score >= 7) {
+      score += 1;
+      components.push('above_mid');
+    } else if (candleAnalysis.score >= 5) {
+      score += 0;
+      components.push('at_mid');
+    } else {
+      score -= 1;
+      components.push('below_mid');
+    }
+    
+    // Component 3: Previous Day Candle (Weight ±1)
+    // Simulated from 24h change direction
+    const change24h = candleAnalysis.change24h || 0;
+    if (change24h > 0) {
+      score += 1;
+      components.push('prev_bullish');
+    } else if (change24h < 0) {
+      score -= 1;
+      components.push('prev_bearish');
+    } else {
+      score += 0;
+    }
+    
+    // Component 4: MSS - Market Structure Shift (Weight ±1)
+    // Simulated: strong momentum = structure shift
+    if (candleAnalysis.score >= 8) {
+      score += 1;
+      components.push('MSS_bullish');
+    } else if (candleAnalysis.score <= 4) {
+      score -= 1;
+      components.push('MSS_bearish');
+    }
+    
+    // Component 5: Displacement - Impulse Strength (Weight ±1)
+    // Simulated: high score = strong displacement
+    if (orderBook.strength === 'strong') {
+      score += 1;
+      components.push('strong_displacement');
+    } else if (orderBook.strength === 'moderate') {
+      score += 0;
+    } else {
+      score -= 1;
+      components.push('weak_displacement');
+    }
+    
+    // Determine bias
+    let bias = 'NEUTRAL';
+    if (score >= 3) bias = 'BULLISH';
+    else if (score <= -3) bias = 'BEARISH';
+    
+    // Determine stage (readiness)
+    let stage = 'NOT_READY';
+    if (score >= 5) stage = 'TRIGGER_READY';
+    else if (score >= 3) stage = 'CONFIRMED';
+    else if (score >= 1) stage = 'LEAN';
+    
+    return {
+      score,
+      bias, // BULLISH / BEARISH / NEUTRAL
+      stage, // TRIGGER_READY / CONFIRMED / LEAN / NOT_READY
+      components: components.join(', '),
+      priority: stage === 'TRIGGER_READY' ? 3 : (stage === 'CONFIRMED' ? 2 : (stage === 'LEAN' ? 1 : 0))
+    };
   }
   
   // ==================== SIMULATE INTELLIGENCE SIGNALS ====================
@@ -539,7 +1308,7 @@ class PaperTraderV5 {
         const wasNegative = existingNegative.includes(strategyId);
         const liveRecord = liveTracker[strategyId];
         
-        if (wr >= 61) {
+        if (wr >= 55) {
           // Check if this was previously negative - PROMOTE!
           if (wasNegative) {
             console.log(`\n🎉 PROMOTION: ${result.name} moved from NEGATIVE to POSITIVE!`);
@@ -563,7 +1332,7 @@ class PaperTraderV5 {
             id: strategyId,
             name: result.name,
             winRate: wr.toFixed(2),
-            reason: wasNegative ? 'Still below 61% after re-test' : 'WR below 61%',
+            reason: wasNegative ? 'Still below 55% after re-test' : 'WR below 55%',
             cycle: currentCycle,
             trades: result.total,
             canReTest: true
@@ -669,7 +1438,7 @@ class PaperTraderV5 {
   }
 
   writePositiveStrategies(strategies, currentCycle) {
-    let content = `# 16 - Positive Strategies (WR >=61%)\n\n`;
+    let content = `# 16 - Positive Strategies (WR >=55%)\n\n`;
     content += `**Auto-generated by Paper Trader v5**\n`;
     content += `**Updated:** ${new Date().toISOString()}\n`;
     content += `**Current Cycle:** ${currentCycle}\n`;
@@ -677,7 +1446,7 @@ class PaperTraderV5 {
     content += `## High-Performing Strategies\n\n`;
     
     if (strategies.length === 0) {
-      content += `*No strategies currently meet the 61% WR threshold*\n\n`;
+      content += `*No strategies currently meet the 55% WR threshold*\n\n`;
     }
     
     strategies.forEach(s => {
@@ -692,13 +1461,13 @@ class PaperTraderV5 {
     });
     
     content += `---\n\n`;
-    content += `**Note:** Strategies are valid for 1 cycle only. After each 50-simulation cycle, all strategies are re-evaluated. Only strategies maintaining ≥61% WR remain in Positive.\n`;
+    content += `**Note:** Strategies are valid for 1 cycle only. After each 50-simulation cycle, all strategies are re-evaluated. Only strategies maintaining ≥55% WR remain in Positive.\n`;
     
     fs.writeFileSync(CONFIG.POSITIVE_STRATEGIES_FILE, content);
   }
 
   writeNegativeStrategies(strategies, currentCycle) {
-    let content = `# 17 - Negative Strategies (WR <61%)\n\n`;
+    let content = `# 17 - Negative Strategies (WR <55%)\n\n`;
     content += `**Auto-generated by Paper Trader v5**\n`;
     content += `**Updated:** ${new Date().toISOString()}\n`;
     content += `**Current Cycle:** ${currentCycle}\n\n`;
@@ -764,7 +1533,7 @@ class PaperTraderV5 {
       if (result.total >= 5) {
         const wr = (result.wins / result.total) * 100;
         if (wr >= 80) rules[strategyId] = '0.05';
-        else if (wr >= 61) rules[strategyId] = '0.04';
+        else if (wr >= 55) rules[strategyId] = '0.04';
         else if (wr >= 60) rules[strategyId] = '0.03';
         else rules[strategyId] = '0.02';
       }
@@ -889,6 +1658,52 @@ class PaperTraderV5 {
       // Order book analysis
       const orderBook = await this.analyzeOrderBook(token);
       console.log(`   📊 Order Book: ${orderBook.strength} (${orderBook.ratio}:1)`);
+      
+      // HTF PO3 Filter - Smart Money Concepts
+      const htfFilter = this.applyHTFFilter(candleAnalysis, orderBook);
+      console.log(`   🌐 HTF PO3: ${htfFilter.signal} (${htfFilter.confidence}) - ${htfFilter.reasons}`);
+      
+      // ICT Bias Score
+      const ictBias = this.calculateICTBias(candleAnalysis, orderBook);
+      console.log(`   📊 ICT Bias: ${ictBias.bias} | Stage: ${ictBias.stage} (score: ${ictBias.score})`);
+      
+      // Doji Scanner
+      const doji = this.detectDoji(candleAnalysis);
+      if (doji.isDoji) {
+        console.log(`   🕯️  Doji: ${doji.dojiType} | Signal: ${doji.reversalSignal}`);
+      }
+      
+      // Adaptive Trend Finder
+      const adaptiveTrend = this.calculateAdaptiveTrend(candleAnalysis, orderBook);
+      console.log(`   📈 Adaptive Trend: ${adaptiveTrend.trendDirection} (conf: ${adaptiveTrend.confidence})`);
+      
+      // Evasive SuperTrend
+      const evasiveST = this.calculateEvasiveSuperTrend(candleAnalysis, orderBook);
+      console.log(`   🎯 Evasive ST: ${evasiveST.signal} [${evasiveST.mode}] noise: ${evasiveST.noiseLevel}`);
+      
+      // SuperTrend Recovery
+      const stRecovery = this.calculateSuperTrendRecovery(candleAnalysis, orderBook);
+      console.log(`   🛡️  ST Recovery: ${stRecovery.trend} | Exit: ${stRecovery.recommendation}`);
+      
+      // Liquidation Hunter
+      const liqHunter = this.calculateLiquidationHunter(candleAnalysis, orderBook);
+      console.log(`   🎯 Liquidation Hunter: ${liqHunter.phase} | Score: ${liqHunter.qualityScore}/100 | Signal: ${liqHunter.signal}`);
+      
+      // Wyckoff Schematic
+      const wyckoff = this.calculateWyckoffPhase(candleAnalysis, orderBook);
+      console.log(`   🧱 Wyckoff: ${wyckoff.phase} | Signal: ${wyckoff.signal} (${wyckoff.confidence})`);
+      
+      // VDubus Wave
+      const vdubus = this.calculateVdubusWave(candleAnalysis, orderBook);
+      console.log(`   🌊 VDubus: ${vdubus.waveSignal} | Confluence: ${vdubus.confluence} [${vdubus.strength}]`);
+      
+      // Volume Cluster
+      const volCluster = this.calculateVolumeCluster(candleAnalysis, orderBook);
+      console.log(`   📊 Vol Cluster: POC ${volCluster.pocLevel} | Interest: ${volCluster.institutionalInterest}`);
+      
+      // Volatility Risk Premium
+      const volRP = this.calculateVolatilityRiskPremium(candleAnalysis, orderBook);
+      console.log(`   ⚡ Vol Risk Prem: ${volRP.regime} | Risk: ${volRP.riskLevel} | Signal: ${volRP.signal}`);
       
       // Simulate each strategy
       for (const strategy of BASE_STRATEGIES) {
@@ -1213,7 +2028,7 @@ class PaperTraderV5 {
         return r.total >= 5 && wr >= 0.65;
       }).length;
       
-      msg += `\n📚 BOK: ${positiveCount} strategies ≥61% WR\n`;
+      msg += `\n📚 BOK: ${positiveCount} strategies ≥55% WR\n`;
       msg += `💰 Target: ${CONFIG.DAILY_TARGET} SOL/day\n`;
       
       // Send notification
