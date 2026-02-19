@@ -317,6 +317,24 @@
       "regime": "BULL",
       "confidence": 65,
       "solPrice": 81.83
+    },
+    {
+      "timestamp": 1771482603734,
+      "regime": "SIDEWAYS",
+      "confidence": 50,
+      "solPrice": 82.36
+    },
+    {
+      "timestamp": 1771484404989,
+      "regime": "SIDEWAYS",
+      "confidence": 50,
+      "solPrice": 82.29
+    },
+    {
+      "timestamp": 1771486203370,
+      "regime": "SIDEWAYS",
+      "confidence": 50,
+      "solPrice": 82.45
     }
   ]
 }

@@ -489,7 +489,7 @@ class DynamicTrader {
       }
     } catch (e) {}
 
-    const maxConcurrent = 3;
+    const maxConcurrent = 7;
     const availableSlots = maxConcurrent - openPositions.length;
 
     if (availableSlots <= 0) {

@@ -1,138 +1,27 @@
 {
-  "fib_500_1272": {
-    "strategyName": "Fib 0.500 Entry",
-    "strategyWR": "55.43",
-    "tokens": [
-      {
-        "symbol": "Bonk",
-        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 104,
-        "avgPnl": 12.197839647868314,
-        "lastTrade": 1771385047202
-      },
-      {
-        "symbol": "ATLAS",
-        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 94,
-        "avgPnl": 12.270187159195261,
-        "lastTrade": 1771385047202
-      },
-      {
-        "symbol": "SAMO",
-        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 83,
-        "avgPnl": 11.875871158785614,
-        "lastTrade": 1771385654369
-      },
-      {
-        "symbol": "RAY",
-        "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
-        "wins": 33,
-        "avgPnl": 13.53337290961365,
-        "lastTrade": 1771385047201
-      },
-      {
-        "symbol": "COPE",
-        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
-        "wins": 28,
-        "avgPnl": 10.306380309965597,
-        "lastTrade": 1771385047202
-      },
-      {
-        "symbol": "$WIF",
-        "ca": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
-        "wins": 27,
-        "avgPnl": 11.425486682644882,
-        "lastTrade": 1771385047201
-      },
-      {
-        "symbol": "mSOL",
-        "ca": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
-        "wins": 26,
-        "avgPnl": 13.889429042664956,
-        "lastTrade": 1771385047201
-      },
-      {
-        "symbol": "KIMCHI",
-        "ca": "HaUXAdAWWUkb2WTmh8z1TdaEmZkYjnQnmC6tHUdTAHvi",
-        "wins": 1,
-        "avgPnl": 4.1143497755439356,
-        "lastTrade": 1771385595993
-      },
-      {
-        "symbol": "TST",
-        "ca": "HdvZF538TerjMWc1cmtWVKUaGkS8d77sGH5QaDCCpump",
-        "wins": 1,
-        "avgPnl": 4.967196602164732,
-        "lastTrade": 1771385595994
-      },
-      {
-        "symbol": "Punch",
-        "ca": "NV2RYH954cTJ3ckFUpvfqaQXU4ARqqDH3562nFSpump",
-        "wins": 1,
-        "avgPnl": 5.377271728556483,
-        "lastTrade": 1771385595994
-      },
-      {
-        "symbol": "MAYA",
-        "ca": "EtL967sgMgeDDSUrNhtQrbhe4T92idzqf4VuA6H7uGfQ",
-        "wins": 1,
-        "avgPnl": 5.16276217135494,
-        "lastTrade": 1771385595994
-      },
-      {
-        "symbol": "house",
-        "ca": "84yCF7hyUuRNAra9BjFHVDpnRdGXmfsV2emyZwLjpump",
-        "wins": 1,
-        "avgPnl": 4.773287428154532,
-        "lastTrade": 1771385595995
-      },
-      {
-        "symbol": "maxxing",
-        "ca": "32CdQdBUxbCsLy5AUHWmyidfwhgGUr9N573NBUrDpump",
-        "wins": 1,
-        "avgPnl": 6.351470860468092,
-        "lastTrade": 1771385595995
-      },
-      {
-        "symbol": "NICE",
-        "ca": "7fj85y28pKMndm4So66Szkb5GMGfLHFEkwsZdDx2pump",
-        "wins": 1,
-        "avgPnl": 5.171376979880893,
-        "lastTrade": 1771385595995
-      },
-      {
-        "symbol": "丙午",
-        "ca": "DMYNp65mub3i7LRpBdB66CgBAceLcQnv4gsWeCi6pump",
-        "wins": 1,
-        "avgPnl": 5.091776912247377,
-        "lastTrade": 1771385595995
-      }
-    ]
-  },
   "sr_breakout": {
     "strategyName": "S/R Breakout",
-    "strategyWR": "56.53",
+    "strategyWR": "56.70",
     "tokens": [
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 103,
-        "avgPnl": 11.727848622296722,
+        "wins": 114,
+        "avgPnl": 12.647676217017029,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 100,
-        "avgPnl": 14.135484193600103,
+        "wins": 108,
+        "avgPnl": 12.15872938109651,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 100,
-        "avgPnl": 10.239188455524715,
+        "wins": 106,
+        "avgPnl": 10.943096538123674,
         "lastTrade": 1771385654369
       },
       {

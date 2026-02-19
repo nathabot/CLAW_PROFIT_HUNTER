@@ -854,6 +854,81 @@ class PaperTraderV5 {
     };
   }
   
+  // ==================== ATH BREAKOUT FILTER ====================
+  // Breakouts & Pullbacks [Trendoscope] inspired filter
+  // Uses price momentum + volume as breakout potential indicator
+  
+  async applyATHFilter(tokenData, prices) {
+    try {
+      const currentPrice = prices?.current || tokenData.price;
+      const priceChange5m = tokenData.priceChange?.m5 || 0;
+      const priceChange1h = tokenData.priceChange?.h1 || 0;
+      const volume = tokenData.volume?.h24 || 0;
+      const liquidity = tokenData.liquidity?.usd || 0;
+      
+      let score = 0;
+      let reasons = [];
+      
+      // Price momentum - strong upward movement = potential breakout
+      if (priceChange5m >= 3) {
+        score += 3;
+        reasons.push('strong_5m_momentum');
+      } else if (priceChange5m >= 1) {
+        score += 2;
+        reasons.push('moderate_5m_momentum');
+      } else if (priceChange5m >= 0.5) {
+        score += 1;
+        reasons.push('weak_5m_momentum');
+      } else if (priceChange5m <= -2) {
+        score -= 2;
+        reasons.push('negative_momentum');
+      }
+      
+      // 1h momentum confirmation
+      if (priceChange1h >= 5) {
+        score += 2;
+        reasons.push('strong_1h_momentum');
+      } else if (priceChange1h >= 2) {
+        score += 1;
+        reasons.push('moderate_1h_momentum');
+      }
+      
+      // Volume confirmation
+      if (volume > 100000) {
+        score += 2;
+        reasons.push('high_volume');
+      } else if (volume > 50000) {
+        score += 1;
+        reasons.push('moderate_volume');
+      } else if (volume < 10000) {
+        score -= 1;
+        reasons.push('low_volume');
+      }
+      
+      // Liquidity check
+      if (liquidity > 10000) {
+        score += 1;
+        reasons.push('good_liquidity');
+      }
+      
+      // Signal determination
+      let signal = 'NEUTRAL';
+      if (score >= 5) signal = 'STRONG_BREAKOUT';
+      else if (score >= 3) signal = 'BREAKOUT_SETUP';
+      else if (score >= 1) signal = 'PULLBACK_OPPORTUNITY';
+      else if (score <= -1) signal = 'NO_BREAKOUT';
+      
+      return {
+        score,
+        signal,
+        reasons: reasons.join(', '),
+        momentum: (priceChange5m + priceChange1h).toFixed(2)
+      };
+    } catch (e) {
+      return { score: 0, signal: 'NEUTRAL', reasons: ['ath_filter_error'] };
+    }
+  }
+  
   // ==================== DOJI SCANNER ====================
   // Detects Doji candles (open ≈ close) - indecision signal
   // Doji = potential reversal point
@@ -1705,6 +1780,10 @@ class PaperTraderV5 {
       const volRP = this.calculateVolatilityRiskPremium(candleAnalysis, orderBook);
       console.log(`   ⚡ Vol Risk Prem: ${volRP.regime} | Risk: ${volRP.riskLevel} | Signal: ${volRP.signal}`);
       
+      // ATH Breakout Filter (Breakouts & Pullbacks inspired)
+      const athFilter = await this.applyATHFilter(token, token.priceData);
+      console.log(`   🏔️  ATH Breakout: ${athFilter.signal} | Momentum: ${athFilter.momentum}% | Score: ${athFilter.score}`);
+      
       // Simulate each strategy
       for (const strategy of BASE_STRATEGIES) {
         const result = await this.simulateStrategy(strategy, token, candleAnalysis, orderBook);
@@ -2022,10 +2101,10 @@ class PaperTraderV5 {
         }
       }
       
-      // BOK Status
+      // BOK Status - Count strategies with >=55% WR
       const positiveCount = Object.values(this.results).filter(r => {
         const wr = r.wins / r.total;
-        return r.total >= 5 && wr >= 0.65;
+        return r.total >= 3 && wr >= 0.55;  // 55% WR threshold
       }).length;
       
       msg += `\n📚 BOK: ${positiveCount} strategies ≥55% WR\n`;

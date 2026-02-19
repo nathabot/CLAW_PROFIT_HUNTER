@@ -802,14 +802,20 @@ async function generateDashboard() {
                 const response = await fetch('/api/positions');
                 const positions = await response.json();
                 
+                // Sort: ACTIVE positions first, then CLOSED
+                const sortedPositions = [...positions].sort((a, b) => {
+                    if (a.exited === b.exited) return 0;
+                    return a.exited ? 1 : -1; // Active (exited=false) first
+                });
+                
                 const container = document.getElementById('positionsContent');
                 
-                if (positions.length === 0) {
+                if (sortedPositions.length === 0) {
                     container.innerHTML = '<p style="color: #9ca3af; text-align: center;">No active positions</p>';
                     return;
                 }
                 
-                container.innerHTML = positions.map(pos => {
+                container.innerHTML = sortedPositions.map(pos => {
                     const pnlColor = pos.unrealizedPnL > 0 ? '#34d399' : pos.unrealizedPnL < 0 ? '#f87171' : '#9ca3af';
                     const pnlIcon = pos.unrealizedPnL > 0 ? '🟢' : pos.unrealizedPnL < 0 ? '🔴' : '⚪';
                     
