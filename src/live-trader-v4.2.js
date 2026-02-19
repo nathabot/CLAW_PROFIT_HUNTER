@@ -166,8 +166,8 @@ class DynamicTrader {
       const adaptiveConfig = JSON.parse(fs.readFileSync('/root/trading-bot/adaptive-scoring-config.json', 'utf8'));
       
       // Sync threshold
-      const paperThreshold = adaptiveConfig.adaptiveThresholds.paperTrader.optimalThreshold;
-      const liveThreshold = adaptiveConfig.adaptiveThresholds.liveTrader?.currentThreshold;
+      const paperThreshold = adaptiveConfig.adaptiveThresholds?.paperTrader?.optimalThreshold;
+      const liveThreshold = adaptiveConfig.adaptiveThresholds?.liveTrader?.currentThreshold;
       
       if (paperThreshold && paperThreshold !== CONFIG.MIN_SCORE) {
         console.log(`📊 SYNC: Threshold updated ${CONFIG.MIN_SCORE} → ${paperThreshold}`);
@@ -693,28 +693,47 @@ class DynamicTrader {
       const maxAge = 24 * 60 * 60 * 1000; // 24 hours
       
       // Flatten all proven tokens from all strategies
-      let allProvenTokens = [];
+      let validatedTokens = [];
+      let legacyTokens = [];
+      
       for (const [stratId, stratData] of Object.entries(provenData)) {
         if (!stratData.tokens) continue;
         for (const token of stratData.tokens) {
-          // Check if validated recently (within 24h)
           const validatedAt = token.validationTime || 0;
-          if (timestamp - validatedAt > maxAge) continue;
-          if (!token.validated) continue;
           
-          allProvenTokens.push({
-            ...token,
-            strategyId: stratId,
-            strategyName: stratData.strategyName,
-            strategyWR: stratData.strategyWR
-          });
+          // New validated tokens (within 24h)
+          if (token.validated && (timestamp - validatedAt <= maxAge)) {
+            validatedTokens.push({
+              ...token,
+              strategyId: stratId,
+              strategyName: stratData.strategyName,
+              strategyWR: stratData.strategyWR,
+              isValidated: true
+            });
+          }
+          // Legacy tokens (no validation - still OK if high wins)
+          else if (!token.validationTime && token.wins >= 10) {
+            legacyTokens.push({
+              ...token,
+              strategyId: stratId,
+              strategyName: stratData.strategyName,
+              strategyWR: stratData.strategyWR,
+              isValidated: false
+            });
+          }
         }
       }
       
-      // Sort by wins (most proven first)
+      // Prioritize validated, then legacy
+      let allProvenTokens = [...validatedTokens, ...legacyTokens];
       allProvenTokens.sort((a, b) => b.wins - a.wins);
       
-      console.log(`   📊 Found ${allProvenTokens.length} validated proven tokens`);
+      console.log(`   📊 Found ${validatedTokens.length} validated + ${legacyTokens.length} legacy proven tokens`);
+      
+      if (allProvenTokens.length === 0) {
+        console.log('   ⚠️ No proven tokens available');
+        return null;
+      }
       
       // Try each proven token until one executes
       for (const token of allProvenTokens.slice(0, 10)) {
