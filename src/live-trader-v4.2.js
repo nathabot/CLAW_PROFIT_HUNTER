@@ -219,61 +219,6 @@ class DynamicTrader {
     }
   }
 
-  // ==================== PROVEN TOKENS MONITOR ====================
-  async checkProvenTokens() {
-    try {
-      const provenData = JSON.parse(fs.readFileSync('/root/trading-bot/bok/proven-tokens.json', 'utf8'));
-      let bestStrat = null, bestWR = 55;
-      for (const [key, val] of Object.entries(provenData)) {
-        const wr = parseFloat(val.strategyWR);
-        if (wr >= bestWR) { bestWR = wr; bestStrat = key; }
-      }
-      if (!bestStrat || !provenData[bestStrat]) return null;
-      const tokens = provenData[bestStrat].tokens.slice(0, 20);
-      console.log(`\n🎯 Checking ${tokens.length} proven tokens (${bestStrat}, WR ${bestWR}%)...`);
-      for (const token of tokens) {
-        try {
-          const existing = await this.checkExistingPosition(token.ca);
-          if (existing) { console.log(`   ⏭️  ${token.symbol}: Already have position`); continue; }
-          
-          const priceRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token.ca}`);
-          const priceData = await priceRes.json();
-          if (!priceData.pairs || priceData.pairs.length === 0) { console.log(`   ❌ ${token.symbol}: No pairs`); continue; }
-          
-          const pair = priceData.pairs[0];
-          const price = parseFloat(pair.priceUsd);
-          const change1h = parseFloat(pair.priceChange.h1 || 0);
-          const change5m = parseFloat(pair.priceChange.m5 || 0);
-          const liquidity = parseFloat(pair.liquidity.usd || 0);
-          const volume = parseFloat(pair.volume.h1 || 0);
-          const buyVolume = parseFloat(pair.buys || 0);
-          const sellVolume = parseFloat(pair.sells || 0);
-          const buyPressure = buyVolume / (buyVolume + sellVolume) * 100 || 50;
-          const change24h = parseFloat(pair.priceChange.h24 || 0);
-          
-          // More aggressive - allow BP >= 45% with good consolidation
-          const atPeak = change24h > 20;
-          const goodEntry = !atPeak && buyPressure >= 45 && liquidity > 8000 && volume > 3000;
-          const pullback = change5m < -1 || change1h < -3;
-          const consolidation = Math.abs(change1h) < 2; // Stable price
-          
-          console.log(`   📊 ${token.symbol}: $${price.toFixed(4)} | 5m:${change5m}% 1h:${change1h}% 24h:${change24h}% | BP:${buyPressure.toFixed(0)}% | Liq:$${(liquidity/1000).toFixed(0)}k`);
-          
-          if (goodEntry) {
-            console.log(`   🔔 ${token.symbol}: Entry OK! BP=${buyPressure.toFixed(0)}%, goodEntry=true, pullback=${pullback}, consolidation=${consolidation}`);
-          }
-          
-          if (goodEntry && (pullback || consolidation)) {
-            console.log(`   ✅ ${token.symbol}: ENTRY SIGNAL!`);
-            return { ca: token.ca, symbol: token.symbol, price, score: bestWR, strategy: bestStrat, reason: 'proven-token-entry' };
-          }
-        } catch (e) { console.log(`   ⚠️ ${token.symbol}: Error - ${e.message}`); }
-      }
-      return null;
-    } catch (e) { return null; }
-  }
-
-
   /**
    * Execute buy via Solana Tracker
    */
@@ -452,81 +397,6 @@ class DynamicTrader {
     }
   }
 
-  // ==================== QUICKNODE JUPITER SWAP ====================
-  async executeQuickNodeJupiterBuy(tokenCA, amountSol) {
-    try {
-      const JUPITER_QUOTE_URL = 'https://public.jupiterapi.com/swap';
-      const inputMint = 'So11111111111111111111111111111111111111112'; // WSOL
-      const outputMint = tokenCA;
-      const slippage = 10;
-      
-      const quoteUrl = `https://public.jupiterapi.com/quote?inputMint=${inputMint}&outputMint=${outputMint}&amount=${amountSol * 1e9}&slippage=${slippage}`;
-      console.log('  🔄 Getting quote from QuickNode Jupiter...');
-      
-      const quoteRes = await fetch(quoteUrl);
-      if (!quoteRes.ok) return { success: false, error: 'Quote failed' };
-      
-      const quoteData = await quoteRes.json();
-      if (!quoteData.swapTransaction) return { success: false, error: 'No tx returned' };
-      
-      const swapRes = await fetch(JUPITER_QUOTE_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          swapTransaction: quoteData.swapTransaction,
-          wallet: this.wallet.publicKey.toString(),
-          prioritizationFeeLamports: 'auto'
-        })
-      });
-      
-      if (!swapRes.ok) return { success: false, error: 'Swap failed' };
-      
-      const swapData = await swapRes.json();
-      const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
-      const transaction = VersionedTransaction.deserialize(txBuf);
-      transaction.sign([this.wallet]);
-      
-      const signature = await this.connection.sendTransaction(transaction, {
-        maxRetries: 3,
-        skipPreflight: false,
-        preflightCommitment: 'confirmed'
-      });
-      
-      await this.connection.confirmTransaction(signature, 'confirmed');
-      
-      return {
-        success: true,
-        signature,
-        expectedOutput: quoteData.outAmount ? (quoteData.outAmount / 1e9).toFixed(6) : 0,
-        platform: 'QuickNode-Jupiter'
-      };
-    } catch (e) {
-      return { success: false, error: e.message };
-    }
-  }
-
-  // ==================== FALLBACK SWAP ====================
-  async executeBuyWithFallback(tokenCA, amountSol) {
-    console.log('  🎯 Attempting QuickNode Jupiter swap...');
-    const quicknodeResult = await this.executeQuickNodeJupiterBuy(tokenCA, amountSol);
-    
-    if (quicknodeResult.success) {
-      console.log('  ✅ QuickNode Jupiter SUCCESS');
-      return quicknodeResult;
-    }
-    
-    console.log(`  ⚠️ QuickNode failed: ${quicknodeResult.error}`);
-    console.log('  🔄 Falling back to Solana Tracker...');
-    
-    const stResult = await this.executeSolanaTrackerBuy(tokenCA, amountSol);
-    if (stResult.success) {
-      console.log('  ✅ Solana Tracker SUCCESS (fallback)');
-      return stResult;
-    }
-    
-    return { success: false, error: `Both failed - QN: ${quicknodeResult.error}, ST: ${stResult.error}` };
-  }
-
   /**
    * Execute sell via Solana Tracker
    */
@@ -572,97 +442,6 @@ class DynamicTrader {
     } catch (e) {
       return { success: false, error: e.message };
     }
-  }
-
-  // ==================== QUICKNODE JUPITER SELL ====================
-  async executeQuickNodeJupiterSell(tokenCA, percent = 95) {
-    try {
-      const JUPITER_QUOTE_URL = 'https://public.jupiterapi.com/swap';
-      const inputMint = tokenCA;
-      const outputMint = 'So11111111111111111111111111111111111111112'; // WSOL
-      
-      // Get token balance first
-      const tokenAccounts = await this.connection.getParsedTokenAccountsByOwner(
-        this.wallet.publicKey,
-        { mint: new PublicKey(tokenCA) }
-      );
-      
-      if (!tokenAccounts.value || tokenAccounts.value.length === 0) {
-        return { success: false, error: 'No token balance found' };
-      }
-      
-      const tokenBalance = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.amount;
-      const sellAmount = Math.floor(parseInt(tokenBalance) * (percent / 100));
-      
-      if (sellAmount <= 0) {
-        return { success: false, error: 'Insufficient balance' };
-      }
-      
-      const quoteUrl = `https://public.jupiterapi.com/quote?inputMint=${inputMint}&outputMint=${outputMint}&amount=${sellAmount}&slippage=30`;
-      console.log(`  🔄 Getting sell quote from QuickNode (${percent}%)...`);
-      
-      const quoteRes = await fetch(quoteUrl);
-      if (!quoteRes.ok) return { success: false, error: 'Quote failed' };
-      
-      const quoteData = await quoteRes.json();
-      if (!quoteData.swapTransaction) return { success: false, error: 'No tx returned' };
-      
-      const swapRes = await fetch(JUPITER_QUOTE_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          swapTransaction: quoteData.swapTransaction,
-          wallet: this.wallet.publicKey.toString(),
-          prioritizationFeeLamports: 'auto'
-        })
-      });
-      
-      if (!swapRes.ok) return { success: false, error: 'Swap failed' };
-      
-      const swapData = await swapRes.json();
-      const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
-      const transaction = VersionedTransaction.deserialize(txBuf);
-      transaction.sign([this.wallet]);
-      
-      const signature = await this.connection.sendTransaction(transaction, {
-        maxRetries: 3,
-        skipPreflight: false,
-        preflightCommitment: 'confirmed'
-      });
-      
-      await this.connection.confirmTransaction(signature, 'confirmed');
-      
-      return {
-        success: true,
-        signature,
-        outputAmount: quoteData.outAmount ? (quoteData.outAmount / 1e9).toFixed(6) : 0,
-        platform: 'QuickNode-Jupiter'
-      };
-    } catch (e) {
-      return { success: false, error: e.message };
-    }
-  }
-
-  // ==================== SELL WITH FALLBACK ====================
-  async executeSellWithFallback(tokenCA, percent = 95) {
-    console.log('  🎯 Attempting QuickNode Jupiter sell...');
-    const quicknodeResult = await this.executeQuickNodeJupiterSell(tokenCA, percent);
-    
-    if (quicknodeResult.success) {
-      console.log('  ✅ QuickNode Jupiter SELL SUCCESS');
-      return quicknodeResult;
-    }
-    
-    console.log(`  ⚠️ QuickNode sell failed: ${quicknodeResult.error}`);
-    console.log('  🔄 Falling back to Solana Tracker...');
-    
-    const stResult = await this.executeSolanaTrackerSell(tokenCA, percent + '%');
-    if (stResult.success) {
-      console.log('  ✅ Solana Tracker SELL SUCCESS (fallback)');
-      return stResult;
-    }
-    
-    return { success: false, error: `Both failed - QN: ${quicknodeResult.error}, ST: ${stResult.error}` };
   }
 
   /**
@@ -948,16 +727,6 @@ class DynamicTrader {
     this.syncWithPaperTrader();
     console.log(`📊 Current threshold: Score ${CONFIG.MIN_SCORE}+`);
     
-
-    // CHECK PROVEN TOKENS FIRST - Priority over trending
-    console.log('\n🎯 Checking proven tokens...');
-    const provenSetup = await this.checkProvenTokens();
-    if (provenSetup) {
-      console.log(`\n🚀 EXECUTING PROVEN TOKEN: ${provenSetup.symbol}`);
-      await this.executeTrade(provenSetup);
-      return;
-    }
-
     // Update market cache for TP/SL engine
     await this.tpslEngine.updateCache();
     
@@ -1482,7 +1251,7 @@ class DynamicTrader {
     console.log(`  TP1: $${targets.takeProfit1.toFixed(8)} (+${targets.tp1Percent.toFixed(2)}%)`);
     console.log(`  TP2: $${targets.takeProfit2.toFixed(8)} (+${targets.tp2Percent.toFixed(2)}%)`);
     console.log(`  Partial Exit: ${targets.partialExitPercent}% at TP1`);
-    console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 180} min\n`);
+    console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 15} min\n`);
     
     // Use flexible position size based on strategy performance
     const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
@@ -1490,8 +1259,8 @@ class DynamicTrader {
     // Execute buy via Solana Tracker
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
     console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
-    console.log(`   🎯 Primary: QuickNode → Fallback: SolanaTracker`);
-    const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
+    console.log(`   Platform: Solana Tracker`);
+    const swapResult = await this.executeSolanaTrackerBuy(setup.ca, positionSize);
     
     if (!swapResult.success) {
       console.log(`   ❌ SWAP FAILED: ${swapResult.error}`);
@@ -1522,7 +1291,7 @@ class DynamicTrader {
     );
     
     // Start exit monitor with strategy config
-    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 180;
+    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 15;
     this.startFibExitMonitor(setup, targets, maxHoldMinutes);
   }
 
@@ -1633,9 +1402,10 @@ async function monitor() {
   while (true) {
     const price = await getPrice();
     
-    // Check max hold time
+    // Check max hold time - ONLY for new tokens (< 48h old)
     const elapsedMs = Date.now() - startTime;
-    if (elapsedMs > MAX_HOLD_MS && price) {
+    const tokenAgeMs = Date.now() - POS.entryTime;
+    if (elapsedMs > MAX_HOLD_MS && price && tokenAgeMs < 48 * 60 * 60 * 1000) {
       const pnl = ((price / POS.entry) - 1) * 100;
       console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
       const sellResult = await executeSell('95%');
@@ -1643,6 +1413,8 @@ async function monitor() {
         await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
       }
       process.exit(0);
+    } else if (tokenAgeMs >= 48 * 60 * 60 * 1000 && elapsedMs > MAX_HOLD_MS) {
+      console.log('  ⏭️ Token > 48h old - skipping max hold, holding longer...');
     }
     
     if (!price) { await new Promise(r => setTimeout(r, 5000)); continue; }
