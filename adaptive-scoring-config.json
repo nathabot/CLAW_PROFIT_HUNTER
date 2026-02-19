@@ -2,7 +2,7 @@
   "bestStrategy": {
     "id": "fib_500_1272",
     "name": "Fib 0.500 Entry",
-    "winRate": "55.77",
+    "winRate": "55.94",
     "category": "SCALPING"
   },
   "positionSizing": {
@@ -22,5 +22,5 @@
     "ma_crossover": "0.02",
     "liquidation_hunter": "0.02"
   },
-  "updated": 1771533015804
+  "updated": 1771534217104
 }
