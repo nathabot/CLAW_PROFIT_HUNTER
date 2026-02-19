@@ -532,5 +532,24 @@
     "exitPrice": "MARKET",
     "pnlPercent": -100,
     "notes": "Force closed - network issues"
+  },
+  {
+    "symbol": "ATLAS",
+    "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+    "entryPrice": 0.000202,
+    "entryTime": 1771524867107,
+    "positionSize": 0.015,
+    "tokensReceived": 6015.44885985,
+    "txHash": "2NjCQ9aPYXVeZUmiJX9xLKVm2YfwoAjv84949fRZBzowWu1WFeUjmyFmNGfpEL",
+    "strategy": "proven_token",
+    "strategyId": "proven_fib",
+    "targets": {
+      "sl": 0.00019148,
+      "tp1": 0.00020925,
+      "tp2": 0.00021657
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "FEAR"
   }
 ]
