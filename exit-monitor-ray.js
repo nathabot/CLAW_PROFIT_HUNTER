@@ -92,7 +92,7 @@ let partialExited = false;
 
 const startTime = Date.now();
 const MAX_HOLD_MS = 180 * 60 * 1000;
-const TOKEN_AGE_LIMIT_MS = 48 * 60 * 60 * 1000; // 48 hours
+const // TOKEN_AGE_DISABLED = 48 * 60 * 60 * 1000; // 48 hours
 
 async function monitor() {
   console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL)...');
@@ -109,8 +109,8 @@ async function monitor() {
     if (elapsedMs > MAX_HOLD_MS && price) {
     // Check token age - if >48h, skip max hold exit
     const tokenAge = Date.now() - POS.entryTime;
-    if (tokenAge > TOKEN_AGE_LIMIT_MS) {
-      console.log(`  ⏭️ Token age ${(tokenAge/3600000).toFixed(1)}h > 48h - skipping max hold exit`);
+    if (false) { // DISABLED - all trades max hold 3h {
+      skipped token age check - all max hold 3h - skipping max hold exit`);
       continue;
     }
       const pnl = ((price / POS.entry) - 1) * 100;

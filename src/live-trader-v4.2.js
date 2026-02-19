@@ -1251,7 +1251,7 @@ class DynamicTrader {
     console.log(`  TP1: $${targets.takeProfit1.toFixed(8)} (+${targets.tp1Percent.toFixed(2)}%)`);
     console.log(`  TP2: $${targets.takeProfit2.toFixed(8)} (+${targets.tp2Percent.toFixed(2)}%)`);
     console.log(`  Partial Exit: ${targets.partialExitPercent}% at TP1`);
-    console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 15} min\n`);
+    console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 180} min\n`);
     
     // Use flexible position size based on strategy performance
     const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
@@ -1291,11 +1291,11 @@ class DynamicTrader {
     );
     
     // Start exit monitor with strategy config
-    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 15;
+    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 180;
     this.startFibExitMonitor(setup, targets, maxHoldMinutes);
   }
 
-  startFibExitMonitor(setup, targets, maxHoldMinutes = 15) {
+  startFibExitMonitor(setup, targets, maxHoldMinutes = 180) {
     const monitorFile = `/root/trading-bot/exit-monitor-${setup.symbol.toLowerCase()}.js`;
     const monitorCode = `
 const { Connection, PublicKey, Keypair } = require('@solana/web3.js');
@@ -1402,10 +1402,9 @@ async function monitor() {
   while (true) {
     const price = await getPrice();
     
-    // Check max hold time - ONLY for new tokens (< 48h old)
+    // Check max hold time
     const elapsedMs = Date.now() - startTime;
-    const tokenAgeMs = Date.now() - POS.entryTime;
-    if (elapsedMs > MAX_HOLD_MS && price && tokenAgeMs < 48 * 60 * 60 * 1000) {
+    if (elapsedMs > MAX_HOLD_MS && price) {
       const pnl = ((price / POS.entry) - 1) * 100;
       console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
       const sellResult = await executeSell('95%');
@@ -1413,8 +1412,6 @@ async function monitor() {
         await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
       }
       process.exit(0);
-    } else if (tokenAgeMs >= 48 * 60 * 60 * 1000 && elapsedMs > MAX_HOLD_MS) {
-      console.log('  ⏭️ Token > 48h old - skipping max hold, holding longer...');
     }
     
     if (!price) { await new Promise(r => setTimeout(r, 5000)); continue; }
