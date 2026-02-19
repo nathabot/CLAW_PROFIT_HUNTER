@@ -119,7 +119,7 @@
   },
   "TRADING_MODE": {
     "VERSION": "1.0",
-    "MODE": "manual",
+    "MODE": "auto",
     "ACTIVE": "established",
     "DEGEN_ENABLED": false,
     "AUTO_TYPE": "performance",
