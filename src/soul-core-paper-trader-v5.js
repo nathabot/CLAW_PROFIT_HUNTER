@@ -1519,13 +1519,25 @@ class PaperTraderV5 {
   // ==================== HONEYPOT VALIDATION ====================
   async validateTokenHoneypot(ca) {
     try {
+      // Method 1: Try DexScreener (more reliable)
+      const dexUrl = `https://api.dexscreener.com/latest/dex/tokens/${ca}`;
+      const dexRes = await fetch(dexUrl, { timeout: 5000 });
+      if (dexRes.ok) {
+        const dexData = await dexRes.json();
+        if (dexData.pairs && dexData.pairs.length > 0) {
+          return { safe: true, reason: 'DexScreener OK' };
+        }
+      }
+      
+      // Method 2: Try SolanaTracker swap quote (for honeypot check)
       const solanaTrackerUrl = 'https://swap-v2.solanatracker.io';
-      // Try to get quote - if it fails, token might be honeypot
-      const testUrl = `${solanaTrackerUrl}/price?tokenAddress=${ca}`;
+      const testUrl = `${solanaTrackerUrl}/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${ca}&amount=1000000&slippage=50`;
       const res = await fetch(testUrl, { timeout: 5000 });
-      if (!res.ok) return { safe: false, reason: 'API error' };
-      const data = await res.json();
-      return { safe: true, price: data.price, reason: 'OK' };
+      if (res.ok) {
+        return { safe: true, reason: 'Swap quote OK' };
+      }
+      
+      return { safe: false, reason: 'All validation methods failed' };
     } catch (e) {
       return { safe: false, reason: e.message };
     }
@@ -1598,10 +1610,11 @@ class PaperTraderV5 {
   }
 
   async saveProvenTokensDegen(positiveStrategies) {
-    // Degen mode: More lenient filters, newer tokens
+    // Degen mode: More lenient filters, RECENT wins only
     const DEGEN_FILTERS = {
       minLiq: 5000,
-      minAgeHours: 6,
+      minAgeHours: 1,        // Recent (1-4 hours)
+      maxAgeHours: 4,       // Only recent wins in last 4 hours
       minVolume: 20000
     };
 
@@ -1612,11 +1625,11 @@ class PaperTraderV5 {
       const stratData = this.results[strat.id];
       if (!stratData || !stratData.tokens) continue;
 
-      // Get tokens that match DEGEN filters
+      // Get RECENT tokens that match DEGEN filters
       const degenTokens = stratData.tokens
         .filter(t => {
           const ageHours = (Date.now() - t.timestamp) / (1000 * 60 * 60);
-          return t.isWin && ageHours >= DEGEN_FILTERS.minAgeHours;
+          return t.isWin && ageHours >= DEGEN_FILTERS.minAgeHours && ageHours <= DEGEN_FILTERS.maxAgeHours;
         })
         .reduce((acc, t) => {
           if (!acc[t.ca]) {

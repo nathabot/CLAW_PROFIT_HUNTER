@@ -743,11 +743,59 @@
       "oldWeight": 0.3,
       "newWeight": 0.3,
       "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771518603580,
+      "strategyId": "fib_500_1272",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771518603581,
+      "strategyId": "fib_786_1000",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771520406164,
+      "strategyId": "fib_500_1272",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771520406164,
+      "strategyId": "fib_786_1000",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771522203285,
+      "strategyId": "fib_500_1272",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771522203285,
+      "strategyId": "fib_786_1000",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
     }
   ],
   "currentWeights": {
     "fib_786_1000": 0.3,
     "fib_500_1272": 0.3
   },
-  "lastUpdate": "2026-02-19T16:00:03.474Z"
+  "lastUpdate": "2026-02-19T17:30:03.285Z"
 }
