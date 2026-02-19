@@ -129,10 +129,12 @@
       "MIN_SAMPLE_SIZE": 10
     },
     "DEGEN_FILTERS": {
-      "MIN_LIQUIDITY": 5000,
-      "MIN_AGE_HOURS": 6,
+      "MIN_LIQUIDITY": 10000,
+      "MIN_MARKET_CAP": 8000,
+      "MIN_AGE_HOURS": 1,
       "MAX_HOLD_MINUTES": 10,
-      "MIN_VOLUME_24H": 20000,
+      "MIN_VOLUME_6H": 10000,
+      "MIN_TX_6H": 1000,
       "MIN_SCORE": 6
     },
     "ESTABLISHED_FILTERS": {

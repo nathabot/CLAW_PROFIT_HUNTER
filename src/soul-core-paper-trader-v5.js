@@ -37,6 +37,26 @@ const CONFIG = {
   STATE_FILE: '/root/trading-bot/paper-trader-v5-state.json',
   CONFIG_FILE: '/root/trading-bot/adaptive-scoring-config.json',
   
+  // Load trading mode config
+  getTradingConfig() {
+    try {
+      const tradingConfig = JSON.parse(fs.readFileSync('/root/trading-bot/trading-config.json', 'utf8'));
+      return tradingConfig.TRADING_MODE || {};
+    } catch (e) {
+      return {};
+    }
+  },
+  
+  // Get effective filters based on mode
+  getFilters() {
+    const tradingMode = this.getTradingConfig();
+    const activeMode = tradingMode.ACTIVE || 'established';
+    const degenFilters = tradingMode.DEGEN_FILTERS || {};
+    const establishedFilters = tradingMode.ESTABLISHED_FILTERS || {};
+    
+    return activeMode === 'degen' ? degenFilters : establishedFilters;
+  },
+  
   // BOK Files
   BOK_DIR: '/root/trading-bot/bok',
   POSITIVE_STRATEGIES_FILE: '/root/trading-bot/bok/16-positive-strategies.md',
@@ -2022,8 +2042,14 @@ class PaperTraderV5 {
     // ScrapingBee: Scrape DexScreener web UI then query API
     console.log('🕷️ SCRAPING MODE: ScrapingBee + DexScreener...');
 
-    const minLiq = CONFIG.MIN_LIQUIDITY;
-    const minAgeHours = CONFIG.MIN_TOKEN_AGE_MINUTES / 60;
+    // Use mode-specific filters from trading-config.json
+    const filters = CONFIG.getFilters();
+    const minLiq = filters.MIN_LIQUIDITY || CONFIG.MIN_LIQUIDITY;
+    const minAgeHours = (filters.MIN_AGE_HOURS || 1);
+    const minVolume6h = filters.MIN_VOLUME_6H || 10000;
+    const minTx6h = filters.MIN_TX_6H || 0;
+
+    console.log(`📊 Using filters: Liq>=$${minLiq}, Age>=${minAgeHours}h, Vol6h>=$${minVolume6h}, Tx6h>=${minTx6h}`);
 
     // Step 1: Scrape DexScreener for token addresses
     const addresses = await this.scrapeTokenAddresses(apiKey, minLiq, minAgeHours);
@@ -2042,8 +2068,10 @@ class PaperTraderV5 {
         if (bestPair) {
           const liq = parseFloat(bestPair.liquidity?.usd || 0);
           const ageHours = bestPair.pairCreatedAt ? (Date.now() - bestPair.pairCreatedAt) / 3600000 : 0;
+          const volume6h = parseFloat(bestPair.volume?.h6 || 0);
+          const tx6h = (bestPair.txns?.h6?.buys || 0) + (bestPair.txns?.h6?.sells || 0);
 
-          if (liq >= minLiq && ageHours >= minAgeHours) {
+          if (liq >= minLiq && ageHours >= minAgeHours && volume6h >= minVolume6h && tx6h >= minTx6h) {
             tokens.push(bestPair);
           }
         }
@@ -2051,16 +2079,17 @@ class PaperTraderV5 {
     }
 
     // Sort by volume
-    tokens.sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0));
+    tokens.sort((a, b) => parseFloat(b.volume?.h6 || 0) - parseFloat(a.volume?.h6 || 0));
 
-    console.log(`✅ Filtered ${tokens.length} tokens (>=$${minLiq} liq, >=${minAgeHours}h age)`);
+    console.log(`✅ Filtered ${tokens.length} tokens (>=$${minLiq} liq, >=${minAgeHours}h age, >=$${minVolume6h} vol6h, >=${minTx6h} tx6h)`);
 
     if (tokens.length > 0) {
       console.log('\n📈 Top tokens by volume:');
       tokens.slice(0, 10).forEach((p, i) => {
         const ageH = p.pairCreatedAt ? ((Date.now() - p.pairCreatedAt) / 3600000).toFixed(1) : 'N/A';
-        const volK = p.volume?.h24 ? (p.volume.h24 / 1000).toFixed(0) : '0';
-        console.log(`   ${i + 1}. ${p.baseToken?.symbol}: $${parseFloat(p.liquidity?.usd || 0).toFixed(0)} liq, ${ageH}h, $${volK}k vol`);
+        const volK = p.volume?.h6 ? (p.volume.h6 / 1000).toFixed(0) : '0';
+        const tx6h = (p.txns?.h6?.buys || 0) + (p.txns?.h6?.sells || 0);
+        console.log(`   ${i + 1}. ${p.baseToken?.symbol}: $${parseFloat(p.liquidity?.usd || 0).toFixed(0)} liq, ${ageH}h, $${volK}k vol6h, ${tx6h} tx`);
       });
     }
 
