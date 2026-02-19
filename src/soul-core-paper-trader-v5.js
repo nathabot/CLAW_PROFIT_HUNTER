@@ -362,7 +362,7 @@ class PaperTraderV5 {
   }
 
   // ==================== STRATEGY SIMULATION ====================
-  async simulateStrategy(strategy, token, candleAnalysis, orderBook) {
+  async simulateStrategy(strategy, token, candleAnalysis, orderBook, filters = {}) {
     const entryPrice = parseFloat(token.priceUsd);
     const volatility = parseFloat(token.volatility || 0.20);
     
@@ -374,9 +374,12 @@ class PaperTraderV5 {
       candleAnalysis.momentum
     );
     
-    // Simulate outcome based on strategy accuracy
+    // Simulate outcome based on strategy accuracy + filter adjustments
     // Higher score = better chance of win
-    const winProbability = this.calculateWinProbability(strategy, candleAnalysis, orderBook);
+    const baseProbability = this.calculateWinProbability(strategy, candleAnalysis, orderBook);
+    const filterModifier = this.calculateFilterModifier(filters);
+    const winProbability = Math.min(0.95, Math.max(0.05, baseProbability + filterModifier));
+    
     const isWin = Math.random() < winProbability;
     
     const pnlPercent = isWin 
@@ -443,6 +446,66 @@ class PaperTraderV5 {
     }
     
     return Math.min(Math.max(probability, 0.1), 0.9); // Clamp 10-90%
+  }
+
+  // Calculate filter modifier for simulation
+  calculateFilterModifier(filters = {}) {
+    let modifier = 0;
+    
+    // Wyckoff Phase modifier
+    if (filters.wyckoff) {
+      if (filters.wyckoff.phase === 'PHASE_B' || filters.wyckoff.phase === 'PHASE_C') {
+        modifier += 0.08; // Accumulation/testing phase - good for entry
+      } else if (filters.wyckoff.phase === 'PHASE_D') {
+        modifier += 0.12; // Breakout phase - highest probability
+      } else if (filters.wyckoff.phase === 'PHASE_E') {
+        modifier -= 0.10; // Distribution - bad for long
+      }
+    }
+    
+    // VDubus Wave modifier
+    if (filters.vdubus && filters.vdubus.confluence >= 4) {
+      modifier += 0.10; // High confluence = strong signal
+    } else if (filters.vdubus && filters.vdubus.confluence >= 3) {
+      modifier += 0.05;
+    } else if (filters.vdubus && filters.vdubus.confluence <= 1) {
+      modifier -= 0.05;
+    }
+    
+    // Volume Cluster modifier
+    if (filters.volCluster) {
+      if (filters.volCluster.institutionalInterest === 'HIGH') {
+        modifier += 0.08;
+      } else if (filters.volCluster.institutionalInterest === 'MEDIUM') {
+        modifier += 0.03;
+      } else if (filters.volCluster.institutionalInterest === 'LOW') {
+        modifier -= 0.03;
+      }
+    }
+    
+    // Volatility Risk Premium modifier
+    if (filters.volRP) {
+      if (filters.volRP.regime === 'HIGH_VOL' && filters.volRP.signal === 'BULLISH') {
+        modifier += 0.08; // High volatility = high reward
+      } else if (filters.volRP.regime === 'LOW_VOL') {
+        modifier -= 0.05; // Low volatility = low movement
+      }
+    }
+    
+    // ATH Breakout modifier
+    if (filters.athFilter) {
+      if (filters.athFilter.signal === 'STRONG_BREAKOUT') {
+        modifier += 0.12;
+      } else if (filters.athFilter.signal === 'BREAKOUT_SETUP') {
+        modifier += 0.08;
+      } else if (filters.athFilter.signal === 'PULLBACK_OPPORTUNITY') {
+        modifier += 0.03;
+      } else if (filters.athFilter.signal === 'NO_BREAKOUT') {
+        modifier -= 0.08;
+      }
+    }
+    
+    return modifier; // Can be positive or negative
   }
 
   calculatePositionSize(strategy, winProbability) {
@@ -1784,9 +1847,15 @@ class PaperTraderV5 {
       const athFilter = await this.applyATHFilter(token, token.priceData);
       console.log(`   🏔️  ATH Breakout: ${athFilter.signal} | Momentum: ${athFilter.momentum}% | Score: ${athFilter.score}`);
       
-      // Simulate each strategy
+      // Simulate each strategy with filter modifiers
       for (const strategy of BASE_STRATEGIES) {
-        const result = await this.simulateStrategy(strategy, token, candleAnalysis, orderBook);
+        const result = await this.simulateStrategy(strategy, token, candleAnalysis, orderBook, {
+          wyckoff,
+          vdubus,
+          volCluster,
+          volRP,
+          athFilter
+        });
         
         // Log result dengan token name
         const winStatus = result.isWin ? '✅ WIN' : '❌ LOSS';
