@@ -271,13 +271,14 @@
     "partialExited": true,
     "marketCondition": "UNKNOWN",
     "partialExitPrice": 0.0004583,
-    "partialExitPnl": 6.014341892204489,
+    "partialExitPnl": 0.00030071709461022443,
     "partialExitTx": "3u779FLoXusAZJsroJcoyzdGbFfhTvSW266JX94Qd9FBgKgFCjbhi9xf8b7kBS3p3h7Fwr3ESD78jwYNimZpSeC2",
     "exitPrice": 0.0004399,
     "exitTime": 1771432752046,
     "pnlPercent": -2.396272465054361,
     "exitType": "STOP_LOSS",
-    "exitTxHash": "SWAV4TngBwZz8bgqZgXimKnNPSEjxcTvHA37KqAZdPpETA5udMX4LFyHrDMc5y5gijCZQH7D5CWKrPqr1DKC5CW"
+    "exitTxHash": "SWAV4TngBwZz8bgqZgXimKnNPSEjxcTvHA37KqAZdPpETA5udMX4LFyHrDMc5y5gijCZQH7D5CWKrPqr1DKC5CW",
+    "partialExitPnlPercent": 6.014341892204489
   },
   {
     "symbol": "awi",
@@ -346,13 +347,14 @@
     "partialExited": true,
     "marketCondition": "UNKNOWN",
     "partialExitPrice": 0.0001183,
-    "partialExitPnl": 4.875886524822692,
+    "partialExitPnl": 0.00024379432624113462,
     "partialExitTx": "5ZFt3ereK4D37UZL46BoGFGec9gE9rdkeVCUcmQJU6TJ4RBY6y3R8vGSDAvgVMUhMaPYcsioYcDE9LnAKK3b9J3K",
     "exitPrice": 0.0001126,
     "exitTime": 1771456233547,
     "pnlPercent": -2.341717259323506,
     "exitType": "STOP_LOSS",
-    "exitTxHash": "2LFjWtbZytn5dDa7wwcFLg8W55aU47GxabXRJ9HW6BdQkRBffdCqB2qtTJhZu8vMDFaVSAGr8Y58RSBo2819Vfoe"
+    "exitTxHash": "2LFjWtbZytn5dDa7wwcFLg8W55aU47GxabXRJ9HW6BdQkRBffdCqB2qtTJhZu8vMDFaVSAGr8Y58RSBo2819Vfoe",
+    "partialExitPnlPercent": 4.875886524822692
   },
   {
     "symbol": "LoD",

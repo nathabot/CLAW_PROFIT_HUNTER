@@ -2363,7 +2363,10 @@ async function monitor() {
             if (posIndex >= 0) {
               positions[posIndex].partialExited = true;
               positions[posIndex].partialExitPrice = price;
-              positions[posIndex].partialExitPnl = pnl;
+              // Store as SOL value, not percentage
+              const pnlSol = (pnl / 100) * POS.size;
+              positions[posIndex].partialExitPnl = pnlSol;
+              positions[posIndex].partialExitPnlPercent = pnl; // Keep percentage for reference
               positions[posIndex].partialExitTx = sellResult.signature;
               fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
             }
