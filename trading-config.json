@@ -4,6 +4,7 @@
   "QUICKNODE": {
     "ENABLED": true,
     "RPC": "https://restless-bitter-emerald.solana-mainnet.quiknode.pro/7dc960cd5584dba31d64260739c411f638b0fbb3",
+    "API_KEY": "QN_8199c814e84947698acbf4569f1e209c",
     "WSS": "wss://restless-bitter-emerald.solana-mainnet.quiknode.pro/7dc960cd5584dba31d64260739c411f638b0fbb3",
     "JUPITER_SWAP": "https://public.jupiterapi.com/swap",
     "PRIORITY_FEE": "https://solana-mainnet.g.alchemy.com/v2/7dc960cd5584dba31d64260739c411f638b0fbb3/getPriorityFees",
