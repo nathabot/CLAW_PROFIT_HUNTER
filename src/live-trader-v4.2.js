@@ -412,18 +412,34 @@ class DynamicTrader {
     return null; // No live data yet
   }
 
-  // Check if strategy should be used (WR > 60% or no live data yet)
+  // Check if strategy should be used 
+  // BOK threshold: WR ≥55% = positive strategy - allow execution
   isStrategyUsable(strategy) {
     const liveWR = this.getLiveWinRate(strategy.id);
+    
+    // Parse BOK WR from string (e.g., "55.53%" -> 55.53)
+    let bokWR = 0;
+    if (typeof strategy.winRate === 'string') {
+      bokWR = parseFloat(strategy.winRate.replace('%', ''));
+    } else if (typeof strategy.winRate === 'number') {
+      bokWR = strategy.winRate;
+    }
+    
+    // If BOK WR ≥55%, allow execution even with low live WR
+    // Live WR will improve with more trades
+    if (bokWR >= 55) {
+      return { usable: true, reason: `BOK WR: ${bokWR.toFixed(1)}% ≥55%` };
+    }
+    
     if (liveWR === null) {
       // No live data yet, strategy is usable
       return { usable: true, reason: 'No live data yet' };
     }
-    if (liveWR > 60) {
+    if (liveWR > 55) {
       return { usable: true, reason: `Live WR: ${liveWR.toFixed(1)}%` };
     }
-    // Live WR <= 60%, strategy not usable
-    return { usable: false, reason: `Live WR: ${liveWR.toFixed(1)}% (≤60%)` };
+    // Live WR <= 55%, strategy not usable
+    return { usable: false, reason: `Live WR: ${liveWR.toFixed(1)}% (≤55%)` };
   }
 
   hasPositiveStrategies() {
@@ -434,7 +450,7 @@ class DynamicTrader {
   async executeWithPositiveStrategy() {
     console.log('\n' + '='.repeat(60));
     console.log('🎯 BOK POSITIVE STRATEGY MODE (Multi-Strategy)');
-    console.log('Rule: Use strategy until live WR ≤60% → Switch to next');
+    console.log('Rule: Use strategy until live WR ≤55% → Switch to next');
     console.log('='.repeat(60));
 
     const positiveStrategies = this.loadPositiveStrategiesFromBOK();
@@ -457,7 +473,7 @@ class DynamicTrader {
     }
 
     if (usableStrategies.length === 0) {
-      console.log('\n⚠️  ALL strategies have live WR ≤60% - Need new strategies from BOK');
+      console.log('\n⚠️  ALL strategies have live WR ≤55% - Need new strategies from BOK');
       return false;
     }
 
