@@ -23,10 +23,10 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: 'ATLAS',
   ca: 'ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx',
-  entry: 0.0002037,
-  stop: 0.00019148349989999997,
-  tp1: 0.0002092500102,
-  tp2: 0.00021656981244359998,
+  entry: 0.000203,
+  stop: 0.000190825481,
+  tp1: 0.000208530938,
+  tp2: 0.000215825586284,
   partialExit: 0.5
 };
 

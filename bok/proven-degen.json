@@ -1,64 +1,64 @@
 {
   "fib_500_1272": {
     "strategyName": "Fib 0.500 Entry",
-    "strategyWR": "55.57",
+    "strategyWR": "55.50",
     "mode": "degen",
-    "validatedAt": 1771530619562,
+    "validatedAt": 1771531817640,
     "tokens": [
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 10,
-        "avgPnl": 13.048075669818399,
+        "wins": 11,
+        "avgPnl": 12.502920756813673,
         "lastTrade": 1771517417835,
         "isDegen": true,
-        "ageHours": 3.667146388888889,
+        "ageHours": 3.9999458333333333,
         "validated": true,
-        "validationTime": 1771530619562,
+        "validationTime": 1771531817640,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 9,
-        "avgPnl": 9.68905671756216,
+        "wins": 10,
+        "avgPnl": 12.058702411242384,
         "lastTrade": 1771517417834,
         "isDegen": true,
-        "ageHours": 3.6671466666666666,
+        "ageHours": 3.999946111111111,
         "validated": true,
-        "validationTime": 1771530619562,
+        "validationTime": 1771531817640,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 7,
-        "avgPnl": 10.33564441312516,
+        "wins": 8,
+        "avgPnl": 11.13671126763981,
         "lastTrade": 1771518019182,
         "isDegen": true,
-        "ageHours": 3.5001055555555554,
+        "ageHours": 3.832905,
         "validated": true,
-        "validationTime": 1771530619562,
+        "validationTime": 1771531817640,
         "validationReason": "Degen fast-track"
       }
     ]
   },
   "sr_breakout": {
     "strategyName": "S/R Breakout",
-    "strategyWR": "55.98",
+    "strategyWR": "55.91",
     "mode": "degen",
-    "validatedAt": 1771530619562,
+    "validatedAt": 1771531817640,
     "tokens": [
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 10,
-        "avgPnl": 10.354756594368293,
+        "wins": 11,
+        "avgPnl": 10.274551706907301,
         "lastTrade": 1771517417835,
         "isDegen": true,
-        "ageHours": 3.6671466666666666,
+        "ageHours": 3.9999458333333333,
         "validated": true,
-        "validationTime": 1771530619562,
+        "validationTime": 1771531817640,
         "validationReason": "Degen fast-track"
       },
       {
@@ -68,9 +68,9 @@
         "avgPnl": 10.752685222979311,
         "lastTrade": 1771517417836,
         "isDegen": true,
-        "ageHours": 3.667146388888889,
+        "ageHours": 3.9999455555555556,
         "validated": true,
-        "validationTime": 1771530619562,
+        "validationTime": 1771531817640,
         "validationReason": "Degen fast-track"
       },
       {
@@ -80,9 +80,9 @@
         "avgPnl": 11.849894978118748,
         "lastTrade": 1771518617877,
         "isDegen": true,
-        "ageHours": 3.3338016666666666,
+        "ageHours": 3.6666008333333333,
         "validated": true,
-        "validationTime": 1771530619562,
+        "validationTime": 1771531817640,
         "validationReason": "Degen fast-track"
       }
     ]

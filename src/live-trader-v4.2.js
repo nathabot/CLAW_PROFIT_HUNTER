@@ -1633,6 +1633,37 @@ class DynamicTrader {
     // Record trade for daily limit tracking
     this.recordTrade();
     
+    // Save position to positions.json
+    const positionRecord = {
+      symbol: setup.symbol,
+      ca: setup.ca,
+      entryPrice: setup.price,
+      entryTime: Date.now(),
+      positionSize: positionSize,
+      tokensReceived: parseFloat(swapResult.expectedOutput) || 0,
+      txHash: swapResult.signature,
+      strategy: this.currentStrategy?.name || 'fib_dynamic',
+      strategyId: this.currentStrategy?.id || 'fib_618_1000',
+      targets: {
+        sl: targets.stopLoss,
+        tp1: targets.takeProfit1,
+        tp2: targets.takeProfit2
+      },
+      exited: false,
+      partialExited: false,
+      marketCondition: this.tpslEngine?.cache?.marketCondition || 'UNKNOWN'
+    };
+    
+    // Add to positions.json
+    const positionsFile = '/root/trading-bot/positions.json';
+    let positions = [];
+    if (fs.existsSync(positionsFile)) {
+      positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
+    }
+    positions.push(positionRecord);
+    fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
+    console.log(`   ✅ Position saved to positions.json`);
+    
     await this.notify(
       `✅ **TRADE EXECUTED (FIB DYNAMIC)**\n\n` +
       `**Token:** ${setup.symbol}\n` +
@@ -1753,6 +1784,30 @@ let partialExited = false;
 const startTime = Date.now();
 const MAX_HOLD_MS = ${maxHoldMinutes} * 60 * 1000;
 
+// Function to mark position as exited in positions.json
+function markPositionExited(symbol, exitPrice, pnlPercent, exitType, exitTx) {
+  try {
+    const positionsFile = '/root/trading-bot/positions.json';
+    if (!fs.existsSync(positionsFile)) return;
+    
+    const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
+    const pos = positions.find(p => p.symbol === symbol && !p.exited);
+    
+    if (pos) {
+      pos.exited = true;
+      pos.exitTime = Date.now();
+      pos.exitPrice = exitPrice;
+      pos.pnlPercent = pnlPercent;
+      pos.exitType = exitType;
+      pos.exitTxHash = exitTx;
+      fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
+      console.log('✅ Position marked as exited in positions.json');
+    }
+  } catch (e) {
+    console.log('Error updating position:', e.message);
+  }
+}
+
 async function monitor() {
   console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL)...');
   console.log(\`  SL: $\${POS.stop.toFixed(8)}\`);
@@ -1771,6 +1826,7 @@ async function monitor() {
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
         await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+        markPositionExited(POS.symbol, price, pnl, 'MAX_HOLD', sellResult.signature);
       }
       process.exit(0);
     }
@@ -1787,6 +1843,7 @@ async function monitor() {
     if (pnl <= -90) { 
       console.log('💀 HONEYPOT DETECTED - KILL SWITCH');
       await notify(\`💀 **HONEYPOT DETECTED**\\n\\n\${POS.symbol}: PnL -\${Math.abs(pnl).toFixed(2)}%\\n\\nPosition abandoned.\`);
+      markPositionExited(POS.symbol, price, pnl, 'HONEYPOT', 'none');
       process.exit(0);
     }
     
@@ -1796,6 +1853,7 @@ async function monitor() {
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
         await notify(\`🛑 **STOP LOSS EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+        markPositionExited(POS.symbol, price, pnl, 'STOP_LOSS', sellResult.signature);
       } else {
         await notify(\`🛑 **STOP LOSS HIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
       }
@@ -1820,6 +1878,7 @@ async function monitor() {
       const sellResult = await executeSell(partialExited ? '95%' : '95%');
       if (sellResult.success) {
         await notify(\`🎯 **TP2 EXECUTED - FINAL EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n✅ Trade complete!\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
+        markPositionExited(POS.symbol, price, pnl, 'TAKE_PROFIT', sellResult.signature);
       } else {
         await notify(\`🎯 **TP2 REACHED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
       }
