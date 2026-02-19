@@ -360,6 +360,82 @@ class DynamicTrader {
     return results;
   }
 
+  // ==================== QUICKNODE JUPITER FALLBACK ====================
+  async executeQuickNodeJupiterBuy(tokenCA, amountSol) {
+    try {
+      const QUICKNODE_RPC = 'https://restless-bitter-emerald.solana-mainnet.quiknode.pro/7dc960cd5584dba31d64260739c411f638b0fbb3';
+      const SOL_MINT = 'So11111111111111111111111111111111111111112';
+      
+      // Convert SOL to lamports
+      const amountLamports = Math.floor(amountSol * 1e9);
+      
+      // Get Jupiter quote
+      const quoteUrl = `https://quote-api.jup.ag/v6/quote?inputMint=${SOL_MINT}&outputMint=${tokenCA}&amount=${amountLamports}&slippage=10`;
+      const quoteRes = await fetch(quoteUrl);
+      const quote = await quoteRes.json();
+      
+      if (!quote || !quote.routePlan) {
+        return { success: false, error: 'No route found' };
+      }
+      
+      // Get swap transaction
+      const swapUrl = 'https://api.jup.ag/v6/swap';
+      const swapBody = {
+        quoteResponse: quote,
+        userPublicKey: this.wallet.publicKey.toString(),
+        prioritizationFeeLamports: 5000
+      };
+      
+      const swapRes = await fetch(swapUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(swapBody)
+      });
+      
+      const swapData = await swapRes.json();
+      
+      if (swapData.swapTransaction) {
+        const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
+        const transaction = VersionedTransaction.deserialize(txBuf);
+        transaction.sign([this.wallet]);
+        
+        const signature = await this.connection.sendTransaction(transaction, {
+          maxRetries: 3,
+          skipPreflight: false
+        });
+        
+        await this.connection.confirmTransaction(signature, 'confirmed');
+        
+        return {
+          success: true,
+          signature,
+          expectedOutput: quote.outAmount,
+          platform: 'QuickNode Jupiter'
+        };
+      }
+      
+      return { success: false, error: 'No swap tx' };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+  }
+
+  // Fallback: Try QuickNode first, then SolanaTracker
+  async executeBuyWithFallback(tokenCA, amountSol) {
+    console.log(`  🔄 Attempting QuickNode Jupiter...`);
+    const quickNodeResult = await this.executeQuickNodeJupiterBuy(tokenCA, amountSol);
+    
+    if (quickNodeResult.success) {
+      console.log(`  ✅ QuickNode Jupiter SUCCESS: ${quickNodeResult.signature.slice(0, 20)}...`);
+      return quickNodeResult;
+    }
+    
+    console.log(`  ⚠️ QuickNode failed: ${quickNodeResult.error}`);
+    console.log(`  🔄 Falling back to SolanaTracker...`);
+    
+    return await this.executeSolanaTrackerBuy(tokenCA, amountSol);
+  }
+
   async executeSolanaTrackerBuy(tokenCA, amountSol) {
     try {
       const wsol = 'So11111111111111111111111111111111111111112';
@@ -1536,17 +1612,19 @@ class DynamicTrader {
     // Use flexible position size based on strategy performance
     const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
     
-    // Execute buy via Solana Tracker
+    // Execute buy via QuickNode Jupiter (with SolanaTracker fallback)
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
     console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
-    console.log(`   Platform: Solana Tracker`);
-    const swapResult = await this.executeSolanaTrackerBuy(setup.ca, positionSize);
+    console.log(`   Platform: QuickNode Jupiter → SolanaTracker (fallback)`);
+    const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
     
     if (!swapResult.success) {
       console.log(`   ❌ SWAP FAILED: ${swapResult.error}`);
       await this.notify(`❌ **BUY FAILED**\n\n${setup.symbol}: ${swapResult.error}`);
       return;
     }
+    
+    const platform = swapResult.platform || 'SolanaTracker';
     
     console.log(`   ✅ SWAP SUCCESS: ${swapResult.signature.slice(0, 20)}...`);
     console.log(`   Platform: ${swapResult.platform}`);
