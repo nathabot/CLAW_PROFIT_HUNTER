@@ -125,7 +125,8 @@ async function calculateTotalEquity() {
             totalEquity: totalEquity.toFixed(4),
             openPositions: openPositions.length,
             realizedPnl: realizedPnl.toFixed(6),
-            closedPositions: closedPositions.length
+            closedPositions: closedPositions.length,
+            unrealizedPnl: (positionsValueSOL - openPositions.reduce((sum, p) => sum + (p.positionSize || 0), 0)).toFixed(6)
         };
     } catch (e) {
         return {
@@ -675,22 +676,23 @@ async function generateDashboard() {
                         Pos: ${status.equity ? status.equity.positionsValue : '0.0000'}
                     </div>
                 </div>
-                <div class="status-item">
+                <div class="status-item clickable" onclick="showClosedPositions()">
                     <div class="status-label">📈 Realized P/L</div>
                     <div class="status-value" style="color: ${parseFloat(status.equity?.realizedPnl || 0) >= 0 ? '#10b981' : '#ef4444'};">
                         ${status.equity ? (parseFloat(status.equity.realizedPnl) >= 0 ? '+' : '') + status.equity.realizedPnl : '0.000000'} SOL
                     </div>
-                    <div style="font-size: 11px; color: #6b7280; margin-top: 3px;">
-                        Closed: ${status.equity ? status.equity.closedPositions : 0} trades
+                    <div style="font-size: 11px; color: #60a5fa; margin-top: 3px;">
+                        ↪ ${status.equity ? status.equity.closedPositions : 0} closed
                     </div>
                 </div>
-                <div class="status-item ${status.equity.openPositions > 0 ? 'warning' : ''} clickable" onclick="showActivePositions()">
-                    <div class="status-label">📊 Active Positions</div>
-                    <div class="status-value">${status.equity.openPositions}</div>
-                </div>
-                <div class="status-item clickable" onclick="showClosedPositions()">
-                    <div class="status-label">✅ Closed Trades</div>
-                    <div class="status-value">${status.equity.closedPositions}</div>
+                <div class="status-item clickable" onclick="showActivePositions()">
+                    <div class="status-label">📊 Unrealized P/L</div>
+                    <div class="status-value" style="color: ${parseFloat(status.equity?.unrealizedPnl || 0) >= 0 ? '#10b981' : '#ef4444'};">
+                        ${status.equity ? (parseFloat(status.equity.unrealizedPnl) >= 0 ? '+' : '') + status.equity.unrealizedPnl : '0.000000'} SOL
+                    </div>
+                    <div style="font-size: 11px; color: #60a5fa; margin-top: 3px;">
+                        ↪ ${status.equity ? status.equity.openPositions : 0} open
+                    </div>
                 </div>
                 <div class="status-item ${status.issues.length > 0 ? 'warning' : ''}">
                     <div class="status-label">Issues</div>
