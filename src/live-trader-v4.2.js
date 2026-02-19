@@ -219,6 +219,49 @@ class DynamicTrader {
     }
   }
 
+  // ==================== PROVEN TOKENS MONITOR ====================
+  async checkProvenTokens() {
+    try {
+      const provenData = JSON.parse(fs.readFileSync('/root/trading-bot/bok/proven-tokens.json', 'utf8'));
+      let bestStrat = null, bestWR = 55;
+      for (const [key, val] of Object.entries(provenData)) {
+        const wr = parseFloat(val.strategyWR);
+        if (wr >= bestWR) { bestWR = wr; bestStrat = key; }
+      }
+      if (!bestStrat || !provenData[bestStrat]) return null;
+      const tokens = provenData[bestStrat].tokens.slice(0, 20);
+      console.log(`\n🎯 Checking ${tokens.length} proven tokens (${bestStrat}, WR ${bestWR}%)...`);
+      for (const token of tokens) {
+        try {
+          const existing = await this.checkExistingPosition(token.ca);
+          if (existing) continue;
+          const priceRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token.ca}`);
+          const priceData = await priceRes.json();
+          if (!priceData.pairs || priceData.pairs.length === 0) continue;
+          const pair = priceData.pairs[0];
+          const price = parseFloat(pair.priceUsd);
+          const change1h = parseFloat(pair.priceChange.h1 || 0);
+          const change5m = parseFloat(pair.priceChange.m5 || 0);
+          const liquidity = parseFloat(pair.liquidity.usd || 0);
+          const volume = parseFloat(pair.volume.h1 || 0);
+          const buyVolume = parseFloat(pair.buys || 0);
+          const sellVolume = parseFloat(pair.sells || 0);
+          const buyPressure = buyVolume / (buyVolume + sellVolume) * 100 || 50;
+          const change24h = parseFloat(pair.priceChange.h24 || 0);
+          const atPeak = change24h > 15;
+          const goodEntry = !atPeak && buyPressure > 55 && liquidity > 10000 && volume > 5000;
+          const pullback = change5m < -2 || change1h < -5;
+          if (goodEntry && (pullback || Math.abs(change1h) < 3)) {
+            console.log(`   ✅ ${token.symbol}: Entry! $${price.toFixed(6)}`);
+            return { ca: token.ca, symbol: token.symbol, price, score: bestWR, strategy: bestStrat, reason: 'proven-token-entry' };
+          }
+        } catch (e) {}
+      }
+      return null;
+    } catch (e) { return null; }
+  }
+
+
   /**
    * Execute buy via Solana Tracker
    */
@@ -443,102 +486,6 @@ class DynamicTrader {
       return { success: false, error: e.message };
     }
   }
-
-  // ==================== QUICKNODE JUPITER SWAP ====================
-  
-  async executeQuickNodeSwap(params) {
-    const { fromToken, toToken, amount, slippage = 10 } = params;
-    
-    let qnConfig = {};
-    try {
-      const configData = fs.readFileSync('/root/trading-bot/trading-config.json', 'utf8');
-      qnConfig = JSON.parse(configData).QUICKNODE || {};
-    } catch (e) { return null; }
-    
-    if (!qnConfig.ENABLED || !qnConfig.JUPITER_SWAP) { return null; }
-    
-    const JupiterBase = 'https://public.jupiterapi.com';
-    const amountLamport = Math.floor(amount * 1e9);
-    
-    try {
-      // Step 1: Get Quote
-      const quoteUrl = `${JupiterBase}/quote?inputMint=${fromToken}&outputMint=${toToken}&amount=${amountLamport}&slippageBps=${slippage * 10}&swapMode=ExactIn`;
-      console.log(`  📡 Getting quote from Jupiter...`);
-      
-      const quoteRes = await fetch(quoteUrl);
-      if (!quoteRes.ok) throw new Error(`Quote failed: ${quoteRes.status}`);
-      
-      const quoteData = await quoteRes.json();
-      console.log(`  ✅ Quote: ${quoteData.outAmount} output tokens`);
-      
-      // Step 2: Get Swap Transaction
-      const swapUrl = `${JupiterBase}/swap`;
-      const swapBody = {
-        userPublicKey: this.wallet.publicKey.toString(),
-        quoteResponse: quoteData,
-        prioritizationFeeLamports: {
-          priorityLevelWithMaxLamports: { priorityLevel: 'high', maxLamports: 10000 }
-        }
-      };
-      
-      const swapRes = await fetch(swapUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(swapBody)
-      });
-      
-      if (!swapRes.ok) throw new Error(`Swap failed: ${swapRes.status}`);
-      
-      const swapData = await swapRes.json();
-      
-      // Execute transaction
-      const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
-      const transaction = VersionedTransaction.deserialize(txBuf);
-      transaction.sign([this.wallet]);
-      
-      const signature = await this.connection.sendTransaction(transaction, {
-        maxRetries: 3, preflightCommitment: 'confirmed'
-      });
-      
-      await this.connection.confirmTransaction(signature, 'confirmed');
-      
-      return { success: true, signature, expectedOutput: swapData.outAmount, platform: 'QuickNode-Jupiter' };
-    } catch (e) {
-      console.log(`  ⚠️ QuickNode: ${e.message}`);
-      return null;
-    }
-  }
-  
-  // Fallback wrapper
-  async executeBuyWithFallback(tokenCA, amountSol) {
-    console.log('  🔄 Swap: QuickNode primary...');
-    
-    const qn = await this.executeQuickNodeSwap({
-      fromToken: 'So11111111111111111111111111111111111111112',
-      toToken: tokenCA, amount: amountSol, slippage: 10
-    });
-    
-    if (qn) { console.log('  ✅ QuickNode SUCCESS'); return qn; }
-    
-    console.log('  🔄 Fallback: SolanaTracker...');
-    return await this.executeSolanaTrackerBuy(tokenCA, amountSol);
-  }
-  
-  async executeSellWithFallback(tokenCA, percent = '95%') {
-    console.log('  🔄 Sell: QuickNode primary...');
-    
-    const qn = await this.executeQuickNodeSwap({
-      fromToken: tokenCA,
-      toToken: 'So11111111111111111111111111111111111111112',
-      amount: 1, slippage: 30
-    });
-    
-    if (qn) { console.log('  ✅ QuickNode SUCCESS'); return qn; }
-    
-    console.log('  🔄 Fallback: SolanaTracker...');
-    return await this.executeSolanaTrackerSell(tokenCA, percent);
-  }
-
 
   /**
    * Honeypot check via Solana Tracker
@@ -823,6 +770,16 @@ class DynamicTrader {
     this.syncWithPaperTrader();
     console.log(`📊 Current threshold: Score ${CONFIG.MIN_SCORE}+`);
     
+
+    // CHECK PROVEN TOKENS FIRST - Priority over trending
+    console.log('\n🎯 Checking proven tokens...');
+    const provenSetup = await this.checkProvenTokens();
+    if (provenSetup) {
+      console.log(`\n🚀 EXECUTING PROVEN TOKEN: ${provenSetup.symbol}`);
+      await this.executeTrade(provenSetup);
+      return;
+    }
+
     // Update market cache for TP/SL engine
     await this.tpslEngine.updateCache();
     
@@ -1352,10 +1309,11 @@ class DynamicTrader {
     // Use flexible position size based on strategy performance
     const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
     
-    // Execute buy via QuickNode (with SolanaTracker fallback)
+    // Execute buy via Solana Tracker
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
-    console.log(`   Amount: ${positionSize} SOL`);
-    const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
+    console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
+    console.log(`   Platform: Solana Tracker`);
+    const swapResult = await this.executeSolanaTrackerBuy(setup.ca, positionSize);
     
     if (!swapResult.success) {
       console.log(`   ❌ SWAP FAILED: ${swapResult.error}`);
