@@ -444,7 +444,7 @@ class DynamicTrader {
     }
   }
 
-  // ==================== QUICKNODE SWAP (PRIMARY) ====================
+  // ==================== QUICKNODE JUPITER SWAP ====================
   
   async executeQuickNodeSwap(params) {
     const { fromToken, toToken, amount, slippage = 10 } = params;
@@ -457,36 +457,42 @@ class DynamicTrader {
     
     if (!qnConfig.ENABLED || !qnConfig.JUPITER_SWAP) { return null; }
     
+    const JupiterBase = 'https://public.jupiterapi.com';
+    const amountLamport = Math.floor(amount * 1e9);
+    
     try {
-      // Get priority fee
-      let fee = 0.001;
-      if (qnConfig.PRIORITY_FEE) {
-        try {
-          const feeRes = await fetch(qnConfig.PRIORITY_FEE);
-          const feeData = await feeRes.json();
-          fee = feeData?.medium || 0.001;
-        } catch (e) {}
-      }
+      // Step 1: Get Quote
+      const quoteUrl = `${JupiterBase}/quote?inputMint=${fromToken}&outputMint=${toToken}&amount=${amountLamport}&slippageBps=${slippage * 10}&swapMode=ExactIn`;
+      console.log(`  📡 Getting quote from Jupiter...`);
       
-      const swapParams = {
-        fromToken, toToken,
-        amount: Math.floor(amount * 1e9),
-        slippage, priorityFee: fee,
-        fromAddress: this.wallet.publicKey.toString(),
-        quoteMode: 'Auto'
+      const quoteRes = await fetch(quoteUrl);
+      if (!quoteRes.ok) throw new Error(`Quote failed: ${quoteRes.status}`);
+      
+      const quoteData = await quoteRes.json();
+      console.log(`  ✅ Quote: ${quoteData.outAmount} output tokens`);
+      
+      // Step 2: Get Swap Transaction
+      const swapUrl = `${JupiterBase}/swap`;
+      const swapBody = {
+        userPublicKey: this.wallet.publicKey.toString(),
+        quoteResponse: quoteData,
+        prioritizationFeeLamports: {
+          priorityLevelWithMaxLamports: { priorityLevel: 'high', maxLamports: 10000 }
+        }
       };
       
-      const res = await fetch(qnConfig.JUPITER_SWAP, {
+      const swapRes = await fetch(swapUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(swapParams)
+        body: JSON.stringify(swapBody)
       });
       
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
+      if (!swapRes.ok) throw new Error(`Swap failed: ${swapRes.status}`);
       
-      const txBuf = Buffer.from(data.swapTransaction, 'base64');
+      const swapData = await swapRes.json();
+      
+      // Execute transaction
+      const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
       const transaction = VersionedTransaction.deserialize(txBuf);
       transaction.sign([this.wallet]);
       
@@ -496,14 +502,14 @@ class DynamicTrader {
       
       await this.connection.confirmTransaction(signature, 'confirmed');
       
-      return { success: true, signature, expectedOutput: data.outputAmount, platform: 'QuickNode' };
+      return { success: true, signature, expectedOutput: swapData.outAmount, platform: 'QuickNode-Jupiter' };
     } catch (e) {
       console.log(`  ⚠️ QuickNode: ${e.message}`);
       return null;
     }
   }
   
-  // Fallback: QuickNode → SolanaTracker
+  // Fallback wrapper
   async executeBuyWithFallback(tokenCA, amountSol) {
     console.log('  🔄 Swap: QuickNode primary...');
     
@@ -532,6 +538,7 @@ class DynamicTrader {
     console.log('  🔄 Fallback: SolanaTracker...');
     return await this.executeSolanaTrackerSell(tokenCA, percent);
   }
+
 
   /**
    * Honeypot check via Solana Tracker
@@ -1345,10 +1352,11 @@ class DynamicTrader {
     // Use flexible position size based on strategy performance
     const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
     
-    // Execute buy via QuickNode (with SolanaTracker fallback)
+    // Execute buy via Solana Tracker
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
-    console.log(`   Amount: ${positionSize} SOL`);
-    const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
+    console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
+    console.log(`   Platform: Solana Tracker`);
+    const swapResult = await this.executeSolanaTrackerBuy(setup.ca, positionSize);
     
     if (!swapResult.success) {
       console.log(`   ❌ SWAP FAILED: ${swapResult.error}`);
