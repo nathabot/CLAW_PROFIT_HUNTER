@@ -366,61 +366,31 @@ class DynamicTrader {
       // Load QuickNode config from trading-config.json
       const tradingConfig = JSON.parse(fs.readFileSync('/root/trading-bot/trading-config.json', 'utf8'));
       const qnConfig = tradingConfig.QUICKNODE || {};
+      const JUPITER_QUOTE_URL = 'https://public.jupiterapi.com/quote';
       const JUPITER_SWAP_URL = qnConfig.JUPITER_SWAP || 'https://public.jupiterapi.com/swap';
-      const QUICKNODE_RPC = qnConfig.RPC || 'https://restless-bitter-emerald.solana-mainnet.quiknode.pro/7dc960cd5584dba31d64260739c411f638b0fbb3';
       
       const SOL_MINT = 'So11111111111111111111111111111111111111112';
       
       // Convert SOL to lamports
       const amountLamports = Math.floor(amountSol * 1e9);
       
-      // Get Jupiter quote via QuickNode's RPC (using their gateway)
-      const quoteUrl = `https://quote-api.jup.ag/v6/quote?inputMint=${SOL_MINT}&outputMint=${tokenCA}&amount=${amountLamports}&slippage=10`;
-      let quote;
+      // Get Jupiter quote via public.jupiterapi.com (Metis)
+      const quoteUrl = `${JUPITER_QUOTE_URL}?inputMint=${SOL_MINT}&outputMint=${tokenCA}&amount=${amountLamports}&slippage=10`;
       
+      let quote;
       try {
-        // Try direct first
         const quoteRes = await fetch(quoteUrl, { timeout: 10000 });
         quote = await quoteRes.json();
       } catch (quoteErr) {
-        // Direct fails - try using QuickNode as proxy
-        console.log('  ⚠️ Direct Jupiter quote failed, trying QuickNode proxy...');
-        
-        // Use QuickNode's RPC to proxy the request
-        const proxyUrl = `${QUICKNODE_RPC}`;
-        const proxyBody = {
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'get',
-          params: {
-            endpoint: 'jupQuote',
-            params: {
-              inputMint: SOL_MINT,
-              outputMint: tokenCA,
-              amount: amountLamports,
-              slippage: 10
-            }
-          }
-        };
-        
-        const proxyRes = await fetch(proxyUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(proxyBody),
-          timeout: 15000
-        });
-        
-        const proxyData = await proxyRes.json();
-        if (proxyData.result) {
-          quote = proxyData.result;
-        }
+        console.log('  ⚠️ Jupiter quote failed:', quoteErr.message);
+        return { success: false, error: 'Jupiter quote failed: ' + quoteErr.message };
       }
       
       if (!quote || !quote.routePlan) {
         return { success: false, error: 'No route found' };
       }
       
-      // Get swap transaction via QuickNode Jupiter API
+      // Get swap transaction via public.jupiterapi.com (Metis)
       const swapBody = {
         quoteResponse: quote,
         userPublicKey: this.wallet.publicKey.toString(),
@@ -454,7 +424,7 @@ class DynamicTrader {
           success: true,
           signature,
           expectedOutput: quote.outAmount,
-          platform: 'QuickNode Jupiter'
+          platform: 'Metis Jupiter'
         };
       }
       
