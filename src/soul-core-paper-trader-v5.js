@@ -509,8 +509,13 @@ class PaperTraderV5 {
   }
 
   calculatePositionSize(strategy, winProbability) {
-    // Fixed position size - same as live trading
-    return 0.005;
+    // Read from shared config for auto-sync with live trading
+    try {
+      const tradingConfig = JSON.parse(fs.readFileSync('/root/trading-bot/trading-config.json', 'utf8'));
+      return tradingConfig.POSITION_SIZE || 0.008;
+    } catch (e) {
+      return 0.008; // Default fallback
+    }
   }
   
   // ==================== CYCLOID CVCA STRATEGY ====================
