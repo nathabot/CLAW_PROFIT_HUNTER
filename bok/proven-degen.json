@@ -1,0 +1,138 @@
+{
+  "fib_500_1272": {
+    "strategyName": "Fib 0.500 Entry",
+    "strategyWR": "55.42",
+    "mode": "degen",
+    "validatedAt": 1771515019564,
+    "tokens": [
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 114,
+        "avgPnl": 10.501950869306516,
+        "lastTrade": 1771385047202,
+        "isDegen": true,
+        "ageHours": 36.10343388888889,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "wins": 112,
+        "avgPnl": 10.926088440565787,
+        "lastTrade": 1771385047202,
+        "isDegen": true,
+        "ageHours": 36.10343388888889,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 89,
+        "avgPnl": 11.365295345465348,
+        "lastTrade": 1771385654369,
+        "isDegen": true,
+        "ageHours": 35.93477638888889,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "RAY",
+        "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+        "wins": 33,
+        "avgPnl": 13.53337290961365,
+        "lastTrade": 1771385047201,
+        "isDegen": true,
+        "ageHours": 36.103434166666666,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "COPE",
+        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "wins": 28,
+        "avgPnl": 10.306380309965597,
+        "lastTrade": 1771385047202,
+        "isDegen": true,
+        "ageHours": 36.10343388888889,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      }
+    ]
+  },
+  "sr_breakout": {
+    "strategyName": "S/R Breakout",
+    "strategyWR": "56.09",
+    "mode": "degen",
+    "validatedAt": 1771515019564,
+    "tokens": [
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "wins": 120,
+        "avgPnl": 14.39709681762313,
+        "lastTrade": 1771385047202,
+        "isDegen": true,
+        "ageHours": 36.10343388888889,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 117,
+        "avgPnl": 12.320812764055233,
+        "lastTrade": 1771385047202,
+        "isDegen": true,
+        "ageHours": 36.10343388888889,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 110,
+        "avgPnl": 11.16446622879455,
+        "lastTrade": 1771385654369,
+        "isDegen": true,
+        "ageHours": 35.93477638888889,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "RAY",
+        "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+        "wins": 28,
+        "avgPnl": 9.966264587270963,
+        "lastTrade": 1771385047201,
+        "isDegen": true,
+        "ageHours": 36.103434166666666,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "COPE",
+        "ca": "8HGyAAB1yoM1ttS7pXjHMa3dukTFGQggnFFH3hJZgzQh",
+        "wins": 28,
+        "avgPnl": 10.072235857582351,
+        "lastTrade": 1771385654369,
+        "isDegen": true,
+        "ageHours": 35.93477638888889,
+        "validated": true,
+        "validationTime": 1771515019564,
+        "validationReason": "Degen fast-track"
+      }
+    ]
+  }
+}
