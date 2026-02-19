@@ -1,6 +1,5 @@
 {
   "VERSION": "2.2",
-  
   "QUICKNODE": {
     "ENABLED": true,
     "RPC": "https://restless-bitter-emerald.solana-mainnet.quiknode.pro/7dc960cd5584dba31d64260739c411f638b0fbb3",
@@ -10,80 +9,96 @@
     "PRIORITY_FEE": "https://solana-mainnet.g.alchemy.com/v2/7dc960cd5584dba31d64260739c411f638b0fbb3/getPriorityFees",
     "OPENOCEAN_SWAP": "https://solana-mainnet.g.alchemy.com/v2/7dc960cd5584dba31d64260739c411f638b0fbb3/openocean/v4/swap"
   },
-  
   "SOLANATRACKER": {
     "ENABLED": true,
     "BASE_URL": "https://swap-v2.solanatracker.io",
     "FALLBACK": true
   },
-  
   "POSITION_SIZING": {
     "DEFAULT": 0.008,
     "MIN": 0.008,
     "MAX": 0.01,
     "FEE_RESERVE": 0.015
   },
-  
   "THRESHOLDS": {
     "WIN_RATE": 55,
     "BOK_WIN_RATE": 55,
     "MIN_PROFIT_SOL": 0.05,
-    "MAX_DRAWDOWN": 20,
+    "MIN_EXPECTANCY": 2,
+    "MAX_DRAWDOWN": 30,
     "MAX_VOLATILITY": 40,
     "BALANCE_GUARDIAN_DRAWDOWN": 50
   },
-  
   "TAKE_PROFIT": {
     "TP1_PERCENT": 30,
-    "TP2_PERCENT": 50,
+    "TP2_PERCENT": 52,
     "PARTIAL_EXIT_PERCENT": 50,
     "AGGRESSIVE_EXIT": true,
-    "DYNAMIC_MODE": true
+    "DYNAMIC_MODE": true,
+    "tp2_percent": null
   },
-  
   "STOP_LOSS": {
     "PERCENT": 15,
     "TRAILING_PERCENT": 10,
     "KILL_SWITCH_BALANCE": 0.03
   },
-  
   "DYNAMIC_TPSL": {
     "ENABLED": true,
     "ADAPTIVE_FIB": true,
     "REGIME_DETECTION": true,
     "LEVELS": {
-      "BEAR": { "sl": 3, "tp1": 6, "tp2": 10, "partial": 50 },
-      "VOLATILE_BEAR": { "sl": 2.5, "tp1": 4, "tp2": 6, "partial": 60 },
-      "NEUTRAL": { "sl": 5, "tp1": 12, "tp2": 20, "partial": 50 },
-      "RANGING_BULL": { "sl": 6, "tp1": 15, "tp2": 25, "partial": 40 },
-      "BULL": { "sl": 8, "tp1": 25, "tp2": 40, "partial": 30 }
+      "BEAR": {
+        "sl": 3,
+        "tp1": 6,
+        "tp2": 10,
+        "partial": 50
+      },
+      "VOLATILE_BEAR": {
+        "sl": 2.5,
+        "tp1": 4,
+        "tp2": 6,
+        "partial": 60
+      },
+      "NEUTRAL": {
+        "sl": 5,
+        "tp1": 12,
+        "tp2": 20,
+        "partial": 50
+      },
+      "RANGING_BULL": {
+        "sl": 6,
+        "tp1": 15,
+        "tp2": 25,
+        "partial": 40
+      },
+      "BULL": {
+        "sl": 8,
+        "tp1": 25,
+        "tp2": 40,
+        "partial": 30
+      }
     }
   },
-  
   "DAILY_TARGET": {
     "PROFIT_SOL": 0.2,
     "MIN_TRADES": 3,
     "MAX_TRADES": 10
   },
-  
   "RISK_MANAGEMENT": {
     "MAX_CONCURRENT_POSITIONS": 2,
     "MAX_DAILY_DRAWDOWN": 30,
     "MAX_POSITION_RISK": 20
   },
-  
   "PAPER_TRADER": {
     "SIMULATIONS_PER_CYCLE": 50,
     "REPORT_INTERVAL_HOURS": 6,
     "BOK_ACCUMULATION": true
   },
-  
   "EVALUATION": {
     "INTERVAL_HOURS": 2,
     "GRACE_PERIOD_TRADES": 10,
     "CONSECUTIVE_NEGATIVE_LIMIT": 3
   },
-  
   "SCANNER": {
     "INTERVAL_MINUTES": 10,
     "MIN_LIQUIDITY": 10000,
@@ -93,11 +108,13 @@
     "TOKEN_AGE_MIN_HOURS": 3,
     "TOKEN_AGE_MAX_DAYS": 7
   },
-  
   "FILTERS": {
     "BUY_PRESSURE_MIN": 60,
     "HOLDERS_MIN": 50,
     "TOP_10_HOLDERS_MAX": 50,
     "PRICE_CHANGE_2H_MIN": 5
+  },
+  "ENTRY_FILTERS": {
+    "min_signal_score": 7
   }
 }

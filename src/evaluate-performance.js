@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
- * PERFORMANCE EVALUATION SYSTEM v2.0
- * Run every 4 hours for quick evaluation + auto-fix
- * Process: Analyze (1 min) → Fix → Resume Trading
+ * PERFORMANCE EVALUATION SYSTEM v3.0
+ * - Minimum 15 trades threshold before judgment
+ * - Uses Expectancy instead of WR
+ * - Rolling window (last 30 trades)
+ * - Adaptive threshold based on sample size
  */
 
 const fs = require('fs');
@@ -17,8 +19,8 @@ const CONFIG = {
   STATE_FILE: '/root/trading-bot/evaluation-state.json',
   POSITIONS_FILE: '/root/trading-bot/positions.json',
   TRADING_CONFIG: '/root/trading-bot/trading-config.json',
-  TRADES_LOG: '/root/trading-bot/live-trades.log',
-  ANALYSIS_TIMEOUT_MS: 60000 // 1 minute
+  MIN_TRADES_THRESHOLD: 15,
+  ROLLING_WINDOW: 30
 };
 
 class PerformanceEvaluator {
@@ -84,19 +86,44 @@ class PerformanceEvaluator {
       console.error('Error reading positions:', e.message);
     }
 
-    const closedPositions = positions.filter(p => p.exited || p.partialExited);
-    const winningTrades = closedPositions.filter(p => {
+    // Get last 30 trades (rolling window)
+    const closedPositions = positions
+      .filter(p => p.exited || p.partialExited)
+      .sort((a, b) => (b.exitTime || 0) - (a.exitTime || 0))
+      .slice(0, CONFIG.ROLLING_WINDOW);
+
+    const wins = closedPositions.filter(p => {
       const exitPrice = p.exitPrice || p.partialExitPrice;
       return (exitPrice / p.entryPrice - 1) > 0;
     });
-    const losingTrades = closedPositions.filter(p => {
+    const losses = closedPositions.filter(p => {
       const exitPrice = p.exitPrice || p.partialExitPrice;
       return (exitPrice / p.entryPrice - 1) <= 0;
     });
     
     const totalTrades = closedPositions.length;
-    const winRate = totalTrades > 0 ? (winningTrades.length / totalTrades) * 100 : 0;
+    const winRate = totalTrades > 0 ? (wins.length / totalTrades) * 100 : 0;
     
+    // Calculate Expectancy: (WR% × avgWin) - ((1-WR%) × avgLoss)
+    const avgWin = wins.length > 0 
+      ? wins.reduce((a, b) => {
+          const exitPrice = b.exitPrice || b.partialExitPrice;
+          return a + ((exitPrice / b.entryPrice - 1) * 100);
+        }, 0) / wins.length 
+      : 0;
+    
+    const avgLoss = losses.length > 0 
+      ? losses.reduce((a, b) => {
+          const exitPrice = b.exitPrice || b.partialExitPrice;
+          return a + Math.abs((exitPrice / b.entryPrice - 1) * 100);
+        }, 0) / losses.length 
+      : 0;
+    
+    const expectancy = totalTrades > 0 
+      ? ((winRate / 100) * avgWin) - ((1 - winRate / 100) * avgLoss)
+      : 0;
+
+    // Drawdown
     let totalProfit = 0;
     let maxDrawdown = 0;
     let peak = 0;
@@ -115,43 +142,49 @@ class PerformanceEvaluator {
     return {
       totalTrades,
       winRate: winRate.toFixed(2),
+      expectancy: expectancy.toFixed(2),
+      avgWin: avgWin.toFixed(2),
+      avgLoss: avgLoss.toFixed(2),
       profitSOL: totalProfit.toFixed(4),
       drawdown: maxDrawdown.toFixed(2),
-      winningTrades: winningTrades.length,
-      losingTrades: losingTrades.length,
+      winningTrades: wins.length,
+      losingTrades: losses.length,
       positions: closedPositions
     };
   }
 
   evaluate(metrics) {
     const winRate = parseFloat(metrics.winRate) || 0;
-    const profitSOL = parseFloat(metrics.profitSOL) || 0;
+    const expectancy = parseFloat(metrics.expectancy) || 0;
     const drawdown = parseFloat(metrics.drawdown) || 0;
     const totalTrades = parseInt(metrics.totalTrades) || 0;
     
     const thresholds = this.config.THRESHOLDS || {
       MIN_WIN_RATE: 55,
-      MIN_PROFIT_SOL: 0.05,
-      MAX_DRAWDOWN: 20
+      MIN_EXPECTANCY: 2,
+      MAX_DRAWDOWN: 30
     };
     
     const checks = {
-      winRate: winRate >= thresholds.MIN_WIN_RATE,
-      profit: profitSOL >= thresholds.MIN_PROFIT_SOL,
+      minTrades: totalTrades >= CONFIG.MIN_TRADES_THRESHOLD,
+      expectancy: expectancy >= thresholds.MIN_EXPECTANCY,
+      winRate: winRate >= 45,
       drawdown: drawdown <= thresholds.MAX_DRAWDOWN
     };
 
     let verdict = 'NEUTRAL';
     let action = 'CONTINUE';
 
-    if (totalTrades < 10) {
-      verdict = 'NEUTRAL';
+    if (!checks.minTrades) {
+      verdict = 'GRACE_PERIOD';
       action = 'CONTINUE';
-    } else if (checks.winRate && checks.profit && checks.drawdown) {
+      console.log(`  ℹ️ Grace period: Only ${totalTrades} trades (need ${CONFIG.MIN_TRADES_THRESHOLD}+).`);
+    } 
+    else if (checks.expectancy && checks.drawdown) {
       verdict = 'POSITIVE';
       action = 'CONTINUE';
       this.state.consecutiveNegative = 0;
-    } else if (!checks.winRate || profitSOL < 0 || !checks.drawdown) {
+    } else if (!checks.expectancy || !checks.drawdown) {
       verdict = 'NEGATIVE';
       action = 'ANALYZE_AND_FIX';
       this.state.consecutiveNegative++;
@@ -160,8 +193,6 @@ class PerformanceEvaluator {
     return { verdict, action, checks };
   }
 
-  // ==================== ROOT CAUSE ANALYSIS ====================
-  
   performRootCauseAnalysis(failedChecks, metrics) {
     console.log('🔍 Performing ROOT CAUSE ANALYSIS...');
     
@@ -170,29 +201,15 @@ class PerformanceEvaluator {
       return { rootCauses: [], solutions: [], fixes: {} };
     }
     
-    const analysis = {
-      rootCauses: [],
-      solutions: [],
-      fixes: {}
-    };
+    const analysis = { rootCauses: [], solutions: [], fixes: {} };
     
-    // Analyze Win Rate
-    if (!failedChecks.winRate) {
-      const wrAnalysis = this.analyzeWinRate(positions);
-      analysis.rootCauses.push(...wrAnalysis.rootCauses);
-      analysis.solutions.push(...wrAnalysis.solutions);
-      Object.assign(analysis.fixes, wrAnalysis.fixes);
+    if (!failedChecks.expectancy) {
+      const expAnalysis = this.analyzeExpectancy(positions, metrics);
+      analysis.rootCauses.push(...expAnalysis.rootCauses);
+      analysis.solutions.push(...expAnalysis.solutions);
+      Object.assign(analysis.fixes, expAnalysis.fixes);
     }
     
-    // Analyze Profit
-    if (!failedChecks.profit) {
-      const profitAnalysis = this.analyzeProfit(positions);
-      analysis.rootCauses.push(...profitAnalysis.rootCauses);
-      analysis.solutions.push(...profitAnalysis.solutions);
-      Object.assign(analysis.fixes, profitAnalysis.fixes);
-    }
-    
-    // Analyze Drawdown
     if (!failedChecks.drawdown) {
       const ddAnalysis = this.analyzeDrawdown(positions);
       analysis.rootCauses.push(...ddAnalysis.rootCauses);
@@ -200,57 +217,39 @@ class PerformanceEvaluator {
       Object.assign(analysis.fixes, ddAnalysis.fixes);
     }
     
+    if (metrics.winRate < 45) {
+      analysis.rootCauses.push(`⚠️ Low Win Rate: ${metrics.winRate}%`);
+    }
+    
     return analysis;
   }
   
-  analyzeWinRate(positions) {
+  analyzeExpectancy(positions, metrics) {
     const result = { rootCauses: [], solutions: [], fixes: {} };
+    const { winRate, avgWin, avgLoss } = metrics;
     
-    const stopLosses = positions.filter(p => p.exitType === 'STOP_LOSS');
-    const maxHolds = positions.filter(p => p.exitType === 'MAX_HOLD');
-    const slCount = stopLosses.length;
-    const mhCount = maxHolds.length;
-    const total = positions.length;
-    
-    if (slCount / total > 0.4) {
-      result.rootCauses.push(`🔴 High Stop Loss rate: ${(slCount/total*100).toFixed(0)}% of trades hit SL`);
-      result.solutions.push('• Review entry timing - entering too early/against momentum');
-      result.solutions.push('• Check if SL is too tight for token volatility');
-      result.fixes.sl_adjust = 0.02; // Wider SL
+    if (winRate < 45) {
+      result.rootCauses.push(`🔴 Low Win Rate: ${winRate}%`);
+      result.solutions.push('• Wait for stronger signals');
+      result.fixes.tighterEntries = true;
     }
     
-    if (mhCount / total > 0.2) {
-      result.rootCauses.push(`🟡 Many MAX_HOLD exits: ${(mhCount/total*100).toFixed(0)}% - missing TP targets`);
-      result.solutions.push('• TP targets too aggressive - price reverses before hitting');
-      result.solutions.push('• Consider taking partial profits earlier');
-      result.fixes.tp_aggressive = -0.03; // Less aggressive TP
+    if (avgWin < 15) {
+      result.rootCauses.push(`🔴 Avg Win too small: ${avgWin}%`);
+      result.solutions.push('• Let winners run longer');
+      result.fixes.tp2_higher = 0.08;
     }
     
-    return result;
-  }
-  
-  analyzeProfit(positions) {
-    const result = { rootCauses: [], solutions: [], fixes: {} };
-    
-    const wins = positions.filter(p => (p.pnlPercent || 0) > 0);
-    const losses = positions.filter(p => (p.pnlPercent || 0) < 0);
-    
-    const avgWin = wins.reduce((a, b) => a + (b.pnlPercent || 0), 0) / (wins.length || 1);
-    const avgLoss = losses.reduce((a, b) => a + Math.abs(b.pnlPercent || 0), 0) / (losses.length || 1);
+    if (avgLoss > 15) {
+      result.rootCauses.push(`🔴 Avg Loss too high: ${avgLoss}%`);
+      result.solutions.push('• Tighten stop loss');
+      result.fixes.sl_tighter = 0.10;
+    }
     
     const rr = avgWin / (avgLoss || 1);
-    
     if (rr < 1.5) {
-      result.rootCauses.push(`🔴 Poor Risk/Reward ratio: ${rr.toFixed(2)} (should be >1.5)`);
-      result.solutions.push('• Stop losses too tight relative to wins');
-      result.solutions.push('• Take profit targets too conservative');
+      result.rootCauses.push(`🟡 Poor Risk/Reward: ${rr.toFixed(2)}`);
       result.fixes.rr_improve = true;
-    }
-    
-    if (avgWin < 10) {
-      result.rootCauses.push(`🟡 Average win too small: ${avgWin.toFixed(1)}% - not enough reward`);
-      result.solutions.push('• Let winners run longer to capture bigger moves');
-      result.fixes.tp2_higher = 0.08;
     }
     
     return result;
@@ -274,9 +273,8 @@ class PerformanceEvaluator {
     }
     
     if (maxConsecutive >= 3) {
-      result.rootCauses.push(`🔴 Consecutive losses: ${maxConsecutive} in a row`);
-      result.solutions.push('• Position sizing too aggressive during losing streak');
-      result.solutions.push('• Need break after 2 consecutive losses');
+      result.rootCauses.push(`🔴 Consecutive losses: ${maxConsecutive}`);
+      result.solutions.push('• Take break after 2 losses');
       result.fixes.consecutive_loss_limit = 2;
     }
     
@@ -284,31 +282,18 @@ class PerformanceEvaluator {
   }
   
   applyAutoFixes(fixes) {
-    console.log('⚡ Applying AUTO-FIXES to trading-config.json...');
-    
+    console.log('⚡ Applying AUTO-FIXES...');
     let config = this.config;
     let fixSummary = [];
     
-    if (fixes.sl_adjust) {
-      if (config.STOP_LOSS) {
-        config.STOP_LOSS.percent = Math.min(config.STOP_LOSS.percent + 0.02, 0.25);
-        fixSummary.push(`SL: ${(config.STOP_LOSS.percent*100).toFixed(0)}%`);
-      }
+    if (fixes.sl_tighter && config.STOP_LOSS) {
+      config.STOP_LOSS.percent = Math.max(config.STOP_LOSS.percent - 0.02, 0.08);
+      fixSummary.push(`SL: ${(config.STOP_LOSS.percent*100).toFixed(0)}%`);
     }
     
-    if (fixes.tp_aggressive) {
-      if (config.TAKE_PROFIT) {
-        config.TAKE_PROFIT.tp1_percent = Math.max(config.TAKE_PROFIT.tp1_percent - 0.03, 0.03);
-        config.TAKE_PROFIT.tp2_percent = Math.max(config.TAKE_PROFIT.tp2_percent - 0.03, 0.05);
-        fixSummary.push(`TP adjusted`);
-      }
-    }
-    
-    if (fixes.tp2_higher) {
-      if (config.TAKE_PROFIT) {
-        config.TAKE_PROFIT.tp2_percent = Math.max(config.TAKE_PROFIT.tp2_percent + 0.03, 0.08);
-        fixSummary.push(`TP2: ${(config.TAKE_PROFIT.tp2_percent*100).toFixed(0)}%`);
-      }
+    if (fixes.tp2_higher && config.TAKE_PROFIT) {
+      config.TAKE_PROFIT.TP2_PERCENT = Math.max((config.TAKE_PROFIT.TP2_PERCENT || 50) + 2, 8);
+      fixSummary.push(`TP2: ${config.TAKE_PROFIT.TP2_PERCENT}%`);
     }
     
     if (fixes.consecutive_loss_limit) {
@@ -317,25 +302,22 @@ class PerformanceEvaluator {
       fixSummary.push(`Max consecutive: ${fixes.consecutive_loss_limit}`);
     }
     
+    if (fixes.tighterEntries) {
+      if (!config.ENTRY_FILTERS) config.ENTRY_FILTERS = {};
+      config.ENTRY_FILTERS.min_signal_score = 7;
+      fixSummary.push(`Min score: 7`);
+    }
+    
     this.saveConfig(config);
     console.log('   ✅ Config updated:', fixSummary.join(', '));
-    
     return fixSummary;
   }
   
   resumeTrading() {
-    // Remove EMERGENCY_STOP and PAUSE_TRADING files
     const files = ['/root/trading-bot/EMERGENCY_STOP', '/root/trading-bot/PAUSE_TRADING'];
     for (const f of files) {
-      try {
-        if (fs.existsSync(f)) {
-          fs.unlinkSync(f);
-          console.log(`   ✅ Removed ${f}`);
-        }
-      } catch (e) {}
+      try { if (fs.existsSync(f)) fs.unlinkSync(f); } catch (e) {}
     }
-    
-    // Enable trading in state
     this.state.tradingEnabled = true;
     this.saveState();
   }
@@ -347,75 +329,64 @@ class PerformanceEvaluator {
     if (action === 'ANALYZE_AND_FIX') {
       const analysis = this.performRootCauseAnalysis(failedChecks, metrics);
       
-      // Generate report
       const trigger = Object.entries(failedChecks).filter(([k, v]) => !v).map(([k]) => k.toUpperCase()).join(', ');
-      rootCauseReport = `
-🔍 **Performing ROOT CAUSE ANALYSIS...**
-📊 **ROOT CAUSE ANALYSIS**
-
+      rootCauseReport = `📊 **ROOT CAUSE ANALYSIS**
 **Trigger:** ${trigger}
-**Actual:** ${metrics.winRate}% WR | ${metrics.profitSOL} SOL profit | ${metrics.drawdown}% DD
+**Actual:** ${metrics.expectancy}% expectancy | ${metrics.winRate}% WR | ${metrics.avgWin}% avgWin | ${metrics.avgLoss}% avgLoss
 
 `;
       
-      if (analysis.rootCauses.length === 0) {
-        rootCauseReport += '\n⚠️ **Insufficient data for analysis** (need more trades)\n';
-      } else {
-        rootCauseReport += '\n🔍 **AKAR MASALAH:**\n';
-        analysis.rootCauses.forEach((rc, i) => {
-          rootCauseReport += `${i+1}. ${rc}\n`;
-        });
+      if (analysis.rootCauses.length > 0) {
+        rootCauseReport += '🔍 **AKAR MASALAH:**\n';
+        analysis.rootCauses.forEach((rc, i) => rootCauseReport += `${i+1}. ${rc}\n`);
         
         rootCauseReport += '\n💡 **SOLUSI:**\n';
-        analysis.solutions.forEach((sol, i) => {
-          rootCauseReport += `${i+1}. ${sol}\n`;
-        });
+        analysis.solutions.forEach((sol, i) => rootCauseReport += `${i+1}. ${sol}\n`);
         
-        // Apply fixes
         if (Object.keys(analysis.fixes).length > 0) {
           fixSummary = this.applyAutoFixes(analysis.fixes);
           rootCauseReport += '\n⚡ **AUTO-FIX APPLIED:**\n';
-          fixSummary.forEach(f => {
-            rootCauseReport += `• ${f}\n`;
-          });
+          fixSummary.forEach(f => rootCauseReport += `• ${f}\n`);
         }
       }
       
-      // Resume trading after analysis
       this.resumeTrading();
       rootCauseReport += '\n✅ **Trading resumed after analysis & fixes**';
       
       await this.notify('🔍 **EVALUATION: NEGATIVE → ANALYZING & FIXING...**\n' + rootCauseReport);
       
     } else if (action === 'CONTINUE') {
-      console.log('✅ Trading continues...');
       this.resumeTrading();
       
-      await this.notify(`✅ **EVALUATION: POSITIVE**\n\nWin Rate: ${metrics.winRate}% | Profit: ${metrics.profitSOL} SOL\n\n🟢 Trading continues normally\n⏰ Next eval: 4 hours`);
+      const status = metrics.totalTrades < CONFIG.MIN_TRADES_THRESHOLD 
+        ? `📈 Grace Period: ${metrics.totalTrades}/${CONFIG.MIN_TRADES_THRESHOLD} trades`
+        : `✅ Positive: ${metrics.expectancy}% expectancy`;
+      
+      await this.notify(`📊 **EVALUATION #${this.state.totalEvaluations + 1}**
+
+**Last ${CONFIG.ROLLING_WINDOW} trades:**
+• Trades: ${metrics.totalTrades} | WR: ${metrics.winRate}%
+• Expectancy: ${metrics.expectancy}% | Avg Win: ${metrics.avgWin}% | Avg Loss: ${metrics.avgLoss}%
+• Profit: ${metrics.profitSOL} SOL | DD: ${metrics.drawdown}%
+
+**${status}**
+
+🟢 Trading continues | ⏰ Next: 4 hours`);
     }
   }
 
   async run() {
-    console.log('🔍 Starting Performance Evaluation v2.0...\n');
-    console.log(`⏱️ Analysis timeout: ${CONFIG.ANALYSIS_TIMEOUT_MS/1000} seconds\n`);
+    console.log('🔍 Performance Evaluation v3.0...\n');
+    console.log(`📊 Min ${CONFIG.MIN_TRADES_THRESHOLD} trades, Rolling ${CONFIG.ROLLING_WINDOW} trades`);
 
-    // Calculate metrics
     const metrics = this.calculateMetrics();
-    console.log('📊 Metrics:');
-    console.log(`  Win Rate: ${metrics.winRate}%`);
-    console.log(`  Profit: ${metrics.profitSOL} SOL`);
-    console.log(`  Drawdown: ${metrics.drawdown}%`);
-    console.log(`  Total Trades: ${metrics.totalTrades}\n`);
+    console.log(`📊 Metrics: WR ${metrics.winRate}% | Exp ${metrics.expectancy}% | Trades ${metrics.totalTrades}`);
 
-    // Evaluate
     const evaluation = this.evaluate(metrics);
-    console.log(`📋 Verdict: ${evaluation.verdict}`);
-    console.log(`🎯 Action: ${evaluation.action}\n`);
+    console.log(`📋 Verdict: ${evaluation.verdict} | Action: ${evaluation.action}\n`);
 
-    // Take action (with analysis if negative)
     await this.takeAction(evaluation.action, evaluation.checks, metrics);
 
-    // Update state
     this.state.lastEvaluation = new Date().toISOString();
     this.state.totalEvaluations++;
     this.saveState();
@@ -424,6 +395,5 @@ class PerformanceEvaluator {
   }
 }
 
-// Run evaluation
 const evaluator = new PerformanceEvaluator();
 evaluator.run().catch(console.error);
