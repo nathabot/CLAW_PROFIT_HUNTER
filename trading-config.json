@@ -31,7 +31,7 @@
   },
   "TAKE_PROFIT": {
     "TP1_PERCENT": 30,
-    "TP2_PERCENT": 54,
+    "TP2_PERCENT": 56,
     "PARTIAL_EXIT_PERCENT": 50,
     "AGGRESSIVE_EXIT": true,
     "DYNAMIC_MODE": true,
@@ -148,7 +148,7 @@
       "ENABLED": true,
       "MAX_TRADES_PER_TOKEN": 50,
       "MAX_CONSECUTIVE_SL": 3,
-      "PROFIT_DROP_THRESHOLD": 0.30,
+      "PROFIT_DROP_THRESHOLD": 0.3,
       "COOLDOWN_MINUTES": 30
     }
   }
