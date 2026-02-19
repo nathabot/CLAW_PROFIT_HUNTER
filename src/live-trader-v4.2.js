@@ -574,6 +574,97 @@ class DynamicTrader {
     }
   }
 
+  // ==================== QUICKNODE JUPITER SELL ====================
+  async executeQuickNodeJupiterSell(tokenCA, percent = 95) {
+    try {
+      const JUPITER_QUOTE_URL = 'https://public.jupiterapi.com/swap';
+      const inputMint = tokenCA;
+      const outputMint = 'So11111111111111111111111111111111111111112'; // WSOL
+      
+      // Get token balance first
+      const tokenAccounts = await this.connection.getParsedTokenAccountsByOwner(
+        this.wallet.publicKey,
+        { mint: new PublicKey(tokenCA) }
+      );
+      
+      if (!tokenAccounts.value || tokenAccounts.value.length === 0) {
+        return { success: false, error: 'No token balance found' };
+      }
+      
+      const tokenBalance = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.amount;
+      const sellAmount = Math.floor(parseInt(tokenBalance) * (percent / 100));
+      
+      if (sellAmount <= 0) {
+        return { success: false, error: 'Insufficient balance' };
+      }
+      
+      const quoteUrl = `https://public.jupiterapi.com/quote?inputMint=${inputMint}&outputMint=${outputMint}&amount=${sellAmount}&slippage=30`;
+      console.log(`  🔄 Getting sell quote from QuickNode (${percent}%)...`);
+      
+      const quoteRes = await fetch(quoteUrl);
+      if (!quoteRes.ok) return { success: false, error: 'Quote failed' };
+      
+      const quoteData = await quoteRes.json();
+      if (!quoteData.swapTransaction) return { success: false, error: 'No tx returned' };
+      
+      const swapRes = await fetch(JUPITER_QUOTE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          swapTransaction: quoteData.swapTransaction,
+          wallet: this.wallet.publicKey.toString(),
+          prioritizationFeeLamports: 'auto'
+        })
+      });
+      
+      if (!swapRes.ok) return { success: false, error: 'Swap failed' };
+      
+      const swapData = await swapRes.json();
+      const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
+      const transaction = VersionedTransaction.deserialize(txBuf);
+      transaction.sign([this.wallet]);
+      
+      const signature = await this.connection.sendTransaction(transaction, {
+        maxRetries: 3,
+        skipPreflight: false,
+        preflightCommitment: 'confirmed'
+      });
+      
+      await this.connection.confirmTransaction(signature, 'confirmed');
+      
+      return {
+        success: true,
+        signature,
+        outputAmount: quoteData.outAmount ? (quoteData.outAmount / 1e9).toFixed(6) : 0,
+        platform: 'QuickNode-Jupiter'
+      };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+  }
+
+  // ==================== SELL WITH FALLBACK ====================
+  async executeSellWithFallback(tokenCA, percent = 95) {
+    console.log('  🎯 Attempting QuickNode Jupiter sell...');
+    const quicknodeResult = await this.executeQuickNodeJupiterSell(tokenCA, percent);
+    
+    if (quicknodeResult.success) {
+      console.log('  ✅ QuickNode Jupiter SELL SUCCESS');
+      return quicknodeResult;
+    }
+    
+    console.log(`  ⚠️ QuickNode sell failed: ${quicknodeResult.error}`);
+    console.log('  🔄 Falling back to Solana Tracker...');
+    
+    const stResult = await this.executeSolanaTrackerSell(tokenCA, percent + '%');
+    if (stResult.success) {
+      console.log('  ✅ Solana Tracker SELL SUCCESS (fallback)');
+      return stResult;
+    }
+    
+    return { success: false, error: `Both failed - QN: ${quicknodeResult.error}, ST: ${stResult.error}` };
+  }
+
   /**
    * Honeypot check via Solana Tracker
    */
@@ -1391,7 +1482,7 @@ class DynamicTrader {
     console.log(`  TP1: $${targets.takeProfit1.toFixed(8)} (+${targets.tp1Percent.toFixed(2)}%)`);
     console.log(`  TP2: $${targets.takeProfit2.toFixed(8)} (+${targets.tp2Percent.toFixed(2)}%)`);
     console.log(`  Partial Exit: ${targets.partialExitPercent}% at TP1`);
-    console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 15} min\n`);
+    console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 180} min\n`);
     
     // Use flexible position size based on strategy performance
     const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
@@ -1431,7 +1522,7 @@ class DynamicTrader {
     );
     
     // Start exit monitor with strategy config
-    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 15;
+    const maxHoldMinutes = this.strategyConfig?.maxHoldMinutes || 180;
     this.startFibExitMonitor(setup, targets, maxHoldMinutes);
   }
 

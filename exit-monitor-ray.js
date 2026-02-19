@@ -23,10 +23,10 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: 'RAY',
   ca: '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R',
-  entry: 0.6238,
-  stop: 0.5863888426,
-  tp1: 0.6407960548,
-  tp2: 0.6632118262264,
+  entry: 0.6244,
+  stop: 0.5869528587999999,
+  tp1: 0.6414124024,
+  tp2: 0.6638497343631999,
   partialExit: 0.5
 };
 
@@ -91,14 +91,14 @@ async function executeSell(percent = '100%') {
 let partialExited = false;
 
 const startTime = Date.now();
-const MAX_HOLD_MS = 15 * 60 * 1000;
+const MAX_HOLD_MS = 180 * 60 * 1000;
 
 async function monitor() {
   console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL)...');
   console.log(`  SL: $${POS.stop.toFixed(8)}`);
   console.log(`  TP1: $${POS.tp1.toFixed(8)} (${(POS.partialExit*100).toFixed(0)}% exit)`);
   console.log(`  TP2: $${POS.tp2.toFixed(8)} (final exit)`);
-  console.log(`  Max Hold: 15 min`);
+  console.log(`  Max Hold: 180 min`);
   
   while (true) {
     const price = await getPrice();
@@ -110,7 +110,7 @@ async function monitor() {
       console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
       const sellResult = await executeSell('95%');
       if (sellResult.success) {
-        await notify(`⏰ **MAX HOLD EXIT**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\nMax hold 15 min reached\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
+        await notify(`⏰ **MAX HOLD EXIT**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\nMax hold 180 min reached\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
       }
       process.exit(0);
     }

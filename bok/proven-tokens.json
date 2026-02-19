@@ -1,20 +1,20 @@
 {
   "fib_500_1272": {
     "strategyName": "Fib 0.500 Entry",
-    "strategyWR": "55.25",
+    "strategyWR": "55.29",
     "tokens": [
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 123,
-        "avgPnl": 11.622556001293699,
+        "wins": 124,
+        "avgPnl": 12.532724611324111,
         "lastTrade": 1771385047202
       },
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 120,
-        "avgPnl": 11.148226369215502,
+        "wins": 121,
+        "avgPnl": 10.164825032980481,
         "lastTrade": 1771385047202
       },
       {
@@ -112,7 +112,7 @@
   },
   "sr_breakout": {
     "strategyName": "S/R Breakout",
-    "strategyWR": "56.92",
+    "strategyWR": "56.84",
     "tokens": [
       {
         "symbol": "ATLAS",
@@ -124,8 +124,8 @@
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 122,
-        "avgPnl": 11.9468947217587,
+        "wins": 123,
+        "avgPnl": 10.384203122775535,
         "lastTrade": 1771385047202
       },
       {
