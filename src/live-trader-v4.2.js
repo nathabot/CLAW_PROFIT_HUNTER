@@ -1312,9 +1312,10 @@ class DynamicTrader {
         return { canTrade: false, reason: `Max ${CONFIG.TOKEN_TRACKING.MAX_TRADES_PER_TOKEN} cycles completed` };
       }
       
-      // Check 2: Max consecutive SL (3x SL berturut-turut)
-      if (consecutiveSL >= CONFIG.TOKEN_TRACKING.MAX_CONSECUTIVE_SL) {
-        return { canTrade: false, reason: `${consecutiveSL}x consecutive SL hit` };
+      // Check 2: Total SL hits >= 3 (bukan berturut-turut, tapi total selama 50 siklus)
+      const totalSL = totalLosses; // All losses count as SL (stop loss)
+      if (totalSL >= CONFIG.TOKEN_TRACKING.MAX_CONSECUTIVE_SL) {
+        return { canTrade: false, reason: `${totalSL}x SL hit (max 3 allowed)` };
       }
       
       // Check 3: WR dropped below simulated (only after 5 cycles)
@@ -1345,7 +1346,7 @@ class DynamicTrader {
         totalWins,
         totalLosses,
         currentWR: currentWR.toFixed(1),
-        consecutiveSL
+        totalSL
       };
       
     } catch (e) {
