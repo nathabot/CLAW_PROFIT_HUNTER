@@ -1,38 +1,6 @@
 {
   "adjustments": [
     {
-      "timestamp": 1771414202824,
-      "strategyId": "fib_786_1000",
-      "result": "LOSS",
-      "oldWeight": 0.85,
-      "newWeight": 0.7224999999999999,
-      "reason": "Live trade loss"
-    },
-    {
-      "timestamp": 1771416003911,
-      "strategyId": "fib_786_1000",
-      "result": "LOSS",
-      "oldWeight": 0.7224999999999999,
-      "newWeight": 0.6141249999999999,
-      "reason": "Live trade loss"
-    },
-    {
-      "timestamp": 1771417803690,
-      "strategyId": "fib_786_1000",
-      "result": "LOSS",
-      "oldWeight": 0.6141249999999999,
-      "newWeight": 0.5220062499999999,
-      "reason": "Live trade loss"
-    },
-    {
-      "timestamp": 1771419604840,
-      "strategyId": "fib_786_1000",
-      "result": "LOSS",
-      "oldWeight": 0.5220062499999999,
-      "newWeight": 0.4437053124999999,
-      "reason": "Live trade loss"
-    },
-    {
       "timestamp": 1771421403103,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
@@ -799,11 +767,43 @@
       "oldWeight": 0.3,
       "newWeight": 0.3,
       "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771525803671,
+      "strategyId": "fib_500_1272",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771525803671,
+      "strategyId": "fib_786_1000",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771527603637,
+      "strategyId": "fib_500_1272",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
+    },
+    {
+      "timestamp": 1771527603637,
+      "strategyId": "fib_786_1000",
+      "result": "LOSS",
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
+      "reason": "Live trade loss"
     }
   ],
   "currentWeights": {
     "fib_786_1000": 0.3,
     "fib_500_1272": 0.3
   },
-  "lastUpdate": "2026-02-19T18:00:05.267Z"
+  "lastUpdate": "2026-02-19T19:00:03.638Z"
 }
