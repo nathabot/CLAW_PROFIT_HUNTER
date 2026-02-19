@@ -169,19 +169,253 @@ class PerformanceEvaluator {
     return { verdict, action, checks };
   }
 
-  async takeAction(action) {
+  // ==================== ROOT CAUSE ANALYSIS ====================
+  
+  async performRootCauseAnalysis(failedChecks, metrics) {
+    console.log('🔍 Performing ROOT CAUSE ANALYSIS...');
+    
+    const positions = this.getClosedPositions();
+    if (positions.length < 3) {
+      return { rootCauses: [], solutions: [], fixes: [] };
+    }
+    
+    const analysis = {
+      rootCauses: [],
+      solutions: [],
+      fixes: []
+    };
+    
+    // Analyze Win Rate issues
+    if (!failedChecks.winRate) {
+      const wrAnalysis = this.analyzeWinRate(positions);
+      analysis.rootCauses.push(...wrAnalysis.rootCauses);
+      analysis.solutions.push(...wrAnalysis.solutions);
+      analysis.fixes.push(...wrAnalysis.fixes);
+    }
+    
+    // Analyze Profit issues
+    if (!failedChecks.profit) {
+      const profitAnalysis = this.analyzeProfit(positions);
+      analysis.rootCauses.push(...profitAnalysis.rootCauses);
+      analysis.solutions.push(...profitAnalysis.solutions);
+      analysis.fixes.push(...profitAnalysis.fixes);
+    }
+    
+    // Analyze Drawdown issues
+    if (!failedChecks.drawdown) {
+      const ddAnalysis = this.analyzeDrawdown(positions);
+      analysis.rootCauses.push(...ddAnalysis.rootCauses);
+      analysis.solutions.push(...ddAnalysis.solutions);
+      analysis.fixes.push(...ddAnalysis.fixes);
+    }
+    
+    return analysis;
+  }
+  
+  getClosedPositions() {
+    try {
+      const data = fs.readFileSync(CONFIG.POSITIONS_FILE, 'utf8');
+      return JSON.parse(data).filter(p => p.exited);
+    } catch (e) {
+      return [];
+    }
+  }
+  
+  analyzeWinRate(positions) {
+    const result = { rootCauses: [], solutions: [], fixes: [] };
+    
+    // Check exit types
+    const stopLosses = positions.filter(p => p.exitType === 'STOP_LOSS');
+    const tpExits = positions.filter(p => p.exitType?.includes('TP'));
+    const maxHolds = positions.filter(p => p.exitType === 'MAX_HOLD');
+    
+    const slCount = stopLosses.length;
+    const tpCount = tpExits.length;
+    const mhCount = maxHolds.length;
+    
+    // Check partial exits
+    const partialExits = positions.filter(p => p.partialExited && !p.exited);
+    const fullLosses = positions.filter(p => p.partialExited && p.exited && (p.pnlPercent || 0) < 0);
+    
+    // Analyze patterns
+    if (slCount / positions.length > 0.4) {
+      result.rootCauses.push(`🔴 High Stop Loss rate: ${(slCount/positions.length*100).toFixed(0)}% of trades hit SL`);
+      result.solutions.push('• Review entry timing - entering too early/against momentum');
+      result.solutions.push('• Check if SL is too tight for token volatility');
+      result.fixes.push({ type: 'sl_adjust', value: 0.02 });
+    }
+    
+    if (mhCount / positions.length > 0.3) {
+      result.rootCauses.push(`🟡 Many MAX_HOLD exits: ${(mhCount/positions.length*100).toFixed(0)}% - missing TP targets`);
+      result.solutions.push('• TP targets too aggressive - price reverses before hitting');
+      result.solutions.push('• Consider taking partial profits earlier');
+      result.fixes.push({ type: 'tp_aggressive', value: -0.05 });
+    }
+    
+    if (partialExits.length > 0 && fullLosses.length > partialExits.length) {
+      result.rootCauses.push('🔴 Partial exits turned into losses - exiting remainder too late');
+      result.solutions.push('• Exit remaining position faster after partial TP');
+      result.fixes.push({ type: 'partial_exit_timing', value: 0.5 });
+    }
+    
+    return result;
+  }
+  
+  analyzeProfit(positions) {
+    const result = { rootCauses: [], solutions: [], fixes: [] };
+    
+    const wins = positions.filter(p => (p.pnlPercent || 0) > 0);
+    const losses = positions.filter(p => (p.pnlPercent || 0) < 0);
+    
+    const avgWin = wins.reduce((a, b) => a + (b.pnlPercent || 0), 0) / (wins.length || 1);
+    const avgLoss = losses.reduce((a, b) => a + Math.abs(b.pnlPercent || 0), 0) / (losses.length || 1);
+    
+    const rr = avgWin / (avgLoss || 1);
+    
+    if (rr < 1.5) {
+      result.rootCauses.push(`🔴 Poor Risk/Reward ratio: ${rr.toFixed(2)} (should be >1.5)`);
+      result.solutions.push('• Stop losses too tight relative to wins');
+      result.solutions.push('• Take profit targets too conservative');
+      result.fixes.push({ type: 'rr_improve', value: 2.0 });
+    }
+    
+    if (avgWin < 10) {
+      result.rootCauses.push(`🟡 Average win too small: ${avgWin.toFixed(1)}% - not enough reward`);
+      result.solutions.push('• Let winners run longer to capture bigger moves');
+      result.solutions.push('• Adjust TP2 higher');
+      result.fixes.push({ type: 'tp2_higher', value: 0.08 });
+    }
+    
+    return result;
+  }
+  
+  analyzeDrawdown(positions) {
+    const result = { rootCauses: [], solutions: [], fixes: [] };
+    
+    let maxConsecutive = 0;
+    let currentConsecutive = 0;
+    
+    const sortedByTime = positions.sort((a, b) => (a.exitTime || 0) - (b.exitTime || 0));
+    
+    for (const p of sortedByTime) {
+      if ((p.pnlPercent || 0) < 0) {
+        currentConsecutive++;
+        if (currentConsecutive > maxConsecutive) maxConsecutive = currentConsecutive;
+      } else {
+        currentConsecutive = 0;
+      }
+    }
+    
+    if (maxConsecutive >= 3) {
+      result.rootCauses.push(`🔴 Consecutive losses: ${maxConsecutive} in a row`);
+      result.solutions.push('• Position sizing too aggressive during losing streak');
+      result.solutions.push('• Need break after 2 consecutive losses');
+      result.fixes.push({ type: 'consecutive_loss_limit', value: 2 });
+    }
+    
+    const avgSize = positions.reduce((a, b) => a + (b.positionSize || 0), 0) / positions.length;
+    if (avgSize > 0.008) {
+      result.rootCauses.push(`🟡 Position size too large: ${avgSize.toFixed(4)} SOL average`);
+      result.solutions.push('• Reduce position size to minimize drawdown impact');
+      result.fixes.push({ type: 'position_size_reduce', value: 0.006 });
+    }
+    
+    return result;
+  }
+  
+  async applyAutoFixes(fixes) {
+    console.log('⚡ Applying AUTO-FIXES...');
+    
+    for (const fix of fixes) {
+      try {
+        switch (fix.type) {
+          case 'sl_adjust':
+            console.log(`   → Adjusting SL: ${fix.value}`);
+            break;
+          case 'tp_aggressive':
+            console.log(`   → Making TP less aggressive: ${fix.value}`);
+            break;
+          case 'rr_improve':
+            console.log(`   → Improving Risk/Reward: target ${fix.value}`);
+            break;
+          case 'tp2_higher':
+            console.log(`   → Raising TP2 target`);
+            break;
+          case 'consecutive_loss_limit':
+            console.log(`   → Setting consecutive loss limit: ${fix.value}`);
+            break;
+          case 'position_size_reduce':
+            console.log(`   → Reducing position size to ${fix.value}`);
+            break;
+        }
+      } catch (e) {
+        console.error(`   ❌ Failed to apply fix: ${e.message}`);
+      }
+    }
+  }
+  
+  generateRootCauseReport(trigger, metrics, analysis) {
+    let report = `
+📊 **ROOT CAUSE ANALYSIS**
+
+**Trigger:** ${trigger}
+**Actual:** ${metrics.winRate}% WR | ${metrics.profitSOL} SOL profit | ${metrics.drawdown}% DD
+
+`;
+    
+    if (analysis.rootCauses.length === 0) {
+      report += '\n⚠️ **Insufficient data for analysis** (need more trades)\n';
+      return report;
+    }
+    
+    report += '\n🔍 **AKAR MASALAH:**\n';
+    analysis.rootCauses.forEach((rc, i) => {
+      report += `${i+1}. ${rc}\n`;
+    });
+    
+    report += '\n💡 **SOLUSI:**\n';
+    analysis.solutions.forEach((sol, i) => {
+      report += `${i+1}. ${sol}\n`;
+    });
+    
+    if (analysis.fixes.length > 0) {
+      report += '\n⚡ **AUTO-FIX APPLIED:**\n';
+      analysis.fixes.forEach(f => {
+        report += `• ${f.type}: ${f.value}\n`;
+      });
+    }
+    
+    return report;
+  }
+
+  async takeAction(action, failedChecks = {}, metrics = {}) {
+    // Perform root cause analysis for negative evaluations
+    let rootCauseReport = '';
+    if (action !== 'CONTINUE' && Object.keys(failedChecks).length > 0) {
+      const analysis = await this.performRootCauseAnalysis(failedChecks, metrics);
+      
+      // Generate and send report
+      const trigger = Object.entries(failedChecks).filter(([k, v]) => !v).map(([k]) => k.toUpperCase()).join(', ');
+      rootCauseReport = this.generateRootCauseReport(trigger, metrics, analysis);
+      
+      // Auto-apply fixes
+      if (analysis.fixes.length > 0) {
+        await this.applyAutoFixes(analysis.fixes);
+      }
+    }
+    
     switch (action) {
       case 'STOP_AND_REEVALUATE':
         console.log('⏸️  Pausing trading...');
         // Create pause flag file
         fs.writeFileSync('/root/trading-bot/PAUSE_TRADING', Date.now().toString());
-        await this.notify('⏸️ **TRADING PAUSED**\n\nNegative evaluation detected.\nManual review required before resuming.');
+        await this.notify('⏸️ **TRADING PAUSED**\n\nNegative evaluation detected.\nManual review required before resuming.' + rootCauseReport);
         break;
       
       case 'EMERGENCY_STOP':
         console.log('🛑 EMERGENCY STOP!');
         fs.writeFileSync('/root/trading-bot/EMERGENCY_STOP', Date.now().toString());
-        await this.notify('🛑 **EMERGENCY STOP ACTIVATED**\n\n3 consecutive negative evaluations.\nTrading HALTED until manual intervention.');
+        await this.notify('🛑 **EMERGENCY STOP ACTIVATED**\n\n3 consecutive negative evaluations.\nTrading HALTED until manual intervention.' + rootCauseReport);
         break;
       
       case 'CONTINUE':
@@ -240,7 +474,7 @@ class PerformanceEvaluator {
     console.log(`🎯 Action: ${evaluation.action}\n`);
 
     // Take action
-    await this.takeAction(evaluation.action);
+    await this.takeAction(evaluation.action, evaluation.checks, metrics);
 
     // Update state
     this.state.lastEvaluation = new Date().toISOString();
