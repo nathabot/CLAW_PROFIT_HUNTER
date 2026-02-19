@@ -455,7 +455,7 @@ class DynamicTrader {
       qnConfig = JSON.parse(configData).QUICKNODE || {};
     } catch (e) { return null; }
     
-    if (!qnConfig.JUPITER_SWAP) { return null; }
+    if (!qnConfig.ENABLED || !qnConfig.JUPITER_SWAP) { return null; }
     
     try {
       // Get priority fee

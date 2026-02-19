@@ -1,33 +1,36 @@
 {
-  "regime": "SIDEWAYS",
-  "confidence": 50,
-  "reasons": [],
+  "regime": "BULL",
+  "confidence": 65,
+  "reasons": [
+    "6/10 tokens pumping"
+  ],
   "indicators": {
-    "solPrice": 81.6,
-    "priceChange24h": -3.99,
-    "priceChange1h": -0.28,
-    "volume24h": 114869017.38,
-    "volatility": 0.44625000000000004,
+    "solPrice": 81.45,
+    "priceChange24h": -3.23,
+    "priceChange1h": 0.32,
+    "volume24h": 114542786.09,
+    "volatility": 0.45458333333333334,
     "bullishTokens": 6,
-    "bearishTokens": 3,
-    "timestamp": 1771497003332
+    "bearishTokens": 2,
+    "timestamp": 1771498804747
   },
   "recommendations": {
     "primary": [
-      "range_bound_7321",
-      "mean_reversion_9904"
+      "fib_500_1272",
+      "momentum_squeeze_1782",
+      "sr_breakout_3109"
     ],
     "secondary": [
-      "fib_500_1272",
-      "orderbook_funding_2044"
+      "fib_382_0881",
+      "smart_money_fib_4701"
     ],
     "avoid": [
-      "breakout_4449",
-      "momentum_squeeze_1782"
+      "dip_buying_4817",
+      "mean_reversion_9904"
     ],
-    "positionSize": 0.7,
-    "slMultiplier": 0.8,
-    "tpMultiplier": 0.9
+    "positionSize": 1,
+    "slMultiplier": 1,
+    "tpMultiplier": 1.2
   },
-  "lastUpdate": "2026-02-19T10:30:03.332Z"
+  "lastUpdate": "2026-02-19T11:00:04.747Z"
 }
