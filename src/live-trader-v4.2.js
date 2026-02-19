@@ -234,10 +234,12 @@ class DynamicTrader {
       for (const token of tokens) {
         try {
           const existing = await this.checkExistingPosition(token.ca);
-          if (existing) continue;
+          if (existing) { console.log(`   ⏭️  ${token.symbol}: Already have position`); continue; }
+          
           const priceRes = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${token.ca}`);
           const priceData = await priceRes.json();
-          if (!priceData.pairs || priceData.pairs.length === 0) continue;
+          if (!priceData.pairs || priceData.pairs.length === 0) { console.log(`   ❌ ${token.symbol}: No pairs`); continue; }
+          
           const pair = priceData.pairs[0];
           const price = parseFloat(pair.priceUsd);
           const change1h = parseFloat(pair.priceChange.h1 || 0);
@@ -248,14 +250,24 @@ class DynamicTrader {
           const sellVolume = parseFloat(pair.sells || 0);
           const buyPressure = buyVolume / (buyVolume + sellVolume) * 100 || 50;
           const change24h = parseFloat(pair.priceChange.h24 || 0);
-          const atPeak = change24h > 15;
-          const goodEntry = !atPeak && buyPressure > 55 && liquidity > 10000 && volume > 5000;
-          const pullback = change5m < -2 || change1h < -5;
-          if (goodEntry && (pullback || Math.abs(change1h) < 3)) {
-            console.log(`   ✅ ${token.symbol}: Entry! $${price.toFixed(6)}`);
+          
+          // More aggressive - allow BP >= 45% with good consolidation
+          const atPeak = change24h > 20;
+          const goodEntry = !atPeak && buyPressure >= 45 && liquidity > 8000 && volume > 3000;
+          const pullback = change5m < -1 || change1h < -3;
+          const consolidation = Math.abs(change1h) < 2; // Stable price
+          
+          console.log(`   📊 ${token.symbol}: $${price.toFixed(4)} | 5m:${change5m}% 1h:${change1h}% 24h:${change24h}% | BP:${buyPressure.toFixed(0)}% | Liq:$${(liquidity/1000).toFixed(0)}k`);
+          
+          if (goodEntry) {
+            console.log(`   🔔 ${token.symbol}: Entry OK! BP=${buyPressure.toFixed(0)}%, goodEntry=true, pullback=${pullback}, consolidation=${consolidation}`);
+          }
+          
+          if (goodEntry && (pullback || consolidation)) {
+            console.log(`   ✅ ${token.symbol}: ENTRY SIGNAL!`);
             return { ca: token.ca, symbol: token.symbol, price, score: bestWR, strategy: bestStrat, reason: 'proven-token-entry' };
           }
-        } catch (e) {}
+        } catch (e) { console.log(`   ⚠️ ${token.symbol}: Error - ${e.message}`); }
       }
       return null;
     } catch (e) { return null; }
@@ -438,6 +450,81 @@ class DynamicTrader {
     } catch (e) {
       return { success: false, error: e.message };
     }
+  }
+
+  // ==================== QUICKNODE JUPITER SWAP ====================
+  async executeQuickNodeJupiterBuy(tokenCA, amountSol) {
+    try {
+      const JUPITER_QUOTE_URL = 'https://public.jupiterapi.com/swap';
+      const inputMint = 'So11111111111111111111111111111111111111112'; // WSOL
+      const outputMint = tokenCA;
+      const slippage = 10;
+      
+      const quoteUrl = `https://public.jupiterapi.com/quote?inputMint=${inputMint}&outputMint=${outputMint}&amount=${amountSol * 1e9}&slippage=${slippage}`;
+      console.log('  🔄 Getting quote from QuickNode Jupiter...');
+      
+      const quoteRes = await fetch(quoteUrl);
+      if (!quoteRes.ok) return { success: false, error: 'Quote failed' };
+      
+      const quoteData = await quoteRes.json();
+      if (!quoteData.swapTransaction) return { success: false, error: 'No tx returned' };
+      
+      const swapRes = await fetch(JUPITER_QUOTE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          swapTransaction: quoteData.swapTransaction,
+          wallet: this.wallet.publicKey.toString(),
+          prioritizationFeeLamports: 'auto'
+        })
+      });
+      
+      if (!swapRes.ok) return { success: false, error: 'Swap failed' };
+      
+      const swapData = await swapRes.json();
+      const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
+      const transaction = VersionedTransaction.deserialize(txBuf);
+      transaction.sign([this.wallet]);
+      
+      const signature = await this.connection.sendTransaction(transaction, {
+        maxRetries: 3,
+        skipPreflight: false,
+        preflightCommitment: 'confirmed'
+      });
+      
+      await this.connection.confirmTransaction(signature, 'confirmed');
+      
+      return {
+        success: true,
+        signature,
+        expectedOutput: quoteData.outAmount ? (quoteData.outAmount / 1e9).toFixed(6) : 0,
+        platform: 'QuickNode-Jupiter'
+      };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+  }
+
+  // ==================== FALLBACK SWAP ====================
+  async executeBuyWithFallback(tokenCA, amountSol) {
+    console.log('  🎯 Attempting QuickNode Jupiter swap...');
+    const quicknodeResult = await this.executeQuickNodeJupiterBuy(tokenCA, amountSol);
+    
+    if (quicknodeResult.success) {
+      console.log('  ✅ QuickNode Jupiter SUCCESS');
+      return quicknodeResult;
+    }
+    
+    console.log(`  ⚠️ QuickNode failed: ${quicknodeResult.error}`);
+    console.log('  🔄 Falling back to Solana Tracker...');
+    
+    const stResult = await this.executeSolanaTrackerBuy(tokenCA, amountSol);
+    if (stResult.success) {
+      console.log('  ✅ Solana Tracker SUCCESS (fallback)');
+      return stResult;
+    }
+    
+    return { success: false, error: `Both failed - QN: ${quicknodeResult.error}, ST: ${stResult.error}` };
   }
 
   /**
@@ -1312,8 +1399,8 @@ class DynamicTrader {
     // Execute buy via Solana Tracker
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
     console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
-    console.log(`   Platform: Solana Tracker`);
-    const swapResult = await this.executeSolanaTrackerBuy(setup.ca, positionSize);
+    console.log(`   🎯 Primary: QuickNode → Fallback: SolanaTracker`);
+    const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
     
     if (!swapResult.success) {
       console.log(`   ❌ SWAP FAILED: ${swapResult.error}`);
