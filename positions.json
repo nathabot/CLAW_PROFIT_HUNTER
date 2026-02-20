@@ -696,9 +696,14 @@
       "tp1": 0.654869325,
       "tp2": 0.67777739535
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771555214962,
+    "exitPrice": 0.6451,
+    "pnlPercent": 1.1921568627450974,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "2EeMytqqGDxAyYUuqQXRnkuwg6HzCRU8s7MVpGUcU69d2C5SpGn4qAJ96R2RZahuftveKWX9kYFPATiq8LzBjbd5"
   },
   {
     "symbol": "DEADLUCKY",
@@ -763,9 +768,14 @@
       "tp1": 0.00028236,
       "tp2": 0.00028779
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771547416158,
+    "exitPrice": 0.000242,
+    "pnlPercent": -0.3705228489090162,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "2RB61Pg68qBrf9CYdm5ivq6kULtjzZpJUUcVvm4XZFmZ3xR1NbDHZLcaC278cgdYaw1SCjitEDXm5kqeDCEkbHT4"
   },
   {
     "symbol": "DEADLUCKY",
@@ -782,9 +792,14 @@
       "tp1": 0.000277264,
       "tp2": 0.000282596
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771547715830,
+    "exitPrice": 0.0002428,
+    "pnlPercent": -0.6139991813344126,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "4WZJ1sAVH8yJpSeZUcg4LWNpvqe4VuYC5ot8dfJMmLSuUfpGfw91rLUXva9ET6FvHWZ6iuYPNVT4Mc9M6AZk1P7V"
   },
   {
     "symbol": "DEADLUCKY",
@@ -838,6 +853,25 @@
       "sl": 0.00023941399999999997,
       "tp1": 0.000254072,
       "tp2": 0.000258958
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "Bonk",
+    "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    "entryPrice": 0.000006204,
+    "entryTime": 1771547405298,
+    "positionSize": 0.015,
+    "tokensReceived": 20158799792,
+    "txHash": "3A56Q3dgydJmnP2Wx3dtQb24U5MDaRdJF4zdqgfxQYVX4DDuH9suby5bSwGmjAmS4xca6QmsSs5EEoKW2WWHpQet",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.0000058319275079999994,
+      "tp1": 0.000006373034184,
+      "tp2": 0.0000065959701345119996
     },
     "exited": false,
     "partialExited": false,

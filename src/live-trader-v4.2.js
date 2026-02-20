@@ -915,7 +915,7 @@ class DynamicTrader {
           
           // Check if price moved up >5% (momentum entry)
           const priceChange = parseFloat(pair.priceChange?.h1 || 0);
-          if (priceChange < 1) {
+          if (priceChange < 0.5) {
             console.log(`      ⏭️ Low momentum (${priceChange}%/1h), skipping`);
             continue;
           }
