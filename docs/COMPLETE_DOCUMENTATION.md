@@ -48,9 +48,50 @@
 
 ---
 
-## 🧠 INTELLIGENCE ENHANCEMENTS (v2.0+)
+## 🎛️ Trading Mode Selector (v1.0)
 
-Sistem ini telah diperluas dengan 4 Intelligent Systems tambahan untuk meningkatkan akurasi dan adaptasi:
+Sistem dual-mode trading untuk kondisi market berbeda:
+
+### Mode Overview
+
+| Mode | Liquidity | Token Age | Max Hold | Risk | Best For |
+|------|-----------|-----------|----------|------|----------|
+| **Established** | >$10k | >24h | 3 jam | LOW | Stable market |
+| **Degen** | >$5k | >6h | 10 menit | HIGH | Volatile/Trending |
+
+### Konfigurasi (`trading-config.json`)
+
+```json
+{
+  "TRADING_MODE": {
+    "VERSION": "1.0",
+    "MODE": "auto",
+    "ACTIVE": "established",
+    "DEGEN_ENABLED": false,
+    "AUTO_TYPE": "performance"
+  }
+}
+```
+
+### Auto Switch Logic
+- **Performance-based**: Switch ke mode dengan WR lebih tinggi
+- **Time-based**: Optional schedule
+
+### Proven Tokens
+- `bok/proven-established.json` - Tokens dari Established mode
+- `bok/proven-degen.json` - Tokens dari Degen mode
+
+### Statistics Tracking
+File: `mode-stats.json` - Track WR per mode
+
+### Rollback
+```bash
+sed -i 's/"MODE": "auto"/"MODE": "manual"/' trading-config.json
+```
+
+---
+
+## 🧠 INTELLIGENCE ENHANCEMENTS (v2.0+)
 
 ### 1. Market Condition Analyzer
 - **File:** `market-condition-analyzer.js`
@@ -587,3 +628,51 @@ trackApiCall('groq', 5000);  // with 5000 tokens
 **Last Updated:** 2026-02-19  
 **Version:** 2.1.0  
 **New Features:** Trading Economics, API Cost Tracking
+
+---
+
+## 🚨 Exit Monitor System (v5)
+
+Sistem monitoring exit untuk setiap posisi:
+
+### Features
+- **Confirmation Window**: 2 checks (15s apart) - prevents false TP
+- **Slippage Protection**: 
+  - Stop Loss: 50% slippage
+  - Take Profit: 35% slippage
+- **Retry Logic**: 3x retry pada failure
+- **Auto-notification**: Telegram alert setiap exit
+
+### File
+- `exit-monitor-atlas-all.js` - Multi-position ATLAS monitor
+- `exit-monitor-bonk.js`, `exit-monitor-samo.js`, etc - Per-token monitors
+
+### Error Handling
+Error `0x1788` = Insufficient output - handled dengan higher slippage + retry
+
+---
+
+## 🎛️ Trading Mode Selector (v1.0)
+
+Sistem dual-mode trading untuk kondisi market berbeda:
+
+| Mode | Liquidity | Token Age | Max Hold | Risk |
+|------|-----------|-----------|----------|------|
+| **Established** | >$10k | >24h | 3 jam | LOW |
+| **Degen** | >$5k | >6h | 10 menit | HIGH |
+
+### Konfigurasi
+```json
+{
+  "TRADING_MODE": {
+    "VERSION": "1.0",
+    "MODE": "auto",
+    "ACTIVE": "established"
+  }
+}
+```
+
+### Rollback
+```bash
+sed -i 's/"MODE": "auto"/"MODE": "manual"/' trading-config.json
+```
