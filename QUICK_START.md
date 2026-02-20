@@ -15,6 +15,18 @@ npm run start:all
 npm run monitor
 ```
 
+## 🎛️ Trading Mode
+
+Edit `trading-config.json`:
+```json
+{
+  "TRADING_MODE": {
+    "MODE": "auto",        // atau "manual"
+    "ACTIVE": "established" // atau "degen"
+  }
+}
+```
+
 ## 📖 Dokumentasi Lengkap
 
 Lihat [docs/COMPLETE_DOCUMENTATION.md](docs/COMPLETE_DOCUMENTATION.md)
