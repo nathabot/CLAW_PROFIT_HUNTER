@@ -497,6 +497,42 @@
       "regime": "BULL",
       "confidence": 65,
       "solPrice": 82.11
+    },
+    {
+      "timestamp": 1771536603147,
+      "regime": "SIDEWAYS",
+      "confidence": 50,
+      "solPrice": 81.95
+    },
+    {
+      "timestamp": 1771538404710,
+      "regime": "SIDEWAYS",
+      "confidence": 50,
+      "solPrice": 82.051
+    },
+    {
+      "timestamp": 1771540203790,
+      "regime": "SIDEWAYS",
+      "confidence": 50,
+      "solPrice": 82.03
+    },
+    {
+      "timestamp": 1771542004238,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 82.29
+    },
+    {
+      "timestamp": 1771543805533,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 82.3
+    },
+    {
+      "timestamp": 1771545605718,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 82.53
     }
   ]
 }

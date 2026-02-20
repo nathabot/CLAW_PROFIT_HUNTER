@@ -608,5 +608,239 @@
     "exited": false,
     "partialExited": false,
     "marketCondition": "FEAR"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002485,
+    "entryTime": 1771543507711,
+    "positionSize": 0.015,
+    "tokensReceived": 4865.73201,
+    "txHash": "otJvQwzMZk54U8oA12EEeTnYFKzuk8cRXp8HPHkoFEsS76BpPnkEmNA8sUPQga6FqLSuyfAsYdkjdwePCzELcqJ",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.00024353000000000002,
+      "tp1": 0.00025844,
+      "tp2": 0.00026341000000000005
+    },
+    "exited": true,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771545622821,
+    "exitPrice": 0.0002716,
+    "pnlPercent": 1.4947683109117982,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "2gdmXozBeuEyEM6xVWTuQBvgEUZ9vGQUUuRgE5f2nCF89U1R9WGG6m5kAQb4uhYQxcbv3Kz5pgA5tdCLt7RvpJJX"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002498,
+    "entryTime": 1771543810220,
+    "positionSize": 0.015,
+    "tokensReceived": 4843.49646,
+    "txHash": "8y7ChRnnEuYHFCuHVnp8yd9nEtmKXZXVKjaZnCQbmyg1kui7SeHLbZw8m5cey87jHZBxuohUQgQZ3pNMHQgHbun",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.000244804,
+      "tp1": 0.000259792,
+      "tp2": 0.000264788
+    },
+    "exited": true,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771545917114,
+    "exitPrice": 0.0002666,
+    "pnlPercent": -1.732399557685227,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "5UEBzMyCiCLY9oXScZQchWmQZmJes9tj351HhxHRftrVcZ4k5w3H5gDucSs5c8XukU3oU9Xi8FTYo3eLARiHMiP4"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002519,
+    "entryTime": 1771544108644,
+    "positionSize": 0.015,
+    "tokensReceived": 4787.426408,
+    "txHash": "5Xxtpj2dyCpYcayfh9j9Hpon5Juh1rTspT4Te4p4gZs3Rt25EoX84d1QQgvtc9qtZ4unsKxC9nknJRqfaerSXevn",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.000246862,
+      "tp1": 0.00026197600000000003,
+      "tp2": 0.000267014
+    },
+    "exited": true,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771545960119,
+    "exitPrice": 0.0002548,
+    "pnlPercent": -4.426106526631646,
+    "exitType": "STOP_LOSS",
+    "exitTxHash": "MopGRQpsVQ7TTeVvcmvs9Lo3qyjPRxMzA6HsLuCr1u2dDXY97efV19NarYH5yTJBxbRw4sXFRokf2GtUeLx5Mt2"
+  },
+  {
+    "symbol": "RAY",
+    "ca": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+    "entryPrice": 0.6375,
+    "entryTime": 1771544405616,
+    "positionSize": 0.015,
+    "tokensReceived": 1930562,
+    "txHash": "3qgb73x7AKgmvdEJK29f2cUgD5sWboFNrU6JDkncK9DoL9MKHd7TAZJhhTjsou8ZMSscAZ9A6fY1npTKTx161ntQ",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.5992672124999999,
+      "tp1": 0.654869325,
+      "tp2": 0.67777739535
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002676,
+    "entryTime": 1771544709120,
+    "positionSize": 0.015,
+    "tokensReceived": 4514.91104,
+    "txHash": "3muuTHrH8iZ9BsuXwZpWQDHUwGaVTmYzCgHBZEoNK8mvxda16VbcjoNqXU5Pa4FJ3fA7Rqxn5hSeXe3jP4UrBBnt",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.000262248,
+      "tp1": 0.000278304,
+      "tp2": 0.000283656
+    },
+    "exited": true,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771545962179,
+    "exitPrice": 0.0002548,
+    "pnlPercent": -6.151012891344376,
+    "exitType": "STOP_LOSS",
+    "exitTxHash": "EnxnPzBGaFEiEH9W3ts8AE5E1BGvFMXsbcU7gWPzCDcniLqhNNa2DfpXw1NsDePXf2JsbbEGVFnwMEVqH4yviCX"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002713,
+    "entryTime": 1771545007935,
+    "positionSize": 0.015,
+    "tokensReceived": 4514.362358,
+    "txHash": "jEiwQ5iD8t3c8FsXjCB5echimoz2GNPvnK2aajXkTyWGVksetUPEcebP3qYzgFbwTyQ4mMr7YKXJFTXdrN4jefL",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.000265874,
+      "tp1": 0.000282152,
+      "tp2": 0.000287578
+    },
+    "exited": true,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771547117026,
+    "exitPrice": 0.0002453,
+    "pnlPercent": 0.9049773755656076,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "4f88mn71j2Tvzujj5WsGfR4WLon5iyUcF7bcCfMXLTqQJCUFJ6CBaUPm7gvUHEPTZummao2VNdRTMvGSG5uJhGCX"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002715,
+    "entryTime": 1771545307434,
+    "positionSize": 0.015,
+    "tokensReceived": 4513.813776,
+    "txHash": "2PgDHBeADGyksenhtW7ndV8w7SZ3h4j8BAysHrPcff4Nmg6pUD2w6ASnjGvoey2Need1tY5oiUi18ecZT2RzS5tq",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.00026607,
+      "tp1": 0.00028236,
+      "tp2": 0.00028779
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002666,
+    "entryTime": 1771545912064,
+    "positionSize": 0.015,
+    "tokensReceived": 4542.513486,
+    "txHash": "JSifDi6JYwV9xi8vPZBFhYJp8gcjeVuJ3W4umopbiJWmSbWLFpGfgK4No4FuQjPvq5i1zTW84BDp75JBQYxYgcy",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.000261268,
+      "tp1": 0.000277264,
+      "tp2": 0.000282596
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002431,
+    "entryTime": 1771546209882,
+    "positionSize": 0.015,
+    "tokensReceived": 5044.251644,
+    "txHash": "4nDxXsqZVnjnfMr2Tyfxgpia2kHnkvLDZpE5SVAPJk858BLakgmm6HMjGjCJ3EP29hXUXJGc65u4oM1nNb7QmzNr",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.000238238,
+      "tp1": 0.000252824,
+      "tp2": 0.000257686
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002429,
+    "entryTime": 1771546508379,
+    "positionSize": 0.015,
+    "tokensReceived": 5043.603734,
+    "txHash": "5oE2Nnh6cUpLue4dNMeeu4k2ULWfSBbDCypHd4Xux5zCdV9J86qkpKfcCqJ5tn2ipG5TMULKYUjBN57J6Wk4vanK",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.000238042,
+      "tp1": 0.000252616,
+      "tp2": 0.000257474
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "DEADLUCKY",
+    "ca": "FfyJFZN6agWSsPkXw9QNTPVHt2NY3B7rmfxr9s5wpump",
+    "entryPrice": 0.0002443,
+    "entryTime": 1771546808420,
+    "positionSize": 0.015,
+    "tokensReceived": 5042.955948,
+    "txHash": "57qqtwjBHXV2KmxpiYAzLymFmfRgpgFPooX4Bkh1mrWjAzjR2JKfwjmaNKWovh1S7XjsXxbG8q9UavX5xRnUxDeC",
+    "strategy": "S/R Breakout",
+    "strategyId": "sr_breakout",
+    "targets": {
+      "sl": 0.00023941399999999997,
+      "tp1": 0.000254072,
+      "tp2": 0.000258958
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
   }
 ]

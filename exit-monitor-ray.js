@@ -1,27 +1,32 @@
+
 const { Connection, PublicKey, Keypair } = require('@solana/web3.js');
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-const RPC = 'https://api.mainnet-beta.solana.com';
+const RPC = 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304';
 const connection = new Connection(RPC);
 
+// Load wallet (supports both bs58 and base64 formats)
 const walletData = JSON.parse(fs.readFileSync('/root/trading-bot/wallet.json', 'utf8'));
-let wallet;
+let wallet, secretKey;
 if (walletData.secretKey) {
-  wallet = Keypair.fromSecretKey(new Uint8Array(Buffer.from(walletData.secretKey, 'base64')));
+  secretKey = new Uint8Array(Buffer.from(walletData.secretKey, 'base64'));
+  wallet = Keypair.fromSecretKey(secretKey);
 } else if (walletData.privateKey) {
-  const bs58 = require('bs58');
-  wallet = Keypair.fromSecretKey(bs58.decode(walletData.privateKey));
+  const bs58mod = require('bs58');
+  const bs58 = bs58mod.default || bs58mod;
+  secretKey = bs58.decode(walletData.privateKey);
+  wallet = Keypair.fromSecretKey(secretKey);
 }
 console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...');
 
 const POS = {
   symbol: 'RAY',
   ca: '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R',
-  entry: 0.6258,
-  stop: 0.588,
-  tp1: 0.643,
-  tp2: 0.665,
+  entry: 0.6375,
+  stop: 0.5992672124999999,
+  tp1: 0.654869325,
+  tp2: 0.67777739535,
   partialExit: 0.5
 };
 
@@ -30,6 +35,7 @@ const CHAT_ID = '-1003212463774';
 const TOPIC_ID = 24;
 
 async function notify(msg) {
+  if (process.env.LIVE_TRADER_NOTIFY === 'false') return;
   try {
     await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       method: 'POST',
@@ -48,119 +54,147 @@ async function getPrice() {
 }
 
 async function executeSell(percent = '100%') {
-  // Try QuickNode first
   try {
-    const inputMint = POS.ca;
-    const outputMint = 'So11111111111111111111111111111111111111112';
-    const tokenAccounts = await connection.getParsedTokenAccountsByOwner(wallet.publicKey, { mint: new PublicKey(POS.ca) });
-    if (!tokenAccounts.value || tokenAccounts.value.length === 0) return { success: false, error: 'No balance' };
-    const tokenBalance = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.amount;
-    const sellAmount = Math.floor(parseInt(tokenBalance) * (percent === '50' ? 0.5 : 0.95));
-    const quoteUrl = `https://public.jupiterapi.com/quote?inputMint=${inputMint}&outputMint=${outputMint}&amount=${sellAmount}&slippage=30`;
-    const quoteRes = await fetch(quoteUrl);
-    if (!quoteRes.ok) throw new Error('Quote failed');
-    const quoteData = await quoteRes.json();
-    if (!quoteData.swapTransaction) throw new Error('No tx');
-    const swapRes = await fetch('https://public.jupiterapi.com/swap', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ swapTransaction: quoteData.swapTransaction, wallet: wallet.publicKey.toString(), prioritizationFeeLamports: 'auto' })
+    const wsol = 'So11111111111111111111111111111111111111112';
+    const url = `https://swap-v2.solanatracker.io/swap?from=${POS.ca}&to=${wsol}&fromAmount=${encodeURIComponent(percent)}&slippage=30&payer=${wallet.publicKey.toString()}&priorityFee=auto&priorityFeeLevel=high&txVersion=v0`;
+    
+    console.log(`  🔄 Executing sell (${percent})...`);
+    
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': 'Bearer af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a',
+        'Accept': 'application/json'
+      }
     });
-    if (!swapRes.ok) throw new Error('Swap failed');
-    const swapData = await swapRes.json();
-    const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
+    
+    const data = await res.json();
+    if (data.error) return { success: false, error: data.error };
+    
+    const txBuf = Buffer.from(data.txn, 'base64');
     const { VersionedTransaction } = require('@solana/web3.js');
     const transaction = VersionedTransaction.deserialize(txBuf);
     transaction.sign([wallet]);
-    const signature = await connection.sendTransaction(transaction, { maxRetries: 3, preflightCommitment: 'confirmed' });
+    
+    const signature = await connection.sendTransaction(transaction, {
+      maxRetries: 3,
+      skipPreflight: false,
+      preflightCommitment: 'confirmed'
+    });
+    
     await connection.confirmTransaction(signature, 'confirmed');
-    console.log('✅ QuickNode sell SUCCESS');
-    return { success: true, signature };
+    return { success: true, signature, outputAmount: data.rate?.amountOut || 0 };
   } catch (e) {
-    console.log('⚠️ QuickNode failed:', e.message);
-    // Fallback to SolanaTracker
-    try {
-      const wsol = 'So11111111111111111111111111111111111111112';
-      const url = `https://swap-v2.solanatracker.io/swap?from=${POS.ca}&to=${wsol}&fromAmount=${encodeURIComponent(percent)}&slippage=30&payer=${wallet.publicKey.toString()}&priorityFee=auto&priorityFeeLevel=high&txVersion=v0`;
-      const res = await fetch(url, { headers: { 'Authorization': 'Bearer af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a', 'Accept': 'application/json' } });
-      const data = await res.json();
-      if (data.error) return { success: false, error: data.error };
-      const txBuf = Buffer.from(data.txn, 'base64');
-      const { VersionedTransaction } = require('@solana/web3.js');
-      const transaction = VersionedTransaction.deserialize(txBuf);
-      transaction.sign([wallet]);
-      const signature = await connection.sendTransaction(transaction, { maxRetries: 3, preflightCommitment: 'confirmed' });
-      await connection.confirmTransaction(signature, 'confirmed');
-      console.log('✅ SolanaTracker sell SUCCESS (fallback)');
-      return { success: true, signature };
-    } catch (e2) { return { success: false, error: e2.message }; }
+    return { success: false, error: e.message };
   }
 }
 
 let partialExited = false;
+
 const startTime = Date.now();
-const MAX_HOLD_MS = 180 * 60 * 1000; // 3 HOURS
+const MAX_HOLD_MS = 180 * 60 * 1000;
+
+// Function to mark position as exited in positions.json
+function markPositionExited(symbol, exitPrice, pnlPercent, exitType, exitTx) {
+  try {
+    const positionsFile = '/root/trading-bot/positions.json';
+    if (!fs.existsSync(positionsFile)) return;
+    
+    const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
+    const pos = positions.find(p => p.symbol === symbol && !p.exited);
+    
+    if (pos) {
+      pos.exited = true;
+      pos.exitTime = Date.now();
+      pos.exitPrice = exitPrice;
+      pos.pnlPercent = pnlPercent;
+      pos.exitType = exitType;
+      pos.exitTxHash = exitTx;
+      fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
+      console.log('✅ Position marked as exited in positions.json');
+    }
+  } catch (e) {
+    console.log('Error updating position:', e.message);
+  }
+}
 
 async function monitor() {
-  console.log('📊 Monitoring RAY (DYNAMIC TP/SL)...');
-  console.log('  SL: $' + POS.stop.toFixed(8));
-  console.log('  TP1: $' + POS.tp1.toFixed(8) + ' (50% exit)');
-  console.log('  TP2: $' + POS.tp2.toFixed(8) + ' (final exit)');
-  console.log('  Max Hold: 180 min (3 hours)');
+  console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL)...');
+  console.log(`  SL: $${POS.stop.toFixed(8)}`);
+  console.log(`  TP1: $${POS.tp1.toFixed(8)} (${(POS.partialExit*100).toFixed(0)}% exit)`);
+  console.log(`  TP2: $${POS.tp2.toFixed(8)} (final exit)`);
+  console.log(`  Max Hold: 180 min`);
   
   while (true) {
     const price = await getPrice();
-    const elapsedMs = Date.now() - startTime;
     
-    // MAX HOLD - 3 HOURS
+    // Check max hold time
+    const elapsedMs = Date.now() - startTime;
     if (elapsedMs > MAX_HOLD_MS && price) {
       const pnl = ((price / POS.entry) - 1) * 100;
-      console.log('⏰ MAX HOLD 3H REACHED - Force exit...');
-      const sellResult = await executeSell('95');
+      console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
+      const sellResult = await executeSell('95%');
       if (sellResult.success) {
-        await notify('⏰ **MAX HOLD EXIT (3H)**\n\nRAY: $' + price.toFixed(8) + '\nPnL: ' + pnl.toFixed(2) + '%\n\n🔗 Tx: https://solscan.io/tx/' + sellResult.signature);
+        await notify(`⏰ **MAX HOLD EXIT**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\nMax hold 180 min reached\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
+        markPositionExited(POS.symbol, price, pnl, 'MAX_HOLD', sellResult.signature);
       }
       process.exit(0);
     }
     
     if (!price) { await new Promise(r => setTimeout(r, 5000)); continue; }
+    if (!price) { await new Promise(r => setTimeout(r, 5000)); continue; }
     
     const pnl = ((price / POS.entry) - 1) * 100;
     const time = new Date().toLocaleTimeString();
     const minutesLeft = Math.floor((MAX_HOLD_MS - elapsedMs) / 60000);
-    console.log(time + ' | RAY: $' + price.toFixed(8) + ' | PnL: ' + (pnl > 0 ? '+' : '') + pnl.toFixed(2) + '% | Hold: ' + minutesLeft + 'm left');
+    console.log(`${time} | ${POS.symbol}: $${price.toFixed(8)} | PnL: ${pnl > 0 ? '+' : ''}${pnl.toFixed(2)}% | Hold: ${minutesLeft}m left`);
     
-    // Kill switch
+    // Kill switch (honeypot detected)
     if (pnl <= -90) { 
-      console.log('💀 HONEYPOT DETECTED');
+      console.log('💀 HONEYPOT DETECTED - KILL SWITCH');
+      await notify(`💀 **HONEYPOT DETECTED**\n\n${POS.symbol}: PnL -${Math.abs(pnl).toFixed(2)}%\n\nPosition abandoned.`);
+      markPositionExited(POS.symbol, price, pnl, 'HONEYPOT', 'none');
       process.exit(0);
     }
     
-    // Stop loss
+    // Stop loss - EXECUTE SELL
     if (price <= POS.stop) {
-      console.log('🛑 STOP LOSS HIT');
-      const sellResult = await executeSell('95');
-      if (sellResult.success) await notify('🛑 **SL EXIT**\n\nRAY: $' + price.toFixed(8) + '\nPnL: ' + pnl.toFixed(2) + '%\n\n🔗 Tx: https://solscan.io/tx/' + sellResult.signature);
+      console.log('🛑 STOP LOSS HIT - Executing sell...');
+      const sellResult = await executeSell('95%');
+      if (sellResult.success) {
+        await notify(`🛑 **STOP LOSS EXECUTED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
+        markPositionExited(POS.symbol, price, pnl, 'STOP_LOSS', sellResult.signature);
+      } else {
+        await notify(`🛑 **STOP LOSS HIT**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\n❌ Sell failed: ${sellResult.error}\n⚠️ Manual exit required!`);
+      }
       process.exit(0);
     }
     
-    // TP1 - Partial Exit
-    if (price >= POS.tp1 && !partialExited) {
-      console.log('🎯 TP1 HIT - Partial Exit 50%...');
+    // Take profit 1 (partial exit) - EXECUTE SELL
+    if (!partialExited && price >= POS.tp1) {
+      console.log(`🎯 TP1 HIT - Exiting ${(POS.partialExit*100).toFixed(0)}%...`);
+      const sellResult = await executeSell('50%');
       partialExited = true;
-      const sellResult = await executeSell('50');
-      if (sellResult.success) await notify('🎯 **TP1 - PARTIAL EXIT 50%**\n\nRAY: $' + price.toFixed(8) + '\nPnL: +' + pnl.toFixed(2) + '%\n\n🔗 Tx: https://solscan.io/tx/' + sellResult.signature);
+      if (sellResult.success) {
+        await notify(`🎯 **TP1 EXECUTED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: +${pnl.toFixed(2)}%\n\nExited 50%\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}\n\nHolding 50% for TP2...`);
+      } else {
+        await notify(`🎯 **TP1 REACHED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: +${pnl.toFixed(2)}%\n\n❌ Sell failed: ${sellResult.error}\n⚠️ Manual exit required!`);
+      }
     }
     
-    // TP2 - Final Exit
+    // Take profit 2 (final exit) - EXECUTE SELL
     if (price >= POS.tp2) {
-      console.log('🎯 TP2 HIT - FINAL EXIT');
-      const sellResult = await executeSell('95');
-      if (sellResult.success) await notify('🎯 **TP2 FINAL EXIT**\n\nRAY: $' + price.toFixed(8) + '\nPnL: +' + pnl.toFixed(2) + '%\n\n🔗 Tx: https://solscan.io/tx/' + sellResult.signature);
+      console.log('🎯 TP2 HIT - FINAL EXIT - Executing sell...');
+      const sellResult = await executeSell(partialExited ? '95%' : '95%');
+      if (sellResult.success) {
+        await notify(`🎯 **TP2 EXECUTED - FINAL EXIT**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: +${pnl.toFixed(2)}%\n\n✅ Trade complete!\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
+        markPositionExited(POS.symbol, price, pnl, 'TAKE_PROFIT', sellResult.signature);
+      } else {
+        await notify(`🎯 **TP2 REACHED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: +${pnl.toFixed(2)}%\n\n❌ Sell failed: ${sellResult.error}\n⚠️ Manual exit required!`);
+      }
       process.exit(0);
     }
     
-    await new Promise(r => setTimeout(r, 5000));
+    await new Promise(r => setTimeout(r, 5000)); // 5s check
   }
 }
 

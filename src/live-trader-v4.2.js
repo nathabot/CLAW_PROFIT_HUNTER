@@ -409,8 +409,15 @@ class DynamicTrader {
       const swapData = await swapRes.json();
       
       if (swapData.swapTransaction) {
+        // Get fresh blockhash to prevent "blockhash not found" error
+        const { blockhash } = await this.connection.getLatestBlockhash();
+        
         const txBuf = Buffer.from(swapData.swapTransaction, 'base64');
         const transaction = VersionedTransaction.deserialize(txBuf);
+        
+        // Replace blockhash with fresh one
+        transaction.message.recentBlockhash = blockhash;
+        
         transaction.sign([this.wallet]);
         
         const signature = await this.connection.sendTransaction(transaction, {
@@ -471,8 +478,10 @@ class DynamicTrader {
       }
       
       // Execute transaction
+      const { blockhash } = await this.connection.getLatestBlockhash();
       const txBuf = Buffer.from(data.txn, 'base64');
       const transaction = VersionedTransaction.deserialize(txBuf);
+      transaction.message.recentBlockhash = blockhash;
       
       transaction.sign([this.wallet]);
       
@@ -519,8 +528,10 @@ class DynamicTrader {
       }
       
       // Execute transaction
+      const { blockhash } = await this.connection.getLatestBlockhash();
       const txBuf = Buffer.from(data.txn, 'base64');
       const transaction = VersionedTransaction.deserialize(txBuf);
+      transaction.message.recentBlockhash = blockhash;
       
       transaction.sign([this.wallet]);
       
