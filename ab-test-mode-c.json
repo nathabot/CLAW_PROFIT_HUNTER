@@ -1,0 +1,14 @@
+{
+  "mode": "C",
+  "name": "Proven Best",
+  "description": "Use top strategy from paper trader (fib_786_1000)",
+  "minScore": 6,
+  "minLiquidity": 10000,
+  "sl": 15,
+  "tp1": 30,
+  "tp2": 74,
+  "positionSize": 0.008,
+  "maxHoldMinutes": 120,
+  "strategy": "fib_786_1000",
+  "created": "2026-02-21T19:54:00Z"
+}

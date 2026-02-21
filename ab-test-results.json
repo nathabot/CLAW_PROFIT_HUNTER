@@ -1,0 +1,51 @@
+{
+  "results": {
+    "A": {
+      "wins": 0,
+      "losses": 0,
+      "trades": 0
+    },
+    "B": {
+      "wins": 0,
+      "losses": 0,
+      "trades": 0
+    },
+    "C": {
+      "wins": 0,
+      "losses": 0,
+      "trades": 0
+    }
+  },
+  "modes": {
+    "A": {
+      "name": "Conservative",
+      "minScore": 8,
+      "minLiquidity": 20000,
+      "sl": 10,
+      "tp1": 25,
+      "tp2": 50
+    },
+    "B": {
+      "name": "Aggressive",
+      "minScore": 6,
+      "minLiquidity": 10000,
+      "sl": 15,
+      "tp1": 30,
+      "tp2": 74
+    },
+    "C": {
+      "name": "Proven Best",
+      "minScore": 6,
+      "minLiquidity": 10000,
+      "sl": 15,
+      "tp1": 30,
+      "tp2": 74
+    }
+  },
+  "best": {
+    "m": "A",
+    "wr": 0,
+    "name": "Conservative"
+  },
+  "ts": 1771678748883
+}

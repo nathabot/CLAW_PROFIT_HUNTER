@@ -1,0 +1,13 @@
+{
+  "mode": "A",
+  "name": "Conservative",
+  "description": "Strict filters - high confidence only",
+  "minScore": 8,
+  "minLiquidity": 20000,
+  "sl": 10,
+  "tp1": 25,
+  "tp2": 50,
+  "positionSize": 0.008,
+  "maxHoldMinutes": 180,
+  "created": "2026-02-21T19:54:00Z"
+}

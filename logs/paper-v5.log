@@ -54737,3 +54737,195 @@ Smart Money + Fib:
 ============================================================
 ✅ Paper Trader v5 Complete
 
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 433 | Total Sims: 21636 (36/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 50 established tokens
+✅ Filtered 3/4 tokens
+
+📊 Found 3 tokens from market scan
+
+🔍 Testing: ATLAS
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: moderate (1.01:1)
+   🌐 HTF PO3: NEUTRAL (low) - htf_continuation
+   📊 ICT Bias: NEUTRAL | Stage: NOT_READY (score: 0)
+   🕯️  Doji: standard_doji | Signal: NEUTRAL
+   📈 Adaptive Trend: DOWNTREND (conf: medium)
+   🎯 Evasive ST: BEAR [standard] noise: medium
+   🛡️  ST Recovery: SIDEWAYS | Exit: HOLD
+   🎯 Liquidation Hunter: INDUCEMENT | Score: 25/100 | Signal: WATCH
+   🧱 Wyckoff: PHASE_A | Signal: NONE (medium)
+   🌊 VDubus: NONE | Confluence: 1 [WEAK]
+   📊 Vol Cluster: POC MID | Interest: MEDIUM
+   ⚡ Vol Risk Prem: NORMAL | Risk: MODERATE | Signal: NEUTRAL
+   🏔️  ATH Breakout: NEUTRAL | Momentum: -0.79% | Score: 0
+   ✅ WIN: Fib 0.382 Entry on ATLAS (10.4%)
+   ✅ WIN: Fib 0.500 Entry on ATLAS (11.1%)
+   ❌ LOSS: Fib 0.618 Golden on ATLAS (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on ATLAS (12.2%)
+   ❌ LOSS: Fib + RSI on ATLAS (-3.0%)
+   ✅ WIN: Fib + Volume on ATLAS (9.6%)
+   ❌ LOSS: Smart Money + Fib on ATLAS (-3.0%)
+   ✅ WIN: Orderbook + Funding on ATLAS (10.2%)
+   ✅ WIN: Whale + Volume on ATLAS (11.5%)
+   ❌ LOSS: S/R Breakout on ATLAS (-3.0%)
+   ❌ LOSS: Momentum Squeeze on ATLAS (-3.0%)
+   ❌ LOSS: RSI Divergence on ATLAS (-3.0%)
+   ❌ LOSS: Cycloid CVCA on ATLAS (-3.0%)
+   ❌ LOSS: MA Crossover on ATLAS (-3.0%)
+   ❌ LOSS: Liquidation Hunter on ATLAS (-3.0%)
+🔍 Testing: Bonk
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: weak (0.87:1)
+   🌐 HTF PO3: NEUTRAL (low) - htf_continuation, weak_volume
+   📊 ICT Bias: NEUTRAL | Stage: NOT_READY (score: -1)
+   🕯️  Doji: standard_doji | Signal: NEUTRAL
+   📈 Adaptive Trend: SIDEWAYS (conf: low)
+   🎯 Evasive ST: BEAR [standard] noise: medium
+   🛡️  ST Recovery: SIDEWAYS | Exit: HOLD
+   🎯 Liquidation Hunter: NONE | Score: 10/100 | Signal: NONE
+   🧱 Wyckoff: PHASE_A | Signal: NONE (medium)
+   🌊 VDubus: NONE | Confluence: 1 [WEAK]
+   📊 Vol Cluster: POC MID | Interest: MEDIUM
+   ⚡ Vol Risk Prem: NORMAL | Risk: MODERATE | Signal: NEUTRAL
+   🏔️  ATH Breakout: NEUTRAL | Momentum: -1.36% | Score: 0
+   ❌ LOSS: Fib 0.382 Entry on Bonk (-2.4%)
+   ❌ LOSS: Fib 0.500 Entry on Bonk (-2.4%)
+   ❌ LOSS: Fib 0.618 Golden on Bonk (-2.4%)
+   ❌ LOSS: Fib 0.786 Deep on Bonk (-2.4%)
+   ❌ LOSS: Fib + RSI on Bonk (-2.4%)
+   ❌ LOSS: Fib + Volume on Bonk (-2.4%)
+   ✅ WIN: Smart Money + Fib on Bonk (14.2%)
+   ❌ LOSS: Orderbook + Funding on Bonk (-2.4%)
+   ❌ LOSS: Whale + Volume on Bonk (-2.4%)
+   ❌ LOSS: S/R Breakout on Bonk (-2.4%)
+   ❌ LOSS: Momentum Squeeze on Bonk (-2.4%)
+   ✅ WIN: RSI Divergence on Bonk (11.9%)
+   ❌ LOSS: Cycloid CVCA on Bonk (-2.4%)
+   ❌ LOSS: MA Crossover on Bonk (-2.4%)
+   ❌ LOSS: Liquidation Hunter on Bonk (-2.4%)
+🔍 Testing: SAMO
+   ✅ Candle: ACCEPTABLE: 0.0% movement (Score: 6)
+   📊 Order Book: moderate (1.07:1)
+   🌐 HTF PO3: NEUTRAL (low) - htf_continuation
+   📊 ICT Bias: NEUTRAL | Stage: NOT_READY (score: 0)
+   🕯️  Doji: standard_doji | Signal: NEUTRAL
+   📈 Adaptive Trend: DOWNTREND (conf: medium)
+   🎯 Evasive ST: BEAR [standard] noise: medium
+   🛡️  ST Recovery: SIDEWAYS | Exit: HOLD
+   🎯 Liquidation Hunter: INDUCEMENT | Score: 25/100 | Signal: WATCH
+   🧱 Wyckoff: PHASE_A | Signal: NONE (medium)
+   🌊 VDubus: NONE | Confluence: 1 [WEAK]
+   📊 Vol Cluster: POC MID | Interest: MEDIUM
+   ⚡ Vol Risk Prem: NORMAL | Risk: MODERATE | Signal: NEUTRAL
+   🏔️  ATH Breakout: NEUTRAL | Momentum: -0.66% | Score: 0
+   ❌ LOSS: Fib 0.382 Entry on SAMO (-3.0%)
+   ❌ LOSS: Fib 0.500 Entry on SAMO (-3.0%)
+   ❌ LOSS: Fib 0.618 Golden on SAMO (-3.0%)
+   ✅ WIN: Fib 0.786 Deep on SAMO (9.2%)
+   ✅ WIN: Fib + RSI on SAMO (8.1%)
+   ✅ WIN: Fib + Volume on SAMO (8.3%)
+   ❌ LOSS: Smart Money + Fib on SAMO (-3.0%)
+   ❌ LOSS: Orderbook + Funding on SAMO (-3.0%)
+   ✅ WIN: Whale + Volume on SAMO (10.9%)
+   ✅ WIN: S/R Breakout on SAMO (14.1%)
+   ✅ WIN: Momentum Squeeze on SAMO (8.1%)
+   ✅ WIN: RSI Divergence on SAMO (14.9%)
+   ❌ LOSS: Cycloid CVCA on SAMO (-3.0%)
+   ❌ LOSS: MA Crossover on SAMO (-3.0%)
+   ❌ LOSS: Liquidation Hunter on SAMO (-3.0%)
+
+💾 PROVEN ESTABLISHED saved (0 strategies):
+
+💾 PROVEN DEGEN saved (0 strategies):
+
+🧹 Cleaning up strategies from Cycle 429 (expired)...
+✅ BOK updated: Strategies from cycles 430-434 are active
+✅ Synced to Live Trader: Fib 0.786 Deep (54.01% WR)
+
+📊 DAILY PROFIT ESTIMATION:
+   Balance: 0.1 SOL
+   Target: 0.2 SOL
+   Estimated: 0.0000 SOL
+   Gap: 0.2000 SOL
+
+📊 STRATEGY RESULTS:
+
+Fib 0.786 Deep:
+   WR: 54.0% (849W/723L)
+   PnL: 0.6859 SOL
+   Category: SWING_TRADE
+
+Fib 0.500 Entry:
+   WR: 53.4% (840W/732L)
+   PnL: 0.6861 SOL
+   Category: SCALPING
+
+S/R Breakout:
+   WR: 53.4% (839W/733L)
+   PnL: 0.6697 SOL
+   Category: FAST_TRADE
+
+Orderbook + Funding:
+   WR: 50.8% (798W/774L)
+   PnL: 0.5533 SOL
+   Category: SWING_TRADE
+
+Fib 0.382 Entry:
+   WR: 50.6% (795W/777L)
+   PnL: 0.5497 SOL
+   Category: SCALPING
+
+Fib 0.618 Golden:
+   WR: 49.6% (779W/793L)
+   PnL: 0.5249 SOL
+   Category: SNIPER
+
+Fib + Volume:
+   WR: 49.1% (772W/800L)
+   PnL: 0.5379 SOL
+   Category: FAST_TRADE
+
+Cycloid CVCA:
+   WR: 48.7% (452W/476L)
+   PnL: 0.3199 SOL
+   Category: SNIPER
+
+RSI Divergence:
+   WR: 48.2% (757W/815L)
+   PnL: 0.5180 SOL
+   Category: SWING_TRADE
+
+Smart Money + Fib:
+   WR: 47.8% (752W/820L)
+   PnL: 0.5040 SOL
+   Category: SNIPER
+
+✅ Telegram notification sent
+
+============================================================
+✅ Paper Trader v5 Complete
+
+
+============================================================
+📊 PAPER TRADER v5.0 - DYNAMIC STRATEGY ENGINE
+============================================================
+
+📈 Cycle: 434 | Total Sims: 21681 (31/50 current)
+💰 Wallet: 0.1 SOL
+🎯 Daily Target: 0.2 SOL
+
+🔗 Loading Strategy Intelligence signals...
+📊 Loaded 0 signals from Intelligence Network
+🔍 ESTABLISHED MODE v2: Loading established tokens + DexScreener...
+📊 Loaded 50 established tokens

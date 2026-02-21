@@ -1058,3 +1058,48 @@
 [2026-02-21T09:00:04.492Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
 [2026-02-21T09:00:04.492Z] ℹ️ ========================================
 
+[2026-02-21T13:00:01.276Z] ℹ️ ========================================
+[2026-02-21T13:00:01.289Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-21T13:00:01.289Z] ℹ️ Dynamic Signal Generation
+[2026-02-21T13:00:01.290Z] ℹ️ ========================================
+
+[2026-02-21T13:00:01.315Z] ℹ️ Database connected (schema updated)
+
+[2026-02-21T13:00:01.316Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-21T13:00:01.447Z] ℹ️ Found 20 trending tokens
+
+[2026-02-21T13:00:01.539Z] ⚠️ Billion: Low liquidity ($0)
+[2026-02-21T13:00:01.569Z] ⚠️ Cooking: Low liquidity ($0)
+[2026-02-21T13:00:01.604Z] ⚠️ FIDO: Low liquidity ($0)
+[2026-02-21T13:00:01.647Z] ✅ ika: ✅ INSERTED (6.0/10)
+[2026-02-21T13:00:01.647Z] ℹ️    Entry: $0.000157
+[2026-02-21T13:00:01.647Z] ℹ️    TP1: $0.000167 | TP2: $0.000175
+[2026-02-21T13:00:01.647Z] ℹ️    SL: $0.000150
+[2026-02-21T13:00:01.647Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Strong buying
+
+[2026-02-21T13:00:02.182Z] ⚠️ invest: Low liquidity ($9,156.12)
+[2026-02-21T13:00:02.453Z] ⚠️ Ganadi: Low liquidity ($0)
+[2026-02-21T13:00:02.756Z] ⚠️ ONECOIN: Low liquidity ($0)
+[2026-02-21T13:00:02.790Z] ⚠️ ALLIEN: Low liquidity ($0)
+[2026-02-21T13:00:02.830Z] ✅ AIPET: ✅ INSERTED (6.5/10)
+[2026-02-21T13:00:02.830Z] ℹ️    Entry: $0.269400
+[2026-02-21T13:00:02.830Z] ℹ️    TP1: $0.290952 | TP2: $0.309810
+[2026-02-21T13:00:02.830Z] ℹ️    SL: $0.255930
+[2026-02-21T13:00:02.830Z] ℹ️    Reasons: High volume, Good momentum, Excellent liquidity
+
+[2026-02-21T13:00:03.362Z] ⚠️ Lucy: Low liquidity ($0)
+[2026-02-21T13:00:03.627Z] ⚠️ rock: Low liquidity ($0)
+[2026-02-21T13:00:03.657Z] ⚠️ BLACKMAC: Low liquidity ($2,378.24)
+[2026-02-21T13:00:03.733Z] ⚠️ LLMTHEISM: Low liquidity ($4,409.82)
+[2026-02-21T13:00:03.760Z] ⚠️ Pigger: Low liquidity ($12,749.37)
+[2026-02-21T13:00:03.791Z] ⚠️ CLAWY: Low liquidity ($12,674.31)
+[2026-02-21T13:00:03.821Z] ⚠️ RANDI: Low liquidity ($0)
+[2026-02-21T13:00:03.849Z] ⚠️ SANDLÖPARE: Low liquidity ($11,920.5)
+[2026-02-21T13:00:03.882Z] ⚠️ seadog: Low liquidity ($15,502.44)
+[2026-02-21T13:00:03.921Z] ⚠️ TutanLobs: Low liquidity ($3,769.05)
+[2026-02-21T13:00:03.951Z] ⚠️ MOLES: Low liquidity ($0)
+[2026-02-21T13:00:03.952Z] ℹ️ 
+========================================
+[2026-02-21T13:00:03.952Z] ℹ️ SUMMARY: 2 new signals, 18 skipped
+[2026-02-21T13:00:03.952Z] ℹ️ ========================================
+

@@ -1,0 +1,13 @@
+{
+  "mode": "B",
+  "name": "Aggressive",
+  "description": "Loose filters - more opportunities",
+  "minScore": 6,
+  "minLiquidity": 10000,
+  "sl": 15,
+  "tp1": 30,
+  "tp2": 74,
+  "positionSize": 0.008,
+  "maxHoldMinutes": 60,
+  "created": "2026-02-21T19:54:00Z"
+}
