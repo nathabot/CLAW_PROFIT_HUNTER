@@ -1,12 +1,6 @@
 {
   "conditions": [
     {
-      "timestamp": 1771398004668,
-      "regime": "BULL",
-      "confidence": 65,
-      "solPrice": 84.93
-    },
-    {
       "timestamp": 1771399804191,
       "regime": "BULL",
       "confidence": 65,
@@ -1007,6 +1001,12 @@
       "regime": "BULL",
       "confidence": 65,
       "solPrice": 86.16
+    },
+    {
+      "timestamp": 1771700402638,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 86.56
     }
   ]
 }
