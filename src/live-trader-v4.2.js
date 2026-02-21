@@ -9,7 +9,6 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 const bs58 = require('bs58');
 const DynamicTPSL = require('./dynamic-tpsl-engine');
-const ExitRetry = require('./exit-retry');
 const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
 
 // SOLANA TRACKER API (bypass Jupiter rate limit)
@@ -508,7 +507,7 @@ class DynamicTrader {
   /**
    * Execute sell via Solana Tracker
    */
-  async executeSolanaTrackerSell(tokenCA, percent = '100%') {
+  async executeSolanaTrackerSell(tokenCA, percent = '95%') {
     try {
       const wsol = 'So11111111111111111111111111111111111111112';
       const url = `${SOLANA_TRACKER_BASE_URL}/swap?from=${tokenCA}&to=${wsol}&fromAmount=${encodeURIComponent(percent)}&slippage=30&payer=${this.wallet.publicKey.toString()}&priorityFee=auto&priorityFeeLevel=high&txVersion=v0`;
@@ -953,9 +952,6 @@ class DynamicTrader {
   }
 
   async scanAndTrade() {
-    // CHECK: Record strikes from previous trades
-    await checkAndRecordStrikes();
-    
     const tradingMode = this.getTradingMode();
     console.log('\n🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER');
     console.log('='.repeat(50));
@@ -1815,87 +1811,38 @@ async function getPrice() {
 }
 
 async function executeSell(percent = '100%') {
-  const maxRetries = 3;
-  let lastError = null;
-  
-  for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    try {
-      const wsol = 'So11111111111111111111111111111111111111112';
-      const url = `https://swap-v2.solanatracker.io/swap?from=${POS.ca}&to=${wsol}&fromAmount=${encodeURIComponent(percent)}&slippage=30&payer=${wallet.publicKey.toString()}&priorityFee=auto&priorityFeeLevel=high&txVersion=v0`;
-      
-      console.log(`  🔄 Executing sell (${percent})... Attempt ${attempt}/${maxRetries}`);
-      
-      const res = await fetch(url, {
-        headers: {
-          'Authorization': 'Bearer af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a',
-          'Accept': 'application/json'
-        }
-      });
-      
-      const data = await res.json();
-      if (data.error) {
-        lastError = data.error;
-        console.log(`  ⚠️ SolanaTracker error: ${data.error}`);
-        
-        // Try Jupiter fallback on attempt 2+
-        if (attempt < maxRetries) {
-          const jupUrl = `https://public.jupiterapi.com/swap?inputMint=${POS.ca}&outputMint=${wsol}&amount=${encodeURIComponent(percent)}&slippage=30&userPublicKey=${wallet.publicKey.toString()}`;
-          console.log(`  🔄 Trying Jupiter fallback...`);
-          
-          const jupRes = await fetch(jupUrl);
-          const jupData = await jupRes.json();
-          
-          if (!jupData.error && jupData.txn) {
-            const txBuf = Buffer.from(jupData.txn, 'base64');
-            const transaction = VersionedTransaction.deserialize(txBuf);
-            transaction.sign([wallet]);
-            
-            const signature = await connection.sendTransaction(transaction, { maxRetries: 3 });
-            await connection.confirmTransaction(signature, 'confirmed');
-            console.log(`  ✅ Sell SUCCESS via Jupiter!`);
-            return { success: true, signature };
-          }
-        }
-        
-        // Exponential backoff
-        if (attempt < maxRetries) {
-          const delay = Math.pow(2, attempt) * 1000;
-          await sleep(delay);
-          continue;
-        }
+  try {
+    const wsol = 'So11111111111111111111111111111111111111112';
+    const url = \`https://swap-v2.solanatracker.io/swap?from=\${POS.ca}&to=\${wsol}&fromAmount=\${encodeURIComponent(percent)}&slippage=30&payer=\${wallet.publicKey.toString()}&priorityFee=auto&priorityFeeLevel=high&txVersion=v0\`;
+    
+    console.log(\`  🔄 Executing sell (\${percent})...\`);
+    
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': 'Bearer af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a',
+        'Accept': 'application/json'
       }
-      
-      const txBuf = Buffer.from(data.txn, 'base64');
-      const transaction = VersionedTransaction.deserialize(txBuf);
-      transaction.sign([wallet]);
-      
-      const signature = await connection.sendTransaction(transaction, {
-        maxRetries: 3,
-        skipPreflight: false,
-        preflightCommitment: 'confirmed'
-      });
-      
-      await connection.confirmTransaction(signature, 'confirmed');
-      console.log(`  ✅ Sell SUCCESS!`);
-      return { success: true, signature, outputAmount: data.rate?.amountOut || 0 };
-    } catch (e) {
-      lastError = e.message;
-      console.log(`  ⚠️ Attempt ${attempt} failed: ${e.message}`);
-      
-      if (attempt < maxRetries) {
-        const delay = Math.pow(2, attempt) * 1000;
-        await sleep(delay);
-      }
-    }
+    });
+    
+    const data = await res.json();
+    if (data.error) return { success: false, error: data.error };
+    
+    const txBuf = Buffer.from(data.txn, 'base64');
+    const { VersionedTransaction } = require('@solana/web3.js');
+    const transaction = VersionedTransaction.deserialize(txBuf);
+    transaction.sign([wallet]);
+    
+    const signature = await connection.sendTransaction(transaction, {
+      maxRetries: 3,
+      skipPreflight: false,
+      preflightCommitment: 'confirmed'
+    });
+    
+    await connection.confirmTransaction(signature, 'confirmed');
+    return { success: true, signature, outputAmount: data.rate?.amountOut || 0 };
+  } catch (e) {
+    return { success: false, error: e.message };
   }
-  
-  // All retries failed
-  console.log(`  ❌ Sell FAILED after ${maxRetries} attempts: ${lastError}`);
-  return { success: false, error: lastError };
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 let partialExited = false;
@@ -1927,129 +1874,6 @@ function markPositionExited(symbol, exitPrice, pnlPercent, exitType, exitTx) {
   }
 }
 
-// NEW: Mark position as PENDING_SELL BEFORE executing sell
-function markPositionPendingSell(symbol) {
-  try {
-    const positionsFile = '/root/trading-bot/positions.json';
-    const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
-    const pos = positions.find(p => p.symbol === symbol && !p.exited);
-    
-    if (pos) {
-      pos.exited = true;
-      pos.exitTime = Date.now();
-      pos.exitType = 'PENDING_SELL';
-      pos.exitPrice = 'PENDING';
-      pos.pnlPercent = 0;
-      fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
-      console.log(`  📝 Marked ${symbol} as PENDING_SELL`);
-      return true;
-    }
-    return false;
-  } catch (e) {
-    console.log('Error marking pending sell:', e.message);
-    return false;
-  }
-}
-
-// NEW: Mark position as SELL_FAILED
-function markPositionFailedSell(symbol, pnlPercent = -100) {
-  try {
-    const positionsFile = '/root/trading-bot/positions.json';
-    const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
-    const pos = positions.find(p => p.symbol === symbol && p.exitType === 'PENDING_SELL');
-    
-    if (pos) {
-      pos.exitPrice = 'FAILED';
-      pos.pnlPercent = pnlPercent;
-      pos.exitType = 'SELL_FAILED';
-      fs.writeFileSync(positionsFile, JSON.stringify(positions, null, 2));
-      console.log(`  ❌ ${symbol} marked as SELL_FAILED`);
-      return true;
-    }
-    return false;
-  } catch (e) {
-    console.log('Error marking failed sell:', e.message);
-    return false;
-  }
-}
-
-// Check for SL exits and record strikes (called periodically)
-async function checkAndRecordStrikes() {
-  try {
-    const positionsFile = '/root/trading-bot/positions.json';
-    const strikeCountsFile = '/root/trading-bot/strike-counts.json';
-    
-    if (!fs.existsSync(positionsFile)) return;
-    
-    const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
-    let strikeCounts = {};
-    
-    if (fs.existsSync(strikeCountsFile)) {
-      strikeCounts = JSON.parse(fs.readFileSync(strikeCountsFile, 'utf8'));
-    }
-    
-    const now = Date.now();
-    const SL_THRESHOLD = -5; // Any loss >= 5% counts as a strike
-    
-    positions.forEach(pos => {
-      if (pos.exited && pos.pnlPercent < SL_THRESHOLD && pos.exitType !== 'SELL_FAILED') {
-        const ca = pos.ca;
-        
-        if (!strikeCounts[ca]) {
-          strikeCounts[ca] = {
-            symbol: pos.symbol,
-            count: 1,
-            firstStrike: now,
-            lastStrike: now
-          };
-          console.log(`📝 New strike recorded: ${pos.symbol} (1/3)`);
-        } else if (!strikeCounts[ca].recorded) {
-          strikeCounts[ca].count++;
-          strikeCounts[ca].lastStrike = now;
-          strikeCounts[ca].recorded = true; // Mark as processed
-          console.log(`📝 Strike recorded: ${pos.symbol} (${strikeCounts[ca].count}/3)`);
-          
-          // Auto-blacklist if 3 strikes
-          if (strikeCounts[ca].count >= 3) {
-            const blacklistFile = '/root/trading-bot/token-blacklist.json';
-            let blacklist = [];
-            if (fs.existsSync(blacklistFile)) {
-              blacklist = JSON.parse(fs.readFileSync(blacklistFile, 'utf8'));
-            }
-            if (!blacklist.includes(ca)) {
-              blacklist.push(ca);
-              fs.writeFileSync(blacklistFile, JSON.stringify(blacklist, null, 2));
-              console.log(`🚫 Auto-blacklisted: ${pos.symbol} (3 strikes)`);
-            }
-          }
-        }
-      }
-      
-      // Reset recorded flag for non-loss positions
-      if (pos.exited && pos.pnlPercent >= SL_THRESHOLD && strikeCounts[pos.ca]?.recorded) {
-        strikeCounts[pos.ca].recorded = false;
-      }
-    });
-    
-    // Save strike counts
-    fs.writeFileSync(strikeCountsFile, JSON.stringify(strikeCounts, null, 2));
-    
-    // Clean up old strikes (>24h)
-    Object.keys(strikeCounts).forEach(ca => {
-      const hoursSince = (now - strikeCounts[ca].lastStrike) / (1000 * 60 * 60);
-      if (hoursSince >= 24) {
-        delete strikeCounts[ca];
-        console.log(`🧹 Cleared old strike data for ${strikeCounts[ca]?.symbol || ca}`);
-      }
-    });
-    
-    fs.writeFileSync(strikeCountsFile, JSON.stringify(strikeCounts, null, 2));
-    
-  } catch (e) {
-    // Silent fail
-  }
-}
-
 async function monitor() {
   console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL)...');
   console.log(\`  SL: $\${POS.stop.toFixed(8)}\`);
@@ -2065,14 +1889,10 @@ async function monitor() {
     if (elapsedMs > MAX_HOLD_MS && price) {
       const pnl = ((price / POS.entry) - 1) * 100;
       console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
-      markPositionPendingSell(POS.symbol); // Mark BEFORE sell
-      const sellResult = await executeSell('100%');
+      const sellResult = await executeSell('95%');
       if (sellResult.success) {
-        await notify(`⏰ **MAX HOLD EXIT**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\nMax hold ${maxHoldMinutes} min reached\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
+        await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         markPositionExited(POS.symbol, price, pnl, 'MAX_HOLD', sellResult.signature);
-      } else {
-        markPositionFailedSell(POS.symbol, pnl); // Mark as failed
-        await notify(`⏰ **MAX HOLD EXIT FAILED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\n❌ Sell failed: ${sellResult.error}\n⚠️ Manual exit required!`);
       }
       process.exit(0);
     }
@@ -2096,44 +1916,37 @@ async function monitor() {
     // Stop loss - EXECUTE SELL
     if (price <= POS.stop) {
       console.log('🛑 STOP LOSS HIT - Executing sell...');
-      markPositionPendingSell(POS.symbol); // Mark BEFORE sell
-      this.recordStrike(POS.ca, POS.symbol); // Record strike for 3-STRIKE rule
-      const sellResult = await executeSell('100%');
+      const sellResult = await executeSell('95%');
       if (sellResult.success) {
-        await notify(`🛑 **STOP LOSS EXECUTED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
+        await notify(\`🛑 **STOP LOSS EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         markPositionExited(POS.symbol, price, pnl, 'STOP_LOSS', sellResult.signature);
       } else {
-        markPositionFailedSell(POS.symbol, pnl); // Mark as failed
-        await notify(`🛑 **STOP LOSS FAILED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\n❌ Sell failed: ${sellResult.error}\n⚠️ Manual exit required!`);
+        await notify(\`🛑 **STOP LOSS HIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
       }
       process.exit(0);
     }
     
     // Take profit 1 (partial exit) - EXECUTE SELL
     if (!partialExited && price >= POS.tp1) {
-      console.log(`🎯 TP1 HIT - Exiting ${(POS.partialExit*100).toFixed(0)}%...`);
-      markPositionPendingSell(POS.symbol); // Mark BEFORE sell
+      console.log(\`🎯 TP1 HIT - Exiting \${(POS.partialExit*100).toFixed(0)}%...\`);
       const sellResult = await executeSell('50%');
       partialExited = true;
       if (sellResult.success) {
-        await notify(`🎯 **TP1 EXECUTED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: +${pnl.toFixed(2)}%\n\nExited 50%\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}\n\nHolding 50% for TP2...`);
+        await notify(\`🎯 **TP1 EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\nExited 50%\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\\n\\nHolding 50% for TP2...\`);
       } else {
-        markPositionFailedSell(POS.symbol, pnl); // Mark as failed
-        await notify(`🎯 **TP1 FAILED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: +${pnl.toFixed(2)}%\n\n❌ Sell failed: ${sellResult.error}\n⚠️ Manual exit required!`);
+        await notify(\`🎯 **TP1 REACHED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
       }
     }
     
     // Take profit 2 (final exit) - EXECUTE SELL
     if (price >= POS.tp2) {
       console.log('🎯 TP2 HIT - FINAL EXIT - Executing sell...');
-      markPositionPendingSell(POS.symbol); // Mark BEFORE sell
-      const sellResult = await executeSell(partialExited ? '100%' : '100%');
+      const sellResult = await executeSell(partialExited ? '95%' : '95%');
       if (sellResult.success) {
-        await notify(`🎯 **TP2 EXECUTED - FINAL EXIT**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: +${pnl.toFixed(2)}%\n\n✅ Trade complete!\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
+        await notify(\`🎯 **TP2 EXECUTED - FINAL EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n✅ Trade complete!\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         markPositionExited(POS.symbol, price, pnl, 'TAKE_PROFIT', sellResult.signature);
       } else {
-        markPositionFailedSell(POS.symbol, pnl); // Mark as failed
-        await notify(`🎯 **TP2 FAILED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: +${pnl.toFixed(2)}%\n\n❌ Sell failed: ${sellResult.error}\n⚠️ Manual exit required!`);
+        await notify(\`🎯 **TP2 REACHED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n❌ Sell failed: \${sellResult.error}\\n⚠️ Manual exit required!\`);
       }
       process.exit(0);
     }
