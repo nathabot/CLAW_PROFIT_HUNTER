@@ -953,6 +953,9 @@ class DynamicTrader {
   }
 
   async scanAndTrade() {
+    // CHECK: Record strikes from previous trades
+    await checkAndRecordStrikes();
+    
     const tradingMode = this.getTradingMode();
     console.log('\n🔍 LIVE TRADER v4.2 - DYNAMIC TP/SL SCANNER');
     console.log('='.repeat(50));
@@ -1970,6 +1973,83 @@ function markPositionFailedSell(symbol, pnlPercent = -100) {
   }
 }
 
+// Check for SL exits and record strikes (called periodically)
+async function checkAndRecordStrikes() {
+  try {
+    const positionsFile = '/root/trading-bot/positions.json';
+    const strikeCountsFile = '/root/trading-bot/strike-counts.json';
+    
+    if (!fs.existsSync(positionsFile)) return;
+    
+    const positions = JSON.parse(fs.readFileSync(positionsFile, 'utf8'));
+    let strikeCounts = {};
+    
+    if (fs.existsSync(strikeCountsFile)) {
+      strikeCounts = JSON.parse(fs.readFileSync(strikeCountsFile, 'utf8'));
+    }
+    
+    const now = Date.now();
+    const SL_THRESHOLD = -5; // Any loss >= 5% counts as a strike
+    
+    positions.forEach(pos => {
+      if (pos.exited && pos.pnlPercent < SL_THRESHOLD && pos.exitType !== 'SELL_FAILED') {
+        const ca = pos.ca;
+        
+        if (!strikeCounts[ca]) {
+          strikeCounts[ca] = {
+            symbol: pos.symbol,
+            count: 1,
+            firstStrike: now,
+            lastStrike: now
+          };
+          console.log(`📝 New strike recorded: ${pos.symbol} (1/3)`);
+        } else if (!strikeCounts[ca].recorded) {
+          strikeCounts[ca].count++;
+          strikeCounts[ca].lastStrike = now;
+          strikeCounts[ca].recorded = true; // Mark as processed
+          console.log(`📝 Strike recorded: ${pos.symbol} (${strikeCounts[ca].count}/3)`);
+          
+          // Auto-blacklist if 3 strikes
+          if (strikeCounts[ca].count >= 3) {
+            const blacklistFile = '/root/trading-bot/token-blacklist.json';
+            let blacklist = [];
+            if (fs.existsSync(blacklistFile)) {
+              blacklist = JSON.parse(fs.readFileSync(blacklistFile, 'utf8'));
+            }
+            if (!blacklist.includes(ca)) {
+              blacklist.push(ca);
+              fs.writeFileSync(blacklistFile, JSON.stringify(blacklist, null, 2));
+              console.log(`🚫 Auto-blacklisted: ${pos.symbol} (3 strikes)`);
+            }
+          }
+        }
+      }
+      
+      // Reset recorded flag for non-loss positions
+      if (pos.exited && pos.pnlPercent >= SL_THRESHOLD && strikeCounts[pos.ca]?.recorded) {
+        strikeCounts[pos.ca].recorded = false;
+      }
+    });
+    
+    // Save strike counts
+    fs.writeFileSync(strikeCountsFile, JSON.stringify(strikeCounts, null, 2));
+    
+    // Clean up old strikes (>24h)
+    Object.keys(strikeCounts).forEach(ca => {
+      const hoursSince = (now - strikeCounts[ca].lastStrike) / (1000 * 60 * 60);
+      if (hoursSince >= 24) {
+        delete strikeCounts[ca];
+        console.log(`🧹 Cleared old strike data for ${strikeCounts[ca]?.symbol || ca}`);
+      }
+    });
+    
+    fs.writeFileSync(strikeCountsFile, JSON.stringify(strikeCounts, null, 2));
+    
+  } catch (e) {
+    // Silent fail
+  }
+}
+
 async function monitor() {
   console.log('📊 Monitoring ' + POS.symbol + ' (DYNAMIC TP/SL)...');
   console.log(\`  SL: $\${POS.stop.toFixed(8)}\`);
@@ -2017,6 +2097,7 @@ async function monitor() {
     if (price <= POS.stop) {
       console.log('🛑 STOP LOSS HIT - Executing sell...');
       markPositionPendingSell(POS.symbol); // Mark BEFORE sell
+      this.recordStrike(POS.ca, POS.symbol); // Record strike for 3-STRIKE rule
       const sellResult = await executeSell('100%');
       if (sellResult.success) {
         await notify(`🛑 **STOP LOSS EXECUTED**\n\n${POS.symbol}: $${price.toFixed(8)}\nPnL: ${pnl.toFixed(2)}%\n\n🔗 **Tx:** https://solscan.io/tx/${sellResult.signature}`);
