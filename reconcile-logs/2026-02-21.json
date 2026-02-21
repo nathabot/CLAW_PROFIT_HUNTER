@@ -44,5 +44,97 @@
       "alerts": 0,
       "forced": 0
     }
+  },
+  {
+    "timestamp": "2026-02-21T16:00:01.455Z",
+    "positions": [
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771679805651,
+        "entryPrice": 0.000006415,
+        "currentPrice": 0.00000639,
+        "pnlPercent": -0.38971161340608895,
+        "hoursHeld": 2.721115833333333,
+        "status": "OK",
+        "issues": []
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771680005330,
+        "entryPrice": 0.0002021,
+        "currentPrice": 0.0002017,
+        "pnlPercent": -0.19792182088075688,
+        "hoursHeld": 2.6656608333333334,
+        "status": "OK",
+        "issues": []
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771680304983,
+        "entryPrice": 0.0004892,
+        "currentPrice": 0.0004937,
+        "pnlPercent": 0.9198691741619084,
+        "hoursHeld": 2.5824344444444445,
+        "status": "OK",
+        "issues": []
+      }
+    ],
+    "alerts": [],
+    "actions": [],
+    "summary": {
+      "checked": 3,
+      "ok": 3,
+      "alerts": 0,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-21T16:15:01.930Z",
+    "positions": [
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771679805651,
+        "entryPrice": 0.000006415,
+        "currentPrice": 0.00000635,
+        "pnlPercent": -1.0132501948558101,
+        "hoursHeld": 2.9712569444444443,
+        "status": "OK",
+        "issues": []
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771680005330,
+        "entryPrice": 0.0002021,
+        "currentPrice": 0.0002005,
+        "pnlPercent": -0.7916872835230142,
+        "hoursHeld": 2.9158094444444442,
+        "status": "OK",
+        "issues": []
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771680304983,
+        "entryPrice": 0.0004892,
+        "currentPrice": 0.0004903,
+        "pnlPercent": 0.22485690923959137,
+        "hoursHeld": 2.832587777777778,
+        "status": "OK",
+        "issues": []
+      }
+    ],
+    "alerts": [],
+    "actions": [],
+    "summary": {
+      "checked": 3,
+      "ok": 3,
+      "alerts": 0,
+      "forced": 0
+    }
   }
 ]

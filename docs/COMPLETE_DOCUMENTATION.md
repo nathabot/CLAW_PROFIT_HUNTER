@@ -437,6 +437,70 @@ TELEGRAM_CHAT_ID=your_chat_id
 
 ---
 
+## 🎮 Sistem Mode Trading
+
+Sistem menggunakan **dua mode complementary**:
+
+### 1. TRADING_MODE (WHAT to trade)
+
+Mengontrol tipe token yang ditrading:
+
+| Mode | Description | Token Age | Max Hold | Liquidity |
+|------|-------------|-----------|----------|-----------|
+| `established` | Mature tokens, lower risk | 24h+ | 180 min | $10k+ |
+| `degen` | New tokens, higher risk/pump | 1h+ | 10 min | $10k+ |
+
+**Konfigurasi di trading-config.json:**
+```json
+{
+  "TRADING_MODE": {
+    "MODE": "auto",
+    "ACTIVE": "established",
+    "AUTO_TYPE": "performance"
+  }
+}
+```
+
+**Switching:**
+```bash
+# Manual switch ke degen
+sed -i 's/"ACTIVE": "established"/"ACTIVE": "degen"/' trading-config.json
+```
+
+### 2. MODE_CONTROLLER (HOW to trade)
+
+Mengontrol risk appetite:
+
+| Mode | minScore | Liquidity | Position | Max Pos | minWR |
+|------|----------|-----------|----------|---------|-------|
+| `conservative` | 7 | $50k | 0.01 SOL | 2 | 55% |
+| `balanced` | 6 | $25k | 0.015 SOL | 3 | 50% |
+| `aggressive` | 5 | $10k | 0.02 SOL | 4 | 45% |
+
+**Switching:**
+```bash
+# Switch ke aggressive
+sed -i 's/"mode": "balanced"/"mode": "aggressive"/' trading-config.json
+```
+
+### Combination Examples
+
+| TRADING_MODE | MODE_CONTROLLER | Risk |
+|--------------|-----------------|------|
+| established | conservative | 🔒 Low |
+| established | balanced | 🟡 Medium |
+| degen | aggressive | 🔥 High |
+
+### Reconciliation
+
+Auto-running every 15 minutes:
+- Checks SL/TP triggers
+- Max hold timeout (3 hours)
+- Alerts at 5% deviation
+- Force close at 20% deviation or -15% loss
+
+---
+
 ## 🔍 Troubleshooting
 
 ### Masalah Umum

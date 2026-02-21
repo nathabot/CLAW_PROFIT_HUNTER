@@ -1151,9 +1151,14 @@
       "tp1": 0.00000658978309,
       "tp2": 0.0000068203011626200005
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771690618463,
+    "exitPrice": 0.000006348,
+    "pnlPercent": -1.0444271239283043,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "33Rg7APgzGQJv1A4R2HExg5UuHXDVNW5YDSbMCtVi9p1mXSksAQNGaPCkaUJeYVaMtRT3VDFduXxqqgA6KikjS3p"
   },
   {
     "symbol": "ATLAS",
