@@ -1135,5 +1135,24 @@
     "pnlPercent": 0,
     "exitType": "MAX_HOLD",
     "exitTxHash": "314f9LSSf1J7LCUtbz1epDws1fKX7Vi1QLeK9rWazRFyFZWPn1EBPJwaV3PPZAXWiegZVWZHSxGcpqLny3ALqMsM"
+  },
+  {
+    "symbol": "Bonk",
+    "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    "entryPrice": 0.000006415,
+    "entryTime": 1771679805651,
+    "positionSize": 0.015,
+    "tokensReceived": 19895638662,
+    "txHash": "54hk1FSFDios74Eak7pcxUq4otLxmz7NNcrfr4E6Guq4qZS6pApb7w44zKFxFABTXgrUBPz5YEePDag6X9aBJgRv",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.000006030273205,
+      "tp1": 0.00000658978309,
+      "tp2": 0.0000068203011626200005
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
   }
 ]

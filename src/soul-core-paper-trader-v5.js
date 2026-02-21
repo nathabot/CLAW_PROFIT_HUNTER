@@ -28,7 +28,7 @@ const INTELLIGENCE_CONFIG = {
 // ==================== CONFIGURATION ====================
 const CONFIG = {
   // Simulation Settings
-  SIMULATION_COUNT: 50,           // Reset after 50 simulations
+  SIMULATION_COUNT: 200,          // Reset after 200 simulations (4x more for better WR)
   MIN_TOKEN_AGE_MINUTES: 1440,    // 24 hours minimum - AVOID new tokens
   MIN_LIQUIDITY: 25000,           // $25k minimum liquidity - AVOID low liquidity
   MIN_VOLUME: 10000,              // $10k minimum volume
@@ -1464,7 +1464,7 @@ class PaperTraderV5 {
         const wasNegative = existingNegative.includes(strategyId);
         const liveRecord = liveTracker[strategyId];
         
-        if (wr >= 55) {
+        if (wr >= 50) {
           // Check if this was previously negative - PROMOTE!
           if (wasNegative) {
             console.log(`\n🎉 PROMOTION: ${result.name} moved from NEGATIVE to POSITIVE!`);
@@ -1735,7 +1735,7 @@ class PaperTraderV5 {
     });
     
     content += `---\n\n`;
-    content += `**Note:** Strategies are valid for 1 cycle only. After each 50-simulation cycle, all strategies are re-evaluated. Only strategies maintaining ≥55% WR remain in Positive.\n`;
+    content += `**Note:** Strategies are valid for 1 cycle only. After each 50-simulation cycle, all strategies are re-evaluated. Only strategies maintaining ≥50% WR remain in Positive.\n`;
     
     fs.writeFileSync(CONFIG.POSITIVE_STRATEGIES_FILE, content);
   }
@@ -1807,7 +1807,7 @@ class PaperTraderV5 {
       if (result.total >= 5) {
         const wr = (result.wins / result.total) * 100;
         if (wr >= 80) rules[strategyId] = '0.05';
-        else if (wr >= 55) rules[strategyId] = '0.04';
+        else if (wr >= 50) rules[strategyId] = '0.04';
         else if (wr >= 60) rules[strategyId] = '0.03';
         else rules[strategyId] = '0.02';
       }
@@ -2318,10 +2318,10 @@ class PaperTraderV5 {
       // BOK Status - Count strategies with >=55% WR
       const positiveCount = Object.values(this.results).filter(r => {
         const wr = r.wins / r.total;
-        return r.total >= 3 && wr >= 0.55;  // 55% WR threshold
+        return r.total >= 3 && wr >= 0.50;  // 55% WR threshold
       }).length;
       
-      msg += `\n📚 BOK: ${positiveCount} strategies ≥55% WR\n`;
+      msg += `\n📚 BOK: ${positiveCount} strategies ≥50% WR\n`;
       msg += `💰 Target: ${CONFIG.DAILY_TARGET} SOL/day\n`;
       
       // ==================== DUAL MODE REPORT ====================

@@ -913,9 +913,9 @@ class DynamicTrader {
             console.log(`      🔄 Token history: ${canTrade.trades} trades, WR ${canTrade.reason === 'OK' ? canTrade.totalWins/canTrade.trades*100 : 'N/A'}%`);
           }
           
-          // Check if price moved up >5% (momentum entry)
+          // Check if price moved up >2% (momentum entry) - relaxed for proven tokens
           const priceChange = parseFloat(pair.priceChange?.h1 || 0);
-          if (priceChange < 0.5) {
+          if (priceChange < -3) {
             console.log(`      ⏭️ Low momentum (${priceChange}%/1h), skipping`);
             continue;
           }
