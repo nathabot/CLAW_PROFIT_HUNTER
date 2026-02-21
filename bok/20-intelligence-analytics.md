@@ -1,7 +1,7 @@
 # BOK Intelligence Analytics
 
 *Auto-generated advanced analytics for trading optimization*
-*Updated: 2026-02-21T08:30:04.154Z*
+*Updated: 2026-02-21T12:30:03.881Z*
 
 ## Executive Summary
 
@@ -24,9 +24,11 @@ This report provides deep insights into strategy performance across different di
     },
     "1": {
       "wins": 0,
-      "losses": 0,
-      "total": 0,
-      "profit": 0
+      "losses": 4,
+      "total": 4,
+      "profit": null,
+      "winRate": "0.0",
+      "avgProfit": "NaN"
     },
     "2": {
       "wins": 0,
@@ -64,11 +66,11 @@ This report provides deep insights into strategy performance across different di
     },
     "7": {
       "wins": 0,
-      "losses": 2,
-      "total": 2,
-      "profit": -8.975587707371723,
+      "losses": 5,
+      "total": 5,
+      "profit": null,
       "winRate": "0.0",
-      "avgProfit": "-4.49"
+      "avgProfit": "NaN"
     },
     "8": {
       "wins": 0,
@@ -198,10 +200,18 @@ This report provides deep insights into strategy performance across different di
     },
     "UNKNOWN": {
       "wins": 12,
-      "losses": 28,
-      "total": 40,
+      "losses": 31,
+      "total": 43,
       "profit": null,
-      "winRate": "30.0",
+      "winRate": "27.9",
+      "avgProfit": "NaN"
+    },
+    "FEAR": {
+      "wins": 0,
+      "losses": 4,
+      "total": 4,
+      "profit": null,
+      "winRate": "0.0",
       "avgProfit": "NaN"
     }
   },
@@ -233,19 +243,19 @@ This report provides deep insights into strategy performance across different di
     },
     "GAMING": {
       "wins": 0,
-      "losses": 1,
-      "total": 1,
-      "profit": -8.909444985394355,
+      "losses": 5,
+      "total": 5,
+      "profit": null,
       "tokens": [
         "ATLAS"
       ],
       "winRate": "0.0",
-      "avgProfit": "-8.91"
+      "avgProfit": "NaN"
     },
     "OTHER": {
       "wins": 5,
-      "losses": 20,
-      "total": 25,
+      "losses": 23,
+      "total": 28,
       "profit": null,
       "tokens": [
         "KIMCHI",
@@ -256,7 +266,7 @@ This report provides deep insights into strategy performance across different di
         "DEADLUCKY",
         "COPE"
       ],
-      "winRate": "20.0",
+      "winRate": "17.9",
       "avgProfit": "NaN"
     },
     "DEFI": {
@@ -295,10 +305,10 @@ This report provides deep insights into strategy performance across different di
       "strategy": "sr_breakout",
       "market": "UNKNOWN",
       "wins": 3,
-      "losses": 6,
-      "total": 9,
+      "losses": 9,
+      "total": 12,
       "profit": null,
-      "winRate": "33.3",
+      "winRate": "25.0",
       "avgProfit": "NaN",
       "fitScore": null
     },
@@ -308,6 +318,17 @@ This report provides deep insights into strategy performance across different di
       "wins": 0,
       "losses": 8,
       "total": 8,
+      "profit": null,
+      "winRate": "0.0",
+      "avgProfit": "NaN",
+      "fitScore": null
+    },
+    "proven_fib_FEAR": {
+      "strategy": "proven_fib",
+      "market": "FEAR",
+      "wins": 0,
+      "losses": 4,
+      "total": 4,
       "profit": null,
       "winRate": "0.0",
       "avgProfit": "NaN",
@@ -333,34 +354,42 @@ This report provides deep insights into strategy performance across different di
         "profit": "NaN"
       },
       {
-        "hour": 17,
+        "hour": 1,
         "winRate": "0.0",
         "profit": "NaN"
       },
       {
-        "hour": 18,
+        "hour": 7,
         "winRate": "0.0",
-        "profit": "-54.85"
+        "profit": "NaN"
       }
     ],
     "bestMarketConditions": [
       {
         "condition": "UNKNOWN",
-        "winRate": "30.0",
+        "winRate": "27.9",
+        "profit": "NaN"
+      },
+      {
+        "condition": "FEAR",
+        "winRate": "0.0",
         "profit": "NaN"
       }
     ],
     "avoidHours": [
+      1,
       6,
+      7,
       17,
       18,
       23
     ],
     "avoidConditions": [
-      "UNKNOWN"
+      "UNKNOWN",
+      "FEAR"
     ]
   },
-  "lastUpdate": "2026-02-21T08:30:04.154Z"
+  "lastUpdate": "2026-02-21T12:30:03.881Z"
 }
 ```
 
@@ -368,9 +397,10 @@ This report provides deep insights into strategy performance across different di
 
 | Hour | Trades | Win Rate | Avg Profit | Status |
 |------|--------|----------|------------|--------|
+| 1:00 | 4 | 0.0% | NaN% | 🔴 |
 | 5:00 | 1 | 0.0% | -0.18% | 🔴 |
 | 6:00 | 14 | 28.6% | NaN% | 🔴 |
-| 7:00 | 2 | 0.0% | -4.49% | 🔴 |
+| 7:00 | 5 | 0.0% | NaN% | 🔴 |
 | 10:00 | 1 | 0.0% | NaN% | 🔴 |
 | 11:00 | 1 | 100.0% | 0.66% | 🟢 |
 | 12:00 | 2 | 100.0% | 0.82% | 🟢 |
@@ -388,7 +418,8 @@ This report provides deep insights into strategy performance across different di
 | Condition | Trades | Win Rate | Avg Profit |
 |-----------|--------|----------|------------|
 | SIDEWAYS | 1 | 0.0% | NaN% |
-| UNKNOWN | 40 | 30.0% | NaN% |
+| UNKNOWN | 43 | 27.9% | NaN% |
+| FEAR | 4 | 0.0% | NaN% |
 
 
 ## Token Category Analysis
@@ -397,8 +428,8 @@ This report provides deep insights into strategy performance across different di
 |----------|--------|----------|------------|--------|
 | MEME | 11 | 45.5% | NaN% | WIF, $WIF, Bonk... |
 | LST | 1 | 0.0% | -0.04% | mSOL |
-| GAMING | 1 | 0.0% | -8.91% | ATLAS |
-| OTHER | 25 | 20.0% | NaN% | KIMCHI, Punch, DARKTRUMP... |
+| GAMING | 5 | 0.0% | NaN% | ATLAS |
+| OTHER | 28 | 17.9% | NaN% | KIMCHI, Punch, DARKTRUMP... |
 | DEFI | 3 | 66.7% | 0.56% | RAY |
 
 
@@ -407,21 +438,23 @@ This report provides deep insights into strategy performance across different di
 | Strategy | Market | Trades | Win Rate | Fit Score |
 |----------|--------|--------|----------|-----------|
 | fib_786_1000 | UNKNOWN | 11 | 18.2% | NaN |
-| sr_breakout | UNKNOWN | 9 | 33.3% | NaN |
+| sr_breakout | UNKNOWN | 12 | 25.0% | NaN |
 | fib_500_1272 | UNKNOWN | 8 | 0.0% | NaN |
+| proven_fib | FEAR | 4 | 0.0% | NaN |
 | fib_618_1000 | UNKNOWN | 12 | 58.3% | 35.7 |
 
 
 ## Recommendations
 
 ### Best Trading Hours
-Trade during: 6:00, 17:00, 18:00
+Trade during: 6:00, 1:00, 7:00
 
 ### Best Market Conditions
-- **UNKNOWN**: 30.0% WR
+- **UNKNOWN**: 27.9% WR
+- **FEAR**: 0.0% WR
 
 ### Avoid Hours
-Avoid trading: 6:00, 17:00, 18:00, 23:00
+Avoid trading: 1:00, 6:00, 7:00, 17:00, 18:00, 23:00
 
 
 

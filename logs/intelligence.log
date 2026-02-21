@@ -1018,3 +1018,43 @@
 [2026-02-21T05:00:04.542Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
 [2026-02-21T05:00:04.542Z] ℹ️ ========================================
 
+[2026-02-21T09:00:02.028Z] ℹ️ ========================================
+[2026-02-21T09:00:02.029Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-21T09:00:02.029Z] ℹ️ Dynamic Signal Generation
+[2026-02-21T09:00:02.035Z] ℹ️ ========================================
+
+[2026-02-21T09:00:02.138Z] ℹ️ Database connected (schema updated)
+
+[2026-02-21T09:00:02.139Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-21T09:00:02.620Z] ℹ️ Found 20 trending tokens
+
+[2026-02-21T09:00:02.804Z] ✅ RECYCLE: ✅ INSERTED (6.0/10)
+[2026-02-21T09:00:02.804Z] ℹ️    Entry: $0.000312
+[2026-02-21T09:00:02.804Z] ℹ️    TP1: $0.000332 | TP2: $0.000349
+[2026-02-21T09:00:02.805Z] ℹ️    SL: $0.000299
+[2026-02-21T09:00:02.805Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Strong buying
+
+[2026-02-21T09:00:03.356Z] ⚠️ 红包马: Confidence too low (5.0/10)
+[2026-02-21T09:00:03.608Z] ⚠️ POPO: Low liquidity ($10,139.66)
+[2026-02-21T09:00:03.642Z] ⚠️ CyberMolt: Confidence too low (5.5/10)
+[2026-02-21T09:00:03.699Z] ⚠️ Clayton: Low liquidity ($11,605.53)
+[2026-02-21T09:00:03.768Z] ⚠️ flashh: Low liquidity ($4,523.46)
+[2026-02-21T09:00:03.818Z] ⚠️ bubble: Confidence too low (3.0/10)
+[2026-02-21T09:00:03.867Z] ⚠️ e/alt: Low liquidity ($8,604.59)
+[2026-02-21T09:00:03.912Z] ⚠️ THOBSTER: Confidence too low (4.0/10)
+[2026-02-21T09:00:03.982Z] ⚠️ Flowers: Low liquidity ($0)
+[2026-02-21T09:00:04.032Z] ⚠️ Risk: Low liquidity ($0)
+[2026-02-21T09:00:04.071Z] ⚠️ Ganadi: Low liquidity ($0)
+[2026-02-21T09:00:04.130Z] ⚠️ LOBSTER: Low liquidity ($5,245.95)
+[2026-02-21T09:00:04.180Z] ⚠️ JOE: Low liquidity ($3,530.87)
+[2026-02-21T09:00:04.228Z] ⚠️ LBC: Low liquidity ($0)
+[2026-02-21T09:00:04.266Z] ⚠️ Washington: Low liquidity ($0)
+[2026-02-21T09:00:04.309Z] ⚠️ gabagool: Low liquidity ($7,571.49)
+[2026-02-21T09:00:04.375Z] ⚠️ LWOB: Low liquidity ($5,503.44)
+[2026-02-21T09:00:04.452Z] ⚠️ Clawvicular: Low liquidity ($6,851.36)
+[2026-02-21T09:00:04.491Z] ⚠️ Blobstar: Low liquidity ($0)
+[2026-02-21T09:00:04.492Z] ℹ️ 
+========================================
+[2026-02-21T09:00:04.492Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
+[2026-02-21T09:00:04.492Z] ℹ️ ========================================
+
