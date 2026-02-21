@@ -1,7 +1,7 @@
 # BOK Intelligence Analytics
 
 *Auto-generated advanced analytics for trading optimization*
-*Updated: 2026-02-21T16:00:03.589Z*
+*Updated: 2026-02-21T18:30:03.516Z*
 
 ## Executive Summary
 
@@ -159,10 +159,12 @@ This report provides deep insights into strategy performance across different di
       "profit": 0
     },
     "20": {
-      "wins": 0,
-      "losses": 0,
-      "total": 0,
-      "profit": 0
+      "wins": 1,
+      "losses": 2,
+      "total": 3,
+      "profit": -1.6112574982117267,
+      "winRate": "33.3",
+      "avgProfit": "-0.54"
     },
     "21": {
       "wins": 1,
@@ -199,11 +201,11 @@ This report provides deep insights into strategy performance across different di
       "avgProfit": "NaN"
     },
     "UNKNOWN": {
-      "wins": 12,
-      "losses": 31,
-      "total": 43,
+      "wins": 13,
+      "losses": 33,
+      "total": 46,
       "profit": null,
-      "winRate": "27.9",
+      "winRate": "28.3",
       "avgProfit": "NaN"
     },
     "FEAR": {
@@ -217,9 +219,9 @@ This report provides deep insights into strategy performance across different di
   },
   "tokenCategoryPerformance": {
     "MEME": {
-      "wins": 5,
-      "losses": 6,
-      "total": 11,
+      "wins": 6,
+      "losses": 7,
+      "total": 13,
       "profit": null,
       "tokens": [
         "WIF",
@@ -227,7 +229,7 @@ This report provides deep insights into strategy performance across different di
         "Bonk",
         "SAMO"
       ],
-      "winRate": "45.5",
+      "winRate": "46.2",
       "avgProfit": "NaN"
     },
     "LST": {
@@ -243,8 +245,8 @@ This report provides deep insights into strategy performance across different di
     },
     "GAMING": {
       "wins": 0,
-      "losses": 5,
-      "total": 5,
+      "losses": 6,
+      "total": 6,
       "profit": null,
       "tokens": [
         "ATLAS"
@@ -337,17 +339,22 @@ This report provides deep insights into strategy performance across different di
     "fib_618_1000_UNKNOWN": {
       "strategy": "fib_618_1000",
       "market": "UNKNOWN",
-      "wins": 7,
-      "losses": 5,
-      "total": 12,
-      "profit": 2.0549444560795322,
-      "winRate": "58.3",
-      "avgProfit": "0.17",
-      "fitScore": 35.66
+      "wins": 8,
+      "losses": 7,
+      "total": 15,
+      "profit": 0.44368695786780554,
+      "winRate": "53.3",
+      "avgProfit": "0.03",
+      "fitScore": 32.099999999999994
     }
   },
   "optimalSettings": {
     "bestTradingHours": [
+      {
+        "hour": 20,
+        "winRate": "33.3",
+        "profit": "-0.54"
+      },
       {
         "hour": 6,
         "winRate": "28.6",
@@ -357,17 +364,12 @@ This report provides deep insights into strategy performance across different di
         "hour": 1,
         "winRate": "0.0",
         "profit": "NaN"
-      },
-      {
-        "hour": 7,
-        "winRate": "0.0",
-        "profit": "NaN"
       }
     ],
     "bestMarketConditions": [
       {
         "condition": "UNKNOWN",
-        "winRate": "27.9",
+        "winRate": "28.3",
         "profit": "NaN"
       },
       {
@@ -382,6 +384,7 @@ This report provides deep insights into strategy performance across different di
       7,
       17,
       18,
+      20,
       23
     ],
     "avoidConditions": [
@@ -389,7 +392,7 @@ This report provides deep insights into strategy performance across different di
       "FEAR"
     ]
   },
-  "lastUpdate": "2026-02-21T16:00:03.589Z"
+  "lastUpdate": "2026-02-21T18:30:03.516Z"
 }
 ```
 
@@ -408,6 +411,7 @@ This report provides deep insights into strategy performance across different di
 | 15:00 | 2 | 50.0% | -0.23% | 🟡 |
 | 17:00 | 7 | 0.0% | NaN% | 🔴 |
 | 18:00 | 3 | 0.0% | -54.85% | 🔴 |
+| 20:00 | 3 | 33.3% | -0.54% | 🔴 |
 | 21:00 | 2 | 50.0% | 0.32% | 🟡 |
 | 22:00 | 2 | 100.0% | 1.42% | 🟢 |
 | 23:00 | 3 | 0.0% | -1.76% | 🔴 |
@@ -418,7 +422,7 @@ This report provides deep insights into strategy performance across different di
 | Condition | Trades | Win Rate | Avg Profit |
 |-----------|--------|----------|------------|
 | SIDEWAYS | 1 | 0.0% | NaN% |
-| UNKNOWN | 43 | 27.9% | NaN% |
+| UNKNOWN | 46 | 28.3% | NaN% |
 | FEAR | 4 | 0.0% | NaN% |
 
 
@@ -426,9 +430,9 @@ This report provides deep insights into strategy performance across different di
 
 | Category | Trades | Win Rate | Avg Profit | Tokens |
 |----------|--------|----------|------------|--------|
-| MEME | 11 | 45.5% | NaN% | WIF, $WIF, Bonk... |
+| MEME | 13 | 46.2% | NaN% | WIF, $WIF, Bonk... |
 | LST | 1 | 0.0% | -0.04% | mSOL |
-| GAMING | 5 | 0.0% | NaN% | ATLAS |
+| GAMING | 6 | 0.0% | NaN% | ATLAS |
 | OTHER | 28 | 17.9% | NaN% | KIMCHI, Punch, DARKTRUMP... |
 | DEFI | 3 | 66.7% | 0.56% | RAY |
 
@@ -441,20 +445,20 @@ This report provides deep insights into strategy performance across different di
 | sr_breakout | UNKNOWN | 12 | 25.0% | NaN |
 | fib_500_1272 | UNKNOWN | 8 | 0.0% | NaN |
 | proven_fib | FEAR | 4 | 0.0% | NaN |
-| fib_618_1000 | UNKNOWN | 12 | 58.3% | 35.7 |
+| fib_618_1000 | UNKNOWN | 15 | 53.3% | 32.1 |
 
 
 ## Recommendations
 
 ### Best Trading Hours
-Trade during: 6:00, 1:00, 7:00
+Trade during: 20:00, 6:00, 1:00
 
 ### Best Market Conditions
-- **UNKNOWN**: 27.9% WR
+- **UNKNOWN**: 28.3% WR
 - **FEAR**: 0.0% WR
 
 ### Avoid Hours
-Avoid trading: 1:00, 6:00, 7:00, 17:00, 18:00, 23:00
+Avoid trading: 1:00, 6:00, 7:00, 17:00, 18:00, 20:00, 23:00
 
 
 

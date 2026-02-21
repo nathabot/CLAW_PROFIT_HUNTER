@@ -2,13 +2,13 @@
   "bestStrategy": {
     "id": "fib_786_1000",
     "name": "Fib 0.786 Deep",
-    "winRate": "54.04",
+    "winRate": "53.99",
     "category": "SWING_TRADE"
   },
   "positionSizing": {
     "fib_382_1618": "0.04",
     "fib_500_1272": "0.04",
-    "fib_618_1618": "0.04",
+    "fib_618_1618": "0.02",
     "fib_786_1000": "0.04",
     "fib_rsi_combo": "0.02",
     "fib_volume_combo": "0.02",
@@ -22,5 +22,18 @@
     "ma_crossover": "0.02",
     "liquidation_hunter": "0.02"
   },
-  "updated": 1771690219058
+  "updated": 1771699819396,
+  "adaptiveThresholds": {
+    "paperTrader": {
+      "totalTrades": 0,
+      "winRate": 0,
+      "optimalThreshold": 6,
+      "bestScoreRange": "5-7"
+    },
+    "liveTrader": {
+      "totalTrades": 0,
+      "winRate": 0,
+      "currentThreshold": 6
+    }
+  }
 }

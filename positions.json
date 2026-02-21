@@ -1175,9 +1175,14 @@
       "tp1": 0.0002076064166,
       "tp2": 0.00021486872407880001
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771690817415,
+    "exitPrice": 0.0002005,
+    "pnlPercent": -0.7916872835230127,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "RY2r8s9vadffefeXXJKpzCnUdehjw9Qh5bLf4g8qsFupCUGHwjCxBZE4hgq9iP2zUjxMMgjKaVaZb3g6oEVg6dx"
   },
   {
     "symbol": "SAMO",
@@ -1194,8 +1199,13 @@
       "tp1": 0.0005025287431999999,
       "tp2": 0.0005201077675375999
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771691114289,
+    "exitPrice": 0.0004903,
+    "pnlPercent": 0.22485690923959023,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "tBp36edp9F4U5fDyFWoA5hZqd1NRdfLWNRQgSPiLCHQbFF74xe7RiT7vYaFL5NuPHptfgnwj5pRGQYReL77HByF"
   }
 ]

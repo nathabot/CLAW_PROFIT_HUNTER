@@ -1,36 +1,6 @@
 {
   "conditions": [
     {
-      "timestamp": 1771389001947,
-      "regime": "SIDEWAYS",
-      "confidence": 50,
-      "solPrice": 85.25
-    },
-    {
-      "timestamp": 1771390803000,
-      "regime": "SIDEWAYS",
-      "confidence": 50,
-      "solPrice": 85.02
-    },
-    {
-      "timestamp": 1771392602374,
-      "regime": "SIDEWAYS",
-      "confidence": 50,
-      "solPrice": 85.085
-    },
-    {
-      "timestamp": 1771394404330,
-      "regime": "SIDEWAYS",
-      "confidence": 50,
-      "solPrice": 84.91
-    },
-    {
-      "timestamp": 1771396204143,
-      "regime": "SIDEWAYS",
-      "confidence": 50,
-      "solPrice": 85.062
-    },
-    {
       "timestamp": 1771398004668,
       "regime": "BULL",
       "confidence": 65,
@@ -1007,6 +977,36 @@
       "regime": "SIDEWAYS",
       "confidence": 50,
       "solPrice": 86.61
+    },
+    {
+      "timestamp": 1771691404276,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 86.033
+    },
+    {
+      "timestamp": 1771693205173,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 86.11
+    },
+    {
+      "timestamp": 1771695004850,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 86.092
+    },
+    {
+      "timestamp": 1771696802940,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 86.22
+    },
+    {
+      "timestamp": 1771698603346,
+      "regime": "BULL",
+      "confidence": 65,
+      "solPrice": 86.16
     }
   ]
 }

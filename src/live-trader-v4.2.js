@@ -643,7 +643,12 @@ class DynamicTrader {
   syncAdaptiveThreshold() {
     try {
       const adaptiveConfig = JSON.parse(fs.readFileSync(CONFIG.SCORE_CONFIG_PATH, 'utf8'));
-      const paperStats = adaptiveConfig.adaptiveThresholds.paperTrader;
+      const paperStats = adaptiveConfig.adaptiveThresholds?.paperTrader;
+      
+      if (!paperStats) {
+        console.log('⚠️ Adaptive sync: No paperTrader data yet, skipping');
+        return;
+      }
       
       // If paper trader has 50+ trades and WR > 70%, use its optimal threshold
       if (paperStats.totalTrades >= 50 && paperStats.winRate >= 70) {

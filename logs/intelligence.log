@@ -1103,3 +1103,48 @@
 [2026-02-21T13:00:03.952Z] ℹ️ SUMMARY: 2 new signals, 18 skipped
 [2026-02-21T13:00:03.952Z] ℹ️ ========================================
 
+[2026-02-21T17:00:01.961Z] ℹ️ ========================================
+[2026-02-21T17:00:01.962Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-21T17:00:01.962Z] ℹ️ Dynamic Signal Generation
+[2026-02-21T17:00:01.962Z] ℹ️ ========================================
+
+[2026-02-21T17:00:02.026Z] ℹ️ Database connected (schema updated)
+
+[2026-02-21T17:00:02.026Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-21T17:00:02.265Z] ℹ️ Found 20 trending tokens
+
+[2026-02-21T17:00:02.364Z] ✅ TERRA: ✅ INSERTED (6.5/10)
+[2026-02-21T17:00:02.364Z] ℹ️    Entry: $0.000001
+[2026-02-21T17:00:02.365Z] ℹ️    TP1: $0.000001 | TP2: $0.000001
+[2026-02-21T17:00:02.365Z] ℹ️    SL: $0.000001
+[2026-02-21T17:00:02.365Z] ℹ️    Reasons: Strong 24h momentum, Heavy buying pressure, Adequate liquidity
+
+[2026-02-21T17:00:03.036Z] ⚠️ GIDGET: Low liquidity ($0)
+[2026-02-21T17:00:03.084Z] ⚠️ Lumio : Low liquidity ($14,535.91)
+[2026-02-21T17:00:03.144Z] ⚠️ BHOMOS: Low liquidity ($3,294.4)
+[2026-02-21T17:00:03.441Z] ⚠️ Boobstar: Low liquidity ($19,206.27)
+[2026-02-21T17:00:03.596Z] ⚠️ CrabClaw: Low liquidity ($11,194.39)
+[2026-02-21T17:00:03.636Z] ⚠️ Earendel: Low liquidity ($14,710.59)
+[2026-02-21T17:00:03.678Z] ⚠️ YESCHAD: Low liquidity ($0)
+[2026-02-21T17:00:03.719Z] ⚠️ Penny: Low liquidity ($6,159.83)
+[2026-02-21T17:00:03.791Z] ⚠️ MASH: Low liquidity ($12,729.5)
+[2026-02-21T17:00:03.863Z] ⚠️ PumpHub: Low liquidity ($0)
+[2026-02-21T17:00:03.925Z] ⚠️ Earendel: Low liquidity ($0)
+[2026-02-21T17:00:03.995Z] ✅ OBOLCLAW: ✅ INSERTED (7.5/10)
+[2026-02-21T17:00:03.995Z] ℹ️    Entry: $0.000002
+[2026-02-21T17:00:03.995Z] ℹ️    TP1: $0.000002 | TP2: $0.000002
+[2026-02-21T17:00:03.995Z] ℹ️    SL: $0.000002
+[2026-02-21T17:00:03.995Z] ℹ️    Reasons: Moderate volume, Strong 24h momentum, Heavy buying pressure, Adequate liquidity
+
+[2026-02-21T17:00:04.545Z] ⚠️ puchi: Low liquidity ($0)
+[2026-02-21T17:00:04.595Z] ⚠️ EXPOSED: Confidence too low (5.5/10)
+[2026-02-21T17:00:04.633Z] ⚠️ BIT: Low liquidity ($0)
+[2026-02-21T17:00:04.914Z] ⚠️ VIBECOIN: Low liquidity ($4,966.39)
+[2026-02-21T17:00:04.949Z] ⚠️ 丫丫: Low liquidity ($14,988.54)
+[2026-02-21T17:00:04.990Z] ⚠️ AVP: Low liquidity ($15,466.43)
+[2026-02-21T17:00:05.044Z] ⚠️ Bluefin: Low liquidity ($0)
+[2026-02-21T17:00:05.044Z] ℹ️ 
+========================================
+[2026-02-21T17:00:05.044Z] ℹ️ SUMMARY: 2 new signals, 18 skipped
+[2026-02-21T17:00:05.044Z] ℹ️ ========================================
+
