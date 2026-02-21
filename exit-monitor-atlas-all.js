@@ -140,7 +140,7 @@ async function monitor() {
       // Stop loss - use higher slippage (30%)
       if (price <= pos.stop && pnl < 0 && !tp1Confirmed[i]) {
         console.log(`🛑 ATLAS-${pos.idx} STOP LOSS triggered (30% slippage)`);
-        const result = await executeSell(pos, 0.95, true);
+        const result = await executeSell(pos, 1.0, true);
         if (result.success) {
           await notify(`🛑 **SL EXIT** ATLAS-${pos.idx}: $${price} (PnL: ${pnl.toFixed(2)}%)\nTx: ${result.signature}`);
           tp1Confirmed[i] = true; // Mark as exited
@@ -178,7 +178,7 @@ async function monitor() {
       // TP2
       if (price >= pos.tp2) {
         console.log(`🎯 ATLAS-${pos.idx} TP2 HIT`);
-        const result = await executeSell(pos, 0.95, false);
+        const result = await executeSell(pos, 1.0, false);
         if (result.success) {
           await notify(`🎯 **TP2 FINAL** ATLAS-${pos.idx}: $${price} (+${pnl.toFixed(2)}%)\nTx: ${result.signature}`);
         } else {

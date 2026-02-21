@@ -1,9 +1,9 @@
 {
   "bestStrategy": {
-    "id": "fib_500_1272",
-    "name": "Fib 0.500 Entry",
-    "winRate": "53.54",
-    "category": "SCALPING"
+    "id": "fib_786_1000",
+    "name": "Fib 0.786 Deep",
+    "winRate": "53.72",
+    "category": "SWING_TRADE"
   },
   "positionSizing": {
     "fib_382_1618": "0.02",
@@ -22,5 +22,5 @@
     "ma_crossover": "0.02",
     "liquidation_hunter": "0.02"
   },
-  "updated": 1771656617144
+  "updated": 1771662018940
 }

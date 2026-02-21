@@ -507,7 +507,7 @@ class DynamicTrader {
   /**
    * Execute sell via Solana Tracker
    */
-  async executeSolanaTrackerSell(tokenCA, percent = '95%') {
+  async executeSolanaTrackerSell(tokenCA, percent = '100%') {
     try {
       const wsol = 'So11111111111111111111111111111111111111112';
       const url = `${SOLANA_TRACKER_BASE_URL}/swap?from=${tokenCA}&to=${wsol}&fromAmount=${encodeURIComponent(percent)}&slippage=30&payer=${this.wallet.publicKey.toString()}&priorityFee=auto&priorityFeeLevel=high&txVersion=v0`;
@@ -1889,7 +1889,7 @@ async function monitor() {
     if (elapsedMs > MAX_HOLD_MS && price) {
       const pnl = ((price / POS.entry) - 1) * 100;
       console.log('⏰ MAX HOLD TIME REACHED - Force exit...');
-      const sellResult = await executeSell('95%');
+      const sellResult = await executeSell('100%');
       if (sellResult.success) {
         await notify(\`⏰ **MAX HOLD EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\nMax hold ${maxHoldMinutes} min reached\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         markPositionExited(POS.symbol, price, pnl, 'MAX_HOLD', sellResult.signature);
@@ -1916,7 +1916,7 @@ async function monitor() {
     // Stop loss - EXECUTE SELL
     if (price <= POS.stop) {
       console.log('🛑 STOP LOSS HIT - Executing sell...');
-      const sellResult = await executeSell('95%');
+      const sellResult = await executeSell('100%');
       if (sellResult.success) {
         await notify(\`🛑 **STOP LOSS EXECUTED**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: \${pnl.toFixed(2)}%\\n\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         markPositionExited(POS.symbol, price, pnl, 'STOP_LOSS', sellResult.signature);
@@ -1941,7 +1941,7 @@ async function monitor() {
     // Take profit 2 (final exit) - EXECUTE SELL
     if (price >= POS.tp2) {
       console.log('🎯 TP2 HIT - FINAL EXIT - Executing sell...');
-      const sellResult = await executeSell(partialExited ? '95%' : '95%');
+      const sellResult = await executeSell(partialExited ? '100%' : '100%');
       if (sellResult.success) {
         await notify(\`🎯 **TP2 EXECUTED - FINAL EXIT**\\n\\n\${POS.symbol}: $\${price.toFixed(8)}\\nPnL: +\${pnl.toFixed(2)}%\\n\\n✅ Trade complete!\\n🔗 **Tx:** https://solscan.io/tx/\${sellResult.signature}\`);
         markPositionExited(POS.symbol, price, pnl, 'TAKE_PROFIT', sellResult.signature);
