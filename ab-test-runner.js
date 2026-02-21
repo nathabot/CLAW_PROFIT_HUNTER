@@ -9,9 +9,36 @@ const fetch = require('node-fetch');
 const tokens = require('./ab-test-tokens.json');
 
 const modes = {
-  A: { name: 'Conservative', minScore: 8, minLiquidity: 20000, sl: 10, tp1: 25, tp2: 50 },
-  B: { name: 'Aggressive', minScore: 6, minLiquidity: 10000, sl: 15, tp1: 30, tp2: 74 },
-  C: { name: 'Proven Best', minScore: 6, minLiquidity: 10000, sl: 15, tp1: 30, tp2: 74 }
+  A: { 
+    name: 'Conservative', 
+    minScore: 8, 
+    minLiquidity: 20000, 
+    sl: 10, 
+    tp1: 25, 
+    tp2: 50,
+    entryFib: 0.382,
+    tpFib: 1.618
+  },
+  B: { 
+    name: 'Aggressive', 
+    minScore: 6, 
+    minLiquidity: 10000, 
+    sl: 15, 
+    tp1: 30, 
+    tp2: 74,
+    entryFib: 0.500,
+    tpFib: 1.272
+  },
+  C: { 
+    name: 'Proven Best', 
+    minScore: 6, 
+    minLiquidity: 10000, 
+    sl: 15, 
+    tp1: 30, 
+    tp2: 74,
+    entryFib: 0.618,
+    tpFib: 1.000
+  }
 };
 
 const results = { A: {wins:0,losses:0,trades:0}, B: {wins:0,losses:0,trades:0}, C: {wins:0,losses:0,trades:0} };
@@ -112,10 +139,10 @@ async function run() {
   // Save results
   fs.writeFileSync('/root/trading-bot/ab-test-results.json', JSON.stringify({results, modes, best, ts: Date.now()}, null, 2));
   
-  // Auto-integrate to proven tokens
+  // Auto-integrate to proven tokens (v2 with Paper Trader methodology)
   try {
     const { execSync } = require('child_process');
-    execSync('node /root/trading-bot/src/ab-test-to-proven.js', {stdio: 'inherit'});
+    execSync('node /root/trading-bot/src/ab-test-to-proven-v2.js', {stdio: 'inherit'});
   } catch(e) {
     console.log('⚠️ Integration to proven tokens failed');
   }
