@@ -1,7 +1,7 @@
 # BOK Intelligence Analytics
 
 *Auto-generated advanced analytics for trading optimization*
-*Updated: 2026-02-20T03:00:03.910Z*
+*Updated: 2026-02-21T07:00:04.284Z*
 
 ## Executive Summary
 
@@ -64,11 +64,11 @@ This report provides deep insights into strategy performance across different di
     },
     "7": {
       "wins": 0,
-      "losses": 1,
-      "total": 1,
-      "profit": -8.927231807951985,
+      "losses": 2,
+      "total": 2,
+      "profit": -8.975587707371723,
       "winRate": "0.0",
-      "avgProfit": "-8.93"
+      "avgProfit": "-4.49"
     },
     "8": {
       "wins": 0,
@@ -91,16 +91,20 @@ This report provides deep insights into strategy performance across different di
       "avgProfit": "NaN"
     },
     "11": {
-      "wins": 0,
+      "wins": 1,
       "losses": 0,
-      "total": 0,
-      "profit": 0
+      "total": 1,
+      "profit": 0.659472422062346,
+      "winRate": "100.0",
+      "avgProfit": "0.66"
     },
     "12": {
-      "wins": 0,
+      "wins": 2,
       "losses": 0,
-      "total": 0,
-      "profit": 0
+      "total": 2,
+      "profit": 1.6441863191864137,
+      "winRate": "100.0",
+      "avgProfit": "0.82"
     },
     "13": {
       "wins": 0,
@@ -109,16 +113,20 @@ This report provides deep insights into strategy performance across different di
       "profit": 0
     },
     "14": {
-      "wins": 0,
+      "wins": 1,
       "losses": 0,
-      "total": 0,
-      "profit": 0
+      "total": 1,
+      "profit": 1.4886859865025803,
+      "winRate": "100.0",
+      "avgProfit": "1.49"
     },
     "15": {
-      "wins": 0,
-      "losses": 0,
-      "total": 0,
-      "profit": 0
+      "wins": 1,
+      "losses": 1,
+      "total": 2,
+      "profit": -0.4602944439697221,
+      "winRate": "50.0",
+      "avgProfit": "-0.23"
     },
     "16": {
       "wins": 0,
@@ -128,8 +136,8 @@ This report provides deep insights into strategy performance across different di
     },
     "17": {
       "wins": 0,
-      "losses": 6,
-      "total": 6,
+      "losses": 7,
+      "total": 7,
       "profit": null,
       "winRate": "0.0",
       "avgProfit": "NaN"
@@ -155,10 +163,12 @@ This report provides deep insights into strategy performance across different di
       "profit": 0
     },
     "21": {
-      "wins": 0,
-      "losses": 0,
-      "total": 0,
-      "profit": 0
+      "wins": 1,
+      "losses": 1,
+      "total": 2,
+      "profit": 0.6496975508462066,
+      "winRate": "50.0",
+      "avgProfit": "0.32"
     },
     "22": {
       "wins": 2,
@@ -170,11 +180,11 @@ This report provides deep insights into strategy performance across different di
     },
     "23": {
       "wins": 0,
-      "losses": 2,
-      "total": 2,
+      "losses": 3,
+      "total": 3,
       "profit": -5.283877973717177,
       "winRate": "0.0",
-      "avgProfit": "-2.64"
+      "avgProfit": "-1.76"
     }
   },
   "marketConditionPerformance": {
@@ -187,26 +197,27 @@ This report provides deep insights into strategy performance across different di
       "avgProfit": "NaN"
     },
     "UNKNOWN": {
-      "wins": 6,
-      "losses": 23,
-      "total": 29,
+      "wins": 12,
+      "losses": 28,
+      "total": 40,
       "profit": null,
-      "winRate": "20.7",
+      "winRate": "30.0",
       "avgProfit": "NaN"
     }
   },
   "tokenCategoryPerformance": {
     "MEME": {
-      "wins": 0,
-      "losses": 3,
-      "total": 3,
+      "wins": 5,
+      "losses": 6,
+      "total": 11,
       "profit": null,
       "tokens": [
         "WIF",
         "$WIF",
-        "Bonk"
+        "Bonk",
+        "SAMO"
       ],
-      "winRate": "0.0",
+      "winRate": "45.5",
       "avgProfit": "NaN"
     },
     "LST": {
@@ -233,8 +244,8 @@ This report provides deep insights into strategy performance across different di
     },
     "OTHER": {
       "wins": 5,
-      "losses": 19,
-      "total": 24,
+      "losses": 20,
+      "total": 25,
       "profit": null,
       "tokens": [
         "KIMCHI",
@@ -242,21 +253,22 @@ This report provides deep insights into strategy performance across different di
         "DARKTRUMP",
         "awi",
         "LoD",
-        "DEADLUCKY"
+        "DEADLUCKY",
+        "COPE"
       ],
-      "winRate": "20.8",
+      "winRate": "20.0",
       "avgProfit": "NaN"
     },
     "DEFI": {
-      "wins": 1,
-      "losses": 0,
-      "total": 1,
-      "profit": 1.1921568627450974,
+      "wins": 2,
+      "losses": 1,
+      "total": 3,
+      "profit": 1.6813721108412838,
       "tokens": [
         "RAY"
       ],
-      "winRate": "100.0",
-      "avgProfit": "1.19"
+      "winRate": "66.7",
+      "avgProfit": "0.56"
     }
   },
   "strategyMarketFit": {
@@ -304,10 +316,13 @@ This report provides deep insights into strategy performance across different di
     "fib_618_1000_UNKNOWN": {
       "strategy": "fib_618_1000",
       "market": "UNKNOWN",
-      "wins": 1,
-      "losses": 0,
-      "total": 1,
-      "profit": 1.1921568627450974
+      "wins": 7,
+      "losses": 5,
+      "total": 12,
+      "profit": 2.0549444560795322,
+      "winRate": "58.3",
+      "avgProfit": "0.17",
+      "fitScore": 35.66
     }
   },
   "optimalSettings": {
@@ -331,20 +346,21 @@ This report provides deep insights into strategy performance across different di
     "bestMarketConditions": [
       {
         "condition": "UNKNOWN",
-        "winRate": "20.7",
+        "winRate": "30.0",
         "profit": "NaN"
       }
     ],
     "avoidHours": [
       6,
       17,
-      18
+      18,
+      23
     ],
     "avoidConditions": [
       "UNKNOWN"
     ]
   },
-  "lastUpdate": "2026-02-20T03:00:03.910Z"
+  "lastUpdate": "2026-02-21T07:00:04.284Z"
 }
 ```
 
@@ -354,12 +370,17 @@ This report provides deep insights into strategy performance across different di
 |------|--------|----------|------------|--------|
 | 5:00 | 1 | 0.0% | -0.18% | 🔴 |
 | 6:00 | 14 | 28.6% | NaN% | 🔴 |
-| 7:00 | 1 | 0.0% | -8.93% | 🔴 |
+| 7:00 | 2 | 0.0% | -4.49% | 🔴 |
 | 10:00 | 1 | 0.0% | NaN% | 🔴 |
-| 17:00 | 6 | 0.0% | NaN% | 🔴 |
+| 11:00 | 1 | 100.0% | 0.66% | 🟢 |
+| 12:00 | 2 | 100.0% | 0.82% | 🟢 |
+| 14:00 | 1 | 100.0% | 1.49% | 🟢 |
+| 15:00 | 2 | 50.0% | -0.23% | 🟡 |
+| 17:00 | 7 | 0.0% | NaN% | 🔴 |
 | 18:00 | 3 | 0.0% | -54.85% | 🔴 |
+| 21:00 | 2 | 50.0% | 0.32% | 🟡 |
 | 22:00 | 2 | 100.0% | 1.42% | 🟢 |
-| 23:00 | 2 | 0.0% | -2.64% | 🔴 |
+| 23:00 | 3 | 0.0% | -1.76% | 🔴 |
 
 
 ## Market Condition Performance
@@ -367,18 +388,18 @@ This report provides deep insights into strategy performance across different di
 | Condition | Trades | Win Rate | Avg Profit |
 |-----------|--------|----------|------------|
 | SIDEWAYS | 1 | 0.0% | NaN% |
-| UNKNOWN | 29 | 20.7% | NaN% |
+| UNKNOWN | 40 | 30.0% | NaN% |
 
 
 ## Token Category Analysis
 
 | Category | Trades | Win Rate | Avg Profit | Tokens |
 |----------|--------|----------|------------|--------|
-| MEME | 3 | 0.0% | NaN% | WIF, $WIF, Bonk |
+| MEME | 11 | 45.5% | NaN% | WIF, $WIF, Bonk... |
 | LST | 1 | 0.0% | -0.04% | mSOL |
 | GAMING | 1 | 0.0% | -8.91% | ATLAS |
-| OTHER | 24 | 20.8% | NaN% | KIMCHI, Punch, DARKTRUMP... |
-| DEFI | 1 | 100.0% | 1.19% | RAY |
+| OTHER | 25 | 20.0% | NaN% | KIMCHI, Punch, DARKTRUMP... |
+| DEFI | 3 | 66.7% | 0.56% | RAY |
 
 
 ## Strategy-Market Fit
@@ -388,6 +409,7 @@ This report provides deep insights into strategy performance across different di
 | fib_786_1000 | UNKNOWN | 11 | 18.2% | NaN |
 | sr_breakout | UNKNOWN | 9 | 33.3% | NaN |
 | fib_500_1272 | UNKNOWN | 8 | 0.0% | NaN |
+| fib_618_1000 | UNKNOWN | 12 | 58.3% | 35.7 |
 
 
 ## Recommendations
@@ -396,10 +418,10 @@ This report provides deep insights into strategy performance across different di
 Trade during: 6:00, 17:00, 18:00
 
 ### Best Market Conditions
-- **UNKNOWN**: 20.7% WR
+- **UNKNOWN**: 30.0% WR
 
 ### Avoid Hours
-Avoid trading: 6:00, 17:00, 18:00
+Avoid trading: 6:00, 17:00, 18:00, 23:00
 
 
 

@@ -18,9 +18,9 @@ console.log('Wallet loaded:', wallet.publicKey.toString().slice(0, 10));
 
 const ATLAS_CA = 'ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx';
 const SOL_MINT = 'So11111111111111111111111111111111111111112';
-const ATLAS_DECIMALS = 8; // ATLAS has 8 decimals!
+const ATLAS_DECIMALS = 8;
 
-// All 4 ATLAS positions (UI amounts, will convert to raw)
+// All 4 ATLAS positions
 const POSITIONS = [
   { idx: 1, entry: 0.000202, size: 0.015, stop: 0.00019148, tp1: 0.00020925, tp2: 0.00021657, tokens: 6015.45 },
   { idx: 2, entry: 0.000192, size: 0.015, stop: 0.00018144, tp1: 0.00019968, tp2: 0.00020618, tokens: 6250 },
@@ -28,9 +28,11 @@ const POSITIONS = [
   { idx: 4, entry: 0.000198, size: 0.015, stop: 0.00018791, tp1: 0.00020516, tp2: 0.00021186, tokens: 6060 }
 ];
 
-let partialExited = [false, false, false, false];
+// Confirmation windows to prevent false alerts
+let tp1Detected = [false, false, false, false];  // First detection
+let tp1Confirmed = [false, false, false, false]; // Second detection = confirmed
+let slDetected = [false, false, false, false];
 
-// Convert UI amount to raw (with decimals)
 function toRaw(uiAmount) {
   return Math.floor(uiAmount * Math.pow(10, ATLAS_DECIMALS));
 }
@@ -46,28 +48,30 @@ async function getPrice() {
   }
 }
 
-async function executeSell(pos, percent, retryCount = 0) {
+async function executeSell(pos, percent, isStopLoss = false, retryCount = 0) {
   const maxRetries = 3;
+  const slippage = isStopLoss ? 50 : 35;
   
   try {
     const uiAmount = pos.tokens * percent;
-    const rawAmount = toRaw(uiAmount); // FIX: Convert to raw units!
+    const rawAmount = toRaw(uiAmount);
     
-    console.log(`   Attempting to sell ${uiAmount} ATLAS (${percent * 100}%) = ${rawAmount} raw`);
+    console.log(`   Attempting to sell ${uiAmount} ATLAS (${percent * 100}%, slippage: ${slippage}%)`);
     
-    // Get quote with raw amount
-    const quoteUrl = `https://public.jupiterapi.com/quote?inputMint=${ATLAS_CA}&outputMint=${SOL_MINT}&amount=${rawAmount}&slippage=15`;
+    const quoteUrl = `https://public.jupiterapi.com/quote?inputMint=${ATLAS_CA}&outputMint=${SOL_MINT}&amount=${rawAmount}&slippage=${slippage}`;
     const quoteRes = await fetch(quoteUrl);
     const quote = await quoteRes.json();
     
     if (!quote.routePlan) {
-      console.log(`   ❌ NO ROUTE for ${rawAmount} raw`);
+      console.log(`   ❌ NO ROUTE for ${uiAmount} ATLAS`);
       return { success: false, error: `No route for ${uiAmount} ATLAS` };
     }
     
-    console.log(`   📋 Got quote: ${quote.outAmount} lamports (${quote.routePlan[0].swapInfo.label})`);
+    console.log(`   📋 Quote: ${quote.outAmount} lamports`);
     
-    // Execute swap
+    // Get fresh blockhash
+    const { blockhash } = await connection.getLatestBlockhash();
+    
     const swapRes = await fetch('https://public.jupiterapi.com/swap', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -85,6 +89,7 @@ async function executeSell(pos, percent, retryCount = 0) {
     
     const { VersionedTransaction } = require('@solana/web3.js');
     const tx = VersionedTransaction.deserialize(Buffer.from(swapData.swapTransaction, 'base64'));
+    tx.message.recentBlockhash = blockhash;
     tx.sign([wallet]);
     
     const sig = await connection.sendTransaction(tx, { maxRetries: 3 });
@@ -97,8 +102,8 @@ async function executeSell(pos, percent, retryCount = 0) {
     console.log(`   ❌ Error: ${e.message}`);
     if (retryCount < maxRetries) {
       console.log(`   🔄 Retrying (${retryCount + 1}/${maxRetries})...`);
-      await new Promise(r => setTimeout(r, 2000));
-      return executeSell(pos, percent, retryCount + 1);
+      await new Promise(r => setTimeout(r, 3000));
+      return executeSell(pos, percent, isStopLoss, retryCount + 1);
     }
     return { success: false, error: e.message };
   }
@@ -119,7 +124,7 @@ async function notify(msg) {
 }
 
 async function monitor() {
-  console.log('🟢 ATLAS Multi-Position Monitor Started (v3 - FIXED DECIMALS)');
+  console.log('🟢 ATLAS Multi-Position Monitor v5 - WITH CONFIRMATION WINDOW');
   
   while (true) {
     const price = await getPrice();
@@ -132,34 +137,48 @@ async function monitor() {
       
       console.log(`${time} | ATLAS-${pos.idx}: $${price} | PnL: ${pnl > 0 ? '+' : ''}${pnl.toFixed(2)}%`);
       
-      // Stop loss
-      if (price <= pos.stop && pnl < 0 && !partialExited[i]) {
-        console.log(`🛑 ATLAS-${pos.idx} STOP LOSS triggered`);
-        const result = await executeSell(pos, 0.95);
+      // Stop loss - use higher slippage (30%)
+      if (price <= pos.stop && pnl < 0 && !tp1Confirmed[i]) {
+        console.log(`🛑 ATLAS-${pos.idx} STOP LOSS triggered (30% slippage)`);
+        const result = await executeSell(pos, 0.95, true);
         if (result.success) {
           await notify(`🛑 **SL EXIT** ATLAS-${pos.idx}: $${price} (PnL: ${pnl.toFixed(2)}%)\nTx: ${result.signature}`);
+          tp1Confirmed[i] = true; // Mark as exited
         } else {
-          await notify(`🛑 **SL FAILED** ATLAS-${pos.idx}: ${result.error}`);
+          await notify(`🛑 **SL FAILED** ATLAS-${pos.idx}: ${result.error}\nPrice: $${price}`);
         }
       }
       
-      // TP1 (partial exit)
-      if (!partialExited[i] && price >= pos.tp1) {
-        console.log(`🎯 ATLAS-${pos.idx} TP1 HIT - attempting 50% sell`);
-        partialExited[i] = true;
-        const result = await executeSell(pos, 0.5);
-        if (result.success) {
-          await notify(`🎯 **TP1** ATLAS-${pos.idx}: $${price} (+${pnl.toFixed(2)}%)\nTx: ${result.signature}`);
-        } else {
-          await notify(`⚠️ **TP1 FAILED** ATLAS-${pos.idx}: ${result.error}\nPrice: $${price} | Target: $${pos.tp1}`);
-          partialExited[i] = false; // Reset to retry
+      // TP1 with confirmation window (2 checks)
+      if (!tp1Confirmed[i] && price >= pos.tp1) {
+        if (!tp1Detected[i]) {
+          tp1Detected[i] = true;
+          console.log(`   ⚠️ ATLAS-${pos.idx} TP1 detected - waiting confirmation (15s)...`);
+        } else if (!tp1Confirmed[i]) {
+          // Second detection - CONFIRM
+          console.log(`   ✅ ATLAS-${pos.idx} TP1 CONFIRMED - executing...`);
+          tp1Confirmed[i] = true;
+          const result = await executeSell(pos, 0.5, false);
+          if (result.success) {
+            await notify(`🎯 **TP1** ATLAS-${pos.idx}: $${price} (+${pnl.toFixed(2)}%)\nTx: ${result.signature}`);
+          } else {
+            await notify(`⚠️ **TP1 FAILED** ATLAS-${pos.idx}: ${result.error}`);
+            tp1Confirmed[i] = false; // Reset on failure
+            tp1Detected[i] = false;
+          }
+        }
+      } else {
+        // Price dropped below TP1 - reset detection
+        if (tp1Detected[i] && !tp1Confirmed[i]) {
+          console.log(`   ❌ ATLAS-${pos.idx} TP1 detection reset - price dropped`);
+          tp1Detected[i] = false;
         }
       }
       
-      // TP2 (final exit)
+      // TP2
       if (price >= pos.tp2) {
-        console.log(`🎯 ATLAS-${pos.idx} TP2 HIT - final exit`);
-        const result = await executeSell(pos, 0.95);
+        console.log(`🎯 ATLAS-${pos.idx} TP2 HIT`);
+        const result = await executeSell(pos, 0.95, false);
         if (result.success) {
           await notify(`🎯 **TP2 FINAL** ATLAS-${pos.idx}: $${price} (+${pnl.toFixed(2)}%)\nTx: ${result.signature}`);
         } else {
@@ -168,7 +187,7 @@ async function monitor() {
       }
     }
     
-    await new Promise(r => setTimeout(r, 15000)); // 15s check
+    await new Promise(r => setTimeout(r, 15000));
   }
 }
 

@@ -23,10 +23,10 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: 'RAY',
   ca: '4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R',
-  entry: 0.6375,
-  stop: 0.5992672124999999,
-  tp1: 0.654869325,
-  tp2: 0.67777739535,
+  entry: 0.6588,
+  stop: 0.6192897876000001,
+  tp1: 0.6767496648000001,
+  tp2: 0.7004231342064001,
   partialExit: 0.5
 };
 

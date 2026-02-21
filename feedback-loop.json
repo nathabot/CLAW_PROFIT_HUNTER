@@ -1,15 +1,15 @@
 {
   "adjustments": [
     {
-      "timestamp": 1771468202829,
+      "timestamp": 1771569004080,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
-      "oldWeight": 0.3771495156249999,
-      "newWeight": 0.32057708828124987,
+      "oldWeight": 0.3,
+      "newWeight": 0.3,
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771468202829,
+      "timestamp": 1771569004081,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -17,15 +17,15 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771470003131,
+      "timestamp": 1771570803083,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
-      "oldWeight": 0.32057708828124987,
+      "oldWeight": 0.3,
       "newWeight": 0.3,
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771470003131,
+      "timestamp": 1771570803083,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -33,7 +33,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771471803723,
+      "timestamp": 1771572605041,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -41,7 +41,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771471803723,
+      "timestamp": 1771572605041,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -49,7 +49,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771473603843,
+      "timestamp": 1771574403727,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -57,7 +57,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771473603843,
+      "timestamp": 1771574403728,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -65,7 +65,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771475403442,
+      "timestamp": 1771576203278,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -73,7 +73,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771475403443,
+      "timestamp": 1771576203278,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -81,7 +81,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771477205057,
+      "timestamp": 1771578004571,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -89,7 +89,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771477205057,
+      "timestamp": 1771578004571,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -97,7 +97,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771479003303,
+      "timestamp": 1771579803079,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -105,7 +105,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771479003303,
+      "timestamp": 1771579803079,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -113,7 +113,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771480803940,
+      "timestamp": 1771581603745,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -121,7 +121,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771480803940,
+      "timestamp": 1771581603746,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -129,7 +129,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771482603755,
+      "timestamp": 1771583403734,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -137,7 +137,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771482603756,
+      "timestamp": 1771583403734,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -145,7 +145,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771484405016,
+      "timestamp": 1771585203861,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -153,7 +153,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771484405017,
+      "timestamp": 1771585203861,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -161,7 +161,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771486203405,
+      "timestamp": 1771587003412,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -169,7 +169,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771486203405,
+      "timestamp": 1771587003412,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -177,7 +177,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771488004437,
+      "timestamp": 1771588804156,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -185,7 +185,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771488004437,
+      "timestamp": 1771588804156,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -193,7 +193,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771489802587,
+      "timestamp": 1771590602992,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -201,7 +201,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771489802587,
+      "timestamp": 1771590602992,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -209,7 +209,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771491604560,
+      "timestamp": 1771592404982,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -217,7 +217,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771491604561,
+      "timestamp": 1771592404982,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -225,7 +225,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771493404162,
+      "timestamp": 1771594203032,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -233,7 +233,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771493404162,
+      "timestamp": 1771594203032,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -241,7 +241,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771495204597,
+      "timestamp": 1771596004629,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -249,7 +249,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771495204597,
+      "timestamp": 1771596004629,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -257,7 +257,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771497003446,
+      "timestamp": 1771597802897,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -265,7 +265,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771497003446,
+      "timestamp": 1771597802897,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -273,7 +273,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771498804771,
+      "timestamp": 1771599603787,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -281,7 +281,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771498804771,
+      "timestamp": 1771599603787,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -289,7 +289,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771500603880,
+      "timestamp": 1771601404722,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -297,7 +297,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771500603880,
+      "timestamp": 1771601404722,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -305,7 +305,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771502404467,
+      "timestamp": 1771603203251,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -313,7 +313,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771502404467,
+      "timestamp": 1771603203251,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -321,7 +321,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771504203555,
+      "timestamp": 1771605003346,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -329,7 +329,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771504203555,
+      "timestamp": 1771605003346,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -337,7 +337,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771506005207,
+      "timestamp": 1771606804538,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -345,7 +345,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771506005207,
+      "timestamp": 1771606804538,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -353,7 +353,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771507804137,
+      "timestamp": 1771608602907,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -361,7 +361,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771507804137,
+      "timestamp": 1771608602907,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -369,7 +369,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771509604366,
+      "timestamp": 1771610403712,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -377,7 +377,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771509604366,
+      "timestamp": 1771610403713,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -385,7 +385,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771511404417,
+      "timestamp": 1771612203713,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -393,7 +393,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771511404417,
+      "timestamp": 1771612203713,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -401,7 +401,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771513204432,
+      "timestamp": 1771614003566,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -409,7 +409,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771513204433,
+      "timestamp": 1771614003566,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -417,7 +417,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771515003445,
+      "timestamp": 1771615803588,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -425,7 +425,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771515003446,
+      "timestamp": 1771615803588,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -433,7 +433,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771516803474,
+      "timestamp": 1771617603210,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -441,7 +441,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771516803474,
+      "timestamp": 1771617603210,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -449,7 +449,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771518603580,
+      "timestamp": 1771619403260,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -457,7 +457,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771518603581,
+      "timestamp": 1771619403261,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -465,7 +465,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771520406164,
+      "timestamp": 1771621204372,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -473,7 +473,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771520406164,
+      "timestamp": 1771621204372,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -481,7 +481,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771522203285,
+      "timestamp": 1771623003375,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -489,7 +489,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771522203285,
+      "timestamp": 1771623003375,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -497,7 +497,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771524005267,
+      "timestamp": 1771624804110,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -505,7 +505,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771524005267,
+      "timestamp": 1771624804110,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -513,7 +513,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771525803671,
+      "timestamp": 1771626602981,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -521,7 +521,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771525803671,
+      "timestamp": 1771626602981,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -529,7 +529,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771527603637,
+      "timestamp": 1771628402922,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -537,7 +537,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771527603637,
+      "timestamp": 1771628402922,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -545,7 +545,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771529403661,
+      "timestamp": 1771630203147,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -553,7 +553,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771529403661,
+      "timestamp": 1771630203147,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -561,7 +561,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771531204381,
+      "timestamp": 1771632004966,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -569,7 +569,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771531204382,
+      "timestamp": 1771632004967,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -577,7 +577,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771533002879,
+      "timestamp": 1771633802768,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -585,7 +585,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771533002879,
+      "timestamp": 1771633802768,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -593,7 +593,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771534803600,
+      "timestamp": 1771635604009,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -601,7 +601,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771534803600,
+      "timestamp": 1771635604009,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -609,7 +609,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771536603182,
+      "timestamp": 1771637403325,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -617,7 +617,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771536603182,
+      "timestamp": 1771637403325,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -625,7 +625,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771538404744,
+      "timestamp": 1771639203569,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -633,7 +633,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771538404744,
+      "timestamp": 1771639203569,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -641,7 +641,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771540203868,
+      "timestamp": 1771641002952,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -649,7 +649,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771540203869,
+      "timestamp": 1771641002953,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -657,7 +657,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771542004269,
+      "timestamp": 1771642803409,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -665,7 +665,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771542004270,
+      "timestamp": 1771642803409,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -673,7 +673,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771543805631,
+      "timestamp": 1771644603285,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -681,7 +681,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771543805632,
+      "timestamp": 1771644603285,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -689,7 +689,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771545605757,
+      "timestamp": 1771646403168,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -697,7 +697,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771545605758,
+      "timestamp": 1771646403168,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -705,7 +705,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771547403362,
+      "timestamp": 1771648203852,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -713,7 +713,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771547403362,
+      "timestamp": 1771648203852,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -721,7 +721,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771549204792,
+      "timestamp": 1771650003469,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -729,7 +729,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771549204792,
+      "timestamp": 1771650003469,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -737,7 +737,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771551003403,
+      "timestamp": 1771651803426,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -745,7 +745,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771551003405,
+      "timestamp": 1771651803426,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -753,7 +753,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771552804429,
+      "timestamp": 1771653603459,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -761,7 +761,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771552804429,
+      "timestamp": 1771653603460,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -769,7 +769,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771554603749,
+      "timestamp": 1771655403861,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -777,7 +777,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771554603749,
+      "timestamp": 1771655403861,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -785,7 +785,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771556403532,
+      "timestamp": 1771657204193,
       "strategyId": "fib_500_1272",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -793,7 +793,7 @@
       "reason": "Live trade loss"
     },
     {
-      "timestamp": 1771556403534,
+      "timestamp": 1771657204194,
       "strategyId": "fib_786_1000",
       "result": "LOSS",
       "oldWeight": 0.3,
@@ -805,5 +805,5 @@
     "fib_786_1000": 0.3,
     "fib_500_1272": 0.3
   },
-  "lastUpdate": "2026-02-20T03:00:03.534Z"
+  "lastUpdate": "2026-02-21T07:00:04.194Z"
 }

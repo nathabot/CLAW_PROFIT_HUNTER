@@ -23,10 +23,10 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: 'Bonk',
   ca: 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263',
-  entry: 0.000006204,
-  stop: 0.0000058319275079999994,
-  tp1: 0.000006373034184,
-  tp2: 0.0000065959701345119996,
+  entry: 0.000006175,
+  stop: 0.000005804666725,
+  tp1: 0.00000634324405,
+  tp2: 0.0000065651379079,
   partialExit: 0.5
 };
 

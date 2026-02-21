@@ -723,3 +723,298 @@
 [2026-02-20T01:00:05.616Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
 [2026-02-20T01:00:05.616Z] ℹ️ ========================================
 
+[2026-02-20T05:00:02.282Z] ℹ️ ========================================
+[2026-02-20T05:00:02.317Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-20T05:00:02.317Z] ℹ️ Dynamic Signal Generation
+[2026-02-20T05:00:02.317Z] ℹ️ ========================================
+
+[2026-02-20T05:00:02.418Z] ℹ️ Database connected (schema updated)
+
+[2026-02-20T05:00:02.419Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-20T05:00:02.665Z] ℹ️ Found 20 trending tokens
+
+[2026-02-20T05:00:03.145Z] ⚠️ AVP: Low liquidity ($7,687.89)
+[2026-02-20T05:00:03.211Z] ⚠️ MAGA: Low liquidity ($0)
+[2026-02-20T05:00:03.350Z] ✅ Lobstar: ✅ INSERTED (7.0/10)
+[2026-02-20T05:00:03.350Z] ℹ️    Entry: $0.000392
+[2026-02-20T05:00:03.350Z] ℹ️    TP1: $0.000424 | TP2: $0.000451
+[2026-02-20T05:00:03.350Z] ℹ️    SL: $0.000373
+[2026-02-20T05:00:03.350Z] ℹ️    Reasons: Very high volume, Strong 24h momentum, Slight buying edge, Moderate liquidity
+
+[2026-02-20T05:00:03.888Z] ⚠️ Juno: Low liquidity ($0)
+[2026-02-20T05:00:03.937Z] ⚠️ ABYSS: Low liquidity ($12,507.56)
+[2026-02-20T05:00:03.978Z] ⚠️ JaunAlien: Low liquidity ($0)
+[2026-02-20T05:00:04.028Z] ⚠️ UFO: Low liquidity ($0)
+[2026-02-20T05:00:04.088Z] ⚠️ APEX: Low liquidity ($17,629.66)
+[2026-02-20T05:00:04.124Z] ⚠️ UFO: Low liquidity ($0)
+[2026-02-20T05:00:04.182Z] ⚠️ COSITA: Low liquidity ($0)
+[2026-02-20T05:00:04.235Z] ⚠️ aliens: Low liquidity ($7,398.24)
+[2026-02-20T05:00:04.276Z] ⚠️ CT: Low liquidity ($0)
+[2026-02-20T05:00:04.330Z] ⚠️ NORDIC: Low liquidity ($0)
+[2026-02-20T05:00:04.377Z] ⚠️ ANALPROBE: Low liquidity ($11,112.78)
+[2026-02-20T05:00:04.417Z] ⚠️ Tinfoil: Low liquidity ($0)
+[2026-02-20T05:00:04.469Z] ✅ Hutch: ✅ INSERTED (6.5/10)
+[2026-02-20T05:00:04.470Z] ℹ️    Entry: $0.000215
+[2026-02-20T05:00:04.470Z] ℹ️    TP1: $0.000232 | TP2: $0.000247
+[2026-02-20T05:00:04.470Z] ℹ️    SL: $0.000204
+[2026-02-20T05:00:04.470Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Heavy buying pressure
+
+[2026-02-20T05:00:05.018Z] ⚠️ SEEDPHRASE: Low liquidity ($0)
+[2026-02-20T05:00:05.313Z] ⚠️ Area 51: Low liquidity ($0)
+[2026-02-20T05:00:05.348Z] ⚠️ UFC: Low liquidity ($9,141.21)
+[2026-02-20T05:00:05.386Z] ⚠️ MAGA: Low liquidity ($0)
+[2026-02-20T05:00:05.386Z] ℹ️ 
+========================================
+[2026-02-20T05:00:05.386Z] ℹ️ SUMMARY: 2 new signals, 18 skipped
+[2026-02-20T05:00:05.386Z] ℹ️ ========================================
+
+[2026-02-20T09:00:01.471Z] ℹ️ ========================================
+[2026-02-20T09:00:01.472Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-20T09:00:01.472Z] ℹ️ Dynamic Signal Generation
+[2026-02-20T09:00:01.472Z] ℹ️ ========================================
+
+[2026-02-20T09:00:01.541Z] ℹ️ Database connected (schema updated)
+
+[2026-02-20T09:00:01.541Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-20T09:00:02.064Z] ℹ️ Found 20 trending tokens
+
+[2026-02-20T09:00:02.823Z] ⚠️ Dana: Low liquidity ($0)
+[2026-02-20T09:00:02.855Z] ⚠️ Deadcat: Low liquidity ($0)
+[2026-02-20T09:00:02.893Z] ⚠️ CORNCHIPS: Low liquidity ($15,964.04)
+[2026-02-20T09:00:02.939Z] ⚠️ Uakari: Low liquidity ($0)
+[2026-02-20T09:00:02.993Z] ⚠️ ZOG: Low liquidity ($0)
+[2026-02-20T09:00:03.033Z] ⚠️ BrainTwin: Low liquidity ($9,040.2)
+[2026-02-20T09:00:03.064Z] ⚠️ Sketch: Low liquidity ($0)
+[2026-02-20T09:00:03.104Z] ⚠️ reptilian: Low liquidity ($0)
+[2026-02-20T09:00:03.186Z] ⚠️ Wilde: Low liquidity ($19,206.97)
+[2026-02-20T09:00:03.298Z] ⚠️ HOWARD: Low liquidity ($0)
+[2026-02-20T09:00:03.329Z] ⚠️ Gizmo: Low liquidity ($9,651.89)
+[2026-02-20T09:00:03.361Z] ⚠️ SOLGizmo: Low liquidity ($0)
+[2026-02-20T09:00:03.395Z] ⚠️ Gizmo: Low liquidity ($6,048.79)
+[2026-02-20T09:00:03.457Z] ⚠️ SPACEXCOIN: Low liquidity ($3,016.38)
+[2026-02-20T09:00:03.488Z] ⚠️ Alien Pepe: Low liquidity ($10,967.75)
+[2026-02-20T09:00:03.528Z] ⚠️ Alien Pepe: Low liquidity ($0)
+[2026-02-20T09:00:03.558Z] ⚠️ Wojalien: Low liquidity ($3,860.4)
+[2026-02-20T09:00:03.617Z] ✅ CZ外星人: ✅ INSERTED (6.0/10)
+[2026-02-20T09:00:03.617Z] ℹ️    Entry: $0.000108
+[2026-02-20T09:00:03.617Z] ℹ️    TP1: $0.000115 | TP2: $0.000121
+[2026-02-20T09:00:03.617Z] ℹ️    SL: $0.000104
+[2026-02-20T09:00:03.617Z] ℹ️    Reasons: Moderate volume, Strong 24h momentum, Heavy buying pressure
+
+[2026-02-20T09:00:04.168Z] ⚠️ WhiteAlien: Low liquidity ($0)
+[2026-02-20T09:00:04.212Z] ⚠️ Wilde: Low liquidity ($5,288.46)
+[2026-02-20T09:00:04.212Z] ℹ️ 
+========================================
+[2026-02-20T09:00:04.212Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
+[2026-02-20T09:00:04.212Z] ℹ️ ========================================
+
+[2026-02-20T13:00:02.101Z] ℹ️ ========================================
+[2026-02-20T13:00:02.122Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-20T13:00:02.122Z] ℹ️ Dynamic Signal Generation
+[2026-02-20T13:00:02.122Z] ℹ️ ========================================
+
+[2026-02-20T13:00:02.170Z] ℹ️ Database connected (schema updated)
+
+[2026-02-20T13:00:02.171Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-20T13:00:02.596Z] ℹ️ Found 20 trending tokens
+
+[2026-02-20T13:00:02.974Z] ⚠️ GIGALIEN: Low liquidity ($0)
+[2026-02-20T13:00:03.024Z] ⚠️ ALIENS: Low liquidity ($10,150.19)
+[2026-02-20T13:00:03.130Z] ⚠️ AliensLove: Low liquidity ($22,768.81)
+[2026-02-20T13:00:03.194Z] ⚠️ JAPAN: Low liquidity ($16,048.99)
+[2026-02-20T13:00:03.254Z] ⚠️ 小傢伙: Low liquidity ($0)
+[2026-02-20T13:00:03.290Z] ⚠️ ALIENJAK: Confidence too low (1.5/10)
+[2026-02-20T13:00:03.350Z] ⚠️ WhiteAlien: Low liquidity ($0)
+[2026-02-20T13:00:03.420Z] ⚠️ ALIENGIRL: Low liquidity ($16,572.82)
+[2026-02-20T13:00:03.534Z] ⚠️ Lucy: Low liquidity ($0)
+[2026-02-20T13:00:03.728Z] ⚠️ JOOBI: Low liquidity ($18,237.37)
+[2026-02-20T13:00:03.792Z] ✅ CATALIEN: ✅ INSERTED (6.5/10)
+[2026-02-20T13:00:03.792Z] ℹ️    Entry: $0.000105
+[2026-02-20T13:00:03.792Z] ℹ️    TP1: $0.000113 | TP2: $0.000121
+[2026-02-20T13:00:03.792Z] ℹ️    SL: $0.000100
+[2026-02-20T13:00:03.792Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Heavy buying pressure
+
+[2026-02-20T13:00:04.338Z] ⚠️ FUKUMARU: Low liquidity ($0)
+[2026-02-20T13:00:04.394Z] ⚠️ LUCY: Low liquidity ($6,353.2)
+[2026-02-20T13:00:04.439Z] ⚠️ ONSING: Low liquidity ($23,285.94)
+[2026-02-20T13:00:04.480Z] ⚠️ CATSBY: Low liquidity ($6,653.49)
+[2026-02-20T13:00:04.812Z] ⚠️ BURGER: Low liquidity ($0)
+[2026-02-20T13:00:04.848Z] ⚠️ SELF: Low liquidity ($0)
+[2026-02-20T13:00:04.890Z] ⚠️ ALIENJUICE: Low liquidity ($3,103.87)
+[2026-02-20T13:00:04.954Z] ⚠️ PlushAlien: Low liquidity ($3,857.57)
+[2026-02-20T13:00:05.000Z] ⚠️ AWIEN: Confidence too low (3.5/10)
+[2026-02-20T13:00:05.000Z] ℹ️ 
+========================================
+[2026-02-20T13:00:05.000Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
+[2026-02-20T13:00:05.000Z] ℹ️ ========================================
+
+[2026-02-20T17:00:01.763Z] ℹ️ ========================================
+[2026-02-20T17:00:01.764Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-20T17:00:01.765Z] ℹ️ Dynamic Signal Generation
+[2026-02-20T17:00:01.765Z] ℹ️ ========================================
+
+[2026-02-20T17:00:01.867Z] ℹ️ Database connected (schema updated)
+
+[2026-02-20T17:00:01.868Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-20T17:00:02.204Z] ℹ️ Found 20 trending tokens
+
+[2026-02-20T17:00:02.860Z] ⚠️ CJS: Low liquidity ($0)
+[2026-02-20T17:00:02.908Z] ⚠️ Core-JS: Low liquidity ($0)
+[2026-02-20T17:00:02.964Z] ⚠️ Kukius: Low liquidity ($19,584.41)
+[2026-02-20T17:00:03.037Z] ⚠️ $Groka: Low liquidity ($0)
+[2026-02-20T17:00:03.115Z] ⚠️ KUKIUS: Low liquidity ($5,267.18)
+[2026-02-20T17:00:03.170Z] ⚠️ BABYPUNCH: Low liquidity ($0)
+[2026-02-20T17:00:03.465Z] ⚠️ KUKIUS: Low liquidity ($5,660.7)
+[2026-02-20T17:00:03.517Z] ⚠️ COSITA: Low liquidity ($0)
+[2026-02-20T17:00:03.571Z] ⚠️ PEPIUS: Low liquidity ($0)
+[2026-02-20T17:00:03.654Z] ⚠️ CHIMP: Low liquidity ($0)
+[2026-02-20T17:00:03.727Z] ⚠️ glorp: Low liquidity ($0)
+[2026-02-20T17:00:03.827Z] ⚠️ DEAD: Low liquidity ($0)
+[2026-02-20T17:00:03.905Z] ⚠️ Feathers: Low liquidity ($0)
+[2026-02-20T17:00:04.035Z] ✅ TAALAS: ✅ INSERTED (6.0/10)
+[2026-02-20T17:00:04.035Z] ℹ️    Entry: $0.000293
+[2026-02-20T17:00:04.036Z] ℹ️    TP1: $0.000312 | TP2: $0.000328
+[2026-02-20T17:00:04.036Z] ℹ️    SL: $0.000281
+[2026-02-20T17:00:04.036Z] ℹ️    Reasons: Very high volume, Strong 24h momentum, Slight buying edge
+
+[2026-02-20T17:00:04.593Z] ⚠️ NLC: Confidence too low (5.5/10)
+[2026-02-20T17:00:04.674Z] ⚠️ MILO: Low liquidity ($7,563.8)
+[2026-02-20T17:00:04.728Z] ⚠️ REFI: Confidence too low (5.5/10)
+[2026-02-20T17:00:04.801Z] ⚠️ GAITANA: Low liquidity ($21,378.9)
+[2026-02-20T17:00:04.862Z] ⚠️ Alion: Low liquidity ($0)
+[2026-02-20T17:00:04.929Z] ⚠️ BLUEBEAM: Low liquidity ($0)
+[2026-02-20T17:00:04.929Z] ℹ️ 
+========================================
+[2026-02-20T17:00:04.929Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
+[2026-02-20T17:00:04.929Z] ℹ️ ========================================
+
+[2026-02-20T21:00:02.170Z] ℹ️ ========================================
+[2026-02-20T21:00:02.171Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-20T21:00:02.171Z] ℹ️ Dynamic Signal Generation
+[2026-02-20T21:00:02.171Z] ℹ️ ========================================
+
+[2026-02-20T21:00:02.212Z] ℹ️ Database connected (schema updated)
+
+[2026-02-20T21:00:02.212Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-20T21:00:02.520Z] ℹ️ Found 20 trending tokens
+
+[2026-02-20T21:00:02.764Z] ⚠️ WHALE: Low liquidity ($0)
+[2026-02-20T21:00:02.807Z] ⚠️ Okidi: Low liquidity ($14,688.31)
+[2026-02-20T21:00:02.838Z] ⚠️ COUCH: Low liquidity ($0)
+[2026-02-20T21:00:02.872Z] ⚠️ BERT: Low liquidity ($0)
+[2026-02-20T21:00:02.911Z] ✅ Komomo : ✅ INSERTED (6.0/10)
+[2026-02-20T21:00:02.911Z] ℹ️    Entry: $0.000137
+[2026-02-20T21:00:02.911Z] ℹ️    TP1: $0.000145 | TP2: $0.000153
+[2026-02-20T21:00:02.911Z] ℹ️    SL: $0.000131
+[2026-02-20T21:00:02.911Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Strong buying
+
+[2026-02-20T21:00:03.445Z] ⚠️ Nipple: Low liquidity ($0)
+[2026-02-20T21:00:03.481Z] ⚠️ Mirocious: Low liquidity ($0)
+[2026-02-20T21:00:03.606Z] ✅ קєקє: ✅ INSERTED (6.5/10)
+[2026-02-20T21:00:03.606Z] ℹ️    Entry: $0.001839
+[2026-02-20T21:00:03.606Z] ℹ️    TP1: $0.001986 | TP2: $0.002115
+[2026-02-20T21:00:03.606Z] ℹ️    SL: $0.001747
+[2026-02-20T21:00:03.606Z] ℹ️    Reasons: Good volume, Strong 24h momentum, Slight buying edge, Adequate liquidity
+
+[2026-02-20T21:00:04.137Z] ⚠️ UFO: Confidence too low (0.0/10)
+[2026-02-20T21:00:04.167Z] ⚠️ MROOM: Low liquidity ($0)
+[2026-02-20T21:00:04.196Z] ⚠️ Okidi: Low liquidity ($11,352.4)
+[2026-02-20T21:00:04.225Z] ⚠️ Pippo: Low liquidity ($0)
+[2026-02-20T21:00:04.259Z] ✅ ALPHA: ✅ INSERTED (7.5/10)
+[2026-02-20T21:00:04.259Z] ℹ️    Entry: $0.000001
+[2026-02-20T21:00:04.259Z] ℹ️    TP1: $0.000001 | TP2: $0.000001
+[2026-02-20T21:00:04.259Z] ℹ️    SL: $0.000001
+[2026-02-20T21:00:04.259Z] ℹ️    Reasons: High volume, Strong 24h momentum, Strong buying, Moderate liquidity
+
+[2026-02-20T21:00:04.788Z] ⚠️ LARPZ: Low liquidity ($0)
+[2026-02-20T21:00:04.817Z] ⚠️ MUTT: Low liquidity ($23,286.82)
+[2026-02-20T21:00:04.846Z] ⚠️ BUNKER: Low liquidity ($6,138.83)
+[2026-02-20T21:00:04.875Z] ⚠️ Gnomes: Low liquidity ($0)
+[2026-02-20T21:00:04.909Z] ✅ JIMMY: ✅ INSERTED (6.0/10)
+[2026-02-20T21:00:04.909Z] ℹ️    Entry: $0.000165
+[2026-02-20T21:00:04.909Z] ℹ️    TP1: $0.000176 | TP2: $0.000185
+[2026-02-20T21:00:04.909Z] ℹ️    SL: $0.000158
+[2026-02-20T21:00:04.910Z] ℹ️    Reasons: Moderate volume, Strong 24h momentum, Heavy buying pressure
+
+[2026-02-20T21:00:05.440Z] ⚠️ B2: Low liquidity ($0)
+[2026-02-20T21:00:05.466Z] ⚠️ CUA: Low liquidity ($3,233.63)
+[2026-02-20T21:00:05.466Z] ℹ️ 
+========================================
+[2026-02-20T21:00:05.466Z] ℹ️ SUMMARY: 4 new signals, 16 skipped
+[2026-02-20T21:00:05.466Z] ℹ️ ========================================
+
+[2026-02-21T01:00:01.993Z] ℹ️ ========================================
+[2026-02-21T01:00:02.017Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-21T01:00:02.017Z] ℹ️ Dynamic Signal Generation
+[2026-02-21T01:00:02.017Z] ℹ️ ========================================
+
+[2026-02-21T01:00:02.070Z] ℹ️ Database connected (schema updated)
+
+[2026-02-21T01:00:02.070Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-21T01:00:02.252Z] ℹ️ Found 20 trending tokens
+
+[2026-02-21T01:00:02.738Z] ⚠️ TaxMap: Low liquidity ($11,150.31)
+[2026-02-21T01:00:02.766Z] ⚠️ Lupe: Low liquidity ($22,701.86)
+[2026-02-21T01:00:02.799Z] ⚠️ AI: Low liquidity ($0)
+[2026-02-21T01:00:02.839Z] ⚠️ ALIEN: Low liquidity ($0)
+[2026-02-21T01:00:02.871Z] ⚠️ CRAP: Low liquidity ($0)
+[2026-02-21T01:00:02.905Z] ⚠️ AI;DR: Low liquidity ($0)
+[2026-02-21T01:00:02.940Z] ⚠️ Pi: Low liquidity ($0)
+[2026-02-21T01:00:03.216Z] ⚠️ GLADOS: Low liquidity ($6,219.19)
+[2026-02-21T01:00:03.248Z] ⚠️ GLaDOS: Low liquidity ($3,548.03)
+[2026-02-21T01:00:03.289Z] ⚠️ BLAST: Low liquidity ($12,873.33)
+[2026-02-21T01:00:03.319Z] ⚠️ JOY: Low liquidity ($0)
+[2026-02-21T01:00:03.349Z] ⚠️ UFN: Low liquidity ($0)
+[2026-02-21T01:00:03.379Z] ⚠️ QQQ: Low liquidity ($0)
+[2026-02-21T01:00:03.407Z] ⚠️ Flatus : Low liquidity ($8,586.02)
+[2026-02-21T01:00:03.436Z] ⚠️ HOPIUM: Low liquidity ($23,327.85)
+[2026-02-21T01:00:03.466Z] ⚠️ EBE: Low liquidity ($19,046.93)
+[2026-02-21T01:00:03.499Z] ⚠️ Papua: Confidence too low (3.0/10)
+[2026-02-21T01:00:03.532Z] ⚠️ RetiredAlien: Low liquidity ($5,290.99)
+[2026-02-21T01:00:03.564Z] ⚠️ Reduary: Low liquidity ($9,815.15)
+[2026-02-21T01:00:03.592Z] ⚠️ Solo: Low liquidity ($0)
+[2026-02-21T01:00:03.592Z] ℹ️ 
+========================================
+[2026-02-21T01:00:03.592Z] ℹ️ SUMMARY: 0 new signals, 20 skipped
+[2026-02-21T01:00:03.593Z] ℹ️ ========================================
+
+[2026-02-21T05:00:01.482Z] ℹ️ ========================================
+[2026-02-21T05:00:01.493Z] ℹ️ STRATEGY INTELLIGENCE NETWORK v2.0
+[2026-02-21T05:00:01.494Z] ℹ️ Dynamic Signal Generation
+[2026-02-21T05:00:01.496Z] ℹ️ ========================================
+
+[2026-02-21T05:00:01.606Z] ℹ️ Database connected (schema updated)
+
+[2026-02-21T05:00:01.606Z] ℹ️ Fetching trending tokens from DexScreener...
+[2026-02-21T05:00:02.059Z] ℹ️ Found 20 trending tokens
+
+[2026-02-21T05:00:02.342Z] ⚠️ NANOBOT: Low liquidity ($6,557.54)
+[2026-02-21T05:00:02.389Z] ⚠️ RASP: Low liquidity ($13,718.1)
+[2026-02-21T05:00:02.430Z] ⚠️ clawcult: Low liquidity ($0)
+[2026-02-21T05:00:02.468Z] ⚠️ OPENCLAWPI: Low liquidity ($0)
+[2026-02-21T05:00:02.510Z] ⚠️ SlickRick: Low liquidity ($0)
+[2026-02-21T05:00:02.562Z] ⚠️ SHOULDER: Low liquidity ($0)
+[2026-02-21T05:00:02.601Z] ⚠️ MoltPad: Low liquidity ($15,079.34)
+[2026-02-21T05:00:02.675Z] ✅ Wilde: ✅ INSERTED (7.5/10)
+[2026-02-21T05:00:02.675Z] ℹ️    Entry: $0.006851
+[2026-02-21T05:00:02.675Z] ℹ️    TP1: $0.007509 | TP2: $0.008084
+[2026-02-21T05:00:02.675Z] ℹ️    SL: $0.006440
+[2026-02-21T05:00:02.675Z] ℹ️    Reasons: Good volume, Strong 24h momentum, More buyers than sellers, Good liquidity
+
+[2026-02-21T05:00:03.236Z] ⚠️ LIQU: Low liquidity ($0)
+[2026-02-21T05:00:03.285Z] ⚠️ Clawchan: Low liquidity ($3,155.45)
+[2026-02-21T05:00:03.326Z] ⚠️ GROKIPEDIA: Low liquidity ($7,581.66)
+[2026-02-21T05:00:03.635Z] ⚠️ lobster: Low liquidity ($20,198.16)
+[2026-02-21T05:00:03.680Z] ⚠️ SALAD: Low liquidity ($9,583.83)
+[2026-02-21T05:00:03.717Z] ⚠️ nanoclaw: Confidence too low (2.5/10)
+[2026-02-21T05:00:03.755Z] ⚠️ FireLobster: Low liquidity ($10,568.47)
+[2026-02-21T05:00:04.060Z] ⚠️ LLM: Low liquidity ($4,970.92)
+[2026-02-21T05:00:04.104Z] ⚠️ MIKE: Low liquidity ($0)
+[2026-02-21T05:00:04.201Z] ⚠️ 花花: Low liquidity ($0)
+[2026-02-21T05:00:04.254Z] ⚠️ OPENCLAWPI: Low liquidity ($0)
+[2026-02-21T05:00:04.542Z] ⚠️ ZEKI: Low liquidity ($14,885.19)
+[2026-02-21T05:00:04.542Z] ℹ️ 
+========================================
+[2026-02-21T05:00:04.542Z] ℹ️ SUMMARY: 1 new signals, 19 skipped
+[2026-02-21T05:00:04.542Z] ℹ️ ========================================
+

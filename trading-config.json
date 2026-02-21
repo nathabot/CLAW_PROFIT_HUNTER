@@ -31,7 +31,7 @@
   },
   "TAKE_PROFIT": {
     "TP1_PERCENT": 30,
-    "TP2_PERCENT": 58,
+    "TP2_PERCENT": 72,
     "PARTIAL_EXIT_PERCENT": 50,
     "AGGRESSIVE_EXIT": true,
     "DYNAMIC_MODE": true,
@@ -87,7 +87,8 @@
   "RISK_MANAGEMENT": {
     "MAX_CONCURRENT_POSITIONS": 2,
     "MAX_DAILY_DRAWDOWN": 30,
-    "MAX_POSITION_RISK": 20
+    "MAX_POSITION_RISK": 20,
+    "max_consecutive_losses": 2
   },
   "PAPER_TRADER": {
     "SIMULATIONS_PER_CYCLE": 50,
