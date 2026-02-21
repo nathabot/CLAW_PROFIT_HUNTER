@@ -153,5 +153,31 @@
       "PROFIT_DROP_THRESHOLD": 0.3,
       "COOLDOWN_MINUTES": 30
     }
+  },
+  "MODE_CONTROLLER": {
+    "mode": "balanced",
+    "modes": {
+      "conservative": {
+        "minScore": 7,
+        "minLiquidity": 50000,
+        "maxPosition": 0.01,
+        "maxPositions": 2,
+        "minWR": 55
+      },
+      "balanced": {
+        "minScore": 6,
+        "minLiquidity": 25000,
+        "maxPosition": 0.015,
+        "maxPositions": 3,
+        "minWR": 50
+      },
+      "aggressive": {
+        "minScore": 5,
+        "minLiquidity": 10000,
+        "maxPosition": 0.02,
+        "maxPositions": 4,
+        "minWR": 45
+      }
+    }
   }
 }

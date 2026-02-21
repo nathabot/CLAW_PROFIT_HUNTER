@@ -1,0 +1,48 @@
+[
+  {
+    "timestamp": "2026-02-21T15:56:26.039Z",
+    "positions": [
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771679805651,
+        "entryPrice": 0.000006415,
+        "currentPrice": 0.000006387,
+        "pnlPercent": -0.4364770070148154,
+        "hoursHeld": 2.6612494444444446,
+        "status": "OK",
+        "issues": []
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771680005330,
+        "entryPrice": 0.0002021,
+        "currentPrice": 0.0002017,
+        "pnlPercent": -0.19792182088075688,
+        "hoursHeld": 2.605792777777778,
+        "status": "OK",
+        "issues": []
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771680304983,
+        "entryPrice": 0.0004892,
+        "currentPrice": 0.0004937,
+        "pnlPercent": 0.9198691741619084,
+        "hoursHeld": 2.5226383333333335,
+        "status": "OK",
+        "issues": []
+      }
+    ],
+    "alerts": [],
+    "actions": [],
+    "summary": {
+      "checked": 3,
+      "ok": 3,
+      "alerts": 0,
+      "forced": 0
+    }
+  }
+]

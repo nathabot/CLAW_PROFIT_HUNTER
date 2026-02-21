@@ -29,12 +29,43 @@ function getThresholds() {
   }
 }
 
+function getMode() {
+  try {
+    const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+    const mode = config.MODE_CONTROLLER?.mode || 'balanced';
+    const modeConfig = config.MODE_CONTROLLER?.modes?.[mode] || {
+      minScore: 6,
+      minLiquidity: 25000,
+      maxPosition: 0.015,
+      maxPositions: 3,
+      minWR: 50
+    };
+    return {
+      current: mode,
+      config: modeConfig,
+      isConservative: mode === 'conservative',
+      isBalanced: mode === 'balanced',
+      isAggressive: mode === 'aggressive'
+    };
+  } catch (e) {
+    return {
+      current: 'balanced',
+      config: { minScore: 6, minLiquidity: 25000, maxPosition: 0.015, maxPositions: 3, minWR: 50 },
+      isBalanced: true
+    };
+  }
+}
+
 // Export for use in other modules
-module.exports = { getThresholds, CONFIG_PATH };
+module.exports = { getThresholds, getMode, CONFIG_PATH };
 
 // CLI test
 if (require.main === module) {
   const t = getThresholds();
   console.log('📊 Centralized Thresholds:');
   console.log(JSON.stringify(t, null, 2));
+  
+  const m = getMode();
+  console.log('\n🎮 Trading Mode:');
+  console.log(JSON.stringify(m, null, 2));
 }
