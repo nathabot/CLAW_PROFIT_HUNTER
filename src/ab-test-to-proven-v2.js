@@ -9,6 +9,8 @@ const AB_TEST_FILE = '/root/trading-bot/ab-test-results.json';
 const PROVEN_FILE = '/root/trading-bot/bok/proven-established.json';
 const TOKENS_FILE = '/root/trading-bot/ab-test-tokens.json';
 
+const WR_THRESHOLD = 50; // MUST match Paper Trader threshold
+
 function calculateWR(wins, losses) {
   const total = wins + losses;
   return total > 0 ? (wins / total) * 100 : 0;
@@ -17,7 +19,7 @@ function calculateWR(wins, losses) {
 async function integrate() {
   console.log('🔄 A/B Test → Proven Tokens Integration v2');
   console.log('='.repeat(50));
-  console.log('Using Paper Trader Fibonacci methodology for comparable WR');
+  console.log(`WR Threshold: ${WR_THRESHOLD}% (MUST match Paper Trader)`);
   
   if (!fs.existsSync(AB_TEST_FILE)) {
     console.log('⚠️ No A/B test results found');
@@ -38,15 +40,16 @@ async function integrate() {
     const cfg = modes[mode] || {};
     console.log(`  ${mode}: ${wr.toFixed(1)}% WR (${data.wins}W/${data.losses}L) - ${cfg.name || 'Unknown'}`);
     
-    if (wr > bestWR && data.trades >= 3) {
+    if (wr > bestWR && wr >= WR_THRESHOLD && data.trades >= 3) {
       bestWR = wr;
       bestMode = mode;
       bestData = data;
     }
   }
   
-  if (!bestMode) {
-    console.log('⚠️ No qualifying mode (need min 3 trades)');
+  if (!bestMode || bestWR < WR_THRESHOLD) {
+    console.log(`⚠️ No qualifying mode - WR must be >= ${WR_THRESHOLD}%`);
+    console.log(`   Best mode: ${bestMode || 'none'} (${bestWR.toFixed(1)}% WR)`);
     return;
   }
   
