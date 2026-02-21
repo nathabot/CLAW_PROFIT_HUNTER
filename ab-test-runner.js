@@ -112,6 +112,14 @@ async function run() {
   // Save results
   fs.writeFileSync('/root/trading-bot/ab-test-results.json', JSON.stringify({results, modes, best, ts: Date.now()}, null, 2));
   
+  // Auto-integrate to proven tokens
+  try {
+    const { execSync } = require('child_process');
+    execSync('node /root/trading-bot/src/ab-test-to-proven.js', {stdio: 'inherit'});
+  } catch(e) {
+    console.log('⚠️ Integration to proven tokens failed');
+  }
+  
   // Send to Telegram
   try {
     await fetch(`https://api.telegram.org/bot8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU/sendMessage`, {

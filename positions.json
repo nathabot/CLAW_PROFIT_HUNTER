@@ -1154,5 +1154,43 @@
     "exited": false,
     "partialExited": false,
     "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "ATLAS",
+    "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+    "entryPrice": 0.0002021,
+    "entryTime": 1771680005330,
+    "positionSize": 0.015,
+    "tokensReceived": 634138640092,
+    "txHash": "4juXm5fWcqbvYMAiomEzuWpiwho3CtKXK96S7vcfs9VkCdLamBaW3d4GABVCJZ8Bzb3UwMB98pPvyPzfTHiJ4WHg",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.0001899794567,
+      "tp1": 0.0002076064166,
+      "tp2": 0.00021486872407880001
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "SAMO",
+    "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+    "entryPrice": 0.0004892,
+    "entryTime": 1771680304983,
+    "positionSize": 0.015,
+    "tokensReceived": 2602291681574,
+    "txHash": "tBf1SmPDTPWrh3C2Xz866s5f7s2ihHpdnGbCPHSRuCaD2MFXFQbRAJXtDRSFhYnAq2nVxpAFHHKLsaMpnU26fdE",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.0004598612083999999,
+      "tp1": 0.0005025287431999999,
+      "tp2": 0.0005201077675375999
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
   }
 ]

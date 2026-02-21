@@ -23,10 +23,10 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: 'SAMO',
   ca: '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU',
-  entry: 0.0004999,
-  stop: 0.0004699194972999999,
-  tp1: 0.0005135202754,
-  tp2: 0.0005314837959772,
+  entry: 0.0004892,
+  stop: 0.0004598612083999999,
+  tp1: 0.0005025287431999999,
+  tp2: 0.0005201077675375999,
   partialExit: 0.5
 };
 
