@@ -20,6 +20,10 @@ const ATLAS_CA = 'ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx';
 const SOL_MINT = 'So11111111111111111111111111111111111111112';
 const ATLAS_DECIMALS = 8;
 
+// Solana Tracker API (more reliable than public Jupiter)
+const SOLANA_TRACKER_API_KEY = 'af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a';
+const SOLANA_TRACKER_BASE_URL = 'https://swap-v2.solanatracker.io';
+
 // All 4 ATLAS positions
 const POSITIONS = [
   { idx: 1, entry: 0.000202, size: 0.015, stop: 0.00019148, tp1: 0.00020925, tp2: 0.00021657, tokens: 6015.45 },
@@ -50,53 +54,55 @@ async function getPrice() {
 
 async function executeSell(pos, percent, isStopLoss = false, retryCount = 0) {
   const maxRetries = 3;
-  const slippage = isStopLoss ? 50 : 35;
+  const slippage = isStopLoss ? 50 : 30;
   
   try {
     const uiAmount = pos.tokens * percent;
-    const rawAmount = toRaw(uiAmount);
     
     console.log(`   Attempting to sell ${uiAmount} ATLAS (${percent * 100}%, slippage: ${slippage}%)`);
     
-    const quoteUrl = `https://public.jupiterapi.com/quote?inputMint=${ATLAS_CA}&outputMint=${SOL_MINT}&amount=${rawAmount}&slippage=${slippage}`;
-    const quoteRes = await fetch(quoteUrl);
-    const quote = await quoteRes.json();
+    // Use Solana Tracker API (more reliable)
+    const url = `${SOLANA_TRACKER_BASE_URL}/swap?from=${ATLAS_CA}&to=${SOL_MINT}&fromAmount=${encodeURIComponent(percent)}&slippage=${slippage}&payer=${wallet.publicKey.toString()}&priorityFee=auto&priorityFeeLevel=high&txVersion=v0`;
     
-    if (!quote.routePlan) {
-      console.log(`   ❌ NO ROUTE for ${uiAmount} ATLAS`);
-      return { success: false, error: `No route for ${uiAmount} ATLAS` };
-    }
+    console.log(`   📋 Getting swap from Solana Tracker...`);
     
-    console.log(`   📋 Quote: ${quote.outAmount} lamports`);
-    
-    // Get fresh blockhash
-    const { blockhash } = await connection.getLatestBlockhash();
-    
-    const swapRes = await fetch('https://public.jupiterapi.com/swap', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        quoteResponse: quote,
-        userPublicKey: wallet.publicKey.toString(),
-        prioritizationFeeLamports: 5000
-      })
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${SOLANA_TRACKER_API_KEY}`,
+        'Accept': 'application/json'
+      }
     });
     
-    const swapData = await swapRes.json();
-    if (!swapData.swapTransaction) {
-      return { success: false, error: 'No swap transaction returned' };
+    const data = await res.json();
+    
+    if (data.error) {
+      console.log(`   ❌ Solana Tracker error: ${data.error}`);
+      if (retryCount < maxRetries) {
+        console.log(`   🔄 Retrying (${retryCount + 1}/${maxRetries})...`);
+        await new Promise(r => setTimeout(r, 3000));
+        return executeSell(pos, percent, isStopLoss, retryCount + 1);
+      }
+      return { success: false, error: data.error };
     }
     
+    // Execute transaction
+    const { blockhash } = await connection.getLatestBlockhash();
+    const txBuf = Buffer.from(data.txn, 'base64');
     const { VersionedTransaction } = require('@solana/web3.js');
-    const tx = VersionedTransaction.deserialize(Buffer.from(swapData.swapTransaction, 'base64'));
-    tx.message.recentBlockhash = blockhash;
-    tx.sign([wallet]);
+    const transaction = VersionedTransaction.deserialize(txBuf);
+    transaction.message.recentBlockhash = blockhash;
     
-    const sig = await connection.sendTransaction(tx, { maxRetries: 3 });
-    await connection.confirmTransaction(sig, 'confirmed');
+    transaction.sign([wallet]);
     
-    console.log(`   ✅ SOLD! Tx: ${sig.slice(0, 10)}...`);
-    return { success: true, signature: sig };
+    const signature = await connection.sendTransaction(transaction, {
+      maxRetries: 3,
+      skipPreflight: false
+    });
+    
+    await connection.confirmTransaction(signature, 'confirmed');
+    
+    console.log(`   ✅ SOLD! Tx: ${signature.slice(0, 10)}...`);
+    return { success: true, signature };
     
   } catch (e) {
     console.log(`   ❌ Error: ${e.message}`);
