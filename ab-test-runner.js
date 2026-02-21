@@ -1,24 +1,13 @@
 #!/usr/bin/env node
 /**
- * A/B Test Runner v3 - Paper Trading with Real Tokens
+ * A/B Test Runner v4 - Fixed async handling
  */
 
 const fs = require('fs');
 const fetch = require('node-fetch');
 
-// Known good Solana tokens (meme coins + established)
-const tokens = [
-  {symbol: "WIF", address: "85VBFQZC9TZkfaptBWqv14ALD9fJNUKtWA41kh69teRP"},
-  {symbol: "BONK", address: "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263"},
-  {symbol: "SAMO", address: "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU"},
-  {symbol: "JTO", address: "jtojtokePBKP3BKw9x9f3M8c3V7Y3qKw4dE3TzL3qK"},
-  {symbol: "ORCA", address: "orcaEKTdK7ATzBZndBhR8EUDPdWcBdYJazh6xGawEGL5"},
-  {symbol: "MNDE", address: "MNDEFzGvMt87meVuodKaNdZ5un7CqNxSiDC5vyQuqKM"},
-  {symbol: "PRIME", address: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4GXEGEDY4H4PQ"},
-  {symbol: "DRIFT", address: "dRiftyHA69MWYk3GRiThGVc8QkYD3AKG8Cv3RbY4DmX"},
-];
+const tokens = require('./ab-test-tokens.json');
 
-// A/B Test Configs
 const modes = {
   A: { name: 'Conservative', minScore: 8, minLiquidity: 20000, sl: 10, tp1: 25, tp2: 50 },
   B: { name: 'Aggressive', minScore: 6, minLiquidity: 10000, sl: 15, tp1: 30, tp2: 74 },
@@ -52,7 +41,7 @@ function calcScore(pair) {
 function simulate(mode, pair) {
   const cfg = modes[mode];
   const score = calcScore(pair);
-  if (score < cfg.minLiquidity) return null;
+  if (score < cfg.minScore) return null;
   
   const liquidity = parseFloat(pair.liquidity?.usd||0);
   if (liquidity < cfg.minLiquidity) return null;
@@ -70,24 +59,32 @@ function simulate(mode, pair) {
 
 async function getPair(addr) {
   try {
-    const r = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${addr}`);
+    const r = await fetch('https://api.dexscreener.com/latest/dex/tokens/' + addr);
     const d = await r.json();
     return getBestPair(d);
   } catch { return null; }
 }
 
 async function run() {
-  console.log('\n🚀 A/B TEST RUNNER v3');
+  console.log('\n🚀 A/B TEST RUNNER v4');
   console.log('='.repeat(50));
   
+  // Fetch all token data first
+  const tokenData = [];
   for (const t of tokens) {
     const p = await getPair(t.address);
-    if (!p) continue;
-    const sc = calcScore(p);
-    console.log(`${t.symbol}: score=${sc}, liq=$${parseFloat(p.liquidity?.usd||0).toFixed(0)}`);
+    if (p) tokenData.push({symbol: t.symbol, pair: p});
+  }
+  
+  console.log(`Fetched ${tokenData.length} tokens\n`);
+  
+  // Simulate trades
+  for (const {symbol, pair} of tokenData) {
+    const sc = calcScore(pair);
+    console.log(`${symbol}: score=${sc}, liq=$${parseFloat(pair.liquidity?.usd||0).toFixed(0)}`);
     
     for (const m of ['A','B','C']) {
-      const tr = simulate(m, p);
+      const tr = simulate(m, pair);
       if (tr) {
         results[m].trades++;
         if (tr.pnl>0) results[m].wins++;
@@ -96,24 +93,26 @@ async function run() {
     }
   }
   
+  // Report
   console.log('\n📊 RESULTS');
   let msg = '🏆 *A/B TEST RESULTS*\n\n';
-  let best = null;
+  let best = {m: 'A', wr: 0};
   
   for (const m of ['A','B','C']) {
     const r = results[m];
     const wr = r.trades ? (r.wins/r.trades*100).toFixed(1) : 0;
     console.log(`Mode ${m} (${modes[m].name}): ${wr}% WR (${r.wins}W/${r.losses}L)`);
-    msg += `*${m}:* ${modes[m].name}\nWR: ${wr}% (${r.wins}W/${r.losses}L)\n\n`;
-    if (!best || wr > best.wr) best = {m, wr, name: modes[m].name};
+    msg += `*${m}:* ${modes[m].name} - ${wr}% (${r.wins}W/${r.losses}L)\n`;
+    if (parseFloat(wr) > best.wr) best = {m, wr: parseFloat(wr), name: modes[m].name};
   }
   
-  msg += `🏆 *Winner: Mode ${best.m}* (${best.name}) - ${best.wr}%`;
+  msg += `\n🏆 *Winner: Mode ${best.m}* - ${best.wr}% WR`;
   console.log(`\n🏆 Winner: Mode ${best.m} (${best.name})`);
   
-  // Save & notify
+  // Save results
   fs.writeFileSync('/root/trading-bot/ab-test-results.json', JSON.stringify({results, modes, best, ts: Date.now()}, null, 2));
   
+  // Send to Telegram
   try {
     await fetch(`https://api.telegram.org/bot8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU/sendMessage`, {
       method: 'POST', headers: {'Content-Type':'application/json'},
@@ -121,8 +120,7 @@ async function run() {
     });
   } catch(e) {}
   
-  // Set cron for 1 hour
-  console.log('\n⏱️ Will re-test in 1 hour...');
+  console.log('\n⏱️ Next run in 1 hour...');
 }
 
 run();

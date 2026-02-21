@@ -1,19 +1,19 @@
 {
   "results": {
     "A": {
-      "wins": 0,
-      "losses": 0,
-      "trades": 0
+      "wins": 2,
+      "losses": 3,
+      "trades": 5
     },
     "B": {
-      "wins": 0,
-      "losses": 0,
-      "trades": 0
+      "wins": 3,
+      "losses": 7,
+      "trades": 10
     },
     "C": {
-      "wins": 0,
-      "losses": 0,
-      "trades": 0
+      "wins": 2,
+      "losses": 8,
+      "trades": 10
     }
   },
   "modes": {
@@ -44,8 +44,8 @@
   },
   "best": {
     "m": "A",
-    "wr": 0,
+    "wr": 40,
     "name": "Conservative"
   },
-  "ts": 1771678748883
+  "ts": 1771679216737
 }
