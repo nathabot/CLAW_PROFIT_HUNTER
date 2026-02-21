@@ -10,6 +10,7 @@ const fs = require('fs');
 const bs58 = require('bs58');
 const DynamicTPSL = require('./dynamic-tpsl-engine');
 const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
+const { calculateMultiFactorScore, calculatePositionSize, calculatePortfolioRisk } = require('./multi-factor-risk');
 
 // SOLANA TRACKER API (bypass Jupiter rate limit)
 const SOLANA_TRACKER_API_KEY = 'af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a';
@@ -1638,6 +1639,48 @@ class DynamicTrader {
   }
 
   async executeTrade(setup) {
+    // CHECK 0: Multi-Factor Scoring
+    const factorScore = calculateMultiFactorScore(setup.pair || {});
+    console.log(`\n📊 MULTI-FACTOR SCORE: ${factorScore.total}/10 (${factorScore.confidence})`);
+    console.log(`   Momentum: ${factorScore.factors.momentum}, Volatility: ${factorScore.factors.volatility}`);
+    console.log(`   Volume: ${factorScore.factors.volume}, Liquidity: ${factorScore.factors.liquidity}`);
+    
+    // Low factor score = higher risk, skip
+    if (factorScore.total < 5) {
+      console.log(`⚠️ Low factor score (${factorScore.total}/10), skipping trade`);
+      return;
+    }
+    
+    // CHECK 0b: Portfolio Risk Check
+    const activePos = JSON.parse(fs.readFileSync('/root/trading-bot/positions.json', 'utf8'));
+    const positionsList = activePos.filter(p => !p.exited && p.positionSize >= 0.01);
+    
+    // Get current prices for risk calculation
+    const currentPrices = {};
+    for (const p of positionsList) {
+      try {
+        const resp = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${p.ca}`);
+        const data = await resp.json();
+        if (data.pairs?.[0]) currentPrices[p.symbol] = parseFloat(data.pairs[0].priceUsd);
+      } catch {}
+    }
+    
+    const portfolioRisk = calculatePortfolioRisk(positionsList, currentPrices);
+    console.log(`\n🛡️ PORTFOLIO RISK:`);
+    console.log(`   Positions: ${portfolioRisk.positionCount}/${portfolioRisk.maxPositions}`);
+    console.log(`   VaR: ${portfolioRisk.varPercent.toFixed(1)}%`);
+    console.log(`   Status: ${portfolioRisk.status}`);
+    
+    // Don't open new position if portfolio is at risk
+    if (portfolioRisk.status === 'DANGER') {
+      console.log(`⚠️ Portfolio at risk, skipping new trade`);
+      return;
+    }
+    if (portfolioRisk.positionCount >= portfolioRisk.maxPositions) {
+      console.log(`⚠️ Max positions reached (${portfolioRisk.maxPositions}), skipping`);
+      return;
+    }
+    
     // CHECK 1: Daily trade limit
     if (!this.checkDailyLimit()) {
       console.log(`⚠️ Daily limit reached, skipping trade`);
@@ -1678,12 +1721,18 @@ class DynamicTrader {
     console.log(`  Partial Exit: ${targets.partialExitPercent}% at TP1`);
     console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 180} min\n`);
     
-    // Use flexible position size based on strategy performance
-    const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
+    // Dynamic position sizing based on WR and confidence
+    const strategyWR = parseFloat(this.currentStrategy?.winRate || '50');
+    const dynamicSize = calculatePositionSize(strategyWR, factorScore.confidence, this.balance);
+    const positionSize = dynamicSize.size;
+    
+    console.log(`📏 DYNAMIC POSITION SIZE:`);
+    console.log(`   Size: ${positionSize} SOL`);
+    console.log(`   Reason: ${dynamicSize.reason}`);
     
     // Execute buy via QuickNode Jupiter (with SolanaTracker fallback)
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
-    console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
+    console.log(`   Amount: ${positionSize} SOL`);
     console.log(`   Platform: QuickNode Jupiter → SolanaTracker (fallback)`);
     const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
     
