@@ -32,7 +32,7 @@
   },
   "TAKE_PROFIT": {
     "TP1_PERCENT": 30,
-    "TP2_PERCENT": 76,
+    "TP2_PERCENT": 78,
     "PARTIAL_EXIT_PERCENT": 50,
     "AGGRESSIVE_EXIT": true,
     "DYNAMIC_MODE": true,
@@ -81,8 +81,8 @@
     }
   },
   "DAILY_TARGET": {
-    "PROFIT_SOL": 0.2,
-    "MIN_TRADES": 3,
+    "PROFIT_SOL": 0.05,
+    "MIN_TRADES": 5,
     "MAX_TRADES": 10
   },
   "RISK_MANAGEMENT": {
@@ -122,8 +122,8 @@
   "TRADING_MODE": {
     "VERSION": "1.0",
     "MODE": "auto",
-    "ACTIVE": "established",
-    "DEGEN_ENABLED": false,
+    "ACTIVE": "degen",
+    "DEGEN_ENABLED": true,
     "AUTO_TYPE": "performance",
     "TIME_INTERVAL_HOURS": 6,
     "AUTO_CONFIG": {
@@ -142,7 +142,7 @@
     "ESTABLISHED_FILTERS": {
       "MIN_LIQUIDITY": 10000,
       "MIN_AGE_HOURS": 24,
-      "MAX_HOLD_MINUTES": 180,
+      "MAX_HOLD_MINUTES": 30,
       "MIN_VOLUME_24H": 30000,
       "MIN_SCORE": 6
     },
