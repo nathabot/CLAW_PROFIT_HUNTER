@@ -252,11 +252,16 @@ function getStrategies() {
     for (const [strategyId, data] of Object.entries(provenTokens)) {
         strategyIds.add(strategyId);
         const tokens = data.tokens || [];
-        strategies.push({
+        // Load centralized threshold config
+const { getThresholds } = require('./threshold-config');
+const THRESHOLDS = getThresholds();
+const WR_THRESHOLD = THRESHOLDS.WR_THRESHOLD;
+
+strategies.push({
             id: strategyId,
             name: data.strategyName || strategyId,
             winRate: data.strategyWR || 'N/A',
-            status: parseFloat(data.strategyWR) >= 55 ? 'positive' : 'negative',
+            status: parseFloat(data.strategyWR) >= WR_THRESHOLD ? 'positive' : 'negative',
             category: getStrategyCategory(strategyId),
             technical: getStrategyTechnical(strategyId),
             topTokens: tokens.slice(0, 3).map(t => ({
@@ -1047,11 +1052,11 @@ async function generateDashboard() {
             container.innerHTML = \`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
                 <div style="background: #0f1419; padding: 12px; border-radius: 8px; text-align: center;">
                     <div style="font-size: 24px; font-weight: bold; color: #10b981;">\${positive.length}</div>
-                    <div style="font-size: 12px; color: #6b7280;">Positive (≥55%)</div>
+                    <div style="font-size: 12px; color: #6b7280;">Positive (≥${WR_THRESHOLD}%)</div>
                 </div>
                 <div style="background: #0f1419; padding: 12px; border-radius: 8px; text-align: center;">
                     <div style="font-size: 24px; font-weight: bold; color: #ef4444;">\${negative.length}</div>
-                    <div style="font-size: 12px; color: #6b7280;">Negative (<55%)</div>
+                    <div style="font-size: 12px; color: #6b7280;">Negative (<${WR_THRESHOLD}%)</div>
                 </div>
                 <div style="background: #0f1419; padding: 12px; border-radius: 8px; text-align: center;">
                     <div style="font-size: 24px; font-weight: bold; color: #3b82f6;">\${allStrategies.length}</div>
@@ -1068,7 +1073,7 @@ async function generateDashboard() {
                                 <span style="color: #e5e7eb; font-weight: 500;">\${s.name}</span>
                             </div>
                             <div style="text-align: right;">
-                                <span style="color: \${parseFloat(s.winRate) >= 55 ? '#10b981' : '#ef4444'}; font-weight: bold;">\${s.winRate}%</span>
+                                <span style="color: \${parseFloat(s.winRate) >= ${WR_THRESHOLD} ? '#10b981' : '#ef4444'}; font-weight: bold;">\${s.winRate}%</span>
                                 <span style="color: #6b7280; font-size: 11px;"> WR</span>
                             </div>
                         </div>
@@ -1086,7 +1091,7 @@ async function generateDashboard() {
             const modal = document.getElementById('strategiesModal');
             const content = document.getElementById('strategiesDetailContent');
             
-            const statusColor = parseFloat(s.winRate) >= 55 ? '#10b981' : '#ef4444';
+            const statusColor = parseFloat(s.winRate) >= ${WR_THRESHOLD} ? '#10b981' : '#ef4444';
             const statusBg = s.status === 'positive' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)';
             const statusIcon = s.status === 'positive' ? '✅' : '❌';
             const statusText = s.status === 'positive' ? '✅ READY FOR LIVE TRADING' : '❌ NOT RECOMMENDED FOR LIVE';
