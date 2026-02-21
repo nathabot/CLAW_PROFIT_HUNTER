@@ -1,15 +1,18 @@
 /**
- * A/B Test to Proven Tokens Integrator v2
- * Uses Paper Trader methodology for comparable WR
+ * A/B Test to Proven Tokens Integrator v3
+ * Uses centralized threshold configuration
  */
 
 const fs = require('fs');
+const { getThresholds } = require('./threshold-config');
 
 const AB_TEST_FILE = '/root/trading-bot/ab-test-results.json';
 const PROVEN_FILE = '/root/trading-bot/bok/proven-established.json';
 const TOKENS_FILE = '/root/trading-bot/ab-test-tokens.json';
 
-const WR_THRESHOLD = 50; // MUST match Paper Trader threshold
+// Get centralized threshold
+const THRESHOLDS = getThresholds();
+const WR_THRESHOLD = THRESHOLDS.WR_THRESHOLD;
 
 function calculateWR(wins, losses) {
   const total = wins + losses;
@@ -17,9 +20,10 @@ function calculateWR(wins, losses) {
 }
 
 async function integrate() {
-  console.log('🔄 A/B Test → Proven Tokens Integration v2');
+  console.log('🔄 A/B Test → Proven Tokens Integration v3');
   console.log('='.repeat(50));
-  console.log(`WR Threshold: ${WR_THRESHOLD}% (MUST match Paper Trader)`);
+  console.log(`📊 Threshold Source: ${THRESHOLDS.SOURCE}`);
+  console.log(`   WR Threshold: ${WR_THRESHOLD}% (from trading-config.json)`);
   
   if (!fs.existsSync(AB_TEST_FILE)) {
     console.log('⚠️ No A/B test results found');

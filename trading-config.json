@@ -21,13 +21,14 @@
     "FEE_RESERVE": 0.015
   },
   "THRESHOLDS": {
-    "WIN_RATE": 55,
-    "BOK_WIN_RATE": 55,
+    "WIN_RATE": 50,
+    "BOK_WIN_RATE": 50,
     "MIN_PROFIT_SOL": 0.05,
     "MIN_EXPECTANCY": 2,
     "MAX_DRAWDOWN": 30,
     "MAX_VOLATILITY": 40,
-    "BALANCE_GUARDIAN_DRAWDOWN": 50
+    "BALANCE_GUARDIAN_DRAWDOWN": 50,
+    "SOURCE": "central_config"
   },
   "TAKE_PROFIT": {
     "TP1_PERCENT": 30,

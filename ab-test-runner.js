@@ -139,7 +139,7 @@ async function run() {
   // Save results
   fs.writeFileSync('/root/trading-bot/ab-test-results.json', JSON.stringify({results, modes, best, ts: Date.now()}, null, 2));
   
-  // Auto-integrate to proven tokens (v2 with Paper Trader methodology)
+  // Auto-integrate to proven tokens (v3 with centralized threshold)
   try {
     const { execSync } = require('child_process');
     execSync('node /root/trading-bot/src/ab-test-to-proven-v2.js', {stdio: 'inherit'});
