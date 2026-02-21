@@ -123,9 +123,9 @@ async function calculateTotalEquity() {
                 realizedPnl += (pnlPercent / 100) * sizeSol;
             }
             
-            // Add partial exit P/L (partialExitPnl is a PERCENTAGE, convert to SOL)
+            // Add partial exit P/L (partialExitPnl is already in SOL, NOT percentage!)
             if (pos.partialExited && pos.partialExitPnl) {
-                realizedPnl += (pos.partialExitPnl / 100) * sizeSol;
+                realizedPnl += pos.partialExitPnl; // Already in SOL
             }
         }
         
