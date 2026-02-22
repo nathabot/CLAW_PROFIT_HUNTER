@@ -847,7 +847,15 @@ async function generateDashboard() {
         
         <div class="refresh-info">
             <p>Last updated: ${new Date().toLocaleString()}</p>
-            <p>Auto-refresh every 10 seconds</p>
+            <p>Auto-refresh: 
+                <select id="refreshInterval" onchange="setRefreshInterval(this.value)" style="background: #1f2937; color: #fff; border: 1px solid #374151; padding: 4px 8px; border-radius: 4px;">
+                    <option value="5000">5 sec</option>
+                    <option value="10000" selected>10 sec</option>
+                    <option value="30000">30 sec</option>
+                    <option value="60000">1 min</option>
+                    <option value="0">Manual only</option>
+                </select>
+            </p>
             <button class="btn" onclick="location.reload()">🔄 Refresh Now</button>
         </div>
     </div>
@@ -1004,10 +1012,24 @@ async function generateDashboard() {
             if (e.target === this) closeModal();
         });
         
-        // Auto-refresh every 10 seconds
-        setInterval(() => {
-            location.reload();
-        }, 10000);
+        // Auto-refresh (configurable)
+        let refreshInterval = 10000;
+        let refreshTimer = null;
+        
+        function setRefreshInterval(ms) {
+            refreshInterval = parseInt(ms);
+            if (refreshTimer) clearInterval(refreshTimer);
+            if (refreshInterval > 0) {
+                refreshTimer = setInterval(() => {
+                    loadDashboard();
+                }, refreshInterval);
+            }
+        }
+        
+        // Start with default
+        refreshTimer = setInterval(() => {
+            loadDashboard();
+        }, refreshInterval);
         
         // Load logs via API
         async function loadLogs() {
