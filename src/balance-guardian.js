@@ -409,8 +409,8 @@ class BalanceGuardian {
       
       console.log(`\n⚠️  ALERT: Drop ${analysis.dropFromHigh.toFixed(1)}% - Notified`);
       
-    } else if (analysis.trend === 'strong_down') {
-      // Strong down trend - preemptive alert
+    } else if (analysis.trend === 'strong_down' && analysis.dropFromHigh >= 1.0) {
+      // Strong down trend - preemptive alert (only if drop >= 1%)
       console.log('\n⚠️  Strong downward trend detected');
       await this.notify(
         `📉 **DOWNWARD TREND**\n\n` +
