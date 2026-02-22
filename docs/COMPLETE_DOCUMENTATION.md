@@ -609,7 +609,7 @@ pm2 restart live-trader
 
 ## 📞 Support
 
-- **Telegram:** @nathabot_vps_bot
+- **Telegram:** 
 - **GitHub Issues:** [CLAW_PROFIT_HUNTER/issues](https://github.com/YOUR_USERNAME/CLAW_PROFIT_HUNTER/issues)
 - **Documentation:** Lihat folder `docs/`
 
