@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// LIVE TRADER v4.2 (DYNAMIC TP/SL)
+// LIVE TRADER v4.2.1 (DYNAMIC TP/SL)
 // Platform: VPS Natha (Single VPS Architecture)
 // Features: Fibonacci-based adaptive targets, Honeypot check, Token age, Contract verification
-// Updated: 2026-02-17
+// Updated: 2026-02-22 - Fixed version string
 
 const { Connection, PublicKey, Keypair, VersionedTransaction } = require('@solana/web3.js');
 const fetch = require('node-fetch');
@@ -1027,7 +1027,7 @@ class DynamicTrader {
     await this.tpslEngine.updateCache();
     
     // Scan trending tokens (paper trader method)
-    console.log('\n🔎 Scanning trending tokens (Paper Trader v3.1 method)...');
+    console.log('\n🔎 Scanning trending tokens (Paper Trader v5 method)...');
     
     // Get trending token profiles with retry logic
     let profiles = [];

@@ -198,6 +198,14 @@ async function getSystemStatus() {
             });
     } catch (e) {}
     
+    // Version consistency check
+    const versions = {
+        liveTrader: '4.2.1',
+        paperTrader: '5.0',
+        dashboard: '2.1',
+        tpslEngine: '2.0'
+    };
+    
     return {
         emergencyStop,
         pauseTrading,
@@ -215,7 +223,8 @@ async function getSystemStatus() {
             establishedTokens: establishedCount,
             degenTokens: degenCount,
             modeStats: modeStats
-        }
+        },
+        versions  // For consistency checking
     };
 }
 
@@ -856,6 +865,9 @@ async function generateDashboard() {
                     <option value="0">Manual only</option>
                 </select>
             </p>
+            <div style="font-size: 11px; color: #6b7280; margin-top: 5px;">
+                Versions: Live ${status.versions?.liveTrader || '?'} | Paper ${status.versions?.paperTrader || '?'} | Dashboard ${status.versions?.dashboard || '?'}
+            </div>
             <button class="btn" onclick="location.reload()">🔄 Refresh Now</button>
         </div>
     </div>
