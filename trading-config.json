@@ -15,9 +15,9 @@
     "FALLBACK": true
   },
   "POSITION_SIZING": {
-    "DEFAULT": 0.008,
-    "MIN": 0.008,
-    "MAX": 0.01,
+    "DEFAULT": 0.015,
+    "MIN": 0.012,
+    "MAX": 0.02,
     "FEE_RESERVE": 0.015
   },
   "THRESHOLDS": {
@@ -31,16 +31,17 @@
     "SOURCE": "central_config"
   },
   "TAKE_PROFIT": {
-    "TP1_PERCENT": 30,
-    "TP2_PERCENT": 78,
+    "TP1_PERCENT": 1.5,
+    "TP2_PERCENT": 5,
     "PARTIAL_EXIT_PERCENT": 50,
     "AGGRESSIVE_EXIT": true,
-    "DYNAMIC_MODE": true,
-    "tp2_percent": null
+    "DYNAMIC_MODE": false,
+    "MIN_MOMENTUM_TP1": false,
+    "NO_MAX_HOLD": true
   },
   "STOP_LOSS": {
-    "PERCENT": 15,
-    "TRAILING_PERCENT": 10,
+    "PERCENT": 3,
+    "TRAILING_PERCENT": 2,
     "KILL_SWITCH_BALANCE": 0.03
   },
   "DYNAMIC_TPSL": {
@@ -115,6 +116,14 @@
     "HOLDERS_MIN": 50,
     "TOP_10_HOLDERS_MAX": 50,
     "PRICE_CHANGE_2H_MIN": 5
+  },
+  "MOMENTUM_ENTRY": {
+    "ENABLED": true,
+    "REQUIRE_PROVEN_TOKEN": true,
+    "PROVEN_TOKENS": ["BONK", "SAMO", "RAY", "ATLAS", "WIF", "DOGE", "PEPE", "SHIB", "COPE", "WEN", "JTO", "JUP", "PYTH", "INJ", "TIA"],
+    "MIN_PRICE_CHANGE_BEFORE_ENTRY": 3,
+    "MIN_LIQUIDITY": 50000,
+    "MIN_VOLUME_RATIO": 2
   },
   "ENTRY_FILTERS": {
     "min_signal_score": 7
