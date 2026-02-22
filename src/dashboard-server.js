@@ -10,6 +10,10 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+// Analytics & Auto-Improvement modules
+const { calculateAnalytics, calculateWinRateTrends, getModelUsage } = require('./analytics-engine');
+const { analyzeStrategyPerformance, suggestParameterTweaks, runAutoReview, getLatestReview, getReviewHistory } = require('./auto-improvement');
+
 const PORT = process.env.DASHBOARD_PORT || 8080;
 const TRADING_BOT_DIR = '/root/trading-bot';
 const TRADING_BOK_DIR = '/root/trading-bot/bok';
@@ -1240,6 +1244,50 @@ const server = http.createServer(async (req, res) => {
     else if (pathname === '/api/strategies') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(getStrategies()));
+    }
+    // ==================== ANALYTICS API ====================
+    else if (pathname === '/api/analytics') {
+        const url = new URL(req.url, `http://${req.headers.host}`);
+        const period = url.searchParams.get('period') || '7d';
+        const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
+        const analytics = calculateAnalytics(positions, period);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(analytics));
+    }
+    else if (pathname === '/api/analytics/trends') {
+        const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
+        const trends = calculateWinRateTrends(positions, 30);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(trends));
+    }
+    else if (pathname === '/api/analytics/model-usage') {
+        const usage = getModelUsage();
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(usage));
+    }
+    // ==================== AUTO-IMPROVEMENT API ====================
+    else if (pathname === '/api/auto-review') {
+        const review = getLatestReview();
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(review || { status: 'no_review' }));
+    }
+    else if (pathname === '/api/auto-review/run') {
+        const review = runAutoReview();
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(review));
+    }
+    else if (pathname === '/api/auto-review/history') {
+        const history = getReviewHistory();
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(history));
+    }
+    else if (pathname === '/api/performance') {
+        const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
+        const config = readJSON(`${TRADING_BOT_DIR}/trading-config.json`, {});
+        const performance = analyzeStrategyPerformance(positions);
+        const suggestions = suggestParameterTweaks(performance, config.TP_SETTINGS);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ performance, suggestions }));
     }
     else {
         res.writeHead(404, { 'Content-Type': 'application/json' });
