@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@elizaos/core": "^1.7.2",
+    "@elizaos/plugin-telegram": "^1.6.4",
     "@jup-ag/api": "^6.0.48",
     "@orca-so/common-sdk": "^0.7.0",
     "@orca-so/sdk": "^1.2.26",
