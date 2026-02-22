@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@elizaos/core": "^1.7.2",
+    "@elizaos/plugin-sql": "^2.0.0-alpha.11",
     "@elizaos/plugin-telegram": "^1.6.4",
     "@jup-ag/api": "^6.0.48",
     "@orca-so/common-sdk": "^0.7.0",
@@ -14,6 +15,7 @@
     "@solana/web3-compat": "^0.0.21",
     "@solana/web3.js": "^1.98.4",
     "axios": "^1.13.5",
+    "better-sqlite3": "^12.6.2",
     "bn.js": "^5.2.2",
     "bs58": "^6.0.0",
     "decimal.js": "^10.6.0",
