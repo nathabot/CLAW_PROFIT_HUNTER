@@ -33,12 +33,11 @@ const CONFIG = {
   MAX_DAILY_TRADES: 10,           // Maximum trades per day
   DAILY_TARGET: 0.2,
   RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304',
-  // FIBONACCI STRATEGY (from paper testing - 82.5% WR)
-  // Best: Entry 0.618, TP 1.618 (Golden) - 82.50% WR (33W/7L)
-  // Alternative: Entry 0.786, TP 1.0 - 82.50% WR (33W/7L)
+  // FIBONACCI STRATEGY (OPTIMIZED Feb 2026 - based on historical winning trades)
+  // Historical avg winner: +3-6% (TP1 4%, TP2 6%)
   FIB_ENTRY: 0.618,              // Golden ratio entry
-  FIB_TP1: 1.0,                  // First target
-  FIB_TP2: 1.618,                // Golden ratio target
+  FIB_TP1: 0.67,                 // ~4% (OPTIMIZED from 1.0)
+  FIB_TP2: 1.0,                  // ~6% (OPTIMIZED from 1.618)
   PARTIAL_EXIT: true,            // 50% at TP1, 50% at TP2
   SL_FIB: 0.5,                   // Stop below 0.5 fib
   // Adaptive scoring
@@ -1069,18 +1068,33 @@ class DynamicTrader {
     }
     
     // Filter candidates - Match paper trader settings (aggressive for more trades)
+    // PRIORITY: Pump.fun tokens near graduation ($50k-$90k market cap)
     const candidates = allPairs.filter(p => {
       const liq = parseFloat(p.liquidity?.usd || 0);
       const vol = parseFloat(p.volume?.h24 || 0);
       const age = this.getTokenAgeMinutes(p);
+      const mc = parseFloat(p.fdv || 0); // Market cap from FDV
+      
+      // Pump.fun graduation filter - tokens approaching $90k
+      const isPumpFunNearGrad = p.dexId === 'pumpfun' && mc >= 50000 && mc <= 90000;
+      
       return p.chainId === 'solana' &&
              (p.dexId === 'raydium' || p.dexId === 'orca' || p.dexId === 'meteora' || p.dexId === 'pumpfun' || p.dexId === 'pumpswap') &&
-             liq >= CONFIG.MIN_LIQUIDITY_USD &&  // $25k minimum liquidity
-             vol >= 10000 &&   // $10k minimum volume
-             age >= CONFIG.MIN_TOKEN_AGE_MINUTES;
-    }).sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0)).slice(0, 50) || [];  // More candidates
+             (isPumpFunNearGrad || (liq >= CONFIG.MIN_LIQUIDITY_USD && vol >= 10000 && age >= CONFIG.MIN_TOKEN_AGE_MINUTES));
+    }).sort((a, b) => {
+      // Prioritize pump.fun near graduation
+      const mcA = parseFloat(a.fdv || 0);
+      const mcB = parseFloat(b.fdv || 0);
+      const nearGradA = a.dexId === 'pumpfun' && mcA >= 50000 && mcA <= 90000;
+      const nearGradB = b.dexId === 'pumpfun' && mcB >= 50000 && mcB <= 90000;
+      if (nearGradA && !nearGradB) return -1;
+      if (!nearGradA && nearGradB) return 1;
+      return parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0);
+    }).slice(0, 50) || [];
     
     console.log(`📊 Found ${candidates.length} candidates`);
+    const gradCount = candidates.filter(p => p.dexId === 'pumpfun' && parseFloat(p.fdv||0) >= 50000 && parseFloat(p.fdv||0) <= 90000).length;
+    if (gradCount > 0) console.log(`   🎯 ${gradCount} pump.fun tokens near graduation!`);
     
     for (const pair of candidates) {
       const symbol = pair.baseToken.symbol;
@@ -1104,10 +1118,11 @@ class DynamicTrader {
       const score = await this.getSignalScore(symbol, pair);
       console.log(`  📊 Score: ${score}/10 | Age: ${ageCheck.age.toFixed(0)}m`);
       
-      if (score < CONFIG.MIN_SCORE) {
-        console.log(`  ⏭️  Score too low (${score} < ${CONFIG.MIN_SCORE})`);
+      if (score > CONFIG.MIN_SCORE) {
+        console.log(`  ⏭️  Score too high (${score} > ${CONFIG.MIN_SCORE}) - high risk, skipping`);
         continue;
       }
+      console.log(`  ✅ Score good (${score}/${CONFIG.MIN_SCORE}) - low risk, proceeding!`);
       
       // Honeypot test
       console.log(`  🔒 Honeypot test...`);
@@ -1650,11 +1665,12 @@ class DynamicTrader {
     console.log(`   Momentum: ${factorScore.factors.momentum}, Volatility: ${factorScore.factors.volatility}`);
     console.log(`   Volume: ${factorScore.factors.volume}, Liquidity: ${factorScore.factors.liquidity}`);
     
-    // Low factor score = higher risk, skip
-    if (factorScore.total < 5) {
-      console.log(`⚠️ Low factor score (${factorScore.total}/10), skipping trade`);
+    // High factor score = higher risk, skip (LOW score = good opportunity!)
+    if (factorScore.total > 7) {
+      console.log(`⚠️ High factor score (${factorScore.total}/10), skipping trade`);
       return;
     }
+    console.log(`✅ Factor score good (${factorScore.total}/10) - proceeding!`);
     
     // CHECK 0b: Portfolio Risk Check
     const activePos = JSON.parse(fs.readFileSync('/root/trading-bot/positions.json', 'utf8'));

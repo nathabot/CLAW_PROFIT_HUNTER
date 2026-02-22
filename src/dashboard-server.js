@@ -873,6 +873,9 @@ async function generateDashboard() {
         async function loadPositions(filter = 'all') {
             try {
                 const response = await fetch('/api/positions');
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status + ': ' + response.statusText);
+                }
                 let positions = await response.json();
                 
                 // Filter based on type
@@ -896,28 +899,38 @@ async function generateDashboard() {
                 }
                 
                 container.innerHTML = sortedPositions.map(pos => {
-                    const pnlColor = pos.unrealizedPnL > 0 ? '#34d399' : pos.unrealizedPnL < 0 ? '#f87171' : '#9ca3af';
-                    const pnlIcon = pos.unrealizedPnL > 0 ? '🟢' : pos.unrealizedPnL < 0 ? '🔴' : '⚪';
+                    const isExited = pos.exited;
+                    const pnlValue = Number(isExited ? (pos.pnlPercent ?? 0) : (pos.unrealizedPnL ?? 0)) || 0;
+                    const pnlSOL = Number(isExited ? (pos.realizedPnlSOL ?? pos.pnlSOL ?? 0) : (pos.unrealizedPnLSOL ?? 0)) || 0;
+                    const pnlColor = pnlValue > 0 ? '#34d399' : pnlValue < 0 ? '#f87171' : '#9ca3af';
+                    const pnlIcon = pnlValue > 0 ? '🟢' : pnlValue < 0 ? '🔴' : '⚪';
+                    const pnlLabel = isExited ? 'Realized P/L' : 'Unrealized P/L';
                     
                     return \`
                     <div class="position-item">
                         <div class="position-header">
                             <div class="position-symbol">\${pos.symbol}</div>
-                            <div class="position-status">\${pos.exited ? 'CLOSED' : 'ACTIVE'}</div>
+                            <div class="position-status">\${isExited ? 'CLOSED' : 'ACTIVE'}</div>
                         </div>
                         
-                        <!-- UNREALIZED P/L SECTION -->
+                        <!-- P/L SECTION (Realized for closed, Unrealized for active) -->
                         <div style="background: #0f1419; border-radius: 8px; padding: 12px; margin: 10px 0; text-align: center;">
-                            <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; margin-bottom: 5px;">Unrealized P/L</div>
+                            <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; margin-bottom: 5px;">\${pnlLabel}</div>
                             <div style="font-size: 24px; font-weight: 700; color: \${pnlColor};">
-                                \${pnlIcon} \${pos.unrealizedPnL > 0 ? '+' : ''}\${pos.unrealizedPnL || '0.00'}%
+                                \${pnlIcon} \${pnlValue > 0 ? '+' : ''}\${pnlValue.toFixed(2)}%
                             </div>
                             <div style="font-size: 13px; color: \${pnlColor}; margin-top: 3px;">
-                                \${pos.unrealizedPnLSOL > 0 ? '+' : ''}\${pos.unrealizedPnLSOL || '0.0000'} SOL
+                                \${pnlSOL > 0 ? '+' : ''}\${pnlSOL.toFixed(4)} SOL
                             </div>
+                            \${!isExited ? \`
                             <div style="font-size: 12px; color: #6b7280; margin-top: 5px;">
                                 Entry: $\${pos.entryPrice?.toFixed(8)} → Current: $\${pos.currentPrice?.toFixed(8) || '...'}
                             </div>
+                            \` : \`
+                            <div style="font-size: 12px; color: #6b7280; margin-top: 5px;">
+                                Exit: $\${typeof pos.exitPrice === 'number' ? pos.exitPrice.toFixed(8) : pos.exitPrice || 'MARKET'}
+                            </div>
+                            \`}
                         </div>
                         
                         <div class="position-details">
@@ -962,7 +975,8 @@ async function generateDashboard() {
                 \`;
                 }).join('');
             } catch (e) {
-                document.getElementById('positionsContent').innerHTML = '<p style="color: #f87171; text-align: center;">Failed to load positions</p>';
+                document.getElementById('positionsContent').innerHTML = '<p style="color: #f87171; text-align: center;">Failed to load positions: ' + e.message + '</p>';
+                console.error('Position load error:', e);
             }
         }
         

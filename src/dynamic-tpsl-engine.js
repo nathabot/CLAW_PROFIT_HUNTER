@@ -79,50 +79,51 @@ class DynamicTPSL {
    * Get Fibonacci levels based on regime
    */
   getFibonacciLevels(regime) {
+    // OPTIMIZED: Based on historical winning trades avg +3-6%
     const levels = {
       BEAR: {
         name: 'Bearish/Flat - Tight Scalp',
         timeframe: '5m',
-        sl: 0.03,     // -3% (tight SL)
-        tp1: 0.06,    // +6% (quick exit)
-        tp2: 0.10,    // +10% (extended if momentum)
-        partial: 0.50  // Exit 50% at TP1
+        sl: 0.03,
+        tp1: 0.04,    // +4% (OPTIMIZED from 6%)
+        tp2: 0.06,    // +6% (OPTIMIZED from 10%)
+        partial: 0.60
       },
       
       VOLATILE_BEAR: {
         name: 'Volatile Bear - Ultra Tight',
         timeframe: '5m',
-        sl: 0.025,    // -2.5% (very tight)
-        tp1: 0.04,    // +4% (quick scalp)
-        tp2: 0.06,    // +6% (don\'t be greedy)
-        partial: 0.60  // Exit 60% at TP1 (secure more)
+        sl: 0.025,
+        tp1: 0.03,    // +3% (OPTIMIZED from 4%)
+        tp2: 0.05,    // +5% (OPTIMIZED from 6%)
+        partial: 0.70
       },
       
       NEUTRAL: {
         name: 'Neutral - Balanced',
         timeframe: '15m',
-        sl: 0.05,     // -5%
-        tp1: 0.12,    // +12% (Fib 0.618)
-        tp2: 0.20,    // +20% (Fib 1.0)
+        sl: 0.05,
+        tp1: 0.05,    // +5% (OPTIMIZED from 12%)
+        tp2: 0.08,    // +8% (OPTIMIZED from 20%)
         partial: 0.50
       },
       
       RANGING_BULL: {
         name: 'Ranging Bull - Swing Entry',
         timeframe: '15m',
-        sl: 0.06,     // -6% (wider room)
-        tp1: 0.15,    // +15%
-        tp2: 0.25,    // +25%
-        partial: 0.40  // Keep more for runner
+        sl: 0.05,
+        tp1: 0.08,    // +8% (OPTIMIZED from 15%)
+        tp2: 0.12,    // +12% (OPTIMIZED from 25%)
+        partial: 0.50
       },
       
       BULL: {
         name: 'Bull Market - Let it Run',
         timeframe: '1h',
-        sl: 0.08,     // -8% (much wider)
-        tp1: 0.25,    // +25% (Fib 1.0)
-        tp2: 0.40,    // +40% (Fib 1.618 golden)
-        partial: 0.30  // Keep 70% for runner
+        sl: 0.06,
+        tp1: 0.12,    // +12% (OPTIMIZED from 25%)
+        tp2: 0.18,    // +18% (OPTIMIZED from 40%)
+        partial: 0.40
       }
     };
     
