@@ -18,7 +18,7 @@ const CONFIG = {
   // Risk parameters
   MAX_PORTFOLIO_RISK: 0.30, // Max 30% portfolio at risk
   VAR_CONFIDENCE: 0.95,    // 95% VaR
-  MAX_CONCURRENT_POSITIONS: 3,
+  MAX_CONCURRENT_POSITIONS: 10,
   
   // Factor weights
   FACTOR_WEIGHTS: {
@@ -114,10 +114,128 @@ function calculatePositionSize(strategyWR, confidence, balance) {
   };
 }
 
+// ==================== EDGE-STYLE POSITION SIZING ====================
+// Uses token-specific win rate from historical proven tokens data
+
+const TRADING_BOT_DIR = process.env.TRADING_BOT_DIR || '/root/trading-bot';
+
+function readJSON(file, fallback = null) {
+  try {
+    if (fs.existsSync(file)) {
+      return JSON.parse(fs.readFileSync(file, 'utf8'));
+    }
+  } catch (e) {}
+  return fallback;
+}
+
+function getTokenWinRate(tokenCA) {
+  // Look up token in proven tokens
+  const provenFiles = ['proven-established.json', 'proven-degen.json'];
+  
+  for (const file of provenFiles) {
+    const provenPath = `${TRADING_BOT_DIR}/bok/${file}`;
+    const provenData = readJSON(provenPath, {});
+    
+    for (const [strategyId, strategyData] of Object.entries(provenData)) {
+      const tokens = strategyData.tokens || [];
+      const token = tokens.find(t => t.ca === tokenCA);
+      
+      if (token && token.wins && token.totalTrades) {
+        return {
+          wins: token.wins,
+          totalTrades: token.totalTrades,
+          winRate: (token.wins / token.totalTrades) * 100,
+          avgPnl: token.avgPnl || 0
+        };
+      }
+    }
+  }
+  
+  return null; // Token not in proven list
+}
+
+function calculateEdgePositionSize(tokenCA, strategyWR, confidence, balance) {
+  const baseSize = CONFIG.DEFAULT_POSITION;
+  
+  // Get token-specific WR from proven tokens
+  const tokenData = getTokenWinRate(tokenCA);
+  let tokenWR = strategyWR; // Default to strategy WR
+  let tokenMultiplier = 1;
+  let tokenSource = 'strategy';
+  
+  if (tokenData) {
+    tokenWR = tokenData.winRate;
+    tokenSource = 'token';
+    
+    // Edge-style sizing based on token WR
+    // More trades = more confidence in the data
+    const tradeConfidence = tokenData.totalTrades >= 50 ? 'HIGH' 
+                          : tokenData.totalTrades >= 20 ? 'MEDIUM' 
+                          : 'LOW';
+    
+    if (tokenWR >= 55 && tradeConfidence !== 'LOW') {
+      tokenMultiplier = 1.4;  // Proven high-WR token = bigger position
+    } else if (tokenWR >= 50 && tradeConfidence !== 'LOW') {
+      tokenMultiplier = 1.2;
+    } else if (tokenWR >= 45) {
+      tokenMultiplier = 1.0;
+    } else if (tokenWR >= 40) {
+      tokenMultiplier = 0.8;  // Lower WR = smaller
+    } else {
+      tokenMultiplier = 0.5;  // Bad WR = minimal position
+    }
+  }
+  
+  // Confidence multiplier (from signal analysis)
+  let confMultiplier = 1;
+  if (confidence === 'HIGH') confMultiplier = 1.2;
+  else if (confidence === 'MEDIUM') confMultiplier = 1.0;
+  else confMultiplier = 0.7;
+  
+  // Calculate final size
+  let size = baseSize * tokenMultiplier * confMultiplier;
+  
+  // Apply limits
+  size = Math.max(CONFIG.MIN_POSITION, Math.min(CONFIG.MAX_POSITION, size));
+  size = Math.round(size * 1000) / 1000;
+  
+  return {
+    size,
+    tokenWR: tokenWR.toFixed(1),
+    tokenMultiplier,
+    confMultiplier,
+    source: tokenSource,
+    reasoning: `${tokenSource.toUpperCase()} WR ${tokenWR.toFixed(1)}% × ${confidence} confidence`,
+    tokenStats: tokenData ? {
+      wins: tokenData.wins,
+      totalTrades: tokenData.totalTrades,
+      avgPnl: tokenData.avgPnl.toFixed(1)
+    } : null
+  };
+}
+
+module.exports = {
+  calculateMultiFactorScore,
+  calculatePositionSize,
+  calculateEdgePositionSize,  // NEW: Edge-style sizing
+  calculatePortfolioRisk
+};
+
 // ==================== PORTFOLIO RISK (VaR) ====================
 function calculatePortfolioRisk(positions, currentPrices) {
   if (!positions || positions.length === 0) {
-    return { var: 0, maxRisk: 0, status: 'SAFE' };
+    return { 
+      var: 0, 
+      varPercent: 0,
+      maxRisk: 0, 
+      maxRiskPercent: 0,
+      totalValue: 0,
+      riskRatio: 0,
+      status: 'SAFE',
+      positionCount: 0,
+      maxPositions: CONFIG.MAX_CONCURRENT_POSITIONS,
+      positions: []
+    };
   }
   
   // Calculate position values and P&L

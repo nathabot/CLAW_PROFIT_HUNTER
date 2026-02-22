@@ -10,7 +10,7 @@ const fs = require('fs');
 const bs58 = require('bs58');
 const DynamicTPSL = require('./dynamic-tpsl-engine');
 const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
-const { calculateMultiFactorScore, calculatePositionSize, calculatePortfolioRisk } = require('./multi-factor-risk');
+const { calculateMultiFactorScore, calculatePositionSize, calculateEdgePositionSize, calculatePortfolioRisk } = require('./multi-factor-risk');
 
 // SOLANA TRACKER API (bypass Jupiter rate limit)
 const SOLANA_TRACKER_API_KEY = 'af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a';
@@ -1742,14 +1742,17 @@ class DynamicTrader {
     console.log(`  Partial Exit: ${targets.partialExitPercent}% at TP1`);
     console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 180} min\n`);
     
-    // Dynamic position sizing based on WR and confidence
+    // Edge-style position sizing based on token-specific WR + confidence
     const strategyWR = parseFloat(this.currentStrategy?.winRate || '50');
-    const dynamicSize = calculatePositionSize(strategyWR, factorScore.confidence, this.balance);
+    const dynamicSize = calculateEdgePositionSize(setup.ca, strategyWR, factorScore.confidence, this.balance);
     const positionSize = dynamicSize.size;
     
-    console.log(`📏 DYNAMIC POSITION SIZE:`);
+    console.log(`📏 EDGE-STYLE POSITION SIZE:`);
     console.log(`   Size: ${positionSize} SOL`);
     console.log(`   Reason: ${dynamicSize.reason}`);
+    if (dynamicSize.tokenStats) {
+      console.log(`   Token Stats: ${dynamicSize.tokenStats.wins}/${dynamicSize.tokenStats.totalTrades} wins, avg +${dynamicSize.tokenStats.avgPnl}%`);
+    }
     
     // Execute buy via QuickNode Jupiter (with SolanaTracker fallback)
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
