@@ -631,6 +631,19 @@ class DynamicTrader {
     }
   }
 
+  // Get total balance including open positions (from current-balance.json)
+  async getTotalBalance() {
+    try {
+      const balanceData = JSON.parse(fs.readFileSync('/root/trading-bot/current-balance.json', 'utf8'));
+      return balanceData.balance || 0;
+    } catch (e) {
+      // Fallback to RPC balance if file doesn't exist
+      const balance = await this.connection.getBalance(new PublicKey(CONFIG.WALLET));
+      return balance / 1e9;
+    }
+  }
+  
+  // Legacy: Get wallet SOL balance only (not including positions)
   async getBalance() {
     try {
       const balance = await this.connection.getBalance(new PublicKey(CONFIG.WALLET));
@@ -984,7 +997,7 @@ class DynamicTrader {
       this.syncAdaptiveThreshold();
     }
     
-    const balance = await this.getBalance();
+    const balance = await this.getTotalBalance();
     
     // CHECK: Balance Protection (Drawdown limit)
     const canContinue = await this.checkBalanceProtection(balance);
