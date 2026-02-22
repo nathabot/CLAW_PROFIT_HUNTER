@@ -105,9 +105,13 @@ async function getUpdates(offset = 0) {
   return res.json();
 }
 
+// Authorized users (only Yusron)
+const AUTHORIZED_USERS = ['428798235', 'y_prnt'];
+
 // Main loop
 async function startBot() {
   console.log("🤖 Starting Natha Trading Bot...");
+  console.log("🔒 Mode: REPLY TO OWNER ONLY");
   
   // Test connection
   const me = await fetch(`${API_URL}/getMe`).then(r => r.json());
@@ -117,7 +121,7 @@ async function startBot() {
   }
   
   console.log(`✅ Bot: @${me.result.username}`);
-  console.log("📡 Listening for commands...\n");
+  console.log("📡 Listening for commands (owner only)...\n");
   
   let offset = 0;
   
@@ -134,7 +138,14 @@ async function startBot() {
           if (update.message?.text) {
             const chatId = update.message.chat.id;
             const text = update.message.text;
+            const userId = update.message.from?.id?.toString();
             const username = update.message.chat.username;
+            
+            // Security: Only respond to authorized users
+            if (!AUTHORIZED_USERS.includes(userId) && !AUTHORIZED_USERS.includes(username)) {
+              console.log(`🚫 ${username} (${userId}): blocked - not authorized`);
+              continue;
+            }
             
             console.log(`📩 ${username}: ${text}`);
             
