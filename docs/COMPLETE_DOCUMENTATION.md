@@ -740,3 +740,136 @@ Sistem dual-mode trading untuk kondisi market berbeda:
 ```bash
 sed -i 's/"MODE": "auto"/"MODE": "manual"/' trading-config.json
 ```
+
+---
+
+## 📈 Parameter Optimization & Edge Sizing (Feb 22, 2026)
+
+### 1. TP/SL Optimization
+
+**Historical Analysis Results:**
+- TP1 Hit Rate: Only 4.3% (targets too aggressive)
+- Winners avg: +0.2% to +1.5% (max_hold exits)
+- Conclusion: Targets unrealistic (+15-40%)
+
+**Optimized Parameters (Based on Historical Data):**
+
+| Regime | TP1 | TP2 | SL | Partial Exit |
+|--------|-----|-----|-----|--------------|
+| BEAR | +4% | +6% | -3% | 60% |
+| VOLATILE_BEAR | +3% | +5% | -2.5% | 70% |
+| NEUTRAL | +5% | +8% | -5% | 50% |
+| RANGING_BULL | +8% | +12% | -5% | 50% |
+| BULL | +12% | +18% | -6% | 40% |
+
+**Files:**
+- `src/dynamic-tpsl-engine.js` - TP/SL by regime
+- `src/live-trader-v4.2.js` - FIB_TP1, FIB_TP2 constants
+
+### 2. Strategy Optimizer
+
+**Tools:**
+- `src/strategy-optimizer.js` - Analyze historical trades
+- `src/optimizer-v2.js` - Grid search parameter simulation
+- `optimizer-results.json` - Latest optimal parameters
+
+**Usage:**
+```bash
+node src/strategy-optimizer.js
+node src/optimizer-v2.js
+```
+
+**Features:**
+- Strategy performance by win rate
+- TP1 hit rate analysis
+- Stop loss analysis
+- Grid search over TP/SL combinations
+- Confidence level based on sample size
+
+### 3. Edge-Style Position Sizing
+
+Based on Freqtrade's Edge concept - position size proportional to historical win rate.
+
+**Logic:**
+| Token WR | Position Size | Multiplier |
+|----------|---------------|------------|
+| ≥55% (high confidence) | Biggest | 1.4x |
+| 50-55% | Bigger | 1.2x |
+| 45-50% | Default | 1.0x |
+| 40-45% | Smaller | 0.8x |
+| <40% | Minimal | 0.5x |
+
+**WR Source Priority:**
+1. **Proven Token** - from `bok/proven-established.json` or `bok/proven-degen.json`
+2. **Strategy WR** - fallback if token not in proven list
+
+**Example Output:**
+```
+📏 EDGE-STYLE POSITION SIZE:
+   Size: 0.018 SOL
+   Reason: TOKEN WR 70.4% × HIGH confidence
+   Token Stats: 317/450 wins, avg +12.5%
+```
+
+**File:** `src/multi-factor-risk.js`
+
+### 4. Technical Indicators
+
+Installed `technicalindicators` npm package for advanced TA:
+
+```bash
+npm install technicalindicators
+```
+
+**Available Indicators:**
+- RSI, MACD, Bollinger Bands
+- Stochastic, ADX, CCI
+- And 300+ more
+
+**Usage:**
+```javascript
+const { RSI, MACD, BollingerBands } = require('technicalindicators');
+```
+
+---
+
+## 🔧 Recent Fixes (Feb 22, 2026)
+
+### Dashboard Fixes
+- Fixed: `exitPrice?.toFixed` error (string vs number)
+- Fixed: `pnlValue.toFixed` error (parseFloat for P/L values)
+- Added: HTTP status check for API responses
+
+**File:** `src/dashboard-server.js`
+
+---
+
+## 📊 Performance Summary (Feb 22, 2026)
+
+| Metric | Value |
+|--------|-------|
+| Total Trades | 55 |
+| Best Strategy | fib_dynamic (42.1% WR) |
+| TP1 Hit Rate | 4.3% |
+| Avg Winner | +0.2% to +1.5% |
+| Active Mode | established |
+| TP Targets | +3-8% (optimized) |
+
+---
+
+## 🔄 Auto-Sync System
+
+### Git Auto-Pull
+- Runs every 15 minutes
+- Cron: `*/15 * * * *`
+- File: `auto-pull.sh`
+- Note: Only fetches, won't overwrite local uncommitted changes
+
+### Git Auto-Commit
+- Manual or triggered by changes
+- File: `auto-commit.sh` (systemd service)
+- Pushes to: `github.com/nathabot/CLAW_PROFIT_HUNTER`
+
+---
+
+*Last Updated: February 22, 2026*
