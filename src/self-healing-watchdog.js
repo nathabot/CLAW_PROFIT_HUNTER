@@ -12,7 +12,7 @@ const CONFIG = {
   CHECK_INTERVAL: 60 * 1000, // 1 minute
   STATE_FILE: '/root/trading-bot/self-healing-state.json',
   LOG_FILE: '/root/trading-bot/logs/self-healing.log',
-  BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
+  BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || '${TELEGRAM_BOT_TOKEN}',
   CHAT_ID: '-1003212463774',
   SERVICES: [
     {

@@ -36,7 +36,7 @@ let dynamicTP2 = POS.tp2;
 let highestPrice = POS.entry;
 let trailingActivated = false;
 
-const BOT_TOKEN = '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
+const BOT_TOKEN = '${TELEGRAM_BOT_TOKEN}';
 const CHAT_ID = '-1003212463774';
 const TOPIC_ID = 24;
 

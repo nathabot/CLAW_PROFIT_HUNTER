@@ -69,7 +69,7 @@ const CONFIG = {
   EMERGENCY_STOP_FILE: '/root/trading-bot/EMERGENCY_STOP'
 };
 
-const BOT_TOKEN = TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
+const BOT_TOKEN = TELEGRAM_BOT_TOKEN || '${TELEGRAM_BOT_TOKEN}';
 const CHAT_ID = TELEGRAM_CHAT_ID || '-1003212463774';
 const TOPIC_ID = 24; // Topic #24: Active Positions
 

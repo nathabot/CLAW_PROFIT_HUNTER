@@ -11,7 +11,7 @@ MAX_RESTARTS=5
 # Log restart
 log_restart() {
     echo "[$(date)] Live trader restarted (count: $RESTART_COUNT)" >> "$LOG_FILE"
-    curl -s -X POST "https://api.telegram.org/bot8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU/sendMessage" \
+    curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
         -d "chat_id=-1003212463774" \
         -d "message_thread_id=26" \
         -d "text=⚠️ Live trader crashed and restarted (attempt $RESTART_COUNT/$MAX_RESTARTS)" 2>/dev/null
@@ -37,7 +37,7 @@ while [ $RESTART_COUNT -lt $MAX_RESTARTS ]; do
         
         if [ $RESTART_COUNT -ge $MAX_RESTARTS ]; then
             echo "[$(date)] Max restarts reached, giving up" >> "$LOG_FILE"
-            curl -s -X POST "https://api.telegram.org/bot8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU/sendMessage" \
+            curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
                 -d "chat_id=-1003212463774" \
                 -d "message_thread_id=26" \
                 -d "text=🛑 Live trader failed $MAX_RESTARTS times. Manual intervention required." 2>/dev/null

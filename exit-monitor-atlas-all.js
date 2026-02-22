@@ -116,7 +116,7 @@ async function executeSell(pos, percent, isStopLoss = false, retryCount = 0) {
 }
 
 async function notify(msg) {
-  const TELEGRAM_TOKEN = '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
+  const TELEGRAM_TOKEN = '${TELEGRAM_BOT_TOKEN}';
   const CHAT_ID = '428798235';
   try {
     await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {

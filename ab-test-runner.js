@@ -149,7 +149,7 @@ async function run() {
   
   // Send to Telegram
   try {
-    await fetch(`https://api.telegram.org/bot8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU/sendMessage`, {
+    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({chat_id: '-1003212463774', text: msg, parse_mode: 'Markdown'})
     });
