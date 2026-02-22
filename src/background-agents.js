@@ -38,11 +38,17 @@ const AGENT_CONFIG = {
       enabled: true,
       description: 'Check active positions, alert if issues'
     },
-    'auto-review': {
+    'daily-review': {
+      name: 'Daily Auto-Review',
+      schedule: '0 20 * * *', // Every 8 PM daily
+      enabled: true,
+      description: 'Run daily strategy performance review'
+    },
+    'weekly-review': {
       name: 'Weekly Auto-Review',
       schedule: '0 9 * * 0', // Sunday 9 AM
       enabled: true,
-      description: 'Run strategy performance review'
+      description: 'Run weekly strategy performance review'
     },
     'balance-guardian': {
       name: 'Balance Guardian',
@@ -195,20 +201,45 @@ async function runPositionHealth() {
   log(`Position health check: ${activePositions.length} active, ${stalePositions.length} stale`);
 }
 
-// Agent: Auto-Review
-async function runAutoReview() {
-  log('Running weekly auto-review...');
+// Agent: Daily Auto-Review
+async function runDailyReview() {
+  log('Running daily auto-review...');
   
-  // Import and run from auto-improvement module
   try {
     const { runAutoReview: performReview } = require('./auto-improvement');
-    const review = performReview();
+    const review = performReview('24h');
+    
+    const message = `📊 *Daily Auto-Review* (${new Date().toLocaleDateString('id-ID')})
+
+*Today:*
+- Win Rate: ${review.performance?.winRate || 'N/A'}%
+- Trades: ${review.performance?.trades || 0}
+- P/L: ${review.performance?.pnl || 'N/A'}
+
+*Top Performer:* ${review.performance?.topTokens?.[0]?.token || 'N/A'}
+
+💡 ${review.suggestions?.[0]?.message || 'No suggestions'}`;
+    
+    await sendTelegram(message);
+    log('Daily review sent');
+  } catch (e) {
+    log(`Daily review failed: ${e.message}`, 'ERROR');
+  }
+}
+
+// Agent: Weekly Auto-Review
+async function runWeeklyReview() {
+  log('Running weekly auto-review...');
+  
+  try {
+    const { runAutoReview: performReview } = require('./auto-improvement');
+    const review = performReview('7d');
     
     const message = `📊 *Weekly Auto-Review Complete*
     
-🕐 Timestamp: ${new Date(review.timestamp).toLocaleString()}
+🕐 Week: ${new Date().toLocaleDateString('id-ID')}
 
-*Performance:*
+*This Week:*
 - Win Rate: ${review.performance?.winRate || 'N/A'}%
 - Trades: ${review.performance?.trades || 0}
 - Expectancy: ${review.performance?.expectancy || 'N/A'}
@@ -218,9 +249,9 @@ async function runAutoReview() {
 💡 *Suggestions:* ${review.suggestions?.length || 0} recommendations`;
     
     await sendTelegram(message);
-    log('Auto-review sent');
+    log('Weekly review sent');
   } catch (e) {
-    log(`Auto-review failed: ${e.message}`, 'ERROR');
+    log(`Weekly review failed: ${e.message}`, 'ERROR');
   }
 }
 
@@ -272,7 +303,8 @@ const AGENT_TASKS = {
   'morning-check': () => runMarketCheck('morning'),
   'evening-check': () => runMarketCheck('evening'),
   'position-health': runPositionHealth,
-  'auto-review': runAutoReview,
+  'daily-review': runDailyReview,
+  'weekly-review': runWeeklyReview,
   'balance-guardian': runBalanceGuardian
 };
 
@@ -313,6 +345,7 @@ module.exports = {
   runDailySummary,
   runMarketCheck,
   runPositionHealth,
-  runAutoReview,
+  runDailyReview,
+  runWeeklyReview,
   runBalanceGuardian
 };

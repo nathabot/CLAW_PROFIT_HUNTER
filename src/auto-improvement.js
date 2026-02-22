@@ -202,16 +202,31 @@ function suggestParameterTweaks(performance, currentParams) {
 }
 
 // ==================== AUTO REVIEW ====================
-function runAutoReview() {
+function runAutoReview(period = '7d') {
   const positions = readJSON(`${TRADING_BOT_DIR}/positions.json`, []);
   const config = readJSON(`${TRADING_BOT_DIR}/trading-config.json`, {});
   
-  const performance = analyzeStrategyPerformance(positions);
+  // Filter positions by period
+  let filteredPositions = positions;
+  const now = Date.now();
+  
+  if (period === '24h') {
+    const oneDayAgo = now - (24 * 60 * 60 * 1000);
+    filteredPositions = positions.filter(p => p.entryTime && p.entryTime >= oneDayAgo);
+  } else if (period === '7d') {
+    const sevenDaysAgo = now - (7 * 24 * 60 * 60 * 1000);
+    filteredPositions = positions.filter(p => p.entryTime && p.entryTime >= sevenDaysAgo);
+  } else if (period === '30d') {
+    const thirtyDaysAgo = now - (30 * 24 * 60 * 60 * 1000);
+    filteredPositions = positions.filter(p => p.entryTime && p.entryTime >= thirtyDaysAgo);
+  }
+  
+  const performance = analyzeStrategyPerformance(filteredPositions);
   const suggestions = suggestParameterTweaks(performance, config.TP_SETTINGS);
   
   const review = {
     timestamp: Date.now(),
-    period: '7d',
+    period,
     performance,
     suggestions,
     configSnapshot: config

@@ -26,8 +26,11 @@ crontab /tmp/current-cron
 # Evening Market Check - 6 PM
 (crontab -l 2>/dev/null; echo "0 18 * * * cd $TRADING_BOT_DIR && node src/background-agents.js evening-check >> logs/agents.log 2>&1") | crontab -
 
+# Daily Auto-Review - 8 PM daily
+(crontab -l 2>/dev/null; echo "0 20 * * * cd $TRADING_BOT_DIR && node src/background-agents.js daily-review >> logs/agents.log 2>&1") | crontab -
+
 # Weekly Auto-Review - Sunday 9 AM
-(crontab -l 2>/dev/null; echo "0 9 * * 0 cd $TRADING_BOT_DIR && node src/background-agents.js auto-review >> logs/agents.log 2>&1") | crontab -
+(crontab -l 2>/dev/null; echo "0 9 * * 0 cd $TRADING_BOT_DIR && node src/background-agents.js weekly-review >> logs/agents.log 2>&1") | crontab -
 
 echo "✅ Background Agents installed!"
 echo ""
