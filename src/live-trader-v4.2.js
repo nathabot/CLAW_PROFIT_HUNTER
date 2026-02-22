@@ -32,7 +32,9 @@ const CONFIG = {
   MIN_LIQUIDITY_USD: 25000,       // $25k minimum liquidity
   MAX_DAILY_TRADES: 10,           // Maximum trades per day
   DAILY_TARGET: 0.2,
-  RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304',
+  RPC: process.env.HELIUS_API_KEY 
+    ? `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
+    : 'https://api.mainnet-beta.solana.com',
   // FIBONACCI STRATEGY (OPTIMIZED Feb 2026 - based on historical winning trades)
   // Historical avg winner: +3-6% (TP1 4%, TP2 6%)
   FIB_ENTRY: 0.618,              // Golden ratio entry

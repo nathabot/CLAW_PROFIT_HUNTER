@@ -10,7 +10,9 @@ const fs = require('fs');
 const CONFIG = {
   STATE_FILE: '/root/trading-bot/market-condition.json',
   HISTORY_FILE: '/root/trading-bot/market-history.json',
-  SOLANA_RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304'
+  SOLANA_RPC: process.env.HELIUS_API_KEY 
+    ? `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
+    : 'https://api.mainnet-beta.solana.com'
 };
 
 class MarketConditionAnalyzer {

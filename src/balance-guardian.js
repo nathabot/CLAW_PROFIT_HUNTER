@@ -28,7 +28,9 @@ const CONFIG = {
   
   // Commands
   WALLET_ADDRESS: 'EpG25pVadjQ9M9NHJMXZSc6SsB3Mshj4Kk9uzDVB8kum',
-  RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304'
+  RPC: process.env.HELIUS_API_KEY 
+    ? `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
+    : 'https://api.mainnet-beta.solana.com'
 };
 
 class BalanceGuardian {
