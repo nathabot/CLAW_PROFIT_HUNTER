@@ -259,23 +259,28 @@ async function runWeeklyReview() {
 async function runBalanceGuardian() {
   log('Running balance guardian...');
   
-  // Try multiple balance sources
+  // Try multiple balance sources (in order of reliability)
   let balance = 0;
   
-  // 1. Try status.json
-  const status = readJSON(`${TRADING_BOT_DIR}/status.json`, {});
-  if (status.balance) balance = status.balance;
-  
-  // 2. Try balance file
-  if (balance === 0) {
-    const balanceFile = readJSON(`${TRADING_BOT_DIR}/current-balance.json`, {});
-    if (balanceFile.balance) balance = balanceFile.balance;
+  // 1. Try dashboard API (most reliable)
+  try {
+    const response = await fetch('http://localhost:8080/api/status');
+    const status = await response.json();
+    if (status.balance) balance = status.balance;
+  } catch (e) {
+    log(`Dashboard API failed: ${e.message}`, 'WARN');
   }
   
-  // 3. Try reading from live-trader state (last known)
+  // 2. Try current-balance.json
   if (balance === 0) {
-    // Default to last known good balance
-    balance = 0.332; // Approximate current
+    const balanceFile = readJSON(`${TRADING_BOT_DIR}/current-balance.json`, {});
+    if (balanceFile && balanceFile.balance) balance = balanceFile.balance;
+  }
+  
+  // 3. Default - don't emergency stop if we can't read balance
+  if (balance === 0) {
+    log('Cannot read balance - skipping emergency check', 'WARN');
+    return;
   }
   
   const minBalance = 0.03; // Kill switch threshold
