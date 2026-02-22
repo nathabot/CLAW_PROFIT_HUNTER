@@ -2,7 +2,7 @@ const { Connection, PublicKey, Keypair } = require('@solana/web3.js');
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-const RPC = 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304';
+const RPC = 'https://mainnet.helius-rpc.com/?api-key=c9926a7b-57ba-47e3-8de4-5fb46fa4b9ee';
 const connection = new Connection(RPC);
 
 const walletData = JSON.parse(fs.readFileSync('/root/trading-bot/wallet.json', 'utf8'));
