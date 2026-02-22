@@ -23,14 +23,14 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: 'Bonk',
   ca: 'DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263',
-  entry: 0.000006415,
-  stop: 0.000006030273205,
-  tp1: 0.00000658978309,
-  tp2: 0.0000068203011626200005,
+  entry: 0.000006152,
+  stop: 0.000005783046103999999,
+  tp1: 0.000006319617392,
+  tp2: 0.000006540684762655999,
   partialExit: 0.5
 };
 
-const BOT_TOKEN = '${TELEGRAM_BOT_TOKEN}';
+const BOT_TOKEN = '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
 const CHAT_ID = '-1003212463774';
 const TOPIC_ID = 24;
 

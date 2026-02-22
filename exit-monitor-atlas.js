@@ -23,14 +23,14 @@ console.log('Wallet loaded: ' + wallet.publicKey.toString().slice(0, 20) + '...'
 const POS = {
   symbol: 'ATLAS',
   ca: 'ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx',
-  entry: 0.0002021,
-  stop: 0.0001899794567,
-  tp1: 0.0002076064166,
-  tp2: 0.00021486872407880001,
+  entry: 0.0002046,
+  stop: 0.00019232952419999998,
+  tp1: 0.0002101745316,
+  tp2: 0.0002175266746488,
   partialExit: 0.5
 };
 
-const BOT_TOKEN = '${TELEGRAM_BOT_TOKEN}';
+const BOT_TOKEN = '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
 const CHAT_ID = '-1003212463774';
 const TOPIC_ID = 24;
 

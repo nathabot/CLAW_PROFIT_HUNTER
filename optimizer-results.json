@@ -1,0 +1,20 @@
+{
+  "optimal": {
+    "tp1": 0.04,
+    "tp2": 0.05,
+    "sl": 2
+  },
+  "current": {
+    "tp1": 0.05,
+    "tp2": 0.08,
+    "sl": 0.05
+  },
+  "improvement": {
+    "winRate": "0.0",
+    "avgPnl": "0.0"
+  },
+  "confidence": "HIGH",
+  "sampleSize": 37,
+  "testedCombinations": 204,
+  "timestamp": "2026-02-22T11:33:03.247Z"
+}

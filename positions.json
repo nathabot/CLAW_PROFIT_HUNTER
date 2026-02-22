@@ -1207,5 +1207,81 @@
     "pnlPercent": 0.22485690923959023,
     "exitType": "MAX_HOLD",
     "exitTxHash": "tBp36edp9F4U5fDyFWoA5hZqd1NRdfLWNRQgSPiLCHQbFF74xe7RiT7vYaFL5NuPHptfgnwj5pRGQYReL77HByF"
+  },
+  {
+    "symbol": "SAMO",
+    "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+    "entryPrice": 0.0004907,
+    "entryTime": 1771754105411,
+    "positionSize": 0.01,
+    "tokensReceived": 1723609397242,
+    "txHash": "4iVsRk7y5sQ9WqKqZW9f89ewV5fNAZ4RjmC1r5n3k5BUcZjCNaErxcsyhwjyNj4ycka7debKFkNxFE1M3ygb56Am",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.0004612712488999999,
+      "tp1": 0.0005040696121999999,
+      "tp2": 0.0005217025378796
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "SAMO",
+    "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+    "entryPrice": 0.0004907,
+    "entryTime": 1771754105416,
+    "positionSize": 0.01,
+    "tokensReceived": 1723609397242,
+    "txHash": "Xa96Wck2hHwQnybJzosAA1writzcTcZTSSYSDMeg4hM5gC47ui8L9mhuZ7BnUs1EZLSgCQ2GntSGnMBq6BXQxBH",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.0004612712488999999,
+      "tp1": 0.0005040696121999999,
+      "tp2": 0.0005217025378796
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "Bonk",
+    "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    "entryPrice": 0.000006152,
+    "entryTime": 1771754107694,
+    "positionSize": 0.01,
+    "tokensReceived": 13784629424,
+    "txHash": "3kG5Fox3nHQARmUwZA7G42aLmigxeMBKKPi6yGLVemrj2sPRDU3sDBhwSxhRsyukGZuhZheE5UNsq8qJAUoLShFj",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.000005783046103999999,
+      "tp1": 0.000006319617392,
+      "tp2": 0.000006540684762655999
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
+  },
+  {
+    "symbol": "ATLAS",
+    "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+    "entryPrice": 0.0002046,
+    "entryTime": 1771755901131,
+    "positionSize": 0.01,
+    "tokensReceived": 428078586021,
+    "txHash": "5YWrFFcgiknLsKUbkw21uELK3UBSMJsvqEXCXKAFyHMyeUo1a6DjfVPs5UASVjUncgPWt8s6ik7enGq6TBHNbrgt",
+    "strategy": "fib_dynamic",
+    "strategyId": "fib_618_1000",
+    "targets": {
+      "sl": 0.00019232952419999998,
+      "tp1": 0.0002101745316,
+      "tp2": 0.0002175266746488
+    },
+    "exited": false,
+    "partialExited": false,
+    "marketCondition": "UNKNOWN"
   }
 ]
