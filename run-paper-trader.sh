@@ -1,4 +1,5 @@
 #!/bin/bash
+export HELIUS_API_KEY="c9926a7b-57ba-47e3-8de4-5fb46fa4b9ee"
 LOCKFILE="/root/trading-bot/paper-trader.lock"
 if [ -f "$LOCKFILE" ]; then
   PID=$(cat "$LOCKFILE")
