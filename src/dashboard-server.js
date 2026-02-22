@@ -817,6 +817,21 @@ async function generateDashboard() {
             </div>
         </div>
         
+        <!-- Analytics Section -->
+        <div class="card" style="margin-top: 20px; background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); border: 2px solid #3b82f6;">
+            <h2>📈 Analytics & Performance</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <button class="btn" onclick="loadAnalytics('24h')">24h</button>
+                <button class="btn" onclick="loadAnalytics('7d')">7d</button>
+                <button class="btn" onclick="loadAnalytics('30d')">30d</button>
+                <button class="btn" style="background: #10b981;" onclick="loadAnalytics('all')">All Time</button>
+                <button class="btn" style="background: #8b5cf6;" onclick="loadAutoReview()">🔄 Run Review</button>
+            </div>
+            <div id="analyticsContent">
+                <p style="color: #9ca3af; text-align: center;">Loading analytics...</p>
+            </div>
+        </div>
+        
         <!-- Strategies Modal -->
         <div class="modal-overlay" id="strategiesModal">
             <div class="modal" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
@@ -1039,6 +1054,131 @@ async function generateDashboard() {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+        
+        // Analytics functions
+        let currentPeriod = '7d';
+        
+        async function loadAnalytics(period) {
+            currentPeriod = period;
+            const container = document.getElementById('analyticsContent');
+            container.innerHTML = '<p style="color: #9ca3af; text-align: center;">Loading analytics...</p>';
+            
+            try {
+                const [analyticsRes, performanceRes] = await Promise.all([
+                    fetch('/api/analytics?period=' + period),
+                    fetch('/api/performance')
+                ]);
+                
+                const analytics = await analyticsRes.json();
+                const { performance, suggestions } = await performanceRes.json();
+                
+                let html = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">';
+                
+                // Stats cards
+                html += '<div style="background: #1f2937; padding: 15px; border-radius: 8px; text-align: center;">';
+                html += '<div style="font-size: 12px; color: #9ca3af;">Total Trades</div>';
+                html += '<div style="font-size: 28px; font-weight: bold; color: #60a5fa;">' + analytics.totalTrades + '</div>';
+                html += '</div>';
+                
+                html += '<div style="background: #1f2937; padding: 15px; border-radius: 8px; text-align: center;">';
+                html += '<div style="font-size: 12px; color: #9ca3af;">Win Rate</div>';
+                html += '<div style="font-size: 28px; font-weight: bold; color: ' + (parseFloat(analytics.winRate) >= 50 ? '#10b981' : '#ef4444') + ';">' + analytics.winRate + '%</div>';
+                html += '</div>';
+                
+                html += '<div style="background: #1f2937; padding: 15px; border-radius: 8px; text-align: center;">';
+                html += '<div style="font-size: 12px; color: #9ca3af;">Wins / Losses</div>';
+                html += '<div style="font-size: 28px; font-weight: bold; color: #10b981;">' + analytics.wins + '</div>';
+                html += '<div style="font-size: 12px; color: #6b7280;">/' + analytics.losses + '</div>';
+                html += '</div>';
+                
+                html += '<div style="background: #1f2937; padding: 15px; border-radius: 8px; text-align: center;">';
+                html += '<div style="font-size: 12px; color: #9ca3af;">Total P/L</div>';
+                html += '<div style="font-size: 28px; font-weight: bold; color: ' + (parseFloat(analytics.totalPnL) >= 0 ? '#10b981' : '#ef4444') + ';">' + (parseFloat(analytics.totalPnL) >= 0 ? '+' : '') + parseFloat(analytics.totalPnL).toFixed(4) + ' SOL</div>';
+                html += '</div>';
+                
+                html += '</div>';
+                
+                // By Token breakdown
+                if (analytics.byToken && Object.keys(analytics.byToken).length > 0) {
+                    html += '<h3 style="color: #9ca3af; margin-top: 15px;">📊 By Token</h3>';
+                    html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">';
+                    
+                    const tokens = Object.entries(analytics.byToken).sort((a, b) => b[1].pnl - a[1].pnl);
+                    tokens.slice(0, 10).forEach(([token, data]) => {
+                        const wr = data.trades > 0 ? ((data.wins / data.trades) * 100).toFixed(0) : 0;
+                        html += '<div style="background: #111827; padding: 10px; border-radius: 6px; border: 1px solid #374151;">';
+                        html += '<div style="font-weight: bold; color: #f9fafb;">' + token + '</div>';
+                        html += '<div style="font-size: 12px; color: #6b7280;">' + data.trades + ' trades, ' + wr + '% WR</div>';
+                        html += '<div style="font-size: 14px; color: ' + (data.pnl >= 0 ? '#10b981' : '#ef4444') + ';">' + (data.pnl >= 0 ? '+' : '') + data.pnl.toFixed(4) + ' SOL</div>';
+                        html += '</div>';
+                    });
+                    html += '</div>';
+                }
+                
+                // Performance & Suggestions
+                if (performance && performance.status === 'analyzed') {
+                    html += '<h3 style="color: #9ca3af; margin-top: 20px;">🎯 Performance Analysis</h3>';
+                    html += '<div style="background: #111827; padding: 15px; border-radius: 8px; margin-bottom: 15px;">';
+                    html += '<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">';
+                    html += '<div><span style="color: #6b7280;">Confidence:</span> <span style="color: #f9fafb;">' + performance.confidence + '</span></div>';
+                    html += '<div><span style="color: #6b7280;">Avg Win:</span> <span style="color: #10b981;">+' + parseFloat(performance.avgWin).toFixed(4) + '</span></div>';
+                    html += '<div><span style="color: #6b7280;">Avg Loss:</span> <span style="color: #ef4444;">' + parseFloat(performance.avgLoss).toFixed(4) + '</span></div>';
+                    html += '</div></div>';
+                    
+                    if (suggestions && suggestions.length > 0) {
+                        html += '<h4 style="color: #9ca3af;">💡 Suggestions</h4>';
+                        suggestions.forEach(s => {
+                            const color = s.type === 'success' ? '#10b981' : s.type === 'warning' ? '#f59e0b' : s.type === 'danger' ? '#ef4444' : '#6b7280';
+                            html += '<div style="background: #1f2937; padding: 10px; border-radius: 6px; margin-bottom: 8px; border-left: 3px solid ' + color + ';">';
+                            html += '<div style="color: ' + color + '; font-weight: bold;">' + s.type.toUpperCase() + ': ' + s.area + '</div>';
+                            html += '<div style="color: #d1d5db;">' + s.message + '</div>';
+                            html += '<div style="color: #9ca3af; font-size: 12px;">→ ' + s.action + '</div>';
+                            html += '</div>';
+                        });
+                    }
+                } else if (performance && performance.status === 'insufficient_data') {
+                    html += '<p style="color: #f59e0b;">⚠️ ' + performance.trades + ' trades - need more data for analysis</p>';
+                }
+                
+                container.innerHTML = html;
+            } catch (e) {
+                console.error('Failed to load analytics:', e);
+                container.innerHTML = '<p style="color: #ef4444;">Failed to load analytics: ' + e.message + '</p>';
+            }
+        }
+        
+        async function loadAutoReview() {
+            const container = document.getElementById('analyticsContent');
+            container.innerHTML = '<p style="color: #9ca3af; text-align: center;">Running auto-review...</p>';
+            
+            try {
+                const response = await fetch('/api/auto-review/run');
+                const review = await response.json();
+                
+                let html = '<div style="background: #111827; padding: 15px; border-radius: 8px;">';
+                html += '<h3 style="color: #10b981;">✅ Auto-Review Complete</h3>';
+                html += '<p style="color: #d1d5db;">Timestamp: ' + new Date(review.timestamp).toLocaleString() + '</p>';
+                html += '<p style="color: #d1d5db;">Period: ' + review.period + '</p>';
+                
+                if (review.performance) {
+                    html += '<p>Win Rate: <span style="color: #10b981;">' + review.performance.winRate + '%</span></p>';
+                    html += '<p>Trades: ' + review.performance.trades + '</p>';
+                    html += '<p>Expectancy: ' + review.performance.expectancy + '</p>';
+                }
+                
+                if (review.suggestions) {
+                    html += '<h4>💡 Suggestions</h4>';
+                    review.suggestions.forEach(s => {
+                        html += '<p>• ' + s.message + '</p>';
+                    });
+                }
+                
+                html += '</div>';
+                container.innerHTML = html;
+            } catch (e) {
+                container.innerHTML = '<p style="color: #ef4444;">Failed to run review: ' + e.message + '</p>';
+            }
         }
         
         // Load strategies on page load
