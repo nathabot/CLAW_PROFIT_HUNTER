@@ -1,0 +1,59 @@
+[
+  {
+    "symbol": "TOILET",
+    "name": "Strategic Bathroom Reserve",
+    "tokenAddress": "G1bi1DTYru9ek25TKYTkho15Pkseii8a5w2EB66Ppump",
+    "source": "pumpfun-browser",
+    "confidence": 10,
+    "timestamp": 1771864087088,
+    "metrics": {
+      "marketCap": 15000,
+      "liquidity": 8250,
+      "volume24h": 0,
+      "change24h": 73.23,
+      "bondingCurve": 55,
+      "devHolder": 100,
+      "age": 0.06666666666666667
+    },
+    "recommendation": "BUY",
+    "reason": "Score 10.0/10 meets threshold"
+  },
+  {
+    "symbol": "YOU",
+    "name": "I'm Like You",
+    "tokenAddress": "5skJctqisMoqz1BectXvxEn4pgCmgifVGapskp2fpump",
+    "source": "pumpfun-browser",
+    "confidence": 7.3,
+    "timestamp": 1771864087087,
+    "metrics": {
+      "marketCap": 18400,
+      "liquidity": 13800,
+      "volume24h": 0,
+      "change24h": 19.28,
+      "bondingCurve": 75,
+      "devHolder": 100,
+      "age": 3
+    },
+    "recommendation": "BUY",
+    "reason": "Score 7.3/10 meets threshold"
+  },
+  {
+    "symbol": "KREME",
+    "name": "Kreme Coin",
+    "tokenAddress": "342X1kb4UN1uvxdGMN5yL9m6N3HeSemk7xiX2AzPpump",
+    "source": "pumpfun-browser",
+    "confidence": 8.5,
+    "timestamp": 1771864087086,
+    "metrics": {
+      "marketCap": 7400,
+      "liquidity": 3900,
+      "volume24h": 0,
+      "change24h": 151.39,
+      "bondingCurve": 62,
+      "devHolder": 100,
+      "age": 0.23333333333333334
+    },
+    "recommendation": "BUY",
+    "reason": "Score 8.5/10 meets threshold"
+  }
+]

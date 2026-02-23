@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// LIVE TRADER v4.2 (DYNAMIC TP/SL)
+// LIVE TRADER v4.2.1 (DYNAMIC TP/SL)
 // Platform: VPS Natha (Single VPS Architecture)
 // Features: Fibonacci-based adaptive targets, Honeypot check, Token age, Contract verification
-// Updated: 2026-02-17
+// Updated: 2026-02-22 - Fixed version string
 
 const { Connection, PublicKey, Keypair, VersionedTransaction } = require('@solana/web3.js');
 const fetch = require('node-fetch');
@@ -10,6 +10,7 @@ const fs = require('fs');
 const bs58 = require('bs58');
 const DynamicTPSL = require('./dynamic-tpsl-engine');
 const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = require('./env-loader');
+const { calculateMultiFactorScore, calculatePositionSize, calculateEdgePositionSize, calculatePortfolioRisk } = require('./multi-factor-risk');
 
 // SOLANA TRACKER API (bypass Jupiter rate limit)
 const SOLANA_TRACKER_API_KEY = 'af3eb8ef-de7c-469f-a6d6-30b6c4c11f2a';
@@ -26,18 +27,19 @@ const CONFIG = {
   DEFAULT_POSITION_SIZE: 0.015,   // Default size
   FEE_RESERVE: 0.015,             // BOK: always keep 0.015 SOL minimum for sell fees
   // DYNAMIC THRESHOLD from paper trader results
-  MIN_SCORE: ADAPTIVE_CONFIG.adaptiveThresholds?.liveTrader?.currentThreshold || 6.0,
+  MIN_SCORE: ADAPTIVE_CONFIG.adaptiveThresholds?.liveTrader?.currentThreshold || 5.0,
   MIN_TOKEN_AGE_MINUTES: 1440,    // 24 hours minimum token age
   MIN_LIQUIDITY_USD: 25000,       // $25k minimum liquidity
   MAX_DAILY_TRADES: 10,           // Maximum trades per day
   DAILY_TARGET: 0.2,
-  RPC: 'https://mainnet.helius-rpc.com/?api-key=74e50cb9-46b5-44dd-a67d-238283806304',
-  // FIBONACCI STRATEGY (from paper testing - 82.5% WR)
-  // Best: Entry 0.618, TP 1.618 (Golden) - 82.50% WR (33W/7L)
-  // Alternative: Entry 0.786, TP 1.0 - 82.50% WR (33W/7L)
+  RPC: process.env.HELIUS_API_KEY 
+    ? `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
+    : 'https://api.mainnet-beta.solana.com',
+  // FIBONACCI STRATEGY (OPTIMIZED Feb 2026 - based on historical winning trades)
+  // Historical avg winner: +3-6% (TP1 4%, TP2 6%)
   FIB_ENTRY: 0.618,              // Golden ratio entry
-  FIB_TP1: 1.0,                  // First target
-  FIB_TP2: 1.618,                // Golden ratio target
+  FIB_TP1: 0.67,                 // ~4% (OPTIMIZED from 1.0)
+  FIB_TP2: 1.0,                  // ~6% (OPTIMIZED from 1.618)
   PARTIAL_EXIT: true,            // 50% at TP1, 50% at TP2
   SL_FIB: 0.5,                   // Stop below 0.5 fib
   // Adaptive scoring
@@ -478,8 +480,10 @@ class DynamicTrader {
       }
       
       // Execute transaction
+      const { blockhash } = await this.connection.getLatestBlockhash();
       const txBuf = Buffer.from(data.txn, 'base64');
       const transaction = VersionedTransaction.deserialize(txBuf);
+      transaction.message.recentBlockhash = blockhash;
       
       transaction.sign([this.wallet]);
       
@@ -526,8 +530,10 @@ class DynamicTrader {
       }
       
       // Execute transaction
+      const { blockhash } = await this.connection.getLatestBlockhash();
       const txBuf = Buffer.from(data.txn, 'base64');
       const transaction = VersionedTransaction.deserialize(txBuf);
+      transaction.message.recentBlockhash = blockhash;
       
       transaction.sign([this.wallet]);
       
@@ -625,6 +631,19 @@ class DynamicTrader {
     }
   }
 
+  // Get total balance including open positions (from current-balance.json)
+  async getTotalBalance() {
+    try {
+      const balanceData = JSON.parse(fs.readFileSync('/root/trading-bot/current-balance.json', 'utf8'));
+      return balanceData.balance || 0;
+    } catch (e) {
+      // Fallback to RPC balance if file doesn't exist
+      const balance = await this.connection.getBalance(new PublicKey(CONFIG.WALLET));
+      return balance / 1e9;
+    }
+  }
+  
+  // Legacy: Get wallet SOL balance only (not including positions)
   async getBalance() {
     try {
       const balance = await this.connection.getBalance(new PublicKey(CONFIG.WALLET));
@@ -638,7 +657,12 @@ class DynamicTrader {
   syncAdaptiveThreshold() {
     try {
       const adaptiveConfig = JSON.parse(fs.readFileSync(CONFIG.SCORE_CONFIG_PATH, 'utf8'));
-      const paperStats = adaptiveConfig.adaptiveThresholds.paperTrader;
+      const paperStats = adaptiveConfig.adaptiveThresholds?.paperTrader;
+      
+      if (!paperStats) {
+        console.log('⚠️ Adaptive sync: No paperTrader data yet, skipping');
+        return;
+      }
       
       // If paper trader has 50+ trades and WR > 70%, use its optimal threshold
       if (paperStats.totalTrades >= 50 && paperStats.winRate >= 70) {
@@ -909,9 +933,9 @@ class DynamicTrader {
             console.log(`      🔄 Token history: ${canTrade.trades} trades, WR ${canTrade.reason === 'OK' ? canTrade.totalWins/canTrade.trades*100 : 'N/A'}%`);
           }
           
-          // Check if price moved up >5% (momentum entry)
+          // Check if price moved up >2% (momentum entry) - relaxed for proven tokens
           const priceChange = parseFloat(pair.priceChange?.h1 || 0);
-          if (priceChange < 1) {
+          if (priceChange < -3) {
             console.log(`      ⏭️ Low momentum (${priceChange}%/1h), skipping`);
             continue;
           }
@@ -973,7 +997,7 @@ class DynamicTrader {
       this.syncAdaptiveThreshold();
     }
     
-    const balance = await this.getBalance();
+    const balance = await this.getTotalBalance();
     
     // CHECK: Balance Protection (Drawdown limit)
     const canContinue = await this.checkBalanceProtection(balance);
@@ -1016,7 +1040,7 @@ class DynamicTrader {
     await this.tpslEngine.updateCache();
     
     // Scan trending tokens (paper trader method)
-    console.log('\n🔎 Scanning trending tokens (Paper Trader v3.1 method)...');
+    console.log('\n🔎 Scanning trending tokens (Paper Trader v5 method)...');
     
     // Get trending token profiles with retry logic
     let profiles = [];
@@ -1059,18 +1083,33 @@ class DynamicTrader {
     }
     
     // Filter candidates - Match paper trader settings (aggressive for more trades)
+    // PRIORITY: Pump.fun tokens near graduation ($50k-$90k market cap)
     const candidates = allPairs.filter(p => {
       const liq = parseFloat(p.liquidity?.usd || 0);
       const vol = parseFloat(p.volume?.h24 || 0);
       const age = this.getTokenAgeMinutes(p);
+      const mc = parseFloat(p.fdv || 0); // Market cap from FDV
+      
+      // Pump.fun graduation filter - tokens approaching $90k
+      const isPumpFunNearGrad = p.dexId === 'pumpfun' && mc >= 50000 && mc <= 90000;
+      
       return p.chainId === 'solana' &&
              (p.dexId === 'raydium' || p.dexId === 'orca' || p.dexId === 'meteora' || p.dexId === 'pumpfun' || p.dexId === 'pumpswap') &&
-             liq >= CONFIG.MIN_LIQUIDITY_USD &&  // $25k minimum liquidity
-             vol >= 10000 &&   // $10k minimum volume
-             age >= CONFIG.MIN_TOKEN_AGE_MINUTES;
-    }).sort((a, b) => parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0)).slice(0, 50) || [];  // More candidates
+             (isPumpFunNearGrad || (liq >= CONFIG.MIN_LIQUIDITY_USD && vol >= 10000 && age >= CONFIG.MIN_TOKEN_AGE_MINUTES));
+    }).sort((a, b) => {
+      // Prioritize pump.fun near graduation
+      const mcA = parseFloat(a.fdv || 0);
+      const mcB = parseFloat(b.fdv || 0);
+      const nearGradA = a.dexId === 'pumpfun' && mcA >= 50000 && mcA <= 90000;
+      const nearGradB = b.dexId === 'pumpfun' && mcB >= 50000 && mcB <= 90000;
+      if (nearGradA && !nearGradB) return -1;
+      if (!nearGradA && nearGradB) return 1;
+      return parseFloat(b.volume?.h24 || 0) - parseFloat(a.volume?.h24 || 0);
+    }).slice(0, 50) || [];
     
     console.log(`📊 Found ${candidates.length} candidates`);
+    const gradCount = candidates.filter(p => p.dexId === 'pumpfun' && parseFloat(p.fdv||0) >= 50000 && parseFloat(p.fdv||0) <= 90000).length;
+    if (gradCount > 0) console.log(`   🎯 ${gradCount} pump.fun tokens near graduation!`);
     
     for (const pair of candidates) {
       const symbol = pair.baseToken.symbol;
@@ -1094,10 +1133,11 @@ class DynamicTrader {
       const score = await this.getSignalScore(symbol, pair);
       console.log(`  📊 Score: ${score}/10 | Age: ${ageCheck.age.toFixed(0)}m`);
       
-      if (score < CONFIG.MIN_SCORE) {
-        console.log(`  ⏭️  Score too low (${score} < ${CONFIG.MIN_SCORE})`);
+      if (score > CONFIG.MIN_SCORE) {
+        console.log(`  ⏭️  Score too high (${score} > ${CONFIG.MIN_SCORE}) - high risk, skipping`);
         continue;
       }
+      console.log(`  ✅ Score good (${score}/${CONFIG.MIN_SCORE}) - low risk, proceeding!`);
       
       // Honeypot test
       console.log(`  🔒 Honeypot test...`);
@@ -1634,6 +1674,49 @@ class DynamicTrader {
   }
 
   async executeTrade(setup) {
+    // CHECK 0: Multi-Factor Scoring
+    const factorScore = calculateMultiFactorScore(setup.pair || {});
+    console.log(`\n📊 MULTI-FACTOR SCORE: ${factorScore.total}/10 (${factorScore.confidence})`);
+    console.log(`   Momentum: ${factorScore.factors.momentum}, Volatility: ${factorScore.factors.volatility}`);
+    console.log(`   Volume: ${factorScore.factors.volume}, Liquidity: ${factorScore.factors.liquidity}`);
+    
+    // High factor score = higher risk, skip (LOW score = good opportunity!)
+    if (factorScore.total > 7) {
+      console.log(`⚠️ High factor score (${factorScore.total}/10), skipping trade`);
+      return;
+    }
+    console.log(`✅ Factor score good (${factorScore.total}/10) - proceeding!`);
+    
+    // CHECK 0b: Portfolio Risk Check
+    const activePos = JSON.parse(fs.readFileSync('/root/trading-bot/positions.json', 'utf8'));
+    const positionsList = activePos.filter(p => !p.exited && p.positionSize >= 0.01);
+    
+    // Get current prices for risk calculation
+    const currentPrices = {};
+    for (const p of positionsList) {
+      try {
+        const resp = await fetch(`https://api.dexscreener.com/latest/dex/tokens/${p.ca}`);
+        const data = await resp.json();
+        if (data.pairs?.[0]) currentPrices[p.symbol] = parseFloat(data.pairs[0].priceUsd);
+      } catch {}
+    }
+    
+    const portfolioRisk = calculatePortfolioRisk(positionsList, currentPrices);
+    console.log(`\n🛡️ PORTFOLIO RISK:`);
+    console.log(`   Positions: ${portfolioRisk.positionCount}/${portfolioRisk.maxPositions}`);
+    console.log(`   VaR: ${portfolioRisk.varPercent.toFixed(1)}%`);
+    console.log(`   Status: ${portfolioRisk.status}`);
+    
+    // Don't open new position if portfolio is at risk
+    if (portfolioRisk.status === 'DANGER') {
+      console.log(`⚠️ Portfolio at risk, skipping new trade`);
+      return;
+    }
+    if (portfolioRisk.positionCount >= portfolioRisk.maxPositions) {
+      console.log(`⚠️ Max positions reached (${portfolioRisk.maxPositions}), skipping`);
+      return;
+    }
+    
     // CHECK 1: Daily trade limit
     if (!this.checkDailyLimit()) {
       console.log(`⚠️ Daily limit reached, skipping trade`);
@@ -1674,12 +1757,21 @@ class DynamicTrader {
     console.log(`  Partial Exit: ${targets.partialExitPercent}% at TP1`);
     console.log(`  Max Hold: ${this.strategyConfig?.maxHoldMinutes || 180} min\n`);
     
-    // Use flexible position size based on strategy performance
-    const positionSize = this.currentPositionSize || CONFIG.DEFAULT_POSITION_SIZE;
+    // Edge-style position sizing based on token-specific WR + confidence
+    const strategyWR = parseFloat(this.currentStrategy?.winRate || '50');
+    const dynamicSize = calculateEdgePositionSize(setup.ca, strategyWR, factorScore.confidence, this.balance);
+    const positionSize = dynamicSize.size;
+    
+    console.log(`📏 EDGE-STYLE POSITION SIZE:`);
+    console.log(`   Size: ${positionSize} SOL`);
+    console.log(`   Reason: ${dynamicSize.reason}`);
+    if (dynamicSize.tokenStats) {
+      console.log(`   Token Stats: ${dynamicSize.tokenStats.wins}/${dynamicSize.tokenStats.totalTrades} wins, avg +${dynamicSize.tokenStats.avgPnl}%`);
+    }
     
     // Execute buy via QuickNode Jupiter (with SolanaTracker fallback)
     console.log(`🚀 EXECUTING BUY: ${setup.symbol}`);
-    console.log(`   Amount: ${positionSize} SOL (flexible based on WR)`);
+    console.log(`   Amount: ${positionSize} SOL`);
     console.log(`   Platform: QuickNode Jupiter → SolanaTracker (fallback)`);
     const swapResult = await this.executeBuyWithFallback(setup.ca, positionSize);
     
