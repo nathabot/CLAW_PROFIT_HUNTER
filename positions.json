@@ -1223,9 +1223,14 @@
       "tp1": 0.0005040696121999999,
       "tp2": 0.0005217025378796
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771782700431,
+    "exitPrice": 0.0004869,
+    "pnlPercent": -0.7744039127776547,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "3JVufQuxTaAx5TQHqD5aM7fLpvvvJDkEWsNjTXKaWrahvE4jaqbQcckyqJHGT2g5rkfWdR1Uj74FJ99n5B1KrCAp"
   },
   {
     "symbol": "SAMO",
@@ -1261,9 +1266,14 @@
       "tp1": 0.000006319617392,
       "tp2": 0.000006540684762655999
     },
-    "exited": false,
+    "exited": true,
     "partialExited": false,
-    "marketCondition": "UNKNOWN"
+    "marketCondition": "UNKNOWN",
+    "exitTime": 1771782702183,
+    "exitPrice": 0.000006098,
+    "pnlPercent": -0.877763328998693,
+    "exitType": "MAX_HOLD",
+    "exitTxHash": "4KNfoWgVk2RKeBRF6rTVhpD5CWZbAUBkM4eybUCzGnPTVQtViFV8mbHTyEa4nZVLc6FELWpBKGNGoKv1EFgb8Hd9"
   },
   {
     "symbol": "ATLAS",

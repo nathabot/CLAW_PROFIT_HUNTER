@@ -38,7 +38,7 @@ Kumpulan semua indikator teknikal dan on-chain yang tersedia untuk dikombinasika
 ---
 
 ### 2. RSI (Relative Strength Index)
-**Status:** ➕ NEW - Added 2026-02-16
+**Status:** ✅ Active in BOK-11
 **Source:** Price momentum
 **Timeframe:** 14-period default, 4H for swing, 1H for scalping
 **Signals:**
@@ -48,6 +48,9 @@ Kumpulan semua indikator teknikal dan on-chain yang tersedia untuk dikombinasika
 - `RSI_BEARISH_DIVERGENCE` - Price higher high, RSI lower high
 - `RSI_MIDLINE_BOUNCE` - Bounce from 50 level
 - `RSI_BREAKOUT` - Break above 70 with volume
+- `RSI_BULL_MARKET` - RSI in 40-80 range (bull market normal)
+- `RSI_BEAR_MARKET` - RSI in 20-60 range (bear market normal)
+- `RSI_50_TREND` - RSI around 50 indicates trend direction
 
 **Parameters:**
 ```json
@@ -55,11 +58,27 @@ Kumpulan semua indikator teknikal dan on-chain yang tersedia untuk dikombinasika
   "period": 14,
   "overbought": 70,
   "oversold": 30,
-  "divergenceLookback": 10
+  "divergenceLookback": 10,
+  "settings": {
+    "scalping": 7-9,
+    "swing": 14,
+    "position": 21-28
+  },
+  "marketContext": {
+    "bull": {"range": [40, 80], "oversold": 30, "overbought": 70},
+    "bear": {"range": [20, 60], "oversold": 20, "overbought": 60}
+  }
 }
 ```
 
-**Usage:** Mean reversion entries, trend confirmation
+**Important Notes:**
+- Overbought (70+) doesn't mean SELL - it's a condition, not a signal
+- Oversold (30-) doesn't mean BUY - it's a condition, not a signal
+- Divergence is more reliable than overbought/oversold levels
+- 50 level acts as trend control zone
+- Adjust levels based on market context (bull vs bear)
+
+**Usage:** Mean reversion entries, trend confirmation, divergence signals
 
 ---
 

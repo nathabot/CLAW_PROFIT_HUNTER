@@ -2750,5 +2750,2293 @@
       "alerts": 4,
       "forced": 0
     }
+  },
+  {
+    "timestamp": "2026-02-22T16:30:01.643Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 6.582338055555556,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 6.582349444444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006111,
+        "pnlPercent": -0.6664499349804961,
+        "hoursHeld": 6.581731388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001964,
+        "pnlPercent": -4.007820136852399,
+        "hoursHeld": 6.083648888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.1h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 6.582338055555556,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 6.582349444444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006111,
+        "pnlPercent": -0.6664499349804961,
+        "hoursHeld": 6.581731388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001964,
+        "pnlPercent": -4.007820136852399,
+        "hoursHeld": 6.083648888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.1h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 4,
+      "ok": 0,
+      "alerts": 4,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T16:45:02.064Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 6.8324475,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 6.832463611111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006103,
+        "pnlPercent": -0.7964889466840032,
+        "hoursHeld": 6.831849166666666,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001956,
+        "pnlPercent": -4.398826979472141,
+        "hoursHeld": 6.3336886111111115,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.3h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 6.8324475,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 6.832463611111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006103,
+        "pnlPercent": -0.7964889466840032,
+        "hoursHeld": 6.831849166666666,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001956,
+        "pnlPercent": -4.398826979472141,
+        "hoursHeld": 6.3336886111111115,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 4,
+      "ok": 0,
+      "alerts": 4,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T17:00:02.266Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 7.082553888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 7.082565555555555,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006113,
+        "pnlPercent": -0.6339401820546159,
+        "hoursHeld": 7.081948611111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0002024,
+        "pnlPercent": -1.0752688172043139,
+        "hoursHeld": 6.583865277777778,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.6h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 7.082553888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 7.082565555555555,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006113,
+        "pnlPercent": -0.6339401820546159,
+        "hoursHeld": 7.081948611111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0002024,
+        "pnlPercent": -1.0752688172043139,
+        "hoursHeld": 6.583865277777778,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.6h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 4,
+      "ok": 0,
+      "alerts": 4,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T17:15:01.844Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 7.33239,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 7.332405277777778,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006092,
+        "pnlPercent": -0.9752925877763237,
+        "hoursHeld": 7.331798055555556,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001941,
+        "pnlPercent": -5.131964809384169,
+        "hoursHeld": 6.833646111111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.8h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 7.33239,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004878,
+        "pnlPercent": -0.5909924597513679,
+        "hoursHeld": 7.332405277777778,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006092,
+        "pnlPercent": -0.9752925877763237,
+        "hoursHeld": 7.331798055555556,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001941,
+        "pnlPercent": -5.131964809384169,
+        "hoursHeld": 6.833646111111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 6.8h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 4,
+      "ok": 0,
+      "alerts": 4,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T17:30:01.987Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 7.582528888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 7.582541111111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006089,
+        "pnlPercent": -1.024057217165151,
+        "hoursHeld": 7.5819225,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001941,
+        "pnlPercent": -5.131964809384169,
+        "hoursHeld": 7.0837602777777775,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.1h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 7.582528888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 7.582541111111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006089,
+        "pnlPercent": -1.024057217165151,
+        "hoursHeld": 7.5819225,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001941,
+        "pnlPercent": -5.131964809384169,
+        "hoursHeld": 7.0837602777777775,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.1h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 4,
+      "ok": 0,
+      "alerts": 4,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T17:45:01.226Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004869,
+        "pnlPercent": -0.7744039127776503,
+        "hoursHeld": 7.832205833333333,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004869,
+        "pnlPercent": -0.7744039127776503,
+        "hoursHeld": 7.832214166666667,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006084,
+        "pnlPercent": -1.1053315994798445,
+        "hoursHeld": 7.831591388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001956,
+        "pnlPercent": -4.398826979472141,
+        "hoursHeld": 7.333615277777778,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.3h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105411,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004869,
+        "pnlPercent": -0.7744039127776503,
+        "hoursHeld": 7.832205833333333,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004869,
+        "pnlPercent": -0.7744039127776503,
+        "hoursHeld": 7.832214166666667,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "entryTime": 1771754107694,
+        "entryPrice": 0.000006152,
+        "currentPrice": 0.000006084,
+        "pnlPercent": -1.1053315994798445,
+        "hoursHeld": 7.831591388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001956,
+        "pnlPercent": -4.398826979472141,
+        "hoursHeld": 7.333615277777778,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 4,
+      "ok": 0,
+      "alerts": 4,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T18:00:01.477Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004869,
+        "pnlPercent": -0.7744039127776503,
+        "hoursHeld": 8.0823775,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001958,
+        "pnlPercent": -4.301075268817216,
+        "hoursHeld": 7.583755,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.6h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004869,
+        "pnlPercent": -0.7744039127776503,
+        "hoursHeld": 8.0823775,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001958,
+        "pnlPercent": -4.301075268817216,
+        "hoursHeld": 7.583755,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.6h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T18:15:01.143Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004866,
+        "pnlPercent": -0.8355410637864148,
+        "hoursHeld": 8.332192777777777,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.000198,
+        "pnlPercent": -3.225806451612915,
+        "hoursHeld": 7.833468888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.8h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004866,
+        "pnlPercent": -0.8355410637864148,
+        "hoursHeld": 8.332192777777777,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.000198,
+        "pnlPercent": -3.225806451612915,
+        "hoursHeld": 7.833468888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 7.8h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T18:30:02.348Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004877,
+        "pnlPercent": -0.6113715100876227,
+        "hoursHeld": 8.582593888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001948,
+        "pnlPercent": -4.789833822091897,
+        "hoursHeld": 8.083794444444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.1h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004877,
+        "pnlPercent": -0.6113715100876227,
+        "hoursHeld": 8.582593888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001948,
+        "pnlPercent": -4.789833822091897,
+        "hoursHeld": 8.083794444444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.1h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T18:45:01.947Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 8.83247888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001955,
+        "pnlPercent": -4.44770283479961,
+        "hoursHeld": 8.333764444444444,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.3h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 8.83247888888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001955,
+        "pnlPercent": -4.44770283479961,
+        "hoursHeld": 8.333764444444444,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T19:00:01.772Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 9.082466944444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001957,
+        "pnlPercent": -4.349951124144672,
+        "hoursHeld": 8.5836675,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.6h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 9.082466944444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001957,
+        "pnlPercent": -4.349951124144672,
+        "hoursHeld": 8.5836675,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.6h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T19:15:01.139Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 9.332267222222223,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001959,
+        "pnlPercent": -4.2521994134897465,
+        "hoursHeld": 8.833467777777777,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.8h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004876,
+        "pnlPercent": -0.6317505604238776,
+        "hoursHeld": 9.332267222222223,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001959,
+        "pnlPercent": -4.2521994134897465,
+        "hoursHeld": 8.833467777777777,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 8.8h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T19:30:01.950Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004856,
+        "pnlPercent": -1.0393315671489631,
+        "hoursHeld": 9.5825375,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001961,
+        "pnlPercent": -4.1544477028348075,
+        "hoursHeld": 9.083740555555556,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.1h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004856,
+        "pnlPercent": -1.0393315671489631,
+        "hoursHeld": 9.5825375,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001961,
+        "pnlPercent": -4.1544477028348075,
+        "hoursHeld": 9.083740555555556,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.1h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T19:45:01.686Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004893,
+        "pnlPercent": -0.2853067047075455,
+        "hoursHeld": 9.832405277777777,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001951,
+        "pnlPercent": -4.6432062561094885,
+        "hoursHeld": 9.333676111111112,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.3h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004893,
+        "pnlPercent": -0.2853067047075455,
+        "hoursHeld": 9.832405277777777,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001951,
+        "pnlPercent": -4.6432062561094885,
+        "hoursHeld": 9.333676111111112,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T20:00:01.514Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004874,
+        "pnlPercent": -0.6725086610963872,
+        "hoursHeld": 10.08237,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.000196,
+        "pnlPercent": -4.203323558162277,
+        "hoursHeld": 9.58357,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.6h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004874,
+        "pnlPercent": -0.6725086610963872,
+        "hoursHeld": 10.08237,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.000196,
+        "pnlPercent": -4.203323558162277,
+        "hoursHeld": 9.58357,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 9.6h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T20:15:01.841Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004865,
+        "pnlPercent": -0.8559201141226696,
+        "hoursHeld": 10.332456666666667,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001582,
+        "pnlPercent": -22.678396871945267,
+        "hoursHeld": 9.833865833333334,
+        "status": "FORCE_CLOSE",
+        "issues": [
+          "Max hold exceeded: 9.8h > 3h",
+          "Large deviation: -22.68%",
+          "Large loss: -22.68%"
+        ],
+        "reason": "large_loss"
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004865,
+        "pnlPercent": -0.8559201141226696,
+        "hoursHeld": 10.332456666666667,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "type": "FORCE_CLOSE",
+        "symbol": "ATLAS",
+        "reason": "large_loss"
+      }
+    ],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 1,
+      "forced": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-22T20:30:02.127Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004865,
+        "pnlPercent": -0.8559201141226696,
+        "hoursHeld": 10.582474444444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001961,
+        "pnlPercent": -4.1544477028348075,
+        "hoursHeld": 10.083674722222222,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.1h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004865,
+        "pnlPercent": -0.8559201141226696,
+        "hoursHeld": 10.582474444444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001961,
+        "pnlPercent": -4.1544477028348075,
+        "hoursHeld": 10.083674722222222,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.1h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T20:45:02.139Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004865,
+        "pnlPercent": -0.8559201141226696,
+        "hoursHeld": 10.8325475,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001944,
+        "pnlPercent": -4.985337243401761,
+        "hoursHeld": 10.333746388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.3h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004865,
+        "pnlPercent": -0.8559201141226696,
+        "hoursHeld": 10.8325475,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001944,
+        "pnlPercent": -4.985337243401761,
+        "hoursHeld": 10.333746388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T21:00:02.250Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004862,
+        "pnlPercent": -0.9170572651314342,
+        "hoursHeld": 11.082566388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.000194,
+        "pnlPercent": -5.1808406647116385,
+        "hoursHeld": 10.583941388888888,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.6h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004862,
+        "pnlPercent": -0.9170572651314342,
+        "hoursHeld": 11.082566388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.000194,
+        "pnlPercent": -5.1808406647116385,
+        "hoursHeld": 10.583941388888888,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.6h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T21:15:01.533Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004862,
+        "pnlPercent": -0.9170572651314342,
+        "hoursHeld": 11.332360555555555,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001955,
+        "pnlPercent": -4.44770283479961,
+        "hoursHeld": 10.833561111111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.8h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004862,
+        "pnlPercent": -0.9170572651314342,
+        "hoursHeld": 11.332360555555555,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001955,
+        "pnlPercent": -4.44770283479961,
+        "hoursHeld": 10.833561111111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 10.8h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T21:30:01.264Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004862,
+        "pnlPercent": -0.9170572651314342,
+        "hoursHeld": 11.582302777777779,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001967,
+        "pnlPercent": -3.861192570869991,
+        "hoursHeld": 11.083501666666667,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.1h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004862,
+        "pnlPercent": -0.9170572651314342,
+        "hoursHeld": 11.582302777777779,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001967,
+        "pnlPercent": -3.861192570869991,
+        "hoursHeld": 11.083501666666667,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.1h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T21:45:01.980Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004861,
+        "pnlPercent": -0.9374363154676889,
+        "hoursHeld": 11.832488611111112,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001959,
+        "pnlPercent": -4.2521994134897465,
+        "hoursHeld": 11.333763611111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.3h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004861,
+        "pnlPercent": -0.9374363154676889,
+        "hoursHeld": 11.832488611111112,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001959,
+        "pnlPercent": -4.2521994134897465,
+        "hoursHeld": 11.333763611111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T22:00:01.538Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004861,
+        "pnlPercent": -0.9374363154676889,
+        "hoursHeld": 12.08237361111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001956,
+        "pnlPercent": -4.398826979472141,
+        "hoursHeld": 11.58357611111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.6h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004861,
+        "pnlPercent": -0.9374363154676889,
+        "hoursHeld": 12.08237361111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001956,
+        "pnlPercent": -4.398826979472141,
+        "hoursHeld": 11.58357611111111,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.6h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T22:15:01.426Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004861,
+        "pnlPercent": -0.9374363154676889,
+        "hoursHeld": 12.332341944444444,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001958,
+        "pnlPercent": -4.301075268817216,
+        "hoursHeld": 11.833542777777778,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.8h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004861,
+        "pnlPercent": -0.9374363154676889,
+        "hoursHeld": 12.332341944444444,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001958,
+        "pnlPercent": -4.301075268817216,
+        "hoursHeld": 11.833542777777778,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 11.8h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T22:30:02.133Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004861,
+        "pnlPercent": -0.9374363154676889,
+        "hoursHeld": 12.58253388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001959,
+        "pnlPercent": -4.2521994134897465,
+        "hoursHeld": 12.083736944444444,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.1h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004861,
+        "pnlPercent": -0.9374363154676889,
+        "hoursHeld": 12.58253388888889,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001959,
+        "pnlPercent": -4.2521994134897465,
+        "hoursHeld": 12.083736944444444,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.1h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T22:45:01.188Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004905,
+        "pnlPercent": -0.04075810067248756,
+        "hoursHeld": 12.83227,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001958,
+        "pnlPercent": -4.301075268817216,
+        "hoursHeld": 12.333545833333334,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.3h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004905,
+        "pnlPercent": -0.04075810067248756,
+        "hoursHeld": 12.83227,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001958,
+        "pnlPercent": -4.301075268817216,
+        "hoursHeld": 12.333545833333334,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T23:00:01.153Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004905,
+        "pnlPercent": -0.04075810067248756,
+        "hoursHeld": 13.082281666666667,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001967,
+        "pnlPercent": -3.861192570869991,
+        "hoursHeld": 12.583546944444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.6h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004905,
+        "pnlPercent": -0.04075810067248756,
+        "hoursHeld": 13.082281666666667,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.1h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001967,
+        "pnlPercent": -3.861192570869991,
+        "hoursHeld": 12.583546944444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.6h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T23:15:01.670Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004903,
+        "pnlPercent": -0.08151620134499722,
+        "hoursHeld": 13.332425,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001987,
+        "pnlPercent": -2.8836754643206293,
+        "hoursHeld": 12.833625277777777,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.8h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004903,
+        "pnlPercent": -0.08151620134499722,
+        "hoursHeld": 13.332425,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.3h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001987,
+        "pnlPercent": -2.8836754643206293,
+        "hoursHeld": 12.833625277777777,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 12.8h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T23:30:02.040Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004894,
+        "pnlPercent": -0.2649276543713017,
+        "hoursHeld": 13.582517222222222,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001994,
+        "pnlPercent": -2.5415444770283564,
+        "hoursHeld": 13.083716944444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.1h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.0004894,
+        "pnlPercent": -0.2649276543713017,
+        "hoursHeld": 13.582517222222222,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.6h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0001994,
+        "pnlPercent": -2.5415444770283564,
+        "hoursHeld": 13.083716944444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.1h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
+  },
+  {
+    "timestamp": "2026-02-22T23:45:01.753Z",
+    "positions": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.000489,
+        "pnlPercent": -0.346443855716321,
+        "hoursHeld": 13.832421944444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0002025,
+        "pnlPercent": -1.0263929618768444,
+        "hoursHeld": 13.333693055555555,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.3h > 3h"
+        ]
+      }
+    ],
+    "alerts": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "entryTime": 1771754105416,
+        "entryPrice": 0.0004907,
+        "currentPrice": 0.000489,
+        "pnlPercent": -0.346443855716321,
+        "hoursHeld": 13.832421944444445,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.8h > 3h"
+        ]
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "entryTime": 1771755901131,
+        "entryPrice": 0.0002046,
+        "currentPrice": 0.0002025,
+        "pnlPercent": -1.0263929618768444,
+        "hoursHeld": 13.333693055555555,
+        "status": "ALERT",
+        "issues": [
+          "Max hold exceeded: 13.3h > 3h"
+        ]
+      }
+    ],
+    "actions": [],
+    "summary": {
+      "checked": 2,
+      "ok": 0,
+      "alerts": 2,
+      "forced": 0
+    }
   }
 ]
