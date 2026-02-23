@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "updated": "2026-02-23T13:40:00Z",
+  "threshold": -5,
+  "minTrades": 2,
+  "deadTokens": [
+    {
+      "symbol": "LOD",
+      "ca": "_unknown",
+      "reason": "Live PnL: -307.5%",
+      "addedAt": "2026-02-23T13:30:00Z",
+      "trades": 8,
+      "avgPnl": -38.4
+    },
+    {
+      "symbol": "DARKTRUMP",
+      "ca": "_unknown",
+      "reason": "Live PnL: -164.5%",
+      "addedAt": "2026-02-23T13:30:00Z",
+      "trades": 3,
+      "avgPnl": -54.8
+    },
+    {
+      "symbol": "BONK",
+      "ca": "DezXAZ8z7PnrnzUGtW3Q8YBMr1kq6JZ7NuP6E4N1X4VM",
+      "reason": "Live PnL: -100.1%",
+      "addedAt": "2026-02-23T13:30:00Z",
+      "trades": 7,
+      "avgPnl": -14.3
+    },
+    {
+      "symbol": "WIF",
+      "ca": "85VBFQZC9TZkfaptBWqv14ALD9fJNUKtWA41kh69teRP",
+      "reason": "Live PnL: -100%",
+      "addedAt": "2026-02-23T13:30:00Z",
+      "trades": 1,
+      "avgPnl": -100
+    },
+    {
+      "symbol": "$WIF",
+      "ca": "85VBFQZC9TZkfaptBWqv14ALD9fJNUKtWA41kh69teRP",
+      "reason": "Live PnL: -100%",
+      "addedAt": "2026-02-23T13:30:00Z",
+      "trades": 1,
+      "avgPnl": -100
+    },
+    {
+      "symbol": "DEADLUCKY",
+      "ca": "unknown",
+      "reason": "Live PnL: -10.9%",
+      "addedAt": "2026-02-23T13:30:00Z",
+      "trades": 10,
+      "avgPnl": -1.09
+    },
+    {
+      "symbol": "ATLAS",
+      "ca": "ATLASXmbPQxBUY6sMQ9LSt9Nm3kLnLpxzZv7TCL2x37B",
+      "reason": "Live PnL: -9.7%",
+      "addedAt": "2026-02-23T13:30:00Z",
+      "trades": 7,
+      "avgPnl": -1.39
+    },
+    {
+      "symbol": "SAMO",
+      "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+      "reason": "Live PnL: -2.0%",
+      "addedAt": "2026-02-23T13:40:00Z",
+      "trades": 7,
+      "avgPnl": -0.29
+    }
+  ]
+}
