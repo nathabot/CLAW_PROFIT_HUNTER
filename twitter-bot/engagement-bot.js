@@ -165,43 +165,53 @@ class EngagementBot {
     return false;
   }
   
+  // NATURAL MODE - Slower, more human-like behavior
+  // Changes: Reduced actions, longer delays, less frequent runs
+  
   async engageWithAccount(username) {
-    if (this.state.totalEngagements >= 20) {
-      console.log('⚠️ Daily limit reached');
+    if (this.state.totalEngagements >= 8) {  // Reduced from 20
+      console.log('⚠️ Daily limit reached (natural mode)');
       return;
     }
     
     console.log(`\n📱 Engaging with @${username}...`);
     
     await this.page.goto(`https://x.com/${username}`, { waitUntil: 'domcontentloaded' });
-    await this.page.waitForTimeout(2000);
+    await this.page.waitForTimeout(3000);  // Longer wait
     
-    // Follow
-    await this.followUser(username);
-    await this.page.waitForTimeout(500);
+    // Randomly choose: follow OR like (not both) - more natural
+    const action = Math.random() > 0.5 ? 'follow' : 'like';
     
-    // Like recent tweets
-    const tweets = await this.page.$$('[data-testid="tweet"]');
-    const toLike = Math.min(2, tweets.length);
-    for (let i = 0; i < toLike; i++) {
-      await this.likeTweet(tweets[i]);
-      await this.page.waitForTimeout(300);
+    if (action === 'follow') {
+      await this.followUser(username);
+    } else {
+      // Like only 1 tweet (not 2)
+      const tweets = await this.page.$$('[data-testid="tweet"]');
+      if (tweets.length > 0) {
+        await this.likeTweet(tweets[0]);
+      }
     }
+    
+    // Longer delay between accounts (60-120 seconds) - more natural
+    const delay = 60000 + Math.random() * 60000;
+    console.log(`⏳ Waiting ${Math.round(delay/1000)}s before next...`);
+    await this.page.waitForTimeout(delay);
   }
   
   async run() {
-    console.log('🚀 Starting Engagement Bot v2...');
+    console.log('🚀 Starting Engagement Bot v3 (Natural Mode)...');
     await this.init();
     
     // Get all targets and shuffle
     const allTargets = this.getAllTargets();
     const shuffled = allTargets.sort(() => Math.random() - 0.5);
     
-    // Engage with first 5
-    const toEngage = shuffled.slice(0, 5);
+    // Engage with only 2-3 accounts per run (reduced from 5)
+    const toEngage = shuffled.slice(0, 3);
     for (const username of toEngage) {
       await this.engageWithAccount(username);
-      await this.page.waitForTimeout(1000);
+      // Longer delay between accounts
+      await this.page.waitForTimeout(30000 + Math.random() * 30000);
     }
     
     this.state.lastRun = new Date().toISOString();
