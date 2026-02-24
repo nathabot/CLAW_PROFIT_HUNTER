@@ -1,132 +1,116 @@
 /**
- * DLMM Scanner - Find best Meteora DLMM opportunities
+ * DLMM Scanner - Meteora DLMM Opportunity Tracker
  * 
- * Scans for:
- * - High yield pairs
- * - Stable pairs (SOL/USDC)
- * - Active trading volume
- * - Good fee tiers
+ * Since Meteora API isn't public, this tracks:
+ * - Manual position entries
+ * - Estimated APY calculation
+ * - Profit tracking
+ * 
+ * For live data, user manually enters pool addresses
  */
 
-const axios = require('axios');
+const fs = require('fs');
 
-const METEORA_API = 'https://api.meteora.ag';
+const POSITIONS_FILE = '/root/trading-bot/learning-engine/dlmm-positions.json';
+const LOG_FILE = '/root/trading-bot/learning-engine/logs/dlmm-manual.log';
 
 class DLLMScanner {
   constructor() {
-    this.pools = [];
+    this.positions = this.loadPositions();
   }
 
-  async scanPools() {
+  loadPositions() {
     try {
-      const response = await axios.get(`${METEORA_API}/pools`, {
-        timeout: 10000
-      });
-      
-      this.pools = response.data;
-      return this.analyzePools();
+      if (fs.existsSync(POSITIONS_FILE)) {
+        return JSON.parse(fs.readFileSync(POSITIONS_FILE, 'utf8'));
+      }
     } catch (e) {
-      console.log('[DLMM] Error scanning pools:', e.message);
-      return [];
+      console.log('[DLMM] Error loading positions:', e.message);
     }
+    return { positions: [], history: [] };
   }
 
-  analyzePools() {
-    // Filter for good opportunities
-    const opportunities = this.pools
-      .filter(p => {
-        // Filter criteria
-        const hasVolume = p.volume_24h > 100000;
-        const hasLiquidity = p.liquidity > 50000;
-        const isStable = this.isStablePair(p);
-        
-        return (hasVolume || hasLiquidity) && !isStable;
-      })
-      .map(p => ({
-        type: 'dlmm',
-        name: `${p.token_a_symbol}/${p.token_b_symbol}`,
-        address: p.address,
-        fee_tier: p.fee_tier,
-        liquidity: p.liquidity,
-        volume_24h: p.volume_24h,
-        apy: this.calculateAPY(p),
-        pair_type: this.isStablePair(p) ? 'stable' : 'volatile',
-        score: this.scorePool(p)
-      }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 10);
-
-    return opportunities;
+  savePositions() {
+    fs.writeFileSync(POSITIONS_FILE, JSON.stringify(this.positions, null, 2));
   }
 
-  isStablePair(pool) {
-    const stableTokens = ['USDC', 'USDT', 'DAI', 'USDH'];
-    return stableTokens.includes(pool.token_a_symbol) || 
-           stableTokens.includes(pool.token_b_symbol);
+  // User reports their DLMM position
+  addPosition(name, poolAddress, tokenA, tokenB, amountA, amountB, feeTier) {
+    const position = {
+      id: Date.now(),
+      name,
+      poolAddress,
+      tokenA,
+      tokenB,
+      amountA,
+      amountB,
+      feeTier: feeTier || 0.0025,
+      addedAt: new Date().toISOString(),
+      status: 'active',
+      totalFees: 0,
+      trades: 0
+    };
+    
+    this.positions.positions.push(position);
+    this.savePositions();
+    
+    console.log(`[DLMM] Added position: ${name}`);
+    return position;
   }
 
-  calculateAPY(pool) {
-    // Rough APY calculation based on volume and fee tier
-    const dailyVolume = pool.volume_24h || 0;
-    const feeTier = pool.fee_tier || 0.0025;
-    const liquidity = pool.liquidity || 1;
+  // User reports profit from a position
+  reportProfit(positionId, profitUSD) {
+    const pos = this.positions.positions.find(p => p.id === positionId);
+    if (!pos) {
+      console.log('[DLMM] Position not found');
+      return;
+    }
     
-    const dailyFees = dailyVolume * feeTier;
-    const apy = (dailyFees * 365 / liquidity) * 100;
+    pos.totalFees += profitUSD;
+    pos.trades++;
+    this.savePositions();
     
-    return Math.min(apy, 1000); // Cap at 1000%
+    // Log to history
+    this.positions.history.push({
+      positionId,
+      profit: profitUSD,
+      timestamp: new Date().toISOString()
+    });
+    
+    console.log(`[DLMM] Profit reported: $${profitUSD} for ${pos.name}`);
+    console.log(`[DLMM] Total earned: $${pos.totalFees} (${pos.trades} trades)`);
   }
 
-  scorePool(pool) {
-    let score = 0;
-    
-    // Volume score (0-40)
-    const volume = pool.volume_24h || 0;
-    if (volume > 1000000) score += 40;
-    else if (volume > 500000) score += 30;
-    else if (volume > 100000) score += 20;
-    else score += 10;
-    
-    // Liquidity score (0-30)
-    const liq = pool.liquidity || 0;
-    if (liq > 1000000) score += 30;
-    else if (liq > 500000) score += 20;
-    else if (liq > 100000) score += 10;
-    
-    // Fee tier score (0-20)
-    const fee = pool.fee_tier || 0.0025;
-    if (fee > 0.01) score += 20;
-    else if (fee > 0.005) score += 15;
-    else score += 10;
-    
-    // Stable pair bonus (0-10)
-    if (this.isStablePair(pool)) score += 10;
-    
-    return score;
+  // Get status of all positions
+  getStatus() {
+    return {
+      totalPositions: this.positions.positions.length,
+      activePositions: this.positions.positions.filter(p => p.status === 'active').length,
+      totalEarned: this.positions.positions.reduce((sum, p) => sum + p.totalFees, 0),
+      positions: this.positions.positions
+    };
   }
 
-  async getPositionRecommendation(poolAddress) {
-    // Get current price and suggest range
-    try {
-      const pool = this.pools.find(p => p.address === poolAddress);
-      if (!pool) return null;
-      
-      const currentPrice = pool.price;
-      const volatility = pool.volume_24h / pool.liquidity;
-      
-      // Suggest range based on volatility
-      const rangePercent = Math.min(volatility * 100, 20);
-      
+  // Recommend best strategy based on history
+  getRecommendation() {
+    const active = this.positions.positions.filter(p => p.status === 'active');
+    
+    if (active.length === 0) {
       return {
-        pool: pool.name,
-        currentPrice,
-        suggestedLower: currentPrice * (1 - rangePercent/100),
-        suggestedUpper: currentPrice * (1 + rangePercent/100),
-        estimatedAPY: this.calculateAPY(pool)
+        action: 'NO_ACTIVE_POSITIONS',
+        message: 'Add a position using: node dllm-scanner.js add <name> <poolAddress> <tokenA> <tokenB> <amountA> <amountB>'
       };
-    } catch (e) {
-      return null;
     }
+
+    // Find best performer
+    const best = active.reduce((a, b) => (a.totalFees > b.totalFees ? a : b));
+    
+    return {
+      action: 'CONTINUE',
+      bestPosition: best.name,
+      totalEarned: best.totalFees,
+      suggestion: `Continue holding ${best.name} - best performer`
+    };
   }
 }
 
@@ -135,17 +119,33 @@ module.exports = { DLLMScanner };
 // CLI mode
 if (require.main === module) {
   const scanner = new DLLMScanner();
-  
-  (async () => {
-    console.log('=== Scanning DLMM Pools ===');
-    const pools = await scanner.scanPools();
-    console.log(`Found ${pools.length} opportunities:\n`);
-    
-    pools.forEach((p, i) => {
-      console.log(`${i+1}. ${p.name}`);
-      console.log(`   APY: ${p.apy.toFixed(1)}% | Liquidity: $${p.liquidity.toFixed(0)}`);
-      console.log(`   Volume 24h: $${p.volume_24h.toFixed(0)} | Score: ${p.score}/100`);
-      console.log('');
-    });
-  })();
+  const args = process.argv.slice(2);
+  const command = args[0];
+
+  switch (command) {
+    case 'add':
+      // node dllm-scanner.js add "SOL-USDC" "poolAddress" SOL USDC 10 1000 0.0025
+      const position = scanner.addPosition(
+        args[1], // name
+        args[2], // poolAddress
+        args[3], // tokenA
+        args[4], // tokenB
+        parseFloat(args[5] || 0), // amountA
+        parseFloat(args[6] || 0), // amountB
+        parseFloat(args[7] || 0.0025) // feeTier
+      );
+      console.log('Position added:', position);
+      break;
+      
+    case 'profit':
+      // node dllm-scanner.js profit <positionId> <profitUSD>
+      scanner.reportProfit(parseInt(args[1]), parseFloat(args[2]));
+      break;
+      
+    case 'status':
+    default:
+      console.log('=== DLMM Positions Status ===');
+      console.log(JSON.stringify(scanner.getStatus(), null, 2));
+      console.log('\nRecommendation:', scanner.getRecommendation());
+  }
 }
