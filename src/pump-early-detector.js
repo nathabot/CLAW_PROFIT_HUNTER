@@ -33,7 +33,7 @@ const RULES = {
 
 // Telegram config
 const TELEGRAM = {
-  BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
+  BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || '${TELEGRAM_BOT_TOKEN}',
   CHAT_ID: '428798235',  // Yusron
   TOPIC: '22'  // Scanner alerts
 };

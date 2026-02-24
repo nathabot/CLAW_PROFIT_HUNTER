@@ -1,0 +1,25 @@
+{
+  "modules": {
+    "smart-money": {
+      "file": "src/smart-money/arkham-tracker.js",
+      "status": "ready",
+      "description": "Track whale wallets via Arkham API"
+    },
+    "sentiment": {
+      "file": "src/sentiment/multi-source-sentiment.js",
+      "status": "ready",
+      "description": "Aggregate sentiment from Fear&Greed, market data, trending"
+    },
+    "news": {
+      "file": "src/alerts/news-alerts.js",
+      "status": "ready",
+      "description": "Monitor crypto news for market-moving events"
+    },
+    "portfolio": {
+      "file": "src/portfolio/portfolio-tracker.js",
+      "status": "ready",
+      "description": "Enhanced Telegram portfolio updates"
+    }
+  },
+  "upgradeDate": "2026-02-24"
+}

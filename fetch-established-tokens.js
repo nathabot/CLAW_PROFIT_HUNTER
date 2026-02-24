@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-const RPC = 'https://mainnet.helius-rpc.com/?api-key=c9926a7b-57ba-47e3-8de4-5fb46fa4b9ee';
+const RPC = 'https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}';
 
 async function fetchTokenData() {
   console.log('Fetching established tokens from DexScreener...');

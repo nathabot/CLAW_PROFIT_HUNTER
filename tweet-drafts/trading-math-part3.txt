@@ -1,0 +1,87 @@
+Used for predicting returns, volatility, or any variable that evolves over time.
+
+4.4 GARCH Models
+Generalized AutoRegressive Conditional Heteroskedasticity
+
+Fancy name for: "Volatility clusters and changes over time."
+
+After a big move, expect more volatility.
+After calm periods, expect continued calm.
+
+If you're sizing positions based on recent volatility (which you should), GARCH formalizes this.
+
+4.5 Cointegration
+Two assets can both be non-stationary (trending), but their difference is stationary.
+
+Example: Stock A: trends from $50 to $150 over time
+Stock B: trends from $45 to $135 over time
+Spread (A - B): oscillates around $5
+
+The spread is stationary even though both stocks trend.
+
+This is the foundation of pairs trading. You're not betting on direction. You're betting the spread returns to normal.
+
+IV – Risk Management Math
+How to not blow up
+
+Edge doesn't matter if you size wrong.
+
+5.1 Value at Risk (VaR)
+Maximum expected loss at a given confidence level.
+
+95% VaR = $5,000 means: 95% of the time, you won't lose more than $5,000. But 5% of the time, you might lose more (possibly much more).
+
+5.2 Sharpe Ratio
+Risk-adjusted return
+
+Sharpe = (Return - Risk-Free Rate) / Volatility
+
+Measures how much return you get per unit of risk.
+
+Two strategies with same return but different volatility have different Sharpe ratios. Lower volatility = higher Sharpe = better risk-adjusted performance.
+
+5.3 Maximum Drawdown
+Biggest peak-to-trough loss.
+
+More intuitive than volatility for most people.
+
+Critical question: Can you psychologically handle that? Can your account survive it without hitting margin calls?
+
+5.5 Monte Carlo Simulation
+Your backtest shows one sequence of trades. Monte Carlo randomizes the order and runs thousands of simulations.
+
+Why this matters: Maybe your backtest got lucky with trade sequencing. Maybe the worst drawdown hasn't happened yet.
+
+Monte Carlo shows the range of possible outcomes, not just the one path you observed.
+
+VVI – How I Actually Learned This
+Here's some great books on the topics and even further knowledge.
+
+Quantitative Trading by Ernie Chan
+How to build your own algorithmic trading business.
+
+Algorithmic Trading by Ernie Chan
+Winning strategies and their rationale.
+
+Time Series Analysis by Hamilton
+The definitive reference. Dense but comprehensive.
+
+Analysis of Financial Time Series by Tsay
+Focused specifically on financial applications.
+
+The Mathematics of Money Management by Ralph Vince
+Classic text on position sizing.
+
+Testing and Tuning Market Trading Systems by Timothy Masters
+How to test strategies without overfitting.
+
+VI – What You Actually Need
+You don't need all of this to start. But you need to know what you don't know.
+
+Minimum for backtesting strategies:
+- Mean, median, standard deviation
+- Correlation
+- Basic probability
+- Sharpe ratio, max drawdown
+
+Start with statistics. That alone separates you from most newcomers.

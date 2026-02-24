@@ -85,7 +85,7 @@ function log(message, level = 'INFO') {
 
 // ==================== TELEGRAM NOTIFY ====================
 async function sendTelegram(message, chatId = null) {
-  const token = process.env.TELEGRAM_BOT_TOKEN || '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
+  const token = process.env.TELEGRAM_BOT_TOKEN || '${TELEGRAM_BOT_TOKEN}';
   const target = chatId || process.env.TELEGRAM_CHAT_ID || '428798235';
   
   try {

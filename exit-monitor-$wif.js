@@ -3,7 +3,7 @@ const { Connection, PublicKey, Keypair } = require('@solana/web3.js');
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-const RPC = 'https://mainnet.helius-rpc.com/?api-key=c9926a7b-57ba-47e3-8de4-5fb46fa4b9ee';
+const RPC = 'https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}';
 const connection = new Connection(RPC);
 
 // Load wallet (supports both bs58 and base64 formats)
@@ -99,7 +99,7 @@ function markPositionExited(exitPrice, pnlPercent, exitType, txHash) {
   } catch (e) { console.error('Mark exited error:', e.message); }
 }
 
-const BOT_TOKEN = '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
+const BOT_TOKEN = '${TELEGRAM_BOT_TOKEN}';
 const CHAT_ID = '-1003212463774';
 const TOPIC_ID = 24;
 

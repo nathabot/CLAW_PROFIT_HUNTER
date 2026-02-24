@@ -6,12 +6,12 @@ Advanced Automated Trading System for Solana
 
 ```
 Intelligence → Paper Trader → BOK → Live Trader
-    (4 jam)       (10 min)     (Auto)   (Real-time)
+    (4 hrs)       (10 min)     (Auto)   (Real-time)
 ```
 
 ## 🎛️ Trading Mode Selector (v1.0)
 
-Dual-mode trading system untuk kondisi market berbeda:
+Dual-mode trading system for different market conditions:
 
 | Mode | Filters | Risk | Best For |
 |------|---------|------|----------|
@@ -23,8 +23,8 @@ Dual-mode trading system untuk kondisi market berbeda:
 {
   "TRADING_MODE": {
     "VERSION": "1.0",
-    "MODE": "auto",        // "auto" atau "manual"
-    "ACTIVE": "established", // "established" atau "degen"
+    "MODE": "auto",        // "auto" or "manual"
+    "ACTIVE": "established", // "established" or "degen"
     "DEGEN_ENABLED": false,
     "AUTO_TYPE": "performance"
   }
@@ -32,12 +32,12 @@ Dual-mode trading system untuk kondisi market berbeda:
 ```
 
 ### Auto Switch Logic
-- **Performance-based**: Switch ke mode dengan WR lebih tinggi
-- **Time-based**: Optional schedule切换
+- **Performance-based**: Switch to mode with higher WR
+- **Time-based**: Optional schedule
 
 ### Proven Tokens
-- `bok/proven-established.json` - Tokens dari Established mode
-- `bok/proven-degen.json` - Tokens dari Degen mode
+- `bok/proven-established.json` - Tokens from Established mode
+- `bok/proven-degen.json` - Tokens from Degen mode
 
 ### Rollback
 ```bash
@@ -57,17 +57,17 @@ npm run start:all
 npm run monitor
 ```
 
-## 📚 Dokumentasi
+## 📚 Documentation
 
-- [Quick Start](QUICK_START.md) - Setup 5 menit
-- [Dokumentasi Lengkap](docs/COMPLETE_DOCUMENTATION.md) - Semua fitur
+- [Quick Start](QUICK_START.md) - 5 minute setup
+- [Complete Documentation](docs/COMPLETE_DOCUMENTATION.md) - All features
 
 ## 📊 System Components
 
 | Layer | File | Status |
 |-------|------|--------|
-| Intelligence | strategy-intelligence-v2.js | Auto 4 jam |
-| Paper Trader | soul-core-paper-trader-v5.js | Auto 10 menit |
+| Intelligence | strategy-intelligence-v2.js | Auto 4 hrs |
+| Paper Trader | soul-core-paper-trader-v5.js | Auto 10 min |
 | Live Trader | live-trader-v4.2.js | Cron 5 min |
 | Guardian | balance-guardian.js | Auto |
 | Exit Monitor | exit-monitor-*.js | Per-position |
@@ -76,19 +76,10 @@ npm run monitor
 ## 🛡️ Safety Features
 
 - **Token Tracking**: Max 3 trades/token, 60-min cooldown
-- **Confirmation Window**: 2 checks (15s) untuk prevent false TP
+- **Confirmation Window**: 2 checks (15s) to prevent false TP
 - **Slippage Protection**: 50% SL, 35% TP
 - **Balance Guardian**: Stop trading if balance < 0.03 SOL
 - **Max Positions**: 2-3 concurrent
-
-## 📊 System Components
-
-| Layer | File | Status |
-|-------|------|--------|
-| Intelligence | strategy-intelligence-v2.js | Auto 4 jam |
-| Paper Trader | soul-core-paper-trader-v5.js | Auto 10 menit |
-| Live Trader | live-trader-v4.2.js | Manual start |
-| Guardian | balance-guardian.js | Auto 5 menit |
 
 ## ⚠️ Disclaimer
 

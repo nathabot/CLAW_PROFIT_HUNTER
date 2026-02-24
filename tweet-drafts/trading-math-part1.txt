@@ -1,0 +1,76 @@
+I'm going to break down the essential math you need for trading. I'll also share the exact roadmap and resources that helped me personally. Let's get straight to it.
+
+This roadmap is for traders who want to use data. Whether that's backtesting strategies, building algorithms, or running systematic approaches. If you want to trade based on evidence, patterns, and probability—this is your foundation.
+
+I – Statistics and Probability
+The foundation of extracting signal from noise
+
+Every price move is a combination of signal and randomness. Statistics gives you the tools to separate the two.
+
+1.1 Sample Size and the Law of Large Numbers
+Sample size is crucial because it leads to the Law of Large Numbers. The bigger your sample, the closer your results get to the true expectation.
+
+In trading: more trades = more accurate backtest. A strategy that's 10-0 in backtesting isn't impressive. It's insufficient data. A strategy that has hundreds or thousands tells you something real about edge.
+
+This is why you need years of data and hundreds of trades before trusting a backtest. Plus it needs to be out of sample.
+
+1.2 Central Tendency: Finding the Middle
+Mean: Add all values and divide by count
+Moving averages are just rolling means.
+
+Median: The middle value when sorted
+Better than mean when outliers exist (and they always exist in trading). If you have 9 small losses and 1 massive Black Swan event, median shows the typical outcome better than mean.
+
+Mode: Most frequent value
+Almost useless in continuous data like prices. Occasionally useful for analyzing price clustering at round numbers.
+
+Expected Value: Weighted average of all possible outcomes
+This is what you're actually trying to maximize in trading: (Win% × Avg Win) - (Loss% × Avg Loss)
+
+1.3 Spread: How Much Things Vary
+Variance: Average of squared differences from the mean
+Mathematical foundation of risk.
+
+Standard Deviation: Square root of variance
+Same information as variance, but in the same units as your data (dollars, percent, etc.) This becomes volatility when applied to returns. Every position sizing formula uses volatility. Every risk metric uses standard deviation. If you don't understand this, you can't size positions intelligently.
+
+1.4 Correlation: Do Things Move Together?
+Covariance: Raw measure of how two variables co-move
+Positive = tend to move together
+Negative = tend to move opposite
+Zero = no relationship
+
+Correlation: Standardized covariance from -1 to +1
+This tells you if your strategies are actually independent. Running 3 momentum strategies on correlated assets gives you 3x the size but not 3x the diversification.
+
+Correlation = 0.9? You basically have one strategy.
+Correlation = 0.2? Now you have real diversification.
+
+1.5 Probability Distributions
+Different types of randomness follow different patterns.
+
+Normal (Gaussian): The bell curve
+Many models assume normality; real returns are heavy‑tailed, so Gaussian approximations can understate crashes
+
+Binomial: Binary outcomes
+Win or lose. Up day or down day. Used for modeling discrete events.
+
+Uniform: Everything equally likely
+Useful as a baseline assumption when you have no information.
+
+Understanding which distribution fits your data determines which statistical tools work.
+
+1.6 Central Limit Theorem
+Why normal distributions show up everywhere: The average of many random variables approaches a normal distribution, regardless of the underlying distribution.
+
+This means:
+- Portfolio returns are more normal than individual stock returns
+- Average of 100 trades is more predictable than any single trade
+- Even if individual outcomes are messy, aggregates become clean
+
+This justifies using normal-based statistics even when individual data points aren't normal.
+
+1.7 Conditional Probability
+The probability of X given Y.
+
+Markets have regimes. Your strategy performs differently in different conditions.

@@ -15,7 +15,7 @@ const https = require('https');
 // Config
 const CONFIG = {
   scanIntervalMs: 30000, // 30 seconds
-  telegramBotToken: '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU',
+  telegramBotToken: '${TELEGRAM_BOT_TOKEN}',
   telegramChatId: '428798235',
   minMC: 2000,           // $2K minimum
   maxChange: 20,         // Max 20% change (early detection)

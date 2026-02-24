@@ -1,0 +1,116 @@
+Example: P(strategy wins) might be 55%
+P(strategy wins | VIX > 30) might be 35%
+P(strategy wins | VIX < 15) might be 70%
+
+Understanding conditional probabilities lets you filter for favorable conditions.
+
+1.8 Bayes' Theorem
+How to update your beliefs when new evidence arrives.
+
+Prior belief + New evidence = Updated belief
+
+Example: You think a stock has 60% chance of going up tomorrow
+Earnings come out and beat expectations
+What's the new probability?
+
+Bayes' Theorem gives you a systematic way to update probabilities based on new information. Critical for adaptive strategies and regime-based trading.
+
+1.9 Maximum Likelihood Estimation
+How do you find the best parameters for a model?
+
+MLE says: pick the parameters that make your observed data most likely.
+
+This is why we minimize squared error in regression—it's the maximum likelihood solution under Gaussian noise. Understanding MLE explains why loss functions are designed the way they are.
+
+1.10 Regression Models
+
+Linear Regression: Fit a line to data
+Used for: Mean reversion (price deviates from trend line, reverts back)
+Predicting continuous values
+Understanding relationships between variables
+
+Logistic Regression: Predict binary outcomes
+Used for: Up/down day prediction
+Win/loss probability
+Binary classification
+
+Both are building blocks for more complex models.
+
+II – Linear Algebra
+The math of portfolios
+
+Once you're trading multiple positions or running multiple strategies, you're doing linear algebra.
+
+2.1 Scalars, Vectors, Matrices
+Scalar: Single number
+Example: One day's return for one stock
+
+Vector: Column of numbers
+Example: Returns for 10 different stocks on the same day
+
+Matrix: Grid of numbers
+Example: 252 days of returns for 10 stocks (252×10 matrix)
+
+Your portfolio is a weighted sum of vectors. Risk calculation is matrix multiplication.
+
+2.2 Matrix Operations
+Addition: Combine signals or returns
+Multiplication: Apply weights to positions
+Transpose: Flip rows and columns (needed for many calculations)
+
+Example: Portfolio return = (weight vector) × (return vector)
+
+2.3 Eigenvalues and Eigenvectors
+These reveal the "principal directions" of your data.
+
+In trading:
+- Which factors actually drive your portfolio?
+- How many independent sources of return do you have?
+- What's your true diversification?
+
+Used in:
+- Risk modeling
+- Portfolio optimization
+
+2.4 Decomposition Methods
+Singular Value Decomposition (SVD): Break a matrix into simpler components
+
+Principal Component Analysis (PCA): Find the most important patterns in data
+
+Real application: You have 50 technical indicators. Most are correlated. PCA finds the 5 underlying "factors" that explain 90% of the variation. Now you can trade on 5 independent signals instead of 50 noisy ones.
+
+III – Time Series Analysis
+
+Markets have memory and structure
+Today's price depends on yesterday's.
+Volatility clusters.
+Trends persist.
+
+Time series analysis models these dependencies.
+
+4.1 Stationarity
+A time series is stationary if its statistical properties stay constant over time.
+
+Most statistical tests assume stationarity.
+
+Problem: Markets aren't stationary.
+- Volatility changes.
+- Correlations shift.
+- Market structure evolves.
+
+A strategy that works on stationary data might fail when the underlying process changes. This is why strategies decay, and the market regime shifts, and your model assumes it hasn't.
+
+4.2 Autocorrelation
+How much does today's value depend on yesterday's?
+
+Positive autocorrelation: Yesterday up → today likely up (momentum)
+Negative autocorrelation: Yesterday up → today likely down (mean reversion)
+Zero autocorrelation: No pattern (random walk)
+
+4.3 ARIMA Models
+AutoRegressive Integrated Moving Average
+Framework for forecasting time series.
+
+AR (AutoRegressive): Today depends on previous days
+I (Integrated): Account for trends
+MA (Moving Average): Today depends on previous errors

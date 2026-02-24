@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const RPC = process.env.HELIUS_API_KEY 
   ? `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
-  : 'https://mainnet.helius-rpc.com/?api-key=c9926a7b-57ba-47e3-8de4-5fb46fa4b9ee';
+  : 'https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}';
 const connection = new Connection(RPC);
 
 // Load wallet
