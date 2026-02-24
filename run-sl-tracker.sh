@@ -1,5 +1,5 @@
 #!/bin/bash
-export HELIUS_API_KEY="c9926a7b-57ba-47e3-8de4-5fb46fa4b9ee"
+export HELIUS_API_KEY="${HELIUS_API_KEY}"
 LOCKFILE="/root/trading-bot/sl-tracker.lock"
 if [ -f "$LOCKFILE" ]; then
   PID=$(cat "$LOCKFILE")
