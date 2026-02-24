@@ -135,7 +135,7 @@ class EngagementBot {
       await this.page.goto(`https://x.com/${username}`, { waitUntil: 'domcontentloaded' });
       await this.page.waitForTimeout(2000);
       
-      const followBtn = await this.page.$('button[data-testid="followButton"]');
+      const followBtn = await this.page.$('button:has-text("Follow")');
       if (followBtn) {
         await followBtn.click();
         await this.page.waitForTimeout(500);
@@ -154,7 +154,7 @@ class EngagementBot {
     try {
       const likeBtn = await tweet.$('button[data-testid="unlike"]');
       if (!likeBtn) {
-        const unlikeBtn = await tweet.$('button[data-testid="like"]');
+        const unlikeBtn = await tweet.$('button:has-text("Like")');
         if (unlikeBtn) {
           await unlikeBtn.click();
           this.state.totalEngagements++;
