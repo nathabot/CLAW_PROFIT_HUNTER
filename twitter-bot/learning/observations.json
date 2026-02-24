@@ -1,0 +1,111 @@
+{
+  "viral_tweets": [],
+  "hashtags": [],
+  "topics": [
+    "tips",
+    "ai",
+    "code",
+    "motivation",
+    "tips",
+    "ai",
+    "code",
+    "motivation"
+  ],
+  "last_updated": "2026-02-24T07:00:53.365Z",
+  "viral_patterns": [
+    {
+      "account": "smshipps",
+      "type": "growth_hacking",
+      "follower_count": "719+ in 25 days",
+      "patterns": [
+        "Reply guys strategy (engage with replies)",
+        "Bold claims with stats (21 days: 340 followers)",
+        "AI take with contrast (fear vs use)",
+        "Hire AI employees ($120/month)",
+        "Celebrate milestones publicly",
+        "Call to action (Tech builders drop Hi)"
+      ],
+      "examples": [
+        "21 days later: 340 followers, 231 verified, 110K+ impressions",
+        "AI won't replace devs. Devs with AI will.",
+        "Hired 6 AI employees for ~$120/month",
+        "You're not stuck. You're just one shipped feature away from momentum."
+      ],
+      "lessons": [
+        "Reply strategy works for growth",
+        "Bold numbers = attention (specific metrics)",
+        "AI employees angle is viral",
+        "Celebrate milestones = engagement",
+        "Consistent CTA = \"Tech builders drop Hi\"",
+        "Build in public resonates"
+      ],
+      "content_style": "growth-focused, data-driven, inspirational",
+      "timestamp": "2026-02-24T07:05:50.940Z"
+    },
+    {
+      "account": "KobeissiLetter",
+      "type": "news_analysis",
+      "patterns": [
+        "BREAKING headlines",
+        "Specific data points",
+        "Opinion/analysis twist",
+        "Teaser for full article"
+      ],
+      "examples": [
+        "Bitcoin extends losses to drop below $63,000, down -50% from ATH",
+        "IBM falls -10% after Anthropic announcement",
+        "Our 2025 performance: +30.7% vs S&P +16.4%"
+      ],
+      "lessons": [
+        "BREAKING/ANNOUNCEMENT grabs attention",
+        "Specific numbers = credibility",
+        "Add opinion/analysis, not just news",
+        "Teaser content drives traffic to articles",
+        "Crypto/AI/Finance news performs well"
+      ],
+      "content_style": "news-first, data-driven, opinion-added",
+      "timestamp": "2026-02-24T06:51:01.324Z"
+    },
+    {
+      "account": "Bhavani_00007",
+      "type": "engagement_questions",
+      "patterns": [
+        "Product launch (with story)",
+        "Simple questions/polls",
+        "Relatable tech topics",
+        "Short & punchy"
+      ],
+      "examples": [
+        "Introducing Devgle - Omegle for Developers",
+        "as a dev, what was your first code editor?",
+        "which browser has the best user experience?",
+        "is there any AI that can replace Claude for coding?"
+      ],
+      "lessons": [
+        "Questions drive engagement",
+        "Simple relatable topics > complex",
+        "Short text works",
+        "Poll-style questions perform well",
+        "Tech audience loves: editors, browsers, AI tools"
+      ],
+      "engagement_style": "conversational, low-ego, questions",
+      "timestamp": "2026-02-24T06:50:04.963Z"
+    },
+    {
+      "account": "TommiPedruzzi",
+      "type": "lead_magnet",
+      "hook": "Contrarian take (NOT the best → most profitable)",
+      "story": "Real example (single mom $4k/month)",
+      "value": "Specific breakdown (prompts, workflow, niche, content factory)",
+      "cta": "Comment \"AI\" for free resource",
+      "engagement": "24+ replies",
+      "lessons": [
+        "Contrarian hook grabs attention",
+        "Specific numbers = credibility ($4,000/month)",
+        "List what they'll get (bullet points)",
+        "Low-friction CTA (comment word)"
+      ],
+      "timestamp": "2026-02-24T06:47:20.550Z"
+    }
+  ]
+}
