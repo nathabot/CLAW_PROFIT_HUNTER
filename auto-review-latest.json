@@ -1,9 +1,9 @@
 {
-  "timestamp": 1771765128073,
+  "timestamp": 1771938001477,
   "period": "24h",
   "performance": {
     "status": "insufficient_data",
-    "trades": 7
+    "trades": 0
   },
   "suggestions": [
     {
@@ -28,7 +28,7 @@
       "FALLBACK": true
     },
     "POSITION_SIZING": {
-      "DEFAULT": 0.015,
+      "DEFAULT": 0.005,
       "MIN": 0.012,
       "MAX": 0.02,
       "FEE_RESERVE": 0.015
@@ -117,7 +117,7 @@
     },
     "SCANNER": {
       "INTERVAL_MINUTES": 10,
-      "MIN_LIQUIDITY": 10000,
+      "MIN_LIQUIDITY": 2500,
       "MIN_VOLUME_24H": 30000,
       "MIN_MARKET_CAP": 50000,
       "MAX_MARKET_CAP": 2000000,
@@ -169,16 +169,16 @@
         "MIN_SAMPLE_SIZE": 10
       },
       "DEGEN_FILTERS": {
-        "MIN_LIQUIDITY": 10000,
+        "MIN_LIQUIDITY": 2500,
         "MIN_MARKET_CAP": 8000,
         "MIN_AGE_HOURS": 1,
         "MAX_HOLD_MINUTES": 10,
         "MIN_VOLUME_6H": 10000,
         "MIN_TX_6H": 1000,
-        "MIN_SCORE": 6
+        "MIN_SCORE": 5
       },
       "ESTABLISHED_FILTERS": {
-        "MIN_LIQUIDITY": 10000,
+        "MIN_LIQUIDITY": 2500,
         "MIN_AGE_HOURS": 24,
         "MAX_HOLD_MINUTES": 30,
         "MIN_VOLUME_24H": 30000,
@@ -217,6 +217,30 @@
           "minWR": 45
         }
       }
-    }
+    },
+    "MIN_SCORE": 5,
+    "POSITION_SIZE": 0.005,
+    "TAKE_PROFIT_1": 30,
+    "PUMP_SIGNAL": {
+      "symbol": "KREME",
+      "name": "Kreme Coin",
+      "tokenAddress": "342X1kb4UN1uvxdGMN5yL9m6N3HeSemk7xiX2AzPpump",
+      "source": "pumpfun-browser",
+      "confidence": 8.5,
+      "timestamp": 1771864087086,
+      "metrics": {
+        "marketCap": 7400,
+        "liquidity": 3900,
+        "volume24h": 0,
+        "change24h": 151.39,
+        "bondingCurve": 62,
+        "devHolder": 100,
+        "age": 0.23333333333333334
+      },
+      "recommendation": "BUY",
+      "reason": "Score 8.5/10 meets threshold"
+    },
+    "MIN_MC": 5000,
+    "SCAN_INTERVAL": 30000
   }
 }

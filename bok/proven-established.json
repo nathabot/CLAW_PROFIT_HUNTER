@@ -1,37 +1,37 @@
 {
   "fib_500_1272": {
     "strategyName": "Fib 0.500 Entry",
-    "strategyWR": "52.10",
-    "validatedAt": 1771935618875,
+    "strategyWR": "52.08",
+    "validatedAt": 1771945220152,
     "tokens": [
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 390,
-        "avgPnl": 9.853351960426226,
+        "wins": 398,
+        "avgPnl": 12.044699985492613,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 379,
-        "avgPnl": 13.517768095018939,
+        "wins": 388,
+        "avgPnl": 15.060197496969908,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 352,
-        "avgPnl": 12.548483393282929,
+        "wins": 359,
+        "avgPnl": 11.26649182689928,
         "lastTrade": 1771385654369,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
@@ -41,7 +41,7 @@
         "avgPnl": 13.53337290961365,
         "lastTrade": 1771385047201,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
@@ -51,44 +51,44 @@
         "avgPnl": 10.306380309965597,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       }
     ]
   },
   "fib_786_1000": {
     "strategyName": "Fib 0.786 Deep",
-    "strategyWR": "52.43",
-    "validatedAt": 1771935618875,
+    "strategyWR": "52.69",
+    "validatedAt": 1771945220152,
     "tokens": [
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 384,
-        "avgPnl": 11.460559953361443,
+        "wins": 395,
+        "avgPnl": 12.667821637931596,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 377,
-        "avgPnl": 12.596704166448145,
+        "wins": 392,
+        "avgPnl": 13.22817107778268,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 372,
-        "avgPnl": 10.839066911141945,
+        "wins": 377,
+        "avgPnl": 10.478491103515164,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
@@ -98,7 +98,7 @@
         "avgPnl": 11.04672871177426,
         "lastTrade": 1771386011301,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
@@ -108,44 +108,44 @@
         "avgPnl": 11.47943534378317,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       }
     ]
   },
   "ob_funding_combo": {
     "strategyName": "Orderbook + Funding",
-    "strategyWR": "50.67",
-    "validatedAt": 1771935618875,
+    "strategyWR": "50.68",
+    "validatedAt": 1771945220152,
     "tokens": [
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 383,
-        "avgPnl": 10.776886808422073,
+        "wins": 394,
+        "avgPnl": 11.107386569926259,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 370,
-        "avgPnl": 11.228645937670876,
+        "wins": 378,
+        "avgPnl": 15.917213315785954,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 369,
-        "avgPnl": 9.863101005082063,
+        "wins": 374,
+        "avgPnl": 11.52566462744997,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
@@ -155,7 +155,7 @@
         "avgPnl": 12.017383833346294,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
@@ -165,44 +165,44 @@
         "avgPnl": 11.832753060506676,
         "lastTrade": 1771385654368,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       }
     ]
   },
   "sr_breakout": {
     "strategyName": "S/R Breakout",
-    "strategyWR": "51.38",
-    "validatedAt": 1771935618875,
+    "strategyWR": "51.71",
+    "validatedAt": 1771945220152,
     "tokens": [
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 393,
-        "avgPnl": 13.313692140128147,
+        "wins": 403,
+        "avgPnl": 13.840106710906435,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 370,
-        "avgPnl": 10.056269098775749,
+        "wins": 381,
+        "avgPnl": 10.654542601733901,
         "lastTrade": 1771385654369,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 355,
-        "avgPnl": 9.438543862221731,
+        "wins": 366,
+        "avgPnl": 12.225976958387239,
         "lastTrade": 1771385047202,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
@@ -212,7 +212,7 @@
         "avgPnl": 9.966264587270963,
         "lastTrade": 1771385047201,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       },
       {
@@ -222,7 +222,7 @@
         "avgPnl": 10.072235857582351,
         "lastTrade": 1771385654369,
         "validated": true,
-        "validationTime": 1771935618875,
+        "validationTime": 1771945220152,
         "validationReason": "DexScreener OK"
       }
     ]
