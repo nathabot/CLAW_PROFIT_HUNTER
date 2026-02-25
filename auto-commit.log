@@ -3315,3 +3315,63 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	live-trader.lock
+	paper-trader.lock
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+	modified:   usearound-cookies-fixed.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	check-page.js
+	live-trader.lock
+	post-tweet.js
+	post-v2.js
+	post-v3.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
