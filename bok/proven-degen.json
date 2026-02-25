@@ -1,264 +1,308 @@
 {
-  "fib_500_1272": {
-    "strategyName": "Fib 0.500 Entry",
-    "strategyWR": "52.46",
+  "fib_382_1618": {
+    "strategyName": "Fib 0.382 Entry",
+    "strategyWR": "50.06",
     "mode": "degen",
-    "validatedAt": 1771990220117,
-    "tokens": [
-      {
-        "symbol": "ATLAS",
-        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 13,
-        "avgPnl": 10.573133880311302,
-        "lastTrade": 1771977018311,
-        "isDegen": true,
-        "ageHours": 3.667168333333333,
-        "validated": true,
-        "validationTime": 1771990220117,
-        "validationReason": "Degen fast-track"
-      },
-      {
-        "symbol": "SAMO",
-        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 11,
-        "avgPnl": 14.202073659546748,
-        "lastTrade": 1771976418670,
-        "isDegen": true,
-        "ageHours": 3.8337352777777776,
-        "validated": true,
-        "validationTime": 1771990220117,
-        "validationReason": "Degen fast-track"
-      },
-      {
-        "symbol": "Bonk",
-        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 10,
-        "avgPnl": 11.965466218936207,
-        "lastTrade": 1771977018313,
-        "isDegen": true,
-        "ageHours": 3.667167777777778,
-        "validated": true,
-        "validationTime": 1771990220117,
-        "validationReason": "Degen fast-track"
-      }
-    ]
-  },
-  "fib_618_1618": {
-    "strategyName": "Fib 0.618 Golden",
-    "strategyWR": "50.24",
-    "mode": "degen",
-    "validatedAt": 1771990220117,
-    "tokens": [
-      {
-        "symbol": "ATLAS",
-        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 14,
-        "avgPnl": 10.375129270117188,
-        "lastTrade": 1771977018311,
-        "isDegen": true,
-        "ageHours": 3.6671686111111113,
-        "validated": true,
-        "validationTime": 1771990220117,
-        "validationReason": "Degen fast-track"
-      },
-      {
-        "symbol": "SAMO",
-        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 11,
-        "avgPnl": 15.865660660561161,
-        "lastTrade": 1771977623435,
-        "isDegen": true,
-        "ageHours": 3.499078611111111,
-        "validated": true,
-        "validationTime": 1771990220117,
-        "validationReason": "Degen fast-track"
-      },
-      {
-        "symbol": "Bonk",
-        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 10,
-        "avgPnl": 12.053764146681154,
-        "lastTrade": 1771976418669,
-        "isDegen": true,
-        "ageHours": 3.8337358333333333,
-        "validated": true,
-        "validationTime": 1771990220117,
-        "validationReason": "Degen fast-track"
-      }
-    ]
-  },
-  "fib_786_1000": {
-    "strategyName": "Fib 0.786 Deep",
-    "strategyWR": "53.32",
-    "mode": "degen",
-    "validatedAt": 1771990220117,
+    "validatedAt": 1771995018553,
     "tokens": [
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
         "wins": 13,
-        "avgPnl": 14.392817907690732,
-        "lastTrade": 1771976418670,
+        "avgPnl": 13.408810458037056,
+        "lastTrade": 1771981216854,
         "isDegen": true,
-        "ageHours": 3.8337355555555557,
+        "ageHours": 3.8338052777777776,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 10,
-        "avgPnl": 12.52744978651089,
-        "lastTrade": 1771977018311,
+        "wins": 12,
+        "avgPnl": 12.20452541411364,
+        "lastTrade": 1771981216849,
         "isDegen": true,
-        "ageHours": 3.6671686111111113,
+        "ageHours": 3.833806666666667,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
         "wins": 8,
-        "avgPnl": 12.249644621689045,
-        "lastTrade": 1771976418669,
+        "avgPnl": 10.159178719046414,
+        "lastTrade": 1771981216850,
         "isDegen": true,
-        "ageHours": 3.8337358333333333,
+        "ageHours": 3.8338063888888887,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      }
+    ]
+  },
+  "fib_500_1272": {
+    "strategyName": "Fib 0.500 Entry",
+    "strategyWR": "52.51",
+    "mode": "degen",
+    "validatedAt": 1771995018553,
+    "tokens": [
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "wins": 15,
+        "avgPnl": 13.566724138844075,
+        "lastTrade": 1771981216849,
+        "isDegen": true,
+        "ageHours": 3.833806666666667,
+        "validated": true,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 12,
+        "avgPnl": 10.632056824172782,
+        "lastTrade": 1771981216854,
+        "isDegen": true,
+        "ageHours": 3.8338052777777776,
+        "validated": true,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 9,
+        "avgPnl": 13.146026288693015,
+        "lastTrade": 1771981216850,
+        "isDegen": true,
+        "ageHours": 3.8338063888888887,
+        "validated": true,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      }
+    ]
+  },
+  "fib_618_1618": {
+    "strategyName": "Fib 0.618 Golden",
+    "strategyWR": "50.39",
+    "mode": "degen",
+    "validatedAt": 1771995018553,
+    "tokens": [
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "wins": 13,
+        "avgPnl": 11.795502212724713,
+        "lastTrade": 1771981216849,
+        "isDegen": true,
+        "ageHours": 3.8338069444444445,
+        "validated": true,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 12,
+        "avgPnl": 14.928708102181167,
+        "lastTrade": 1771981216854,
+        "isDegen": true,
+        "ageHours": 3.8338055555555557,
+        "validated": true,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 11,
+        "avgPnl": 11.284597446526526,
+        "lastTrade": 1771981216851,
+        "isDegen": true,
+        "ageHours": 3.8338063888888887,
+        "validated": true,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      }
+    ]
+  },
+  "fib_786_1000": {
+    "strategyName": "Fib 0.786 Deep",
+    "strategyWR": "53.44",
+    "mode": "degen",
+    "validatedAt": 1771995018553,
+    "tokens": [
+      {
+        "symbol": "SAMO",
+        "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+        "wins": 16,
+        "avgPnl": 13.168937650358473,
+        "lastTrade": 1771981818242,
+        "isDegen": true,
+        "ageHours": 3.6667533333333333,
+        "validated": true,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "ATLAS",
+        "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
+        "wins": 11,
+        "avgPnl": 13.418022333684009,
+        "lastTrade": 1771981216849,
+        "isDegen": true,
+        "ageHours": 3.8338069444444445,
+        "validated": true,
+        "validationTime": 1771995018553,
+        "validationReason": "Degen fast-track"
+      },
+      {
+        "symbol": "Bonk",
+        "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "wins": 5,
+        "avgPnl": 10.046787552953287,
+        "lastTrade": 1771981216851,
+        "isDegen": true,
+        "ageHours": 3.8338063888888887,
+        "validated": true,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       }
     ]
   },
   "ob_funding_combo": {
     "strategyName": "Orderbook + Funding",
-    "strategyWR": "51.18",
+    "strategyWR": "51.21",
     "mode": "degen",
-    "validatedAt": 1771990220117,
+    "validatedAt": 1771995018553,
     "tokens": [
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 14,
-        "avgPnl": 12.680932413539043,
-        "lastTrade": 1771976418667,
+        "wins": 15,
+        "avgPnl": 10.883227431437675,
+        "lastTrade": 1771981216849,
         "isDegen": true,
-        "ageHours": 3.8337363888888887,
+        "ageHours": 3.8338069444444445,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
         "wins": 13,
-        "avgPnl": 14.20059999574774,
-        "lastTrade": 1771976418670,
+        "avgPnl": 11.601741301920796,
+        "lastTrade": 1771982418992,
         "isDegen": true,
-        "ageHours": 3.8337355555555557,
+        "ageHours": 3.499878333333333,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
         "wins": 7,
-        "avgPnl": 10.754370894691128,
-        "lastTrade": 1771977623434,
+        "avgPnl": 11.343755106195648,
+        "lastTrade": 1771981216851,
         "isDegen": true,
-        "ageHours": 3.499078888888889,
+        "ageHours": 3.8338063888888887,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       }
     ]
   },
   "sr_breakout": {
     "strategyName": "S/R Breakout",
-    "strategyWR": "52.27",
+    "strategyWR": "52.47",
     "mode": "degen",
-    "validatedAt": 1771990220117,
+    "validatedAt": 1771995018553,
     "tokens": [
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
-        "wins": 11,
-        "avgPnl": 12.260638845731956,
-        "lastTrade": 1771978218628,
+        "wins": 13,
+        "avgPnl": 10.851990578697439,
+        "lastTrade": 1771981216849,
         "isDegen": true,
-        "ageHours": 3.3337475,
+        "ageHours": 3.8338069444444445,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
         "wins": 9,
-        "avgPnl": 16.23309295609312,
-        "lastTrade": 1771977018315,
+        "avgPnl": 14.062951997995722,
+        "lastTrade": 1771981818243,
         "isDegen": true,
-        "ageHours": 3.667167777777778,
+        "ageHours": 3.6667530555555556,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
         "wins": 7,
-        "avgPnl": 10.744001649833336,
-        "lastTrade": 1771976418669,
+        "avgPnl": 12.054470277622253,
+        "lastTrade": 1771981216851,
         "isDegen": true,
-        "ageHours": 3.833736111111111,
+        "ageHours": 3.8338063888888887,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       }
     ]
   },
   "cycloid_cvca": {
     "strategyName": "Cycloid CVCA",
-    "strategyWR": "50.72",
+    "strategyWR": "51.00",
     "mode": "degen",
-    "validatedAt": 1771990220117,
+    "validatedAt": 1771995018553,
     "tokens": [
       {
         "symbol": "ATLAS",
         "ca": "ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx",
         "wins": 13,
-        "avgPnl": 12.220834520232621,
-        "lastTrade": 1771976418668,
+        "avgPnl": 12.239983110790412,
+        "lastTrade": 1771981216850,
         "isDegen": true,
-        "ageHours": 3.8337363888888887,
+        "ageHours": 3.833806666666667,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "Bonk",
         "ca": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
-        "wins": 13,
-        "avgPnl": 10.81886963353276,
-        "lastTrade": 1771976418669,
+        "wins": 12,
+        "avgPnl": 14.223667884032395,
+        "lastTrade": 1771981216851,
         "isDegen": true,
-        "ageHours": 3.833736111111111,
+        "ageHours": 3.8338063888888887,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       },
       {
         "symbol": "SAMO",
         "ca": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
-        "wins": 9,
-        "avgPnl": 15.725712337978617,
-        "lastTrade": 1771977623435,
+        "wins": 10,
+        "avgPnl": 13.570030251295897,
+        "lastTrade": 1771981818243,
         "isDegen": true,
-        "ageHours": 3.499078888888889,
+        "ageHours": 3.6667530555555556,
         "validated": true,
-        "validationTime": 1771990220117,
+        "validationTime": 1771995018553,
         "validationReason": "Degen fast-track"
       }
     ]
