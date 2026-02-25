@@ -1,5 +1,5 @@
 {
-  "timestamp": 1771938001477,
+  "timestamp": 1772024401697,
   "period": "24h",
   "performance": {
     "status": "insufficient_data",
@@ -241,6 +241,9 @@
       "reason": "Score 8.5/10 meets threshold"
     },
     "MIN_MC": 5000,
-    "SCAN_INTERVAL": 30000
+    "SCAN_INTERVAL": 30000,
+    "SIGNAL_THRESHOLD": {
+      "MIN_SCORE": 3
+    }
   }
 }

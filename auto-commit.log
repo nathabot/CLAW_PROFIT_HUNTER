@@ -2775,3 +2775,543 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 Everything up-to-date
+[main 1af7bf6] Auto-update: 2026-02-25 17:30
+ 16 files changed, 20267 insertions(+), 441 deletions(-)
+To https://github.com/nathabot/CLAW_PROFIT_HUNTER.git
+   fd44e61..1af7bf6  main -> main
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	live-trader.lock
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	live-trader.lock
+	paper-trader.lock
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	live-trader.lock
+	src/data-sources/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	paper-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	paper-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	paper-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   auto-review-history.json
+	modified:   auto-review-latest.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	paper-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   auto-review-history.json
+	modified:   auto-review-latest.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   auto-review-history.json
+	modified:   auto-review-latest.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	paper-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   auto-review-history.json
+	modified:   auto-review-latest.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   auto-review-history.json
+	modified:   auto-review-latest.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   learning-engine/logs/dlmm.log
+	modified:   learning-engine/logs/improve.log
+	modified:   learning-engine/logs/learning.log
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   package-lock.json
+	modified:   package.json
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-25.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EMERGENCY_STOP
+	learning-engine/dlmm-pools.json
+	learning-engine/logs/data-sources.log
+	learning-engine/logs/dlmm-monitor.log
+	learning-engine/logs/optimizer.log
+	learning-engine/logs/yolo-auto.log
+	live-trader.lock
+	paper-trader.lock
+	src/data-sources/
+	src/yolo-auto.js
+	usearound-cookies-fixed.json
+	usearound-cookies.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date

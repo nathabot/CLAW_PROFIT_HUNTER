@@ -2,7 +2,7 @@
   "bestStrategy": {
     "id": "fib_786_1000",
     "name": "Fib 0.786 Deep",
-    "winRate": "53.77",
+    "winRate": "54.03",
     "category": "SWING_TRADE"
   },
   "positionSizing": {
@@ -22,5 +22,5 @@
     "ma_crossover": "0.02",
     "liquidation_hunter": "0.02"
   },
-  "updated": 1772014820009
+  "updated": 1772028624149
 }

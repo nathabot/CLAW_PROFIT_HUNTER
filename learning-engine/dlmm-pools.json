@@ -1,0 +1,44 @@
+{
+  "pools": [
+    {
+      "name": "Lobstar-SOL",
+      "address": "DuGHqxqjE4Xj折668NqR3",
+      "tokenA": "Lobstar",
+      "tokenB": "SOL",
+      "apy": 57.94,
+      "status": "watching",
+      "lastCheck": 1772028003124
+    },
+    {
+      "name": "cbBTC-USDC",
+      "address": "CbBT2xL7Y1K折6n8r5N9P",
+      "tokenA": "cbBTC",
+      "tokenB": "USDC",
+      "apy": 48.44,
+      "status": "watching",
+      "lastCheck": 1772028003124
+    },
+    {
+      "name": "SOL-USDC",
+      "address": "ECAt折5hK3M8R2v1N6p9Q",
+      "tokenA": "SOL",
+      "tokenB": "USDC",
+      "apy": 15,
+      "status": "watching",
+      "lastCheck": 1772028003124
+    }
+  ],
+  "alerts": [
+    {
+      "pool": "Lobstar-SOL",
+      "apy": 57.94,
+      "message": "High yield opportunity: Lobstar-SOL @ 57.94% APY"
+    },
+    {
+      "pool": "cbBTC-USDC",
+      "apy": 48.44,
+      "message": "High yield opportunity: cbBTC-USDC @ 48.44% APY"
+    }
+  ],
+  "lastUpdate": 1772028003124
+}
