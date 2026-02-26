@@ -1,0 +1,251 @@
+{
+  "timestamp": "2026-02-26T00:56:56.668Z",
+  "scanTime": "26/2/2026, 07.56.56",
+  "granularity": "15min",
+  "totalPairs": 632,
+  "preFiltered": 151,
+  "qualified": 149,
+  "top10": [
+    {
+      "symbol": "DENTUSDT",
+      "price": 0.000224,
+      "priceChange24h": 30.994,
+      "priceChange1h": 2.752,
+      "volume24h": 754327.6373331025,
+      "score": 86.25,
+      "signals": [
+        "📈 24h +31.0%",
+        "💧 Vol $0.8M",
+        "⚡ 1h +2.75%",
+        "RSI 58.42 ✅",
+        "MACD ✅",
+        "EMA20 ✅",
+        "Vol↑ ✅"
+      ],
+      "ta": {
+        "rsi": 58.42,
+        "rsiZone": "NEUTRAL",
+        "macdBullish": true,
+        "macdCrossover": false,
+        "aboveEma20": true,
+        "volumeRising": true,
+        "bullishSignals": 4
+      }
+    },
+    {
+      "symbol": "A47USDT",
+      "price": 0.009255,
+      "priceChange24h": 38.403,
+      "priceChange1h": -0.129,
+      "volume24h": 16531736.97858714,
+      "score": 73.04,
+      "signals": [
+        "📈 24h +38.4%",
+        "💧 Vol $16.5M",
+        "RSI 70.72 ❌ OB",
+        "MACD ✅",
+        "EMA20 ✅"
+      ],
+      "ta": {
+        "rsi": 70.72,
+        "rsiZone": "OVERBOUGHT",
+        "macdBullish": true,
+        "macdCrossover": false,
+        "aboveEma20": true,
+        "volumeRising": false,
+        "bullishSignals": 2
+      }
+    },
+    {
+      "symbol": "SONICUSDT",
+      "price": 0.052012,
+      "priceChange24h": 8.798,
+      "priceChange1h": 7.404,
+      "volume24h": 15996344.36880273,
+      "score": 71.22,
+      "signals": [
+        "📈 24h +8.8%",
+        "💧 Vol $16.0M",
+        "⚡ 1h +7.40%",
+        "RSI 50.73 ✅",
+        "MACD ✅",
+        "EMA20 ✅"
+      ],
+      "ta": {
+        "rsi": 50.73,
+        "rsiZone": "NEUTRAL",
+        "macdBullish": true,
+        "macdCrossover": false,
+        "aboveEma20": true,
+        "volumeRising": false,
+        "bullishSignals": 3
+      }
+    },
+    {
+      "symbol": "TRIAUSDT",
+      "price": 0.023969,
+      "priceChange24h": 19.989,
+      "priceChange1h": 5.1,
+      "volume24h": 1054590.2104286,
+      "score": 62.43,
+      "signals": [
+        "📈 24h +20.0%",
+        "💧 Vol $1.1M",
+        "⚡ 1h +5.10%",
+        "EMA20 ❌",
+        "Vol↑ ✅"
+      ],
+      "ta": {
+        "rsi": 39.4,
+        "rsiZone": "NEUTRAL",
+        "macdBullish": false,
+        "macdCrossover": false,
+        "aboveEma20": false,
+        "volumeRising": true,
+        "bullishSignals": 2
+      }
+    },
+    {
+      "symbol": "DOTUSDT",
+      "price": 1.632,
+      "priceChange24h": 31.295,
+      "priceChange1h": -1.805,
+      "volume24h": 5109311.0497052,
+      "score": 60.36,
+      "signals": [
+        "📈 24h +31.3%",
+        "💧 Vol $5.1M",
+        "RSI 18.74 🔄 OS",
+        "EMA20 ❌"
+      ],
+      "ta": {
+        "rsi": 18.74,
+        "rsiZone": "OVERSOLD",
+        "macdBullish": false,
+        "macdCrossover": false,
+        "aboveEma20": false,
+        "volumeRising": false,
+        "bullishSignals": 1
+      }
+    },
+    {
+      "symbol": "POWERUSDT",
+      "price": 0.915891,
+      "priceChange24h": 28.583,
+      "priceChange1h": -1.481,
+      "volume24h": 5794431.77915627,
+      "score": 56.4,
+      "signals": [
+        "📈 24h +28.6%",
+        "💧 Vol $5.8M",
+        "RSI 28.74 🔄 OS",
+        "EMA20 ❌"
+      ],
+      "ta": {
+        "rsi": 28.74,
+        "rsiZone": "OVERSOLD",
+        "macdBullish": false,
+        "macdCrossover": false,
+        "aboveEma20": false,
+        "volumeRising": false,
+        "bullishSignals": 1
+      }
+    },
+    {
+      "symbol": "UNIUSDT",
+      "price": 4.019,
+      "priceChange24h": 19.683999999999997,
+      "priceChange1h": -0.9119999999999999,
+      "volume24h": 5024236.9501976,
+      "score": 52.93,
+      "signals": [
+        "📈 24h +19.7%",
+        "💧 Vol $5.0M",
+        "RSI 22.08 🔄 OS",
+        "MACD 🚀 Cross",
+        "EMA20 ❌"
+      ],
+      "ta": {
+        "rsi": 22.08,
+        "rsiZone": "OVERSOLD",
+        "macdBullish": true,
+        "macdCrossover": true,
+        "aboveEma20": false,
+        "volumeRising": false,
+        "bullishSignals": 2
+      }
+    },
+    {
+      "symbol": "NEARUSDT",
+      "price": 1.164,
+      "priceChange24h": 19.875999999999998,
+      "priceChange1h": -0.683,
+      "volume24h": 1861009.54495,
+      "score": 52.35,
+      "signals": [
+        "📈 24h +19.9%",
+        "💧 Vol $1.9M",
+        "RSI 21.52 🔄 OS",
+        "MACD 🚀 Cross",
+        "EMA20 ❌"
+      ],
+      "ta": {
+        "rsi": 21.52,
+        "rsiZone": "OVERSOLD",
+        "macdBullish": true,
+        "macdCrossover": true,
+        "aboveEma20": false,
+        "volumeRising": false,
+        "bullishSignals": 2
+      }
+    },
+    {
+      "symbol": "GRASSUSDT",
+      "price": 0.2141,
+      "priceChange24h": 16.295,
+      "priceChange1h": 3.4799999999999995,
+      "volume24h": 2672544.963632,
+      "score": 52.22,
+      "signals": [
+        "📈 24h +16.3%",
+        "💧 Vol $2.7M",
+        "⚡ 1h +3.48%",
+        "MACD ✅",
+        "EMA20 ❌"
+      ],
+      "ta": {
+        "rsi": 36.44,
+        "rsiZone": "NEUTRAL",
+        "macdBullish": true,
+        "macdCrossover": false,
+        "aboveEma20": false,
+        "volumeRising": false,
+        "bullishSignals": 2
+      }
+    },
+    {
+      "symbol": "ALLOUSDT",
+      "price": 0.1116,
+      "priceChange24h": 18.977,
+      "priceChange1h": -1.7610000000000001,
+      "volume24h": 628189.453025,
+      "score": 52.06,
+      "signals": [
+        "📈 24h +19.0%",
+        "💧 Vol $0.6M",
+        "RSI 45.68 ✅",
+        "MACD 🚀 Cross",
+        "EMA20 ❌"
+      ],
+      "ta": {
+        "rsi": 45.68,
+        "rsiZone": "NEUTRAL",
+        "macdBullish": true,
+        "macdCrossover": true,
+        "aboveEma20": false,
+        "volumeRising": false,
+        "bullishSignals": 2
+      }
+    }
+  ]
+}
