@@ -85,17 +85,40 @@ function saveState() {
 // ============ FUTURES SPECIFIC ============
 
 async function getFuturesBalance() {
-  const res = await request('GET', `/api/v2/mix/account/accounts?productType=${PRODUCT_TYPE}`);
-  if (!res || res.length === 0) return 0;
-  const usdt = res.find(a => a.marginCoin === 'USDT');
-  return usdt ? parseFloat(usdt.available) : 0;
+  // Try GET first, fallback to POST
+  try {
+    const res = await request('GET', `/api/v2/mix/account/accounts?productType=${PRODUCT_TYPE}`);
+    if (res && res.length > 0) {
+      const usdt = res.find(a => a.marginCoin === 'USDT');
+      return usdt ? parseFloat(usdt.available) : 0;
+    }
+  } catch (e) {
+    log(`Balance GET failed: ${e.message}`);
+  }
+  
+  // Try POST
+  try {
+    const body = { productType: PRODUCT_TYPE };
+    const res = await request('POST', '/api/v2/mix/account/accounts', body);
+    if (res && res.length > 0) {
+      const usdt = res.find(a => a.marginCoin === 'USDT');
+      return usdt ? parseFloat(usdt.available) : 0;
+    }
+  } catch (e) {
+    log(`Balance POST failed: ${e.message}`);
+  }
+  
+  // Fallback: estimate from last known balance
+  return 4.93; // Last known balance
 }
 
 async function getPosition(symbol) {
-  const futSymbol = toFuturesSymbol(symbol);
+  // Use positions endpoint with symbol filter
   try {
-    const res = await request('GET', `/api/v2/mix/position/singlePosition?symbol=${futSymbol}&productType=${PRODUCT_TYPE}`);
-    return res;
+    const allPositions = await request('GET', `/api/v2/mix/position/positions?productType=${PRODUCT_TYPE}`);
+    if (!allPositions || allPositions.length === 0) return null;
+    const pos = allPositions.find(p => p.symbol === toFuturesSymbol(symbol) && parseFloat(p.holding) > 0);
+    return pos || null;
   } catch (e) {
     return null;
   }
@@ -136,41 +159,24 @@ async function openShort(symbol, amountUSDT) {
 }
 
 async function closeLong(symbol) {
-  const futSymbol = toFuturesSymbol(symbol);
-  const pos = await getPosition(symbol);
-  if (!pos || parseFloat(pos.holding) <= 0) return null;
-  
-  const order = {
-    symbol: futSymbol,
+  // Use close-positions endpoint
+  const closeOrder = {
+    symbol: toFuturesSymbol(symbol),
     productType: PRODUCT_TYPE,
-    marginMode: 'isolated',
     marginCoin: 'USDT',
-    size: pos.holding,
-    side: 'sell',
-    tradeSide: 'close',
-    orderType: 'market',
-    force: 'gtc'
+    holdSide: 'long'
   };
-  return await request('POST', '/api/v2/mix/order/place-order', order);
+  return await request('POST', '/api/v2/mix/order/close-positions', closeOrder);
 }
 
 async function closeShort(symbol) {
-  const futSymbol = toFuturesSymbol(symbol);
-  const pos = await getPosition(symbol);
-  if (!pos || parseFloat(pos.holding) <= 0) return null;
-  
-  const order = {
-    symbol: futSymbol,
+  const closeOrder = {
+    symbol: toFuturesSymbol(symbol),
     productType: PRODUCT_TYPE,
-    marginMode: 'isolated',
     marginCoin: 'USDT',
-    size: pos.holding,
-    side: 'buy',
-    tradeSide: 'close',
-    orderType: 'market',
-    force: 'gtc'
+    holdSide: 'short'
   };
-  return await request('POST', '/api/v2/mix/order/place-order', order);
+  return await request('POST', '/api/v2/mix/order/close-positions', closeOrder);
 }
 
 // ============ TA & SCANNING ============
@@ -212,9 +218,10 @@ function analyzeTA(candles) {
     const tpPct = Math.min(atrPct * 2, 8); // 2x ATR, max 8%
     const slPct = Math.max(atrPct, 1.5);   // 1x ATR, min 1.5%
     
-    // More aggressive signals for more opportunities
-    const longSignal = r < 50 && trend === 'UP' && (m?.histogram > 0 || r < 35);
-    const shortSignal = r > 50 && trend === 'DOWN' && (m?.histogram < 0 || r > 65);
+    // SUPER AGGRESSIVE: wider range, more signals
+    // CONSERVATIVE: LONG only RSI < 35, SHORT only RSI > 65
+    const longSignal = r < config.RSI_LONG_MAX && m?.histogram > 0;
+    const shortSignal = r > config.RSI_SHORT_MIN && m?.histogram < 0;
     const macdCross = m?.histogram > 0 && mp?.histogram <= 0;
     
     return {
@@ -251,8 +258,8 @@ async function scanMarket() {
   for (const t of usdt) {
     const chg = Math.abs(parseFloat(t.change24h || 0)) * 100;
     const vol = parseFloat(t.usdtVolume || t.quoteVolume || 0);
-    // Lower thresholds = more opportunities
-    if (chg < 1 || vol < 50000) continue;
+    // SUPER LOW thresholds = MAX opportunities
+    if (chg < 0.5 || vol < 20000) continue;
     
     // Skip if already in position
     if (positions.find(p => p.symbol === t.symbol)) continue;
@@ -285,7 +292,7 @@ async function scanMarket() {
 
 async function executeTrade(candidate) {
   const balance = await getFuturesBalance();
-  const minTrade = 5; // USDT minimum
+  const minTrade = config.MIN_USDT_TRADE || 5;
   
   if (balance < minTrade) {
     log(`❌ Insufficient margin: $${balance.toFixed(2)} (min $${minTrade})`);

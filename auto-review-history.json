@@ -1291,5 +1291,254 @@
         "MIN_SCORE": 3
       }
     }
+  },
+  {
+    "timestamp": 1772110801806,
+    "period": "24h",
+    "performance": {
+      "status": "insufficient_data",
+      "trades": 0
+    },
+    "suggestions": [
+      {
+        "type": "info",
+        "message": "Insufficient data for parameter suggestions"
+      }
+    ],
+    "configSnapshot": {
+      "VERSION": "2.2",
+      "QUICKNODE": {
+        "ENABLED": true,
+        "RPC": "https://restless-bitter-emerald.solana-mainnet.quiknode.pro/7dc960cd5584dba31d64260739c411f638b0fbb3",
+        "API_KEY": "QN_8199c814e84947698acbf4569f1e209c",
+        "WSS": "wss://restless-bitter-emerald.solana-mainnet.quiknode.pro/7dc960cd5584dba31d64260739c411f638b0fbb3",
+        "JUPITER_SWAP": "https://public.jupiterapi.com/swap",
+        "PRIORITY_FEE": "https://solana-mainnet.g.alchemy.com/v2/7dc960cd5584dba31d64260739c411f638b0fbb3/getPriorityFees",
+        "OPENOCEAN_SWAP": "https://solana-mainnet.g.alchemy.com/v2/7dc960cd5584dba31d64260739c411f638b0fbb3/openocean/v4/swap"
+      },
+      "SOLANATRACKER": {
+        "ENABLED": true,
+        "BASE_URL": "https://swap-v2.solanatracker.io",
+        "FALLBACK": true
+      },
+      "POSITION_SIZING": {
+        "DEFAULT": 0.005,
+        "MIN": 0.012,
+        "MAX": 0.02,
+        "FEE_RESERVE": 0.015
+      },
+      "THRESHOLDS": {
+        "WIN_RATE": 50,
+        "BOK_WIN_RATE": 50,
+        "MIN_PROFIT_SOL": 0.05,
+        "MIN_EXPECTANCY": 2,
+        "MAX_DRAWDOWN": 30,
+        "MAX_VOLATILITY": 40,
+        "BALANCE_GUARDIAN_DRAWDOWN": 50,
+        "SOURCE": "central_config"
+      },
+      "TAKE_PROFIT": {
+        "TP1_PERCENT": 1.5,
+        "TP2_PERCENT": 5,
+        "PARTIAL_EXIT_PERCENT": 50,
+        "AGGRESSIVE_EXIT": true,
+        "DYNAMIC_MODE": false,
+        "MIN_MOMENTUM_TP1": false,
+        "NO_MAX_HOLD": true
+      },
+      "STOP_LOSS": {
+        "PERCENT": 3,
+        "TRAILING_PERCENT": 2,
+        "KILL_SWITCH_BALANCE": 0.03
+      },
+      "DYNAMIC_TPSL": {
+        "ENABLED": true,
+        "ADAPTIVE_FIB": true,
+        "REGIME_DETECTION": true,
+        "LEVELS": {
+          "BEAR": {
+            "sl": 3,
+            "tp1": 6,
+            "tp2": 10,
+            "partial": 50
+          },
+          "VOLATILE_BEAR": {
+            "sl": 2.5,
+            "tp1": 4,
+            "tp2": 6,
+            "partial": 60
+          },
+          "NEUTRAL": {
+            "sl": 5,
+            "tp1": 12,
+            "tp2": 20,
+            "partial": 50
+          },
+          "RANGING_BULL": {
+            "sl": 6,
+            "tp1": 15,
+            "tp2": 25,
+            "partial": 40
+          },
+          "BULL": {
+            "sl": 8,
+            "tp1": 25,
+            "tp2": 40,
+            "partial": 30
+          }
+        }
+      },
+      "DAILY_TARGET": {
+        "PROFIT_SOL": 0.05,
+        "MIN_TRADES": 5,
+        "MAX_TRADES": 10
+      },
+      "RISK_MANAGEMENT": {
+        "MAX_CONCURRENT_POSITIONS": 2,
+        "MAX_DAILY_DRAWDOWN": 30,
+        "MAX_POSITION_RISK": 20,
+        "max_consecutive_losses": 2
+      },
+      "PAPER_TRADER": {
+        "SIMULATIONS_PER_CYCLE": 50,
+        "REPORT_INTERVAL_HOURS": 6,
+        "BOK_ACCUMULATION": true
+      },
+      "EVALUATION": {
+        "INTERVAL_HOURS": 2,
+        "GRACE_PERIOD_TRADES": 10,
+        "CONSECUTIVE_NEGATIVE_LIMIT": 3
+      },
+      "SCANNER": {
+        "INTERVAL_MINUTES": 10,
+        "MIN_LIQUIDITY": 2500,
+        "MIN_VOLUME_24H": 30000,
+        "MIN_MARKET_CAP": 50000,
+        "MAX_MARKET_CAP": 2000000,
+        "TOKEN_AGE_MIN_HOURS": 3,
+        "TOKEN_AGE_MAX_DAYS": 7
+      },
+      "FILTERS": {
+        "BUY_PRESSURE_MIN": 60,
+        "HOLDERS_MIN": 50,
+        "TOP_10_HOLDERS_MAX": 50,
+        "PRICE_CHANGE_2H_MIN": 5
+      },
+      "MOMENTUM_ENTRY": {
+        "ENABLED": true,
+        "REQUIRE_PROVEN_TOKEN": true,
+        "PROVEN_TOKENS": [
+          "BONK",
+          "SAMO",
+          "RAY",
+          "ATLAS",
+          "WIF",
+          "DOGE",
+          "PEPE",
+          "SHIB",
+          "COPE",
+          "WEN",
+          "JTO",
+          "JUP",
+          "PYTH",
+          "INJ",
+          "TIA"
+        ],
+        "MIN_PRICE_CHANGE_BEFORE_ENTRY": 3,
+        "MIN_LIQUIDITY": 50000,
+        "MIN_VOLUME_RATIO": 2
+      },
+      "ENTRY_FILTERS": {
+        "min_signal_score": 7
+      },
+      "TRADING_MODE": {
+        "VERSION": "1.0",
+        "MODE": "auto",
+        "ACTIVE": "degen",
+        "DEGEN_ENABLED": true,
+        "AUTO_TYPE": "performance",
+        "TIME_INTERVAL_HOURS": 6,
+        "AUTO_CONFIG": {
+          "PERFORMANCE_THRESHOLD": 10,
+          "MIN_SAMPLE_SIZE": 10
+        },
+        "DEGEN_FILTERS": {
+          "MIN_LIQUIDITY": 2500,
+          "MIN_MARKET_CAP": 8000,
+          "MIN_AGE_HOURS": 1,
+          "MAX_HOLD_MINUTES": 10,
+          "MIN_VOLUME_6H": 10000,
+          "MIN_TX_6H": 1000,
+          "MIN_SCORE": 5
+        },
+        "ESTABLISHED_FILTERS": {
+          "MIN_LIQUIDITY": 2500,
+          "MIN_AGE_HOURS": 24,
+          "MAX_HOLD_MINUTES": 30,
+          "MIN_VOLUME_24H": 30000,
+          "MIN_SCORE": 6
+        },
+        "TOKEN_TRACKING": {
+          "ENABLED": true,
+          "MAX_TRADES_PER_TOKEN": 50,
+          "MAX_CONSECUTIVE_SL": 3,
+          "PROFIT_DROP_THRESHOLD": 0.3,
+          "COOLDOWN_MINUTES": 30
+        }
+      },
+      "MODE_CONTROLLER": {
+        "mode": "balanced",
+        "modes": {
+          "conservative": {
+            "minScore": 7,
+            "minLiquidity": 50000,
+            "maxPosition": 0.01,
+            "maxPositions": 2,
+            "minWR": 55
+          },
+          "balanced": {
+            "minScore": 6,
+            "minLiquidity": 25000,
+            "maxPosition": 0.015,
+            "maxPositions": 3,
+            "minWR": 50
+          },
+          "aggressive": {
+            "minScore": 5,
+            "minLiquidity": 10000,
+            "maxPosition": 0.02,
+            "maxPositions": 4,
+            "minWR": 45
+          }
+        }
+      },
+      "MIN_SCORE": 5,
+      "POSITION_SIZE": 0.005,
+      "TAKE_PROFIT_1": 30,
+      "PUMP_SIGNAL": {
+        "symbol": "KREME",
+        "name": "Kreme Coin",
+        "tokenAddress": "342X1kb4UN1uvxdGMN5yL9m6N3HeSemk7xiX2AzPpump",
+        "source": "pumpfun-browser",
+        "confidence": 8.5,
+        "timestamp": 1771864087086,
+        "metrics": {
+          "marketCap": 7400,
+          "liquidity": 3900,
+          "volume24h": 0,
+          "change24h": 151.39,
+          "bondingCurve": 62,
+          "devHolder": 100,
+          "age": 0.23333333333333334
+        },
+        "recommendation": "BUY",
+        "reason": "Score 8.5/10 meets threshold"
+      },
+      "MIN_MC": 5000,
+      "SCAN_INTERVAL": 30000,
+      "SIGNAL_THRESHOLD": {
+        "MIN_SCORE": 3
+      }
+    }
   }
 ]

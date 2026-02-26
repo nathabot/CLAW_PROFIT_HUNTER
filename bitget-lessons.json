@@ -1,0 +1,10 @@
+[
+  {
+    "timestamp": "2026-02-26T07:31:17.301Z",
+    "event": "POSITION_NOT_CLOSED",
+    "cause": "Wrong API endpoint",
+    "fix": "Use /api/v2/mix/order/close-positions",
+    "balance": 4.93,
+    "loss": 0.26
+  }
+]
