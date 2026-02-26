@@ -4808,3 +4808,352 @@ Untracked files:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 Everything up-to-date
+[main a19c0a7] Auto-update: 2026-02-26 09:00
+ 25 files changed, 137791 insertions(+), 96234 deletions(-)
+ create mode 100644 bitget-config.json
+ create mode 100644 bitget-credentials.json
+ create mode 100644 bitget-scan-results.json
+ create mode 100644 live-trader.lock
+ delete mode 100644 paper-trader.lock
+ create mode 100644 reconcile-logs/2026-02-26.json
+ create mode 100644 src/bitget-scanner.js
+ create mode 100644 src/bitget-trader.js
+To https://github.com/nathabot/CLAW_PROFIT_HUNTER.git
+   b033027..a19c0a7  main -> main
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bitget-system-config.json
+	paper-trader.lock
+	quick-scan.js
+	src/bitget-auto-trader.js
+	src/bitget-executor.js
+	src/bitget-learning.js
+	src/dynamic-tp-sl.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bitget-cooldowns.json
+	bitget-positions.json
+	bitget-system-config.json
+	quick-scan.js
+	src/bitget-auto-trader.js
+	src/bitget-executor.js
+	src/bitget-futures-trader.js
+	src/bitget-learning.js
+	src/dynamic-tp-sl.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bitget-cooldowns.json
+	bitget-positions.json
+	bitget-system-config.json
+	paper-trader.lock
+	quick-scan.js
+	src/bitget-auto-trader.js
+	src/bitget-executor.js
+	src/bitget-futures-trader.js
+	src/bitget-learning.js
+	src/dynamic-tp-sl.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bitget-cooldowns.json
+	bitget-positions.json
+	bitget-system-config.json
+	quick-scan.js
+	src/bitget-auto-trader.js
+	src/bitget-executor.js
+	src/bitget-futures-trader.js
+	src/bitget-learning.js
+	src/dynamic-tp-sl.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    EMERGENCY_STOP
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bitget-cooldowns.json
+	bitget-positions.json
+	bitget-system-config.json
+	paper-trader.lock
+	quick-scan.js
+	src/bitget-auto-trader.js
+	src/bitget-executor.js
+	src/bitget-futures-trader.js
+	src/bitget-learning.js
+	src/dynamic-tp-sl.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    EMERGENCY_STOP
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bitget-cooldowns.json
+	bitget-positions.json
+	bitget-system-config.json
+	quick-scan.js
+	src/bitget-auto-trader.js
+	src/bitget-executor.js
+	src/bitget-futures-trader.js
+	src/bitget-learning.js
+	src/dynamic-tp-sl.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    EMERGENCY_STOP
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bitget-cooldowns.json
+	bitget-futures-positions.json
+	bitget-positions.json
+	bitget-system-config.json
+	paper-trader.lock
+	quick-scan.js
+	src/bitget-auto-trader.js
+	src/bitget-executor.js
+	src/bitget-futures-trader.js
+	src/bitget-learning.js
+	src/dynamic-tp-sl.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+fatal: unable to stat 'sl-tracker.lock': No such file or directory
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    EMERGENCY_STOP
+	modified:   adaptive-scoring-config.json
+	modified:   auto-commit.log
+	modified:   auto-pull.log
+	modified:   balance-history.json
+	modified:   bok/16-positive-strategies.md
+	modified:   bok/17-negative-strategies.md
+	modified:   bok/proven-degen.json
+	modified:   bok/proven-established.json
+	modified:   bok/proven-tokens.json
+	modified:   current-balance.json
+	modified:   live-trader.lock
+	modified:   logs/paper-v5.log
+	modified:   logs/sl-tracker.log
+	modified:   paper-trader-v5-state.json
+	modified:   reconcile-logs/2026-02-26.json
+	modified:   reconcile-logs/cron.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bitget-cooldowns.json
+	bitget-futures-positions.json
+	bitget-positions.json
+	bitget-system-config.json
+	quick-scan.js
+	src/bitget-auto-trader.js
+	src/bitget-executor.js
+	src/bitget-futures-trader.js
+	src/bitget-learning.js
+	src/dynamic-tp-sl.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date

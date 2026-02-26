@@ -1,0 +1,31 @@
+[
+  {
+    "symbol": "KSMUSDT",
+    "direction": "LONG",
+    "entryPrice": 5.24,
+    "entryTime": 1772077624185,
+    "size": 4.152,
+    "tpPct": 2,
+    "slPct": 1.5,
+    "ta": {
+      "valid": true,
+      "price": 5.28,
+      "rsi": 49,
+      "macdBullish": true,
+      "macdBearish": false,
+      "macdCross": false,
+      "aboveEma20": true,
+      "aboveEma50": false,
+      "emaTrend": "DOWN",
+      "trend": "UP",
+      "atr": 0.051891,
+      "atrPct": 1,
+      "tpPct": 2,
+      "slPct": 1.5,
+      "longSignal": true,
+      "shortSignal": false,
+      "direction": "LONG"
+    },
+    "score": 60
+  }
+]
