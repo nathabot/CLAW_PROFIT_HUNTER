@@ -6,5 +6,94 @@
     "fix": "Use /api/v2/mix/order/close-positions",
     "balance": 4.93,
     "loss": 0.26
+  },
+  {
+    "timestamp": "2026-02-27T04:44:24.268966Z",
+    "event": "LIQUIDATION_SL_FAILED",
+    "severity": "CRITICAL",
+    "cause": "SL plan order was set (8% from entry) but liquidation happened before SL executed",
+    "root_cause": [
+      "8% SL on 10x leverage = only 2% buffer to liquidation price",
+      "SL plan order is a TRIGGER order not guaranteed stop \u2014 execution takes time",
+      "In fast market (price spiked in 20-second monitoring gap), liquidation engine faster than plan order execution",
+      "Price gapped from $1.9277 to past $1.989 (liq price) in under 20 seconds",
+      "Monitor interval was 20s \u2014 too slow to catch rapid spike"
+    ],
+    "fix": [
+      "Max SL: 3% (not 8%) \u2014 buffer to liquidation now 7%",
+      "Monitor interval: 5s (not 20s) \u2014 catch spikes faster",
+      "Bot-side HARD STOP at -3%: force close WITHOUT waiting for plan order",
+      "Position size: 20% of balance (not 90%) \u2014 even full liquidation = 80% balance survives",
+      "Layer protection: bot-side \u2192 plan order \u2192 liquidation (3 layers)"
+    ],
+    "rule": "SL_PCT_MAX = (1/LEVERAGE * 100) - 5  # e.g. 10x \u2192 max 5% SL",
+    "loss": 6.76
+  },
+  {
+    "timestamp": "2026-02-27T04:44:24.268966Z",
+    "event": "PLAN_ORDER_PRICE_SCALE_BUG",
+    "severity": "HIGH",
+    "cause": "placePlanOrder only handled checkScale (size precision) but NOT checkBDScale (price precision)",
+    "example": "CRCLUSDT TP price $70.024 rejected \u2014 checkBDScale=2 requires 2 decimal places \u2192 $70.02",
+    "fix": "Parse checkBDScale from error message, round triggerPrice to required decimal places, retry",
+    "code_fix": "const priceMatch = msg.match(/checkBDScale.*?checkScale=(\\d+)/i); if (priceMatch) { tryPrice = round(triggerPrice, scale); continue; }",
+    "rule": "ALWAYS retry plan orders with both size AND price scale fixes"
+  },
+  {
+    "timestamp": "2026-02-27T04:44:24.268966Z",
+    "event": "POSITION_SIZE_TOO_AGGRESSIVE",
+    "severity": "CRITICAL",
+    "cause": "90% position size with 10x leverage = 9x portfolio exposure",
+    "math": "Balance $7.51 \u00d7 90% margin \u00d7 10x = $67.6 notional. One 10% adverse move = LIQUIDATED",
+    "fix": "Max 20% position size. Even full liquidation = lose only 20% of balance",
+    "rule": "POSITION_PCT = 0.20. Never exceed 30% regardless of confidence",
+    "lesson": "High conviction \u2260 high size. Risk management exists BECAUSE we can be wrong"
+  },
+  {
+    "timestamp": "2026-02-27T04:44:24.268966Z",
+    "event": "PLAN_ORDER_SIZE_MISMATCH",
+    "severity": "MEDIUM",
+    "cause": "Main order filled at size 37.2 but plan order retried with size 37 (checkScale=0 for plan order)",
+    "consequence": "0.2 contracts remained unprotected after SL triggered",
+    "fix": "After position confirmed open, use ACTUAL position size from API (all-position endpoint) for plan orders, not calculated size",
+    "rule": "ALWAYS fetch actual position size from Bitget before placing plan orders"
+  },
+  {
+    "timestamp": "2026-02-27T04:44:24.268966Z",
+    "event": "SINGLE_PROTECTION_LAYER_FAILURE",
+    "severity": "HIGH",
+    "cause": "100% reliance on Bitget plan orders for SL \u2014 no backup mechanism",
+    "fix": "3 layers: (1) bot-side force close at -3%, (2) Bitget plan order SL, (3) design so liquidation != total loss",
+    "principle": "DEFENSE IN DEPTH: No single point of failure. Each layer protects against the next layer failing"
+  },
+  {
+    "timestamp": "2026-02-27T04:44:24.268966Z",
+    "event": "RSI_THRESHOLD_TOO_STRICT",
+    "severity": "LOW",
+    "cause": "RSI 42/58 threshold too strict \u2014 very few signals in ranging markets",
+    "fix": "RSI 44/56 with Fib zone 25-75% \u2014 more signals while still avoiding extreme overbought/oversold entries",
+    "rule": "In low-volatility markets, loosen RSI slightly. In high-volatility, tighten"
+  },
+  {
+    "timestamp": "2026-02-27T04:44:24.268966Z",
+    "event": "SCAN_UNIVERSE_TOO_SMALL",
+    "severity": "LOW",
+    "cause": "Only 30 pairs scanned, $5M min volume \u2014 misses good setups in mid-cap pairs",
+    "fix": "50 pairs, $2M min volume \u2014 67% more pairs without significantly increasing noise",
+    "rule": "Signal quality > signal quantity, but must have enough universe to find quality"
+  },
+  {
+    "timestamp": "2026-02-27T04:44:24.268966Z",
+    "event": "LEVERAGE_SL_MATH_IGNORED",
+    "severity": "CRITICAL",
+    "cause": "SL percentage set based on price movement, not validated against liquidation price",
+    "math": {
+      "10x_leverage": "Liquidation at ~10% adverse price move",
+      "8%_SL": "Only 2% buffer to liquidation \u2014 DANGEROUS",
+      "3%_SL": "7% buffer to liquidation \u2014 SAFE",
+      "formula": "MAX_SL_PCT = (100/LEVERAGE) - SAFETY_BUFFER  # 10x \u2192 (10-3=7% max, use 3% for safety)"
+    },
+    "rule": "VALIDATE: assert slPrice < liquidationPrice - 2% buffer BEFORE placing plan order",
+    "future_implementation": "Calculate liquidation price from Bitget API and validate SL is 5% away minimum"
   }
 ]

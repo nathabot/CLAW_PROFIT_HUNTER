@@ -1,0 +1,41 @@
+{
+  "RSI_LONG_MAX": 42,
+  "RSI_SHORT_MIN": 58,
+  "FIB_ENTRY_MIN": 0.3,
+  "FIB_ENTRY_MAX": 0.7,
+  "MIN_RR": 1.5,
+  "MIN_VOL_USDT": 5000000,
+  "PAUSE_TF": [
+    "1H"
+  ],
+  "PAUSE_DIR": [],
+  "consecutiveLoss": 1,
+  "totalTrades": 4,
+  "wins": 1,
+  "lastEval": "2026-02-27T03:34:54.690Z",
+  "adjustLog": [
+    {
+      "ts": "2026-02-27T03:34:54.690Z",
+      "actions": [
+        "PAUSE 1H (WR:25% low)"
+      ],
+      "stats": {
+        "wr": 0.25,
+        "consLoss": 1,
+        "total": 4
+      }
+    }
+  ],
+  "VERSION": 2,
+  "LESSONS_LEARNED": 0,
+  "lastUpdated": "2026-02-27T04:44:24.299Z",
+  "stats": {
+    "recent": 4,
+    "winRate": "0.00",
+    "avgWin": "0.00",
+    "avgLoss": "0.00",
+    "expectancy": "0.00",
+    "consLoss": 0,
+    "consWin": 0
+  }
+}

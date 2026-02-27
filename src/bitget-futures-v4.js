@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ============================================================
-// BITGET FUTURES AUTONOMOUS TRADER v4.0
+// BITGET FUTURES AUTONOMOUS TRADER v4.5-RISK
 // UPGRADE: Multi-Timeframe (15m/30m/1H) + Fibonacci TP/SL
 //
 // Flow per coin:
@@ -15,6 +15,7 @@
 'use strict';
 
 const fs     = require('fs');
+const { exec } = require('child_process');
 const path   = require('path');
 const fetch  = require('node-fetch');
 const crypto = require('crypto');
@@ -45,7 +46,7 @@ const TF = {
     maxTpPct:    5.0,          // max TP 5%
     maxSlPct:    3.0,          // max SL 3%
     slPlusTrigger: 0.3,        // SL+ aktif di profit 0.3%
-    priority:    10,
+    priority:    25,            // raised (was 10) to compete with 1H
     label:       '15m'
   },
   '30m': {
@@ -56,7 +57,7 @@ const TF = {
     slBufPct:    0.005,
     fibExtTP:    1.272,        // 127.2% extension
     maxTpPct:    10.0,         // max TP 10%
-    maxSlPct:    5.0,          // max SL 5%
+    maxSlPct:    3.0,          // max SL 3% (FIXED)
     slPlusTrigger: 0.5,
     priority:    20,
     label:       '30m'
@@ -69,7 +70,7 @@ const TF = {
     slBufPct:    0.008,
     fibExtTP:    1.618,         // 161.8% extension (full fib ext)
     maxTpPct:    20.0,          // max TP 20%
-    maxSlPct:    8.0,           // max SL 8%
+    maxSlPct:    3.0,           // max SL 8%
     slPlusTrigger: 1.0,
     priority:    30,
     label:       '1H'
@@ -82,21 +83,21 @@ const CFG = {
   LEVERAGE:       10,
   MARGIN_MODE:    'isolated',
   MARGIN_COIN:    'USDT',
-  POSITION_PCT:   0.90,
-  MIN_TRADE_USDT: 2.0,
-  MAX_POSITIONS:  2,
-  SCAN_INTERVAL:  5 * 60000,   // 5 menit
-  MONITOR_MS:     20000,       // 20 detik
-  MIN_VOL_USDT:   5_000_000,  // $5M min volume
-  TOP_N:          30,
+  POSITION_PCT:   0.20,
+  MIN_TRADE_USDT: 2.0,        // KILL SWITCH: no new trades below $2
+  MAX_POSITIONS:  3,
+  SCAN_INTERVAL:  3 * 60000,   // 3 menit (was 5 — faster signal detection)
+  MONITOR_MS:     5000,        // 5 detik (was 20s — terlalu lambat)
+  MIN_VOL_USDT:   2_000_000,  // $2M min volume (was $5M)
+  TOP_N:          50,          // scan 50 pairs (was 30)
 
   // RSI thresholds
-  RSI_LONG_MAX:   42,
-  RSI_SHORT_MIN:  58,
+  RSI_LONG_MAX:   44,          // was 42
+  RSI_SHORT_MIN:  56,          // was 58
 
   // Fibonacci retracement range untuk entry (harga harus ada di zona ini)
-  FIB_ENTRY_MIN:  0.300,   // harga di antara 30%-70% retracement
-  FIB_ENTRY_MAX:  0.700,
+  FIB_ENTRY_MIN:  0.250,   // zona 25%-75% (was 30%)
+  FIB_ENTRY_MAX:  0.750,   // was 70%
 
   // SL+ ladder (pctProfit -> slLevel)
   SL_PLUS_LEVELS: [
@@ -184,6 +185,116 @@ function loadState() {
 function savePositions() { fs.writeFileSync(POS_FILE, JSON.stringify(positions, null, 2)); }
 function saveHistory()   { fs.writeFileSync(HISTORY_FILE, JSON.stringify(tradeHistory.slice(-200), null, 2)); }
 
+// ── SELF-LEARNING ENGINE ──────────────────────────────────────
+function runLearning() {
+  exec(`node ${path.join(DIR, 'src/learning-v4.js')}`, (err, stdout, stderr) => {
+    if (err) { log(`Learning err: ${err.message}`, 'WARN'); return; }
+    if (stdout) log(`🧠 Learning: ${stdout.trim().split('\n')[0]}`);
+  });
+}
+
+// ── SCHEDULED LEARNING (every 2 hours + stagnancy check) ────────────────
+let lastScheduledLearning = Date.now();
+const STAGNANT_THRESHOLD = 1 * 60 * 60 * 1000; // 1 hour no trade = stagnan
+const SCHEDULE_LEARNING_INTERVAL = 2 * 60 * 60 * 1000; // every 2 hours
+
+function checkAndRunScheduledLearning(now) {
+  const history = tradeHistory.slice(-20);
+  const lastTrade = history[history.length - 1];
+  const hoursSinceLastTrade = lastTrade ? (now - lastTrade.closeTs) / (60 * 60 * 1000) : 999;
+  
+  const shouldRun = 
+    (now - lastScheduledLearning > SCHEDULE_LEARNING_INTERVAL) ||  // scheduled
+    (hoursSinceLastTrade > 6);  // stagnan > 6 jam
+  
+  if (shouldRun && lastTrade) {
+    log(`📊 Scheduled learning: ${hoursSinceLastTrade.toFixed(1)}h since last trade`);
+    lastScheduledLearning = now;
+    
+    // Run async without blocking
+    exec(`node ${path.join(DIR, 'src/learning-v4.js')}`, (err, stdout, stderr) => {
+      if (err) { log(`Scheduled learning err: ${err.message}`, 'WARN'); return; }
+      if (stdout) log(`🧠 Scheduled: ${stdout.trim().split('\n')[0]}`);
+    });
+  }
+}
+
+
+// Reload learned params from file
+function loadLearnedParams() {
+  try {
+    const p = JSON.parse(fs.readFileSync(path.join(DIR, 'learned-params.json')));
+    if (p.RSI_LONG_MAX)  CFG.RSI_LONG_MAX  = p.RSI_LONG_MAX;
+    if (p.RSI_SHORT_MIN) CFG.RSI_SHORT_MIN = p.RSI_SHORT_MIN;
+    if (p.MIN_RR)        CFG.MIN_RR        = p.MIN_RR;
+    if (p.PAUSE_TF)      CFG.PAUSE_TF      = p.PAUSE_TF || [];
+    if (p.PAUSE_DIR)     CFG.PAUSE_DIR     = p.PAUSE_DIR || [];
+  } catch (_) {}
+}
+
+
+// ── TARGET TRACKER ────────────────────────────────────────────
+const TARGET_FILE = path.join(DIR, 'trading-targets.json');
+
+function loadTargets() {
+  try { return JSON.parse(fs.readFileSync(TARGET_FILE)); }
+  catch { return null; }
+}
+
+async function checkAndReportTargets(currentBalance) {
+  const t = loadTargets();
+  if (!t) return;
+
+  const startBal  = t.start_balance;
+  const profit    = currentBalance - startBal;
+  const pct       = ((profit / startBal) * 100).toFixed(1);
+  let msg = '';
+
+  // Phase 1: Recovery
+  if (!t.recovery_done) {
+    const needed  = t.recovery_target - currentBalance;
+    const progress = ((currentBalance - startBal) / (t.recovery_target - startBal) * 100).toFixed(0);
+    msg = `📊 <b>Target Progress</b>\n` +
+          `Balance: <b>$${currentBalance.toFixed(2)}</b> (${pct > 0 ? '+' : ''}${pct}%)\n` +
+          `🎯 Recovery: $${currentBalance.toFixed(2)} / $${t.recovery_target} [${progress}%]\n` +
+          `Sisa: $${Math.max(0, needed).toFixed(2)}`;
+
+    if (currentBalance >= t.recovery_target) {
+      t.recovery_done = true;
+      t.current_day = 1;
+      t.current_day_target = t.daily_base;
+      t.current_day_start_bal = currentBalance;
+      fs.writeFileSync(TARGET_FILE, JSON.stringify(t, null, 2));
+      msg += `\n\n🏆 <b>RECOVERY TERCAPAI!</b>\nMulai compound $2/hari!`;
+    }
+  } else {
+    // Phase 2: Daily compound
+    const dayStart  = t.current_day_start_bal || currentBalance;
+    const dayProfit = currentBalance - dayStart;
+    const dayTarget = t.current_day_target;
+    const dayPct    = ((dayProfit / dayTarget) * 100).toFixed(0);
+
+    msg = `📊 <b>Target Progress — Day ${t.current_day}</b>\n` +
+          `Balance: <b>$${currentBalance.toFixed(2)}</b>\n` +
+          `🎯 Hari ini: $${dayProfit.toFixed(2)} / $${dayTarget.toFixed(2)} [${dayPct}%]\n` +
+          `Next target: $${(dayTarget * 2).toFixed(2)}/hari`;
+
+    if (dayProfit >= dayTarget) {
+      const prevTarget = t.current_day_target;
+      t.daily_history.push({ day: t.current_day, profit: dayProfit, target: prevTarget, bal: currentBalance });
+      t.current_day++;
+      t.current_day_target = prevTarget * 2;
+      t.current_day_start_bal = currentBalance;
+      fs.writeFileSync(TARGET_FILE, JSON.stringify(t, null, 2));
+      msg += `\n\n🚀 <b>TARGET HARI INI TERCAPAI!</b>\nBesok target: $${t.current_day_target.toFixed(2)}`;
+    }
+  }
+
+  fs.writeFileSync(TARGET_FILE, JSON.stringify(t, null, 2));
+  if (msg) await tg(msg, T_EVAL);
+}
+
+
 // ── BALANCE ───────────────────────────────────────────────────
 async function getBalance() {
   try {
@@ -227,15 +338,22 @@ async function placePlanOrder(symbol, dir, size, triggerPrice, label) {
   const side     = dir === 'LONG' ? 'sell' : 'buy';
   const holdSide = dir === 'LONG' ? 'long'  : 'short';
 
-  // Try with current size, retry with detected scale if needed
-  for (let attempt = 0; attempt <= 3; attempt++) {
-    const trySize = attempt === 0 ? size : roundSizeByScale(size, 3 - attempt); // try scale 3,2,1,0
+  // Round by scale helper
+  function scaleRound(val, scale) {
+    const f = Math.pow(10, scale);
+    return Math.round(val * f) / f;
+  }
+
+  let tryPrice = roundPrice(triggerPrice);
+  let trySize  = size;
+
+  for (let attempt = 0; attempt <= 5; attempt++) {
     try {
       const res = await api('POST', '/api/v2/mix/order/place-plan-order', null, {
         symbol, productType: CFG.PRODUCT_TYPE,
         marginMode: CFG.MARGIN_MODE, marginCoin: CFG.MARGIN_COIN,
         planType: 'normal_plan',
-        triggerPrice: String(roundPrice(triggerPrice)),
+        triggerPrice: String(tryPrice),
         triggerType: 'mark_price',
         side, tradeSide: 'close',
         orderType: 'market',
@@ -243,36 +361,28 @@ async function placePlanOrder(symbol, dir, size, triggerPrice, label) {
         holdSide
       });
       const oid = res?.orderId;
-      log(`✅ ${label}: $${roundPrice(triggerPrice)} size:${trySize} id:${oid}`);
+      log(`✅ ${label}: $${tryPrice} size:${trySize} id:${oid}`);
       return oid;
     } catch (e) {
-      const scaleMatch = e.message.match(/checkScale=(\d+)/);
-      if (scaleMatch && attempt < 3) {
-        const scale = parseInt(scaleMatch[1]);
-        const fixedSize = roundSizeByScale(size, scale);
-        log(`↩️  Retry ${label} with size=${fixedSize} (scale=${scale})`);
-        try {
-          const res2 = await api('POST', '/api/v2/mix/order/place-plan-order', null, {
-            symbol, productType: CFG.PRODUCT_TYPE,
-            marginMode: CFG.MARGIN_MODE, marginCoin: CFG.MARGIN_COIN,
-            planType: 'normal_plan',
-            triggerPrice: String(roundPrice(triggerPrice)),
-            triggerType: 'mark_price',
-            side, tradeSide: 'close',
-            orderType: 'market',
-            size: String(fixedSize),
-            holdSide
-          });
-          const oid2 = res2?.orderId;
-          log(`✅ ${label} (retry): $${roundPrice(triggerPrice)} size:${fixedSize} id:${oid2}`);
-          return oid2;
-        } catch (e2) {
-          log(`⚠️  ${label} retry FAILED: ${e2.message}`, 'WARN');
-          return null;
-        }
+      const msg = e.message || '';
+      // Fix PRICE precision: checkBDScale error
+      const priceScaleMatch = msg.match(/checkBDScale[^=]*?checkScale=(\d+)/i) ||
+                              msg.match(/trigger price.*?checkScale=(\d+)/i);
+      // Fix SIZE precision: checkScale error
+      const sizeScaleMatch  = msg.match(/checkScale=(\d+)/);
+
+      if (priceScaleMatch && attempt < 5) {
+        const pScale = parseInt(priceScaleMatch[1]);
+        tryPrice = scaleRound(triggerPrice, pScale);
+        log(`↩️  Retry ${label} — price rounded to ${pScale}dp: $${tryPrice}`);
+      } else if (sizeScaleMatch && attempt < 5) {
+        const sScale = parseInt(sizeScaleMatch[1]);
+        trySize = roundSizeByScale(size, sScale);
+        log(`↩️  Retry ${label} — size rounded to ${sScale}dp: ${trySize}`);
+      } else {
+        log(`⚠️  ${label} FAILED: ${msg}`, 'WARN');
+        return null;
       }
-      log(`⚠️  ${label} plan order FAILED: ${e.message}`, 'WARN');
-      return null;
     }
   }
   return null;
@@ -365,7 +475,7 @@ function calcFibonacci(candles, window, tfCfg, dir) {
 
     // Cap TP/SL at TF max
     const cappedTpPct = Math.min(tpPct, tfCfg.maxTpPct || 20);
-    const cappedSlPct = Math.min(slPct, tfCfg.maxSlPct || 8);
+    const cappedSlPct = Math.min(slPct, tfCfg.maxSlPct || 3);
     const cappedTp    = price * (1 + cappedTpPct / 100);
     const cappedSl    = price * (1 - cappedSlPct / 100);
     const cappedRr    = cappedTpPct / cappedSlPct;
@@ -389,7 +499,7 @@ function calcFibonacci(candles, window, tfCfg, dir) {
 
     // Cap TP/SL at TF max
     const cappedTpPct = Math.min(tpPct, tfCfg.maxTpPct || 20);
-    const cappedSlPct = Math.min(slPct, tfCfg.maxSlPct || 8);
+    const cappedSlPct = Math.min(slPct, tfCfg.maxSlPct || 3);
     const cappedTp    = price * (1 - cappedTpPct / 100);
     const cappedSl    = price * (1 + cappedSlPct / 100);
     const cappedRr    = cappedTpPct / cappedSlPct;
@@ -633,6 +743,8 @@ async function monitorPositions() {
       tradeHistory.push({ ...pos, closeTs: now, closeReason: 'BITGET_AUTO' });
       savePositions(); saveHistory();
       await tg(`📊 <b>${pos.symbol} ${pos.dir}[${pos.tf}] CLOSED</b>\nEntry: $${pos.entryPrice.toFixed(4)}\nTP:+${pos.tpPct.toFixed(1)}% SL:-${pos.slPct.toFixed(1)}%`, T_EVAL);
+      runLearning();
+      try { const bal = await getBalance(); if (bal) await checkAndReportTargets(bal); } catch(e) { log("Target err:"+e.message,"WARN"); }
       continue;
     }
 
@@ -666,6 +778,21 @@ async function monitorPositions() {
         );
         break; // Only one level at a time
       }
+    }
+
+    // ── HARD STOP BOT-SIDE: force close -3% tanpa nunggu plan order ──
+    if (pnlPct < -3) {
+      log(`🚨 HARD STOP ${pos.symbol} P&L:${pnlPct.toFixed(2)}% — force close NOW`, 'ERROR');
+      const closed = await forceClose(pos.symbol, pos.dir.toLowerCase(), 'HARD_STOP_-3pct');
+      if (closed) {
+        positions = positions.filter(p => p.symbol !== pos.symbol);
+        cooldowns[pos.symbol] = now + 60 * 60000;
+        tradeHistory.push({ ...pos, closeTs: now, closeReason: 'HARD_STOP', closePrice: markPrice, pnlPct });
+        savePositions(); saveHistory();
+        await tg(`🚨 <b>HARD STOP -3% ${pos.symbol}</b>\nP&L: ${pnlPct.toFixed(2)}%\nMargin diselamatkan`, T_EVAL);
+        runLearning();
+      }
+      continue;
     }
 
     // ── EMERGENCY SL (if plan order failed) ──
@@ -704,6 +831,7 @@ async function scan() {
   }
 
   log(`🔍 Scanning ${CFG.TOP_N} futures pairs across 15m/30m/1H...`);
+  checkAndRunScheduledLearning(Date.now());
 
   const tickers = await api('GET', '/api/v2/mix/market/tickers', { productType: CFG.PRODUCT_TYPE }, null, true);
   if (!tickers) return;
@@ -745,7 +873,7 @@ async function scan() {
 // ── MAIN ──────────────────────────────────────────────────────
 async function main() {
   log('====================================================');
-  log('BITGET FUTURES AUTONOMOUS TRADER v4.2 — MTF+FIB');
+  log('BITGET FUTURES AUTONOMOUS TRADER v4.5-RISK — MTF+FIB');
   log(`TF: 15m(${TF['15m'].fibExtTP}ext) | 30m(${TF['30m'].fibExtTP}ext) | 1H(${TF['1H'].fibExtTP}ext)`);
   log(`RSI: LONG<${CFG.RSI_LONG_MAX} SHORT>${CFG.RSI_SHORT_MIN} | Fib entry zone: ${CFG.FIB_ENTRY_MIN*100}%-${CFG.FIB_ENTRY_MAX*100}%`);
   log(`Leverage: ${CFG.LEVERAGE}x | Top ${CFG.TOP_N} pairs | Min vol $${CFG.MIN_VOL_USDT/1e6}M`);
@@ -754,6 +882,7 @@ async function main() {
 
   loadState();
   log(`📂 Loaded ${positions.length} positions, ${tradeHistory.length} history`);
+  checkAndRunScheduledLearning(Date.now());
 
   const wins  = tradeHistory.filter(t => t.pnl > 0 || t.closeReason?.includes('TP')).length;
   if (tradeHistory.length) log(`📊 Stats: ${tradeHistory.length} trades | ${wins} wins | WR:${(wins/tradeHistory.length*100).toFixed(0)}%`);
