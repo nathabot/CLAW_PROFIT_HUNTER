@@ -1,0 +1,573 @@
+#!/usr/bin/env node
+// ============================================================
+// BITGET FUTURES AUTONOMOUS TRADER v3.0
+// FIXES vs v2:
+//  1. Scan FUTURES market (bukan spot)
+//  2. RSI threshold realistis (< 42 LONG, > 58 SHORT)
+//  3. TP/SL via place-plan-order TERPISAH setelah posisi confirmed
+//  4. Emergency SL monitor: force-close jika Bitget plan order gagal
+//  5. Set leverage 10x sebelum entry
+//  6. Candle format 15m (bukan 15min)
+//  7. Scan FUTURES candles (bukan spot candles)
+// ============================================================
+'use strict';
+
+const fs   = require('fs');
+const path = require('path');
+const fetch = require('node-fetch');
+const crypto = require('crypto');
+const { RSI, MACD, EMA, ATR } = require('technicalindicators');
+
+// ── PATHS & CONFIG ──────────────────────────────────────────
+const DIR          = '/root/trading-bot';
+const LOG_FILE     = `${DIR}/logs/bitget-futures-v3.log`;
+const POS_FILE     = `${DIR}/bitget-futures-v3-positions.json`;
+const HISTORY_FILE = `${DIR}/bitget-futures-v3-history.json`;
+const LESSONS_FILE = `${DIR}/bitget-lessons.json`;
+const CREDS_FILE   = `${DIR}/bitget-credentials.json`;
+
+const creds  = JSON.parse(fs.readFileSync(CREDS_FILE, 'utf8'));
+const BOT_TOKEN = '8440050300:AAFONxv0lMjl9Os_pIdn8bdf4uFgiBod8zU';
+const CHAT_ID   = '-1003212463774';
+const T_TRADES  = 24;
+const T_EVAL    = 25;
+
+// ── TRADE CONFIG ────────────────────────────────────────────
+const CFG = {
+  PRODUCT_TYPE:     'USDT-FUTURES',
+  LEVERAGE:         10,
+  MARGIN_MODE:      'isolated',
+  MARGIN_COIN:      'USDT',
+  POSITION_PCT:     0.90,   // 90% balance per trade
+  MIN_TRADE_USDT:   2.0,
+  MAX_POSITIONS:    2,
+  SCAN_INTERVAL_MS: 5 * 60 * 1000,   // 5 menit
+  MONITOR_MS:       20 * 1000,        // 20 detik
+  MAX_HOLD_MS:      3 * 60 * 60 * 1000, // max 3 jam
+  COOLDOWN_WIN_MS:  10 * 60 * 1000,
+  COOLDOWN_LOSS_MS: 30 * 60 * 1000,
+  MIN_VOL_USDT:     5_000_000,        // min $5M volume (top liquid pairs)
+  TOP_N:            30,               // scan top 30 pairs
+
+  // SIGNAL THRESHOLDS — lebih realistis
+  RSI_LONG_MAX:    42,   // oversold (was 35)
+  RSI_SHORT_MIN:   58,   // overbought (was 65)
+  RSI_PERIOD:      14,
+  ATR_TP_MULT:     2.5,
+  ATR_SL_MULT:     1.2,
+  MAX_TP_PCT:      8.0,
+  MAX_SL_PCT:      4.0,
+  MIN_ATR_PCT:     0.3,  // minimum volatility filter (skip flat coins)
+};
+
+// ── LOGGER ──────────────────────────────────────────────────
+fs.mkdirSync(path.dirname(LOG_FILE), { recursive: true });
+function log(msg, level = 'INFO') {
+  const ts  = new Date().toLocaleTimeString('id-ID');
+  const line = `[${ts}][${level}] ${msg}`;
+  fs.appendFileSync(LOG_FILE, line + '\n');
+  console.log(line);
+}
+
+// ── TELEGRAM ────────────────────────────────────────────────
+async function tg(text, topic = T_TRADES) {
+  try {
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text, message_thread_id: topic, parse_mode: 'HTML' })
+    });
+  } catch (_) {}
+}
+
+// ── BITGET API ───────────────────────────────────────────────
+const BASE = 'https://api.bitget.com';
+
+function sign(ts, method, path, qsOrBody) {
+  let payload = '';
+  if (method === 'GET' && qsOrBody && Object.keys(qsOrBody).length) {
+    const sorted = Object.keys(qsOrBody).sort();
+    payload = '?' + sorted.map(k => `${k}=${qsOrBody[k]}`).join('&');
+  } else if (method === 'POST' && qsOrBody) {
+    payload = JSON.stringify(qsOrBody);
+  }
+  return crypto.createHmac('sha256', creds.secretKey)
+    .update(ts + method + path + payload)
+    .digest('base64');
+}
+
+async function api(method, endpointPath, qsOrBody = null, isPublic = false) {
+  const ts = Date.now().toString();
+  const headers = { 'Content-Type': 'application/json' };
+  let url  = BASE + endpointPath;
+  let body = null;
+
+  if (!isPublic) {
+    headers['ACCESS-KEY']        = creds.apiKey;
+    headers['ACCESS-TIMESTAMP']  = ts;
+    headers['ACCESS-PASSPHRASE'] = creds.passphrase;
+    headers['ACCESS-SIGN']       = sign(ts, method, endpointPath, qsOrBody);
+  }
+
+  if (method === 'GET' && qsOrBody && Object.keys(qsOrBody).length) {
+    const qs = Object.keys(qsOrBody).sort().map(k => `${k}=${qsOrBody[k]}`).join('&');
+    url += '?' + qs;
+  } else if (method === 'POST' && qsOrBody) {
+    body = JSON.stringify(qsOrBody);
+  }
+
+  const res  = await fetch(url, { method, headers, ...(body ? { body } : {}) });
+  const data = await res.json();
+  if (data.code && data.code !== '00000') throw new Error(`API ${data.code}: ${data.msg}`);
+  return data.data;
+}
+
+// ── STATE ────────────────────────────────────────────────────
+let positions  = [];
+let cooldowns  = {};
+let tradeHistory = [];
+let lastScanTs = 0;
+
+function loadState() {
+  if (fs.existsSync(POS_FILE))
+    try { positions = JSON.parse(fs.readFileSync(POS_FILE)) || []; } catch (_) {}
+  if (fs.existsSync(HISTORY_FILE))
+    try { tradeHistory = JSON.parse(fs.readFileSync(HISTORY_FILE)) || []; } catch (_) {}
+}
+
+function savePositions() {
+  fs.writeFileSync(POS_FILE, JSON.stringify(positions, null, 2));
+}
+
+function saveHistory() {
+  fs.writeFileSync(HISTORY_FILE, JSON.stringify(tradeHistory.slice(-200), null, 2));
+}
+
+// ── BALANCE ──────────────────────────────────────────────────
+async function getBalance() {
+  try {
+    const res = await api('GET', '/api/v2/mix/account/accounts', { productType: CFG.PRODUCT_TYPE });
+    if (res && res.length > 0) {
+      const equity = parseFloat(res[0].accountEquity || 0);
+      const avail  = parseFloat(res[0].available);
+      log(`💰 Equity:$${equity.toFixed(2)} Available:$${avail.toFixed(2)}`);
+      return avail;
+    }
+  } catch (e) { log(`Balance error: ${e.message}`, 'WARN'); }
+  return null;
+}
+
+// ── SET LEVERAGE ─────────────────────────────────────────────
+async function setLeverage(symbol, side) {
+  try {
+    await api('POST', '/api/v2/mix/account/set-leverage', {
+      symbol, productType: CFG.PRODUCT_TYPE, marginCoin: CFG.MARGIN_COIN,
+      leverage: String(CFG.LEVERAGE), holdSide: side.toLowerCase()
+    });
+    log(`⚙️  Leverage ${CFG.LEVERAGE}x set for ${symbol} ${side}`);
+  } catch (e) { log(`Leverage set error: ${e.message}`, 'WARN'); }
+}
+
+// ── OPEN POSITIONS FROM BITGET ────────────────────────────────
+async function fetchOpenPositions() {
+  try {
+    const res = await api('GET', '/api/v2/mix/position/all-position', {
+      marginCoin: CFG.MARGIN_COIN, productType: CFG.PRODUCT_TYPE
+    });
+    return (res || []).filter(p => parseFloat(p.total) > 0);
+  } catch (e) {
+    log(`Positions fetch error: ${e.message}`, 'WARN');
+    return [];
+  }
+}
+
+// ── TECHNICAL ANALYSIS ───────────────────────────────────────
+async function getTA(symbol) {
+  // ✅ FUTURES candles (bukan spot)
+  const candles = await api('GET', '/api/v2/mix/market/candles', {
+    symbol,
+    productType: CFG.PRODUCT_TYPE,
+    granularity: '15m',   // ✅ 15m bukan 15min
+    limit: '80'
+  }, true);
+
+  if (!candles || candles.length < 40) return null;
+
+  // Format: [ts, open, high, low, close, baseVol, quoteVol]
+  // candles returned oldest-first
+  const closes = candles.map(c => parseFloat(c[4]));
+  const highs   = candles.map(c => parseFloat(c[2]));
+  const lows    = candles.map(c => parseFloat(c[3]));
+  const price   = closes[closes.length - 1];
+
+  const rsiVals  = RSI.calculate({ period: CFG.RSI_PERIOD, values: closes });
+  const macdVals = MACD.calculate({ values: closes, fastPeriod: 12, slowPeriod: 26, signalPeriod: 9, SimpleMAOscillator: false, SimpleMASignal: false });
+  const ema20    = EMA.calculate({ period: 20, values: closes });
+  const atrVals  = ATR.calculate({ high: highs, low: lows, close: closes, period: 14 });
+
+  const rsi  = rsiVals[rsiVals.length - 1];
+  const macd = macdVals[macdVals.length - 1];
+  const prevMacd = macdVals[macdVals.length - 2];
+  const ema  = ema20[ema20.length - 1];
+  const atr  = atrVals[atrVals.length - 1];
+  const atrPct = (atr / price) * 100;
+
+  if (!rsi || !macd || !ema || !atr) return null;
+
+  // MACD momentum: histogram crossing
+  const macdCrossUp   = prevMacd && prevMacd.histogram <= 0 && macd.histogram > 0;
+  const macdCrossDown = prevMacd && prevMacd.histogram >= 0 && macd.histogram < 0;
+  const macdBull = macd.histogram > 0;
+  const macdBear = macd.histogram < 0;
+
+  const tpPct = Math.min(atrPct * CFG.ATR_TP_MULT, CFG.MAX_TP_PCT);
+  const slPct = Math.min(atrPct * CFG.ATR_SL_MULT, CFG.MAX_SL_PCT);
+
+  return { price, rsi, macd: macd.histogram, macdCrossUp, macdCrossDown, macdBull, macdBear, ema, aboveEma: price > ema, atrPct, tpPct, slPct };
+}
+
+// ── SIGNAL ENGINE ────────────────────────────────────────────
+function getSignal(ta, symbol) {
+  // Filter: volatility terlalu rendah (flat market)
+  if (ta.atrPct < CFG.MIN_ATR_PCT) {
+    return null;
+  }
+
+  // LONG: RSI oversold + MACD bullish
+  if (ta.rsi < CFG.RSI_LONG_MAX && ta.macdBull) {
+    const score = 70 + (CFG.RSI_LONG_MAX - ta.rsi) + (ta.macdCrossUp ? 10 : 0);
+    return { dir: 'LONG', score, reason: `RSI:${ta.rsi.toFixed(1)} MACD:${ta.macd > 0 ? '+' : ''}${ta.macd?.toFixed(4)} ${ta.macdCrossUp ? '🔀CROSS' : ''}` };
+  }
+
+  // SHORT: RSI overbought + MACD bearish
+  if (ta.rsi > CFG.RSI_SHORT_MIN && ta.macdBear) {
+    const score = 70 + (ta.rsi - CFG.RSI_SHORT_MIN) + (ta.macdCrossDown ? 10 : 0);
+    return { dir: 'SHORT', score, reason: `RSI:${ta.rsi.toFixed(1)} MACD:${ta.macd?.toFixed(4)} ${ta.macdCrossDown ? '🔀CROSS' : ''}` };
+  }
+
+  return null;
+}
+
+// ── SET TP/SL VIA PLAN ORDER (TERPISAH) ──────────────────────
+async function setTpSlPlanOrders(symbol, dir, size, tpPrice, slPrice) {
+  const side      = dir === 'LONG' ? 'sell' : 'buy';
+  const holdSide  = dir === 'LONG' ? 'long' : 'short';
+
+  let tpOk = false, slOk = false;
+
+  // TP plan order
+  try {
+    await api('POST', '/api/v2/mix/order/place-plan-order', {
+      symbol, productType: CFG.PRODUCT_TYPE,
+      marginMode: CFG.MARGIN_MODE, marginCoin: CFG.MARGIN_COIN,
+      planType: 'normal_plan',
+      triggerPrice: Number(tpPrice.toFixed(2)),
+      triggerType: 'mark_price',
+      side, tradeSide: 'close',
+      orderType: 'market',
+      size: String(size),
+      holdSide
+    });
+    tpOk = true;
+    log(`✅ TP plan order set: ${symbol} ${dir} @ $${tpPrice.toFixed(4)}`);
+  } catch (e) { log(`⚠️  TP plan order FAILED: ${e.message}`, 'WARN'); }
+
+  // SL plan order
+  try {
+    await api('POST', '/api/v2/mix/order/place-plan-order', {
+      symbol, productType: CFG.PRODUCT_TYPE,
+      marginMode: CFG.MARGIN_MODE, marginCoin: CFG.MARGIN_COIN,
+      planType: 'normal_plan',
+      triggerPrice: Number(slPrice.toFixed(2)),
+      triggerType: 'mark_price',
+      side, tradeSide: 'close',
+      orderType: 'market',
+      size: String(size),
+      holdSide
+    });
+    slOk = true;
+    log(`✅ SL plan order set: ${symbol} ${dir} @ $${slPrice.toFixed(4)}`);
+  } catch (e) { log(`⚠️  SL plan order FAILED: ${e.message}`, 'WARN'); }
+
+  return { tpOk, slOk };
+}
+
+// ── EMERGENCY FORCE CLOSE ─────────────────────────────────────
+async function forceClose(symbol, holdSide, reason) {
+  log(`🚨 FORCE CLOSE ${symbol} ${holdSide} — ${reason}`, 'WARN');
+  try {
+    await api('POST', '/api/v2/mix/order/close-positions', {
+      symbol, productType: CFG.PRODUCT_TYPE, marginCoin: CFG.MARGIN_COIN, holdSide
+    });
+    log(`✅ Force closed ${symbol}`);
+    return true;
+  } catch (e) {
+    log(`❌ Force close failed: ${e.message}`, 'ERROR');
+    return false;
+  }
+}
+
+// ── EXECUTE TRADE ─────────────────────────────────────────────
+async function executeTrade(symbol, signal, ta) {
+  if (positions.length >= CFG.MAX_POSITIONS) { log('❌ Max positions reached'); return; }
+  if (positions.find(p => p.symbol === symbol)) { log(`Skip ${symbol} — already in position`); return; }
+  if (cooldowns[symbol] && cooldowns[symbol] > Date.now()) { log(`Skip ${symbol} — cooldown`); return; }
+
+  const balance = await getBalance();
+  if (!balance || balance < CFG.MIN_TRADE_USDT) { log(`❌ Balance $${balance} too low`); return; }
+
+  const dir       = signal.dir;
+  const price     = ta.price;
+  const tpPrice   = dir === 'LONG' ? price * (1 + ta.tpPct / 100) : price * (1 - ta.tpPct / 100);
+  const slPrice   = dir === 'LONG' ? price * (1 - ta.slPct / 100) : price * (1 + ta.slPct / 100);
+  const usdtSize  = balance * CFG.POSITION_PCT;
+
+  // Set leverage dulu
+  await setLeverage(symbol, dir);
+  await new Promise(r => setTimeout(r, 500));
+
+  // Hitung size dalam unit kontrak
+  // Untuk futures, size = notional / price
+  const rawSize = (usdtSize * CFG.LEVERAGE) / price;
+  // Round down ke 3 decimal
+  const size = Math.floor(rawSize * 100) / 100;
+  if (size <= 0) { log(`❌ Size too small: ${size}`); return; }
+
+  log(`📤 ${dir} ${symbol} | price:$${price} | size:${size} | TP:+${ta.tpPct.toFixed(1)}% SL:-${ta.slPct.toFixed(1)}%`);
+
+  let orderId = null;
+  try {
+    const order = {
+      symbol, productType: CFG.PRODUCT_TYPE,
+      marginMode: CFG.MARGIN_MODE, marginCoin: CFG.MARGIN_COIN,
+      side: dir === 'LONG' ? 'buy' : 'sell',
+      tradeSide: 'open',
+      orderType: 'market',
+      force: 'gtc',
+      size: String(size)
+    };
+    const res = await api('POST', '/api/v2/mix/order/place-order', order);
+    orderId = res?.orderId;
+    log(`✅ Order placed: ${orderId}`);
+  } catch (e) {
+    log(`❌ Place order FAILED: ${e.message}`, 'ERROR');
+    return;
+  }
+
+  // Tunggu 2 detik lalu verify posisi terbuka
+  await new Promise(r => setTimeout(r, 2000));
+  const openPos = await fetchOpenPositions();
+  const livePos = openPos.find(p => p.symbol === symbol);
+  if (!livePos) {
+    log(`⚠️  Position not found after order — skipping TP/SL setup`, 'WARN');
+    return;
+  }
+  const actualEntry = parseFloat(livePos.averageOpenPrice || price);
+  const actualTp    = dir === 'LONG' ? Number((actualEntry * (1 + ta.tpPct / 100)).toFixed(2)) : Number((actualEntry * (1 - ta.tpPct / 100)).toFixed(2));
+  const actualSl    = dir === 'LONG' ? Number((actualEntry * (1 - ta.slPct / 100)).toFixed(2)) : Number((actualEntry * (1 + ta.slPct / 100)).toFixed(2));
+
+  // Set TP/SL via plan orders
+  const { tpOk, slOk } = await setTpSlPlanOrders(symbol, dir, size, actualTp, actualSl);
+
+  const pos = {
+    symbol, dir, size,
+    entryPrice: actualEntry,
+    tpPrice: actualTp, slPrice: actualSl,
+    tpPct: ta.tpPct, slPct: ta.slPct,
+    tpOk, slOk,
+    openTs: Date.now(),
+    orderId
+  };
+  positions.push(pos);
+  savePositions();
+
+  const tpSlStatus = `${tpOk ? '✅TP' : '⚠️TP'} ${slOk ? '✅SL' : '⚠️SL'}`;
+  const msg = `🚀 <b>${dir} ${symbol}</b>\n` +
+    `📍 Entry: $${actualEntry.toFixed(4)}\n` +
+    `🎯 TP: $${actualTp.toFixed(4)} (+${ta.tpPct.toFixed(1)}%)\n` +
+    `🛑 SL: $${actualSl.toFixed(4)} (-${ta.slPct.toFixed(1)}%)\n` +
+    `📊 ${signal.reason}\n` +
+    `💰 Size: ${size} | ${tpSlStatus}\n` +
+    `⚡ Balance: $${balance.toFixed(2)}`;
+  await tg(msg, T_TRADES);
+  log(`📨 Telegram sent for ${symbol}`);
+}
+
+// ── MONITOR POSITIONS ─────────────────────────────────────────
+async function monitorPositions() {
+  if (positions.length === 0) return;
+
+  const openPos = await fetchOpenPositions();
+  const now = Date.now();
+
+  for (const pos of [...positions]) {
+    const live = openPos.find(p => p.symbol === pos.symbol);
+
+    if (!live) {
+      // Posisi sudah ditutup (TP/SL triggered oleh Bitget, atau manual)
+      log(`📊 ${pos.symbol} ${pos.dir} CLOSED (TP/SL hit or manual)`);
+      positions = positions.filter(p => p.symbol !== pos.symbol);
+      cooldowns[pos.symbol] = now + CFG.COOLDOWN_LOSS_MS;
+      tradeHistory.push({ ...pos, closeTs: now, closeReason: 'BITGET_AUTO' });
+      savePositions();
+      saveHistory();
+      await tg(`📊 <b>${pos.symbol} ${pos.dir} CLOSED</b>\nEntry: $${pos.entryPrice.toFixed(4)}\nTP:${pos.tpPct.toFixed(1)}% SL:${pos.slPct.toFixed(1)}%`, T_EVAL);
+      continue;
+    }
+
+    // Ambil mark price dari live position
+    const markPrice = parseFloat(live.markPrice || live.lastestFillPrice || live.averageOpenPrice);
+    if (!markPrice || markPrice <= 0) continue;
+
+    const pnlPct = pos.dir === 'LONG'
+      ? ((markPrice - pos.entryPrice) / pos.entryPrice) * 100
+      : ((pos.entryPrice - markPrice) / pos.entryPrice) * 100;
+
+    // 🔴 EMERGENCY SL — jika plan order gagal, force close di sini
+    if (!pos.slOk) {
+      const slBreached = pos.dir === 'LONG'
+        ? markPrice <= pos.slPrice
+        : markPrice >= pos.slPrice;
+      if (slBreached) {
+        log(`🚨 Emergency SL triggered for ${pos.symbol} @ $${markPrice} (SL:$${pos.slPrice.toFixed(4)})`, 'WARN');
+        const closed = await forceClose(pos.symbol, pos.dir.toLowerCase(), 'Emergency SL');
+        if (closed) {
+          positions = positions.filter(p => p.symbol !== pos.symbol);
+          cooldowns[pos.symbol] = now + CFG.COOLDOWN_LOSS_MS;
+          tradeHistory.push({ ...pos, closeTs: now, closeReason: 'EMERGENCY_SL', closePrice: markPrice });
+          savePositions(); saveHistory();
+          await tg(`🚨 <b>Emergency SL: ${pos.symbol}</b>\nEntry: $${pos.entryPrice.toFixed(4)} → $${markPrice.toFixed(4)}\nP&L: ${pnlPct.toFixed(2)}%`, T_EVAL);
+        }
+        continue;
+      }
+    }
+
+    // ⏰ MAX HOLD TIME — paksa close jika terlalu lama
+    const holdMs = now - pos.openTs;
+    if (holdMs > CFG.MAX_HOLD_MS) {
+      log(`⏰ Max hold time reached for ${pos.symbol} (${(holdMs/3600000).toFixed(1)}h)`, 'WARN');
+      await forceClose(pos.symbol, pos.dir.toLowerCase(), 'Max hold time');
+      positions = positions.filter(p => p.symbol !== pos.symbol);
+      cooldowns[pos.symbol] = now + CFG.COOLDOWN_WIN_MS;
+      tradeHistory.push({ ...pos, closeTs: now, closeReason: 'MAX_HOLD', closePrice: markPrice });
+      savePositions(); saveHistory();
+      await tg(`⏰ <b>Max hold close: ${pos.symbol}</b>\nP&L: ${pnlPct.toFixed(2)}%`, T_EVAL);
+      continue;
+    }
+
+    log(`📌 ${pos.symbol} ${pos.dir} | Entry:$${pos.entryPrice.toFixed(4)} Mark:$${markPrice.toFixed(4)} P&L:${pnlPct > 0 ? '+' : ''}${pnlPct.toFixed(2)}%`);
+  }
+}
+
+// ── SCAN & TRADE ──────────────────────────────────────────────
+async function scan() {
+  log('🔍 Scanning FUTURES market...');
+
+  // ✅ Scan FUTURES tickers (bukan spot)
+  const tickers = await api('GET', '/api/v2/mix/market/tickers', {
+    productType: CFG.PRODUCT_TYPE
+  }, true);
+
+  if (!tickers || !tickers.length) { log('❌ No tickers', 'WARN'); return; }
+
+  const candidates = tickers
+    .filter(t => {
+      const vol = parseFloat(t.usdtVolume || 0);
+      return vol >= CFG.MIN_VOL_USDT && t.symbol?.endsWith('USDT');
+    })
+    .sort((a, b) => parseFloat(b.usdtVolume) - parseFloat(a.usdtVolume))
+    .slice(0, CFG.TOP_N);
+
+  log(`📋 ${candidates.length} candidates (vol > $${(CFG.MIN_VOL_USDT/1e6).toFixed(0)}M)`);
+
+  const signals = [];
+  for (const t of candidates) {
+    const sym = t.symbol;
+    if (cooldowns[sym] && cooldowns[sym] > Date.now()) continue;
+    if (positions.find(p => p.symbol === sym)) continue;
+
+    try {
+      const ta = await getTA(sym);
+      if (!ta) continue;
+      const signal = getSignal(ta, sym);
+      if (signal) {
+        signals.push({ sym, signal, ta });
+        log(`🎯 SIGNAL ${sym} ${signal.dir} | ${signal.reason} | TP:${ta.tpPct.toFixed(1)}% SL:${ta.slPct.toFixed(1)}%`);
+      }
+    } catch (e) {
+      // skip
+    }
+    await new Promise(r => setTimeout(r, 200)); // rate limit
+  }
+
+  if (signals.length === 0) {
+    log(`⏳ No signal | RSI LONG < ${CFG.RSI_LONG_MAX} / SHORT > ${CFG.RSI_SHORT_MIN}`);
+    return;
+  }
+
+  // Ambil signal terkuat
+  signals.sort((a, b) => b.signal.score - a.signal.score);
+  const best = signals[0];
+  log(`🏆 Best signal: ${best.sym} ${best.signal.dir} score:${best.signal.score}`);
+  await executeTrade(best.sym, best.signal, best.ta);
+}
+
+// ── LEARNING: log lessons ────────────────────────────────────
+function addLesson(lesson) {
+  let lessons = [];
+  if (fs.existsSync(LESSONS_FILE))
+    try { lessons = JSON.parse(fs.readFileSync(LESSONS_FILE)) || []; } catch (_) {}
+  lessons.push({ timestamp: new Date().toISOString(), ...lesson });
+  fs.writeFileSync(LESSONS_FILE, JSON.stringify(lessons.slice(-100), null, 2));
+}
+
+// ── PERFORMANCE STATS ─────────────────────────────────────────
+function printStats() {
+  if (tradeHistory.length === 0) return;
+  const wins   = tradeHistory.filter(t => (t.closeReason || '').includes('TP') || (t.pnl > 0)).length;
+  const total  = tradeHistory.length;
+  log(`📊 Stats: ${total} closed | ${wins} wins | WR:${(wins/total*100).toFixed(0)}%`);
+}
+
+// ── MAIN LOOP ─────────────────────────────────────────────────
+async function main() {
+  log('====================================================');
+  log('BITGET FUTURES AUTONOMOUS TRADER v3.0');
+  log(`RSI LONG < ${CFG.RSI_LONG_MAX} | RSI SHORT > ${CFG.RSI_SHORT_MIN}`);
+  log(`Leverage: ${CFG.LEVERAGE}x | Max Pos: ${CFG.MAX_POSITIONS} | Top ${CFG.TOP_N} pairs`);
+  log(`Min Vol: $${(CFG.MIN_VOL_USDT/1e6).toFixed(0)}M | Pos size: ${CFG.POSITION_PCT*100}%`);
+  log('====================================================');
+
+  loadState();
+  log(`📂 Loaded ${positions.length} existing positions`);
+  printStats();
+
+  await tg(`🤖 <b>Futures Trader v3.0 STARTED</b>\n` +
+    `RSI LONG < ${CFG.RSI_LONG_MAX} | SHORT > ${CFG.RSI_SHORT_MIN}\n` +
+    `Leverage: ${CFG.LEVERAGE}x | Top ${CFG.TOP_N} futures pairs\n` +
+    `TP/SL: plan orders terpisah + emergency monitor\n` +
+    `Positions loaded: ${positions.length}`, T_TRADES);
+
+  // Monitor loop setiap 20 detik
+  setInterval(async () => {
+    try { await monitorPositions(); } catch (e) { log(`Monitor error: ${e.message}`, 'ERROR'); }
+  }, CFG.MONITOR_MS);
+
+  // Scan loop setiap 5 menit
+  const doScan = async () => {
+    try {
+      if (positions.length < CFG.MAX_POSITIONS) await scan();
+      else log(`⏸️  Max positions (${positions.length}/${CFG.MAX_POSITIONS}) — skip scan`);
+    } catch (e) { log(`Scan error: ${e.message}`, 'ERROR'); }
+    lastScanTs = Date.now();
+    setTimeout(doScan, CFG.SCAN_INTERVAL_MS);
+  };
+
+  // Scan pertama setelah 5 detik
+  setTimeout(doScan, 5000);
+}
+
+main().catch(e => {
+  log(`FATAL: ${e.message}`, 'ERROR');
+  process.exit(1);
+});

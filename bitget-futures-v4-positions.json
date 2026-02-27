@@ -1,0 +1,26 @@
+[
+  {
+    "symbol": "ARCUSDT",
+    "dir": "LONG",
+    "size": 1534,
+    "tf": "1H",
+    "entryPrice": 0.02865,
+    "tpPrice": 0.034379999999999994,
+    "slPrice": 0.029223,
+    "tpPct": 20,
+    "slPct": 8,
+    "rr": 2.5,
+    "swingHigh": 0.03678,
+    "swingLow": 0.02422,
+    "tpOrderId": "1411110290862776320",
+    "slOrderId": "1411111243642114048",
+    "tpOk": true,
+    "slOk": true,
+    "slLevel": 3,
+    "slPlusTrigger": 1,
+    "maxHoldMs": 43200000,
+    "openTs": 1772160831478,
+    "orderId": "1411110280917299201",
+    "alignCount": 1
+  }
+]

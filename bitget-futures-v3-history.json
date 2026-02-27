@@ -1,0 +1,50 @@
+[
+  {
+    "symbol": "BCHUSDT",
+    "dir": "LONG",
+    "size": 0.087,
+    "entryPrice": 477.13,
+    "tpPrice": 482.3446529622381,
+    "slPrice": 474.62696657812575,
+    "tpPct": 1.0929207893526056,
+    "slPct": 0.5246019788892506,
+    "tpOk": false,
+    "slOk": false,
+    "openTs": 1772153652445,
+    "orderId": "1411080170621251585",
+    "closeTs": 1772153864743,
+    "closeReason": "BITGET_AUTO"
+  },
+  {
+    "symbol": "XAGUSDT",
+    "dir": "SHORT",
+    "size": 0.46,
+    "entryPrice": 88.64,
+    "tpPrice": 87.69,
+    "slPrice": 89.38,
+    "tpPct": 1.098995964340785,
+    "slPct": 0.5275180628835767,
+    "tpOk": true,
+    "slOk": true,
+    "openTs": 1772153863666,
+    "orderId": "1411081057066430465",
+    "closeTs": 1772154880625,
+    "closeReason": "BITGET_AUTO"
+  },
+  {
+    "symbol": "BCHUSDT",
+    "dir": "LONG",
+    "size": 0.08,
+    "entryPrice": 477.37,
+    "tpPrice": 482.29,
+    "slPrice": 475.01,
+    "tpPct": 1.0308457696390891,
+    "slPct": 0.49480596942676275,
+    "tpOk": true,
+    "slOk": true,
+    "openTs": 1772154980679,
+    "orderId": "1411085740942176257",
+    "closeTs": 1772159542877,
+    "closeReason": "BITGET_AUTO"
+  }
+]
